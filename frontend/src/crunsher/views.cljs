@@ -2,7 +2,7 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
-            [crunsher.extensions]
+            [crunsher.utils.extensions]
             [crunsher.utils.lib :as lib]))
 
 (defui PokeTableEntry
