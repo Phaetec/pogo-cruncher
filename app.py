@@ -6,11 +6,18 @@ from flask import make_response, request, current_app
 from flask_cors import CORS
 import time
 import random
+import binascii
+import os
 
 
 
 app = Flask(__name__)
 CORS(app)
+
+missing_token_error = {'status': 'error',
+                       'message': 'You are not authenticated, please log in'}
+
+session_map = dict()
 
 pokeapi = pgoapi.PGoApi()
 
@@ -27,15 +34,23 @@ def login():
     location = request.json['location']
     position = get_pos_by_name(location)
 
+    pokeapi = pgoapi.PGoApi()
     pokeapi.set_position(*position)
     if not pokeapi.login(service, login_name, password):
         return jsonify({'status': 'error',
                         'message': 'Failed to login. If the Pokemon GO Servers are online, your credentials may be wrong.'})
     else:
-        return jsonify({'status': 'ok'})
+        token = binascii.hexlify(os.urandom(128))
+        session_map[token] = pokeapi
+        return jsonify({'status':   'ok',
+                        'token':    token})
 
 @app.route('/api/pokemon', methods=['GET'])
 def get_pokemon():
+    if 'token' not in request.json or request.json['token'] not in session_map:
+        return jsonify({'status':   'error',
+                        'message':  'Your session is invalid, please log in to your Pokemon GO account to continue'})
+
     pokeapi.get_inventory()
 
     # Make the Niantic API call
@@ -64,6 +79,10 @@ def get_pokemon():
 
 @app.route('/api/pokemon/delete', methods=['POST'])
 def delete_pokemon():
+    if 'token' not in request.json or request.json['token'] not in session_map:
+        return jsonify({'status':   'error',
+                        'message':  'Your session is invalid, please log in to your Pokemon GO account to continue'})
+
     deletion_candidates = request.json['ids']
 
     if 'safe' not in request.json:
