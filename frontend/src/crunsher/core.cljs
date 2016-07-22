@@ -3,6 +3,7 @@
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
             [crunsher.data.pokemon]
+            [crunsher.communication.auth]
             [crunsher.utils.extensions]
             [crunsher.utils.lib :as lib]
             [crunsher.views :as views]
