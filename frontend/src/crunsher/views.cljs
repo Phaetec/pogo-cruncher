@@ -87,13 +87,28 @@
     (= (type val) js/String) (om/update-state! this assoc key val)
     :else (om/update-state! this assoc key (.. val -target -value))))
 
+(defn google-ptc-switch [this]
+  (dom/form #js {:id   "google-ptc-switch"
+                 :role "form"}
+            (dom/label #js {:className "radio-inline"}
+                       (dom/input #js {:type "radio"
+                                       :onClick #(commit-component-state this :service "google")
+                                       :name "google-ptc-switch"})
+                       "Google")
+            (dom/label #js {:className "radio-inline"}
+                       (dom/input #js {:type "radio"
+                                       :onClick #(commit-component-state this :service "ptc")
+                                       :name "google-ptc-switch"})
+                       "Pokemon Trainer Club")))
+
 (defui Login
   Object
   (render [this]
     ;; TODO return empty string if om/get-state is empty
     (let [email (om/get-state this :email)
           password (om/get-state this :password)
-          location (om/get-state this :location)]
+          location (om/get-state this :location)
+          service (om/get-state this :service)]
       (dom/div #js {:className "row"}
                (dom/div #js {:className "col-md-6 col-md-offset-3"}
                         (dom/h5 #js {:className "text-center"} "Login")
@@ -119,8 +134,9 @@
                                                  :onChange    #(commit-component-state this :location %)
                                                  :value       location
                                                  :placeholder "Düsseldorf, Germany"}))
+                        (google-ptc-switch this)
                         (dom/button #js {:className "btn btn-default"
-                                         :onClick   #(auth/login email password location "ptc")}
+                                         :onClick   #(auth/login email password location service)}
                                     "Login"))))))
 (def login (om/factory Login))
 
