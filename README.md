@@ -15,3 +15,8 @@ This tool ist based on python and the wonderfull Pokemon GO api at https://githu
     
 # Feature Requests
 For feature requests please open up a new issue on this repository.
+
+# Starting the flask Server
+
+Step 1: `python app.py`  
+Step 2: There is no step 2
