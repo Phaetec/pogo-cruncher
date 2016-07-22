@@ -25,14 +25,10 @@ Author: tjado <https://github.com/tejado>
 """
 
 import os
-import re
 import sys
 import json
-import time
-import struct
 import pprint
 import logging
-import requests
 import argparse
 import getpass
 
@@ -152,8 +148,6 @@ def main():
     if not api.login(config.auth_service, config.username, config.password):
         return
 
-    # chain subrequests (methods) into one RPC call
-
     # get player profile call
     # ----------------------
     api.get_player()
@@ -161,6 +155,29 @@ def main():
     # get inventory call
     # ----------------------
     api.get_inventory()
+
+    response_dict = api.call()
+    if 'GET_INVENTORY' in response_dict['responses']:
+        items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
+
+
+        print("Listing all of your current pokemon")
+        # Filter out the Pokemon
+        for item in items:
+            print(type(item['item_inventory_data']))
+            if 'pokemon_data' in item['item_inventory_data']:
+                pokemon = item['item_inventory_data']['pokemon_data']
+                print("---------------------")
+                print("Pokedex-Number: " + str(pokemon['pokemon_id']))
+                print("IV ATT: " + str(pokemon['individual_attack']))
+                print("IV STA: " + str(pokemon['individual_stamina']))
+                print("IV DEF: " + str(pokemon['individual_defense']))
+                print("Pokemon CP: " + str(pokemon['cp']))
+                print("Pokemon Health: " + str(pokemon['stamina_max']))
+                print("Unique ID: " + str(pokemon['id']))
+                print("---------------------")
+    else:
+        print("Server sent faulty response, please try again later.")
 
     # get map objects call
     # repeated fields (e.g. cell_id and since_timestamp_ms in get_map_objects) can be provided over a list
@@ -186,11 +203,13 @@ def main():
 
     # get download settings call
     # ----------------------
-    #api.download_settings(hash="05daf51635c82611d1aac95c0b051d3ec088a930")
+    # api.download_settings(hash="05daf51635c82611d1aac95c0b051d3ec088a930")
 
+
+    # TODO here some input for which pokemon to delete
     # execute the RPC call
-    response_dict = api.call()
-    print('Response dictionary: \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
+    # response_dict = api.call()
+    # print('Response dictionary: \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
 
     # alternative:
     # api.get_player().get_inventory().get_map_objects().download_settings(hash="05daf51635c82611d1aac95c0b051d3ec088a930").call()
