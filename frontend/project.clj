@@ -9,11 +9,12 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.93"]
                  [org.clojure/core.async "0.2.385" :exclusions [org.clojure/tools.reader]]
-                 [org.omcljs/om "1.0.0-alpha36"]
+                 [org.omcljs/om "1.0.0-alpha40"]
                  [cljs-ajax "0.5.8"]                        ; AJAX for om
                  [com.cognitect/transit-cljs "0.8.239"]     ; Better JSON support
                  [figwheel-sidecar "0.5.3-2" :scope "devcards"]
-                 [devcards "0.2.1-7" :scope "devcards" :exclusions [org.clojure/clojurescript]]]
+                 [devcards "0.2.1-7" :scope "devcards" :exclusions [org.clojure/clojurescript]]
+                 [devcards-om-next "0.1.1" :scope "devcards"]]
   
   :plugins [[lein-figwheel "0.5.4-7"]
             [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]]
@@ -43,7 +44,7 @@
                 :source-paths ["src/crunsher" "src/devcards"]
                 :figwheel {:devcards true}
                 :compiler {:main crunsher.devcards.core
-                           :asset-path "../js/compiled/devcards/out"
+                           :asset-path "js/compiled/devcards/out"
                            :output-to "resources/public/js/compiled/crunsher.js"
                            :output-dir "resources/public/js/compiled/devcards/out"
                            :source-map-timestamp true}}
