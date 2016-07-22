@@ -3,14 +3,12 @@
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
             [crunsher.data.pokemon]
-            [crunsher.extensions]
+            [crunsher.utils.extensions]
             [crunsher.utils.lib :as lib]
             [crunsher.views :as views]
             [om.next :as om]))
 
 (enable-console-print!)
-
-;(println (nth crunsher.data.pokemon/all 10))
 
 (om/add-root! lib/reconciler
               views/Main (gdom/getElement "crunsher-main"))
