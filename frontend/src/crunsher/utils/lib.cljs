@@ -5,17 +5,9 @@
 
 (defonce app-state
          (atom
-           {:count   0
-            :pokemon [{:pokemon_id         4
-                       :id                 (rand-int 9999999999999999)
-                       :individual_attack  10
-                       :individual_defense 10
-                       :individual_stamina 10}
-                      {:pokemon_id         25
-                       :id                 (rand-int 9999999999999999)
-                       :individual_attack  10
-                       :individual_defense 10
-                       :individual_stamina 10}]}))
+           {:pokemon []
+            :user {:view :default
+                   :logged-in? false}}))
 
 
 ;;;; React compatibility
