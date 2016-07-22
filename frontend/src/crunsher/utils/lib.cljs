@@ -21,7 +21,7 @@
 (defn merge-react-key
   "Get a unique key, create a small map with :react-key property and merge it with the given collection."
   [col]
-  (merge {:id (get-unique-key)} col))
+  (merge {:react-key (get-unique-key)} col))
 
 
 ;;;; Reconciler action
