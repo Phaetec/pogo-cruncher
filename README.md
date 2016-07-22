@@ -10,6 +10,7 @@ This tool ist based on python and the wonderfull Pokemon GO api at https://githu
     * See the IV of your pokemon
     * Mass send away fature
     * Automatic Pidgeycalc for Egg-Evolutions
+    * Send all dupes away that are not the highest CP
     
 # Feature Requests
 For feature requests please open up a new issue on this repository.
