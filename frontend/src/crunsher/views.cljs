@@ -2,6 +2,7 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
+            [crunsher.communication.main :as com]
             [crunsher.utils.bootstrap :as bs]
             [crunsher.utils.extensions]
             [crunsher.utils.lib :as lib]))
@@ -11,7 +12,7 @@
   Object
   (render [this]
     (dom/div nil
-             (bs/button-primary #(println "click") "Initialize"))))
+             (bs/button-primary #(com/route :init) "Initialize"))))
 (def controls (om/factory Controls))
 
 

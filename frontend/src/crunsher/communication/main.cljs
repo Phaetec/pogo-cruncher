@@ -1,13 +1,15 @@
 (ns crunsher.communication.main
   (:require [ajax.core :refer [GET POST]]
             [crunsher.communication.utils :as clib]
+            [crunsher.config :as config]
             [crunsher.utils.lib :as lib]))
 
 ;;;; Generic helpers
 (defn process-response
   "Generic success handler, which sets error handling and returns a cljs-compatible response."
   [response]
-  (lib/json->clj response))
+  (clib/json->clj response))
+
 
 ;;;; Handlers
 (defn error-handler
@@ -31,3 +33,11 @@
          :error-handler error-handler}))
   ([url]
    (ajax-get url success-handler)))
+
+
+;;;; Routes
+(defn route
+  "Dispatch routes for ajax calls. Based on the URLs defined in the config file."
+  [key]
+  (cond
+    (= :init key) (ajax-get (:init config/api))))
