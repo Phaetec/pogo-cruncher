@@ -2,6 +2,8 @@ from flask import Flask, make_response, jsonify, request
 from pgoapi import pgoapi
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
+import time
+import random
 
 
 app = Flask(__name__)
@@ -59,6 +61,22 @@ def get_pokemon():
                         'cp':                   pokemon.cp
                     })
         return jsonify(answer)
+
+@app.route('/api/pokemon/delete', methods=['POST'])
+def delete_pokemon():
+    deletion_candidates = request.json['ids']
+
+    if 'safe' not in request.json:
+        for id in deletion_candidates:
+            pokeapi.release_pokemon(pokemon_id=id)
+        pokeapi.call()
+    else:
+        for id in deletion_candidates:
+            pokeapi.release_pokemon(pokemon_id=id).call()
+            # Sleep some random time between two and three seconds
+            time.sleep(random.randint(200, 350)/100)
+
+    return jsonify({'status': 'finished'})
 
 # ----------------- Helper Functions
 

@@ -192,7 +192,7 @@ def main():
 
     # release/transfer a pokemon and get candy for it
     # ----------------------
-    #api.release_pokemon(pokemon_id = <your pokemonid>)
+    api.release_pokemon(pokemon_id = 102436132182299249).release_pokemon(pokemon_id = 6686846638843838493).call()
 
     # evolve a pokemon if you have enough candies
     # ----------------------
