@@ -1,6 +1,6 @@
 (ns crunsher.config)
 
-(def api {:host "http://localhost:8080/"
+(def api {:host "http://localhost:5000/"
           :init "api/init/"
           :base "api/"
           :login "api/login"
