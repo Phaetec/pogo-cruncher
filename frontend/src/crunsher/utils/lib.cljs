@@ -40,6 +40,10 @@
     [{:keys [state]} _ {:keys [pokemon]}]
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
 
+(defmethod mutate 'change/view
+  [{:keys [state]} _ {:keys [view]}]
+  {:action (fn [] (swap! state update-in [:user :view] (fn [] view)))})
+
 (defmethod mutate 'increment
     [{:keys [state]} _ {:keys [pokemon]}]
     {:action (fn [] (swap! state update-in [:count] inc))})
@@ -60,15 +64,22 @@
   [pokemon-id]
   (get pokemon/all pokemon-id))
 
+(defn logged-in?
+  "Return boolean if user is logged in or not."
+  []
+  (get-in @app-state [:user :logged-in?]))
+
+
+;;;; About views
 (defn current-view
   "Return current selected view."
   []
   (get-in @app-state [:user :view]))
 
-(defn logged-in?
-  "Return boolean if user is logged in or not."
-  []
-  (get-in @app-state [:user :logged-in?]))
+(defn change-view!
+  "Return current selected view."
+  [key]
+  (om/transact! reconciler `[(change/view {:view ~key})]))
 
 ;;;; State transitions
 (defn update-pokemon!
