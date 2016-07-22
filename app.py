@@ -63,7 +63,7 @@ def not_found(error):
 
 
 @app.route('/api/login', methods=['POST'])
-@crossdomain(origin="*")
+@crossdomain(origin='*', headers='Origin, X-Requested-With, Content-Type, Accept', methods='POST')
 def login():
     login_name = request.json['email']
     service = request.json['service']
@@ -79,7 +79,7 @@ def login():
         return jsonify({'status': 'ok'})
 
 @app.route('/api/pokemon', methods=['GET'])
-@crossdomain(origin="*")
+@crossdomain(origin='*', headers='Origin, X-Requested-With, Content-Type, Accept', methods='GET')
 def get_pokemon():
     pokeapi.get_inventory()
 
@@ -108,7 +108,7 @@ def get_pokemon():
         return jsonify(answer)
 
 @app.route('/api/pokemon/delete', methods=['POST'])
-@crossdomain(origin="*")
+@crossdomain(origin='*', headers='Origin, X-Requested-With, Content-Type, Accept', methods='POST')
 def delete_pokemon():
     deletion_candidates = request.json['ids']
 
