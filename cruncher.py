@@ -152,7 +152,7 @@ def main():
 
     # get player profile call
     # ----------------------
-    api.get_player()
+    # api.get_player()
 
     # get inventory call
     # ----------------------
