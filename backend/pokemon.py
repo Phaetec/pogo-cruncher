@@ -32,11 +32,12 @@ class Pokemon(object):
         self.stamina_current = pokemondict.get('stamina', 0)
         self.stamina_max = pokemondict.get('stamina_max', 1)
         self.weight_kg = pokemondict.get('weight_kg', 1)
+        self.nickname = pokemondict.get('nickname', '')
 
 
     def iv_percentage(self):
         score = self.iv_sta + self.iv_att + self.iv_def
-        return (score/45)*100
+        return '%.2f'%((score/45)*100)
 
     def __str__(self):
-        return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(self.stamina_max) + 'HP\n' +  '%.2f%% perfect IVs ('%(self.iv_percentage()) + str(self.iv_att) + '/' + str(self.iv_def) + '/' + str(self.iv_sta)
+        return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(self.stamina_max) + 'HP\n' + self.iv_percentage() + '% perfect IVs (' + str(self.iv_att) + '/' + str(self.iv_def) + '/' + str(self.iv_sta)

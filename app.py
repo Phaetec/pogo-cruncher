@@ -58,7 +58,8 @@ def get_pokemon():
                         'individual_defense':   pokemon.iv_def,
                         'individual_percentage':pokemon.iv_percentage(),
                         'health':               pokemon.stamina_max,
-                        'cp':                   pokemon.cp
+                        'cp':                   pokemon.cp,
+                        'nickname':             pokemon.nickname,
                     })
         return jsonify(answer)
 

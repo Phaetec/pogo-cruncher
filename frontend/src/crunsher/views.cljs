@@ -39,6 +39,10 @@
       (dom/tr nil
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon-db))
+              (dom/td nil (:nickname pokemon))
+              (dom/td nil (:cp pokemon))
+              (dom/td nil (:health pokemon))
+              (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
               (dom/td nil (:individual_stamina pokemon))))))
@@ -53,9 +57,13 @@
                                    (dom/tr nil
                                            (dom/th nil "#")
                                            (dom/th nil "Name")
-                                           (dom/th nil "Attack")
-                                           (dom/th nil "Defense")
-                                           (dom/th nil "Stamina")))
+                                           (dom/th nil "Nickname")
+                                           (dom/th nil "CP")
+                                           (dom/th nil "Health")
+                                           (dom/th nil "IV % Perfekt")
+                                           (dom/th nil "IV Attack")
+                                           (dom/th nil "IV Defense")
+                                           (dom/th nil "IV Stamina")))
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable (om/factory PokeTable {}))
