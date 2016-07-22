@@ -1,5 +1,5 @@
 (ns crunsher.communication.utils
-  (:require crunsher.config :as config))
+  (:require [crunsher.config :as config]))
 
 (defn make-url
   "Prefix url with host."

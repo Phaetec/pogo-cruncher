@@ -2,9 +2,20 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
+            [crunsher.utils.bootstrap :as bs]
             [crunsher.utils.extensions]
             [crunsher.utils.lib :as lib]))
 
+;;;; Controls
+(defui Controls
+  Object
+  (render [this]
+    (dom/div nil
+             (bs/button-primary #(println "click") "Initialize"))))
+(def controls (om/factory Controls))
+
+
+;;;; Poketable
 (defui PokeTableEntry
   Object
   (render [this]
@@ -16,7 +27,7 @@
               (dom/td nil (:individual-attack pokemon))
               (dom/td nil (:individual-defense pokemon))
               (dom/td nil (:individual-stamina pokemon))))))
-(def poketable-entry (om/factory PokeTableEntry {}))
+(def poketable-entry (om/factory PokeTableEntry))
 
 (defui PokeTable
   Object
@@ -38,4 +49,5 @@
   (render [this]
     (dom/div nil
              (dom/h1 nil "Poké-Crunsher")
-             (poketable))))
+             (dom/div nil (poketable))
+             (dom/div nil (controls)))))
