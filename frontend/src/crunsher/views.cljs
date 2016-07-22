@@ -12,7 +12,9 @@
   Object
   (render [this]
     (dom/div nil
-             (bs/button-primary #(com/route :init) "Initialize"))))
+             (bs/button-primary #(com/route :init) "Initialize")
+             " "
+             (bs/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
 (def controls (om/factory Controls))
 
 

@@ -40,4 +40,5 @@
   "Dispatch routes for ajax calls. Based on the URLs defined in the config file."
   [key]
   (cond
-    (= :init key) (ajax-get (:init config/api))))
+    (= :init key) (ajax-get (:init config/api))
+    (= :get-all-pokemon key) (ajax-get (:get-all-pokemon config/api))))

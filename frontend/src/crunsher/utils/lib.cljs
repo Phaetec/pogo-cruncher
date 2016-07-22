@@ -42,28 +42,15 @@
       {:value value}
       {:value :not-found})))
 
-#_(defmulti mutate om/dispatch)
+(defmulti mutate om/dispatch)
 
-#_(defmethod mutate 'update/pokemon
+(defmethod mutate 'update/pokemon
     [{:keys [state]} _ {:keys [pokemon]}]
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
 
-#_(defmethod mutate 'increment
+(defmethod mutate 'increment
     [{:keys [state]} _ {:keys [pokemon]}]
     {:action (fn [] (swap! state update-in [:count] inc))})
-
-#_(defmethod mutate 'color/set
-    [{:keys [state]} _ {:keys [name field]}]
-    (let [color (get-selected-color)]
-      {:action (fn [] (swap! state update-in [:scarf field] (fn [] color)))}))
-
-(defn mutate [{:keys [state] :as env} key params]
-  (cond
-    (= 'increment key) {:value  {:keys [:count]}
-                        :action #(swap! state update-in [:count] inc)}
-    (= 'update/pokemon key) {:value  {:keys [:value]}
-                             :action #(swap! state update-in [:pokemon] (fn [] {}))}
-    :else {:value :not-found}))
 
 (defonce reconciler
          (om/reconciler
@@ -86,4 +73,4 @@
 (defn update-pokemon!
   "Update pokemon based on API response."
   [res]
-  (om/transact! reconciler '[(increment)]))
+  (om/transact! reconciler `[(update/pokemon {:pokemon ~res})]))
