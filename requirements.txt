@@ -1,7 +1,7 @@
 future==0.15.2
 geopy==1.11.0
 gpsoauth==0.3.0
-pgoapi==1.1.0
+-e git+https://github.com/tejado/pgoapi.git@1f25e907f3e5f1b603330e71041e1ad7bee7580f#egg=pgoapi
 protobuf==3.0.0b4
 pycryptodomex==3.4.2
 requests==2.10.0
