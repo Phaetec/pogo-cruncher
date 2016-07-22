@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: figwheel-sidecar:0.5.4-7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/figwheel-sidecar/figwheel-sidecar/0.5.4-7/figwheel-sidecar-0.5.4-7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

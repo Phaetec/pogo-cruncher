@@ -1,0 +1,56 @@
+{
+  "name": "bootswatch-dist",
+  "version": "3.3.6-paper",
+  "homepage": "https://github.com/dbtek/bootswatch-dist",
+  "authors": [
+    "İsmail Demirbilek <ce.demirbilek@gmail.com>"
+  ],
+  "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
+  "main": [
+    "js/bootstrap.js"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  },
+  "keywords": [
+    "bootstwatch",
+    "dist",
+    "package",
+    "amelia",
+    "cerulean",
+    "cosmo",
+    "cyborg",
+    "darkly",
+    "flatly",
+    "journal",
+    "lumen",
+    "paper",
+    "readable",
+    "simplex",
+    "slate",
+    "spacelab",
+    "superhero",
+    "united",
+    "yeti"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json",
+    "Gruntfile.js",
+    ".gitignore"
+  ],
+  "_release": "3.3.6-paper",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.3.6-paper",
+    "commit": "fb9d58d62c25debf3978a62713d2ec238c49d239"
+  },
+  "_source": "https://github.com/dbtek/bootswatch-dist.git",
+  "_target": "3.3.6-paper",
+  "_originalSource": "bootswatch-dist"
+}

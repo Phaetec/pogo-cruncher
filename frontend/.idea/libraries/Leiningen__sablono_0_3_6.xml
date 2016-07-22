@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: sablono:0.3.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/sablono/sablono/0.3.6/sablono-0.3.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
