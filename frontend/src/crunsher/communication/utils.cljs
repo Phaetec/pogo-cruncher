@@ -10,6 +10,11 @@
 
 
 ;;;; Conversions
+(defn clj->json
+  "Convert CLJS to valid JSON."
+  [col]
+  (.stringify js/JSON (clj->js col)))
+
 (defn json->clj
   "Use cognitec's transit reader for json to convert it to proper Clojure datastructures."
   [response]
