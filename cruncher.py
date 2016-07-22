@@ -31,6 +31,7 @@ import pprint
 import logging
 import argparse
 import getpass
+import time
 
 # add directory of this file to PATH, so that the package will be found
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
@@ -160,22 +161,30 @@ def main():
     if 'GET_INVENTORY' in response_dict['responses']:
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
 
-
+        print("sleeping 2 seconds")
+        time.sleep(2)
         print("Listing all of your current pokemon")
         # Filter out the Pokemon
         for item in items:
-            print(type(item['item_inventory_data']))
-            if 'pokemon_data' in item['item_inventory_data']:
-                pokemon = item['item_inventory_data']['pokemon_data']
-                print("---------------------")
-                print("Pokedex-Number: " + str(pokemon['pokemon_id']))
-                print("IV ATT: " + str(pokemon['individual_attack']))
-                print("IV STA: " + str(pokemon['individual_stamina']))
-                print("IV DEF: " + str(pokemon['individual_defense']))
-                print("Pokemon CP: " + str(pokemon['cp']))
-                print("Pokemon Health: " + str(pokemon['stamina_max']))
-                print("Unique ID: " + str(pokemon['id']))
-                print("---------------------")
+            if 'pokemon_data' in item['inventory_item_data']:
+                pokemon = item['inventory_item_data']['pokemon_data']
+                # Eggs are treated as pokemon by Niantic.
+                if 'is_egg' not in pokemon:
+                    print("---------------------")
+                    print("Pokedex-Number: " + str(pokemon['pokemon_id']))
+                    attack = 0
+                    if 'individual_attack' in pokemon: attack = pokemon['individual_attack']
+                    print("IV ATT: " + str(attack))
+                    stamina = 0
+                    if 'individual_stamina' in pokemon: stamina = pokemon['individual_stamina']
+                    print("IV STA: " + str(stamina))
+                    defense = 0
+                    if 'individual_defense' in pokemon: defense = pokemon['individual_defense']
+                    print("IV DEF: " + str(defense))
+                    print("Pokemon CP: " + str(pokemon['cp']))
+                    print("Pokemon Health: " + str(pokemon['stamina_max']))
+                    print("Unique ID: " + str(pokemon['id']))
+                    print("---------------------")
     else:
         print("Server sent faulty response, please try again later.")
 
