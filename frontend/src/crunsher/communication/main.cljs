@@ -21,7 +21,7 @@
   "React on response after sending a new statement. Reset atom and call newly received url."
   [response]
   (let [res (process-response response)]
-    (println res)))
+    (lib/update-pokemon! (:pokemon res))))
 
 
 ;;;; Requests
