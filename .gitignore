@@ -1,0 +1,6 @@
+/static
+*.pyc
+.sass-cache/
+.idea
+*.iml
+.env
