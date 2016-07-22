@@ -10,8 +10,7 @@
 
 (enable-console-print!)
 
-(om/add-root! lib/reconciler
-              views/Main (gdom/getElement "crunsher-main"))
+(om/add-root! lib/reconciler views/Main (gdom/getElement "crunsher-main"))
 
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on
