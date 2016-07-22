@@ -1,13 +1,22 @@
 (ns crunsher.lib
-  (:require [om.next :as om]))
+  (:require [om.next :as om]
+            [clojure.walk :refer [keywordize-keys]]
+            [cognitect.transit :as transit]))
 
-(defonce app-state
-         (atom
-           {:inventory {:pokemon [{:id   4
-                                   :name "Glumanda"}
-                                  {:id   25
-                                   :name "Pikachu"}
-                                  ]}}))
+(def app-state
+  (atom
+    {:pokemon [{:pokemon_id         4
+                :id                 (rand-int 9999999999999999)
+                :individual_attack  10
+                :individual_defense 10
+                :individual_stamina 10
+                :name               "Glumanda"}
+               {:pokemon_id         25
+                :id                 (rand-int 9999999999999999)
+                :individual_attack  10
+                :individual_defense 10
+                :individual_stamina 10
+                :name               "Pikachu"}]}))
 
 
 ;;;; React compatibility
@@ -37,13 +46,13 @@
 (defmulti mutate om/dispatch)
 
 #_(defmethod mutate 'color/temp
-  [{:keys [state]} _ {:keys [color]}]
-  {:action (fn [] (swap! state update-in [:user :selected-color] (fn [] color)))})
+    [{:keys [state]} _ {:keys [color]}]
+    {:action (fn [] (swap! state update-in [:user :selected-color] (fn [] color)))})
 
 #_(defmethod mutate 'color/set
-  [{:keys [state]} _ {:keys [name field]}]
-  (let [color (get-selected-color)]
-    {:action (fn [] (swap! state update-in [:scarf field] (fn [] color)))}))
+    [{:keys [state]} _ {:keys [name field]}]
+    (let [color (get-selected-color)]
+      {:action (fn [] (swap! state update-in [:scarf field] (fn [] color)))}))
 
 (defonce reconciler
          (om/reconciler
@@ -55,4 +64,12 @@
 (defn inventory-pokemon
   "Return all pokemon which are currently stored."
   []
-  (get-in @app-state [:inventory :pokemon]))
+  (get-in @app-state [:pokemon]))
+
+
+;;;; Conversions
+(defn json->clj
+  "Use cognitec's transit reader for json to convert it to proper Clojure datastructures."
+  [response]
+  (let [r (transit/reader :json)]
+    (keywordize-keys (transit/read r response))))
