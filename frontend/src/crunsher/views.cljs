@@ -12,8 +12,6 @@
   Object
   (render [this]
     (dom/div nil
-             (bs/button-primary #(com/route :init) "Initialize")
-             " "
              (bs/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
 (def controls (om/factory Controls))
 
@@ -48,29 +46,12 @@
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable (om/factory PokeTable {}))
 
-(defui Counter
-  static om/IQuery
-  (query [this]
-    [:count])
-  Object
-  (render [this]
-    (let [{:keys [count]} (om/props this)]
-      (dom/div nil
-               (dom/span nil (str "Count: " count))
-               (dom/button
-                 #js {:onClick
-                      (fn [e] (om/transact! this '[(increment)]))}
-                 "Click me!")))))
-(def counter (om/factory Counter))
-
-
 (defui Main
   Object
   (render [this]
     (dom/div nil
              (dom/h1 nil "Poké-Crunsher")
-             (dom/div nil (controls))
              (dom/div nil (poketable (om/props this)))
-             (dom/div nil (counter (om/props this))))))
+             (dom/div nil (controls)))))
 
 
