@@ -65,7 +65,8 @@
                                            (dom/th nil "IV Defense")
                                            (dom/th nil "IV Stamina")))
                         (apply dom/tbody nil
-                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
+                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
+             (dom/div nil (controls)))))
 (def poketable (om/factory PokeTable {}))
 
 (defui Header
@@ -73,6 +74,9 @@
   (render [this]
     (dom/div nil
              (dom/h1 nil "Poké-Cruncher"))))
+             (dom/div #js {:className "page-header"}
+                      (dom/h1 nil "Poké-Crunsher"))
+             (dom/p nil "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."))))
 (def header (om/factory Header))
 
 (defn commit-component-state
@@ -90,42 +94,52 @@
     (let [email (om/get-state this :email)
           password (om/get-state this :password)
           location (om/get-state this :location)]
-      (dom/div nil
-               (dom/h5 #js {:className "text-center"} "Login")
-               (dom/div #js {:className "input-group"}
-                        (dom/span #js {:className "input-group-addon"}
-                                  (fa-icon "fa-user fa-fw"))
-                        (dom/input #js {:className   "form-control"
-                                        :onChange    #(commit-component-state this :email %)
-                                        :value       email
-                                        :placeholder "email"}))
-               (dom/div #js {:className "input-group"}
-                        (dom/span #js {:className "input-group-addon"}
-                                  (fa-icon "fa-key fa-fw"))
-                        (dom/input #js {:className   "form-control"
-                                        :onChange    #(commit-component-state this :password %)
-                                        :value       password
-                                        :type        "password"
-                                        :placeholder "password"}))
-               (dom/div #js {:className "input-group"}
-                        (dom/span #js {:className "input-group-addon"}
-                                  (fa-icon "fa-map-marker fa-fw"))
-                        (dom/input #js {:className   "form-control"
-                                        :onChange    #(commit-component-state this :location %)
-                                        :value       location
-                                        :placeholder "Düsseldorf, Germany"}))
-               (dom/button #js {:className "btn btn-default"
-                                :onClick   #(auth/login email password location "ptc")}
-                           "Login")))))
+      (dom/div #js {:className "row"}
+               (dom/div #js {:className "col-md-6 col-md-offset-3"}
+                        (dom/h5 #js {:className "text-center"} "Login")
+                        (dom/div #js {:className "input-group"}
+                                 (dom/span #js {:className "input-group-addon"}
+                                           (fa-icon "fa-user fa-fw"))
+                                 (dom/input #js {:className   "form-control"
+                                                 :onChange    #(commit-component-state this :email %)
+                                                 :value       email
+                                                 :placeholder "email"}))
+                        (dom/div #js {:className "input-group"}
+                                 (dom/span #js {:className "input-group-addon"}
+                                           (fa-icon "fa-key fa-fw"))
+                                 (dom/input #js {:className   "form-control"
+                                                 :onChange    #(commit-component-state this :password %)
+                                                 :value       password
+                                                 :type        "password"
+                                                 :placeholder "password"}))
+                        (dom/div #js {:className "input-group"}
+                                 (dom/span #js {:className "input-group-addon"}
+                                           (fa-icon "fa-map-marker fa-fw"))
+                                 (dom/input #js {:className   "form-control"
+                                                 :onChange    #(commit-component-state this :location %)
+                                                 :value       location
+                                                 :placeholder "Düsseldorf, Germany"}))
+                        (dom/button #js {:className "btn btn-default"
+                                         :onClick   #(auth/login email password location "ptc")}
+                                    "Login"))))))
 (def login (om/factory Login))
+
+(defn view-dispatcher
+  "Dispatch current template in main view by the app state."
+  []
+  (let [view (lib/current-view)]
+    (cond
+      (= view :login) (login)
+      (not (lib/logged-in?)) (login)
+      :else (poketable))))
 
 (defui Main
   Object
   (render [this]
     (dom/div nil
              (dom/div nil (header))
-             (dom/div nil (poketable (om/props this)))
-             (dom/div nil (controls))
-             (dom/div nil (login)))))
+             (view-dispatcher)
+             #_(dom/div nil (poketable (om/props this)))
+             #_(dom/div nil (login)))))
 
 
