@@ -72,7 +72,7 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/h1 nil "Poké-Crunsher"))))
+             (dom/h1 nil "Poké-Cruncher"))))
 (def header (om/factory Header))
 
 (defn commit-component-state
