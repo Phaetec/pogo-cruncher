@@ -40,6 +40,10 @@ def get_pokemon():
 
     # Make the Niantic API call
     response_dict = pokeapi.call()
+    if not response_dict:
+        return jsonify({'status': 'error',
+                        'message': 'Failed to retrieve Pokemon. The servers are probably down right now.'})
+
     if 'GET_INVENTORY' in response_dict['responses']:
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
 
