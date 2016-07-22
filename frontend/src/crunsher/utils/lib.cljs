@@ -1,7 +1,5 @@
 (ns crunsher.utils.lib
   (:require [om.next :as om]
-            [clojure.walk :refer [keywordize-keys]]
-            [cognitect.transit :as transit]
             [crunsher.data.pokemon :as pokemon]))
 
 (def app-state
@@ -69,11 +67,3 @@
   "Look up database to return complete pokemon by its id."
   [pokemon-id]
   (get pokemon/all pokemon-id))
-
-
-;;;; Conversions
-(defn json->clj
-  "Use cognitec's transit reader for json to convert it to proper Clojure datastructures."
-  [response]
-  (let [r (transit/reader :json)]
-    (keywordize-keys (transit/read r response))))
