@@ -1,6 +1,5 @@
 (ns crunsher.communication.auth
   (:require [ajax.core :refer [POST]]
-            [crunsher.communication.utils :as com]
             [crunsher.config :as config]
             [crunsher.communication.main :as com]
             [crunsher.communication.utils :as clib]))
