@@ -41,6 +41,7 @@ from pgoapi import pgoapi
 from pgoapi import utilities as util
 
 # other stuff
+from backend.pokemon import Pokemon
 from google.protobuf.internal import encoder
 from geopy.geocoders import GoogleV3
 from s2sphere import Cell, CellId, LatLng
@@ -167,23 +168,10 @@ def main():
         # Filter out the Pokemon
         for item in items:
             if 'pokemon_data' in item['inventory_item_data']:
-                pokemon = item['inventory_item_data']['pokemon_data']
-                # Eggs are treated as pokemon by Niantic.
-                if 'is_egg' not in pokemon:
-                    print("---------------------")
-                    print("Pokedex-Number: " + str(pokemon['pokemon_id']))
-                    attack = 0
-                    if 'individual_attack' in pokemon: attack = pokemon['individual_attack']
-                    print("IV ATT: " + str(attack))
-                    stamina = 0
-                    if 'individual_stamina' in pokemon: stamina = pokemon['individual_stamina']
-                    print("IV STA: " + str(stamina))
-                    defense = 0
-                    if 'individual_defense' in pokemon: defense = pokemon['individual_defense']
-                    print("IV DEF: " + str(defense))
-                    print("Pokemon CP: " + str(pokemon['cp']))
-                    print("Pokemon Health: " + str(pokemon['stamina_max']))
-                    print("Unique ID: " + str(pokemon['id']))
+                # # Eggs are treated as pokemon by Niantic.
+                 if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                    pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
+                    print(pokemon)
                     print("---------------------")
     else:
         print("Server sent faulty response, please try again later.")
