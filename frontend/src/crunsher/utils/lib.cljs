@@ -1,19 +1,21 @@
 (ns crunsher.utils.lib
-  (:require [om.next :as om]
+  (:require [om.next :as om :refer-macros [defui]]
+            [goog.dom :as gdom]
             [crunsher.data.pokemon :as pokemon]))
 
-(def app-state
-  (atom
-    {:pokemon [{:pokemon-id         4
-                :id                 (rand-int 9999999999999999)
-                :individual-attack  10
-                :individual-defense 10
-                :individual-stamina 10}
-               {:pokemon-id         25
-                :id                 (rand-int 9999999999999999)
-                :individual-attack  10
-                :individual-defense 10
-                :individual-stamina 10}]}))
+(defonce app-state
+         (atom
+           {:count   0
+            :pokemon [{:pokemon_id         4
+                       :id                 (rand-int 9999999999999999)
+                       :individual_attack  10
+                       :individual_defense 10
+                       :individual_stamina 10}
+                      {:pokemon_id         25
+                       :id                 (rand-int 9999999999999999)
+                       :individual_attack  10
+                       :individual_defense 10
+                       :individual_stamina 10}]}))
 
 
 ;;;; React compatibility
@@ -40,22 +42,33 @@
       {:value value}
       {:value :not-found})))
 
-(defmulti mutate om/dispatch)
+#_(defmulti mutate om/dispatch)
 
-#_(defmethod mutate 'color/temp
-    [{:keys [state]} _ {:keys [color]}]
-    {:action (fn [] (swap! state update-in [:user :selected-color] (fn [] color)))})
+#_(defmethod mutate 'update/pokemon
+    [{:keys [state]} _ {:keys [pokemon]}]
+    {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
+
+#_(defmethod mutate 'increment
+    [{:keys [state]} _ {:keys [pokemon]}]
+    {:action (fn [] (swap! state update-in [:count] inc))})
 
 #_(defmethod mutate 'color/set
     [{:keys [state]} _ {:keys [name field]}]
     (let [color (get-selected-color)]
       {:action (fn [] (swap! state update-in [:scarf field] (fn [] color)))}))
 
+(defn mutate [{:keys [state] :as env} key params]
+  (cond
+    (= 'increment key) {:value  {:keys [:count]}
+                        :action #(swap! state update-in [:count] inc)}
+    (= 'update/pokemon key) {:value  {:keys [:value]}
+                             :action #(swap! state update-in [:pokemon] (fn [] {}))}
+    :else {:value :not-found}))
+
 (defonce reconciler
          (om/reconciler
            {:state  app-state
             :parser (om/parser {:read read :mutate mutate})}))
-
 
 ;;;; Get stuff
 (defn inventory-pokemon
@@ -67,3 +80,10 @@
   "Look up database to return complete pokemon by its id."
   [pokemon-id]
   (get pokemon/all pokemon-id))
+
+
+;;;; State transitions
+(defn update-pokemon!
+  "Update pokemon based on API response."
+  [res]
+  (om/transact! reconciler '[(increment)]))
