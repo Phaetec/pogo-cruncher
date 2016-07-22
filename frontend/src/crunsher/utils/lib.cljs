@@ -21,7 +21,7 @@
 (defn merge-react-key
   "Get a unique key, create a small map with :react-key property and merge it with the given collection."
   [col]
-  (merge {:react-key (get-unique-key)} col))
+  (merge {:id (get-unique-key)} col))
 
 
 ;;;; Reconciler action
@@ -60,6 +60,15 @@
   [pokemon-id]
   (get pokemon/all pokemon-id))
 
+(defn current-view
+  "Return current selected view."
+  []
+  (get-in @app-state [:user :view]))
+
+(defn logged-in?
+  "Return boolean if user is logged in or not."
+  []
+  (get-in @app-state [:user :logged-in?]))
 
 ;;;; State transitions
 (defn update-pokemon!
