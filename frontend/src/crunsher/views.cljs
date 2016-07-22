@@ -107,7 +107,7 @@
                                         :value       location
                                         :placeholder "Düsseldorf, Germany"}))
                (dom/button #js {:className "btn btn-default"
-                                :onClick   #(auth/login email password location)}
+                                :onClick   #(auth/login email password location "ptc")}
                            "Login")))))
 (def login (om/factory Login))
 

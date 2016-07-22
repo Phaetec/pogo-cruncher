@@ -74,4 +74,5 @@
 (defn update-pokemon!
   "Update pokemon based on API response."
   [res]
+  (js/alert res)
   (om/transact! reconciler `[(update/pokemon {:pokemon ~res})]))
