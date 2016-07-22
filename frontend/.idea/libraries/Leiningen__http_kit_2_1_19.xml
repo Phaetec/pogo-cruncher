@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: http-kit:2.1.19">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/http-kit/http-kit/2.1.19/http-kit-2.1.19.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
