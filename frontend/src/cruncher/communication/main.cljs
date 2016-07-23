@@ -16,6 +16,7 @@
 (defn error-handler
   "Generic error handler for ajax requests."
   [{:keys [status status-text]}]
+  (lib/loading! false)
   (.log js/console (str "I feel a disturbance in the Force... " status " " status-text)))
 
 (defn success-handler
@@ -27,14 +28,13 @@
 
 ;;;; Requests
 (defn ajax-get
-  "Make ajax call to dialogue based argumentation system."
+  "Make ajax call to defined server in config."
   ([url handler]
    (lib/loading!)
    (GET (clib/make-url url)
         {:handler       handler
          :error-handler error-handler}))
-  ([url]
-   (ajax-get url success-handler)))
+  ([url] (ajax-get url success-handler)))
 
 
 ;;;; Routes

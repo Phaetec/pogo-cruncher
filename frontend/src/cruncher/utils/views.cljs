@@ -25,6 +25,13 @@
                :className (str "pointer fa " class)
                :onClick   f})))
 
+(defn panel-wrapper
+  "Wrap content into bootstrap's panel class."
+  [content]
+  (dom/div #js {:className "panel panel-default"}
+           (dom/div #js {:className "panel-body"}
+                    content)))
+
 (defn safe-html
   "Creates DOM element with interpreted HTML."
   [string]
@@ -33,11 +40,22 @@
 
 ;;;; UIs
 (defui Loader
-       ; "Spinning icon to indicate if there is data being transferred."
-       Object
-       (render [this]
-               (when (lib/loading?)
-                 (dom/div #js {:style #js {:paddingTop "2em"}}
-                          (fa-icon "fa-circle-o-notch fa-spin fa-fw")
-                          " Loading..."))))
+  ; "Spinning icon to indicate if there is data being transferred."
+  Object
+  (render [this]
+    (when (lib/loading?)
+      (dom/div #js {:style #js {:paddingTop "2em"}}
+               (fa-icon "fa-circle-o-notch fa-spin fa-fw")
+               " Loading..."))))
 (def loader (om/factory Loader))
+
+(defui LoggedIn
+  Object
+  (render [this]
+    (if (lib/logged-in?)
+      (dom/div nil
+               (fa-icon "fa-sign-out" #(lib/logged-in! false)) " Logout")
+      (dom/div nil
+               (fa-icon "fa-sign-in" #(lib/change-view! :login))
+               " Login"))))
+(def login-indicator (om/factory LoggedIn))

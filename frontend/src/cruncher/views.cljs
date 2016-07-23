@@ -63,6 +63,8 @@
   (render [this]
     (dom/div nil
              (dom/div #js {:className "page-header"}
+                      (dom/div #js {:className "pull-right"}
+                               (vlib/login-indicator))
                       (dom/h1 nil "Poké-Cruncher"))
              (dom/p nil "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
              (dom/hr nil))))
@@ -100,33 +102,33 @@
           service (om/get-state this :service)]
       (dom/div #js {:className "row"}
                (dom/div #js {:className "col-md-6 col-md-offset-3"}
-                        (dom/h5 #js {:className "text-center"} "Login")
-                        (dom/div #js {:className "input-group"}
-                                 (dom/span #js {:className "input-group-addon"}
-                                           (vlib/fa-icon "fa-user fa-fw"))
-                                 (dom/input #js {:className   "form-control"
-                                                 :onChange    #(commit-component-state this :email %)
-                                                 :value       email
-                                                 :placeholder "email"}))
-                        (dom/div #js {:className "input-group"}
-                                 (dom/span #js {:className "input-group-addon"}
-                                           (vlib/fa-icon "fa-key fa-fw"))
-                                 (dom/input #js {:className   "form-control"
-                                                 :onChange    #(commit-component-state this :password %)
-                                                 :value       password
-                                                 :type        "password"
-                                                 :placeholder "password"}))
-                        (dom/div #js {:className "input-group"}
-                                 (dom/span #js {:className "input-group-addon"}
-                                           (vlib/fa-icon "fa-map-marker fa-fw"))
-                                 (dom/input #js {:className   "form-control"
-                                                 :onChange    #(commit-component-state this :location %)
-                                                 :value       location
-                                                 :placeholder "Düsseldorf, Germany"}))
-                        (google-ptc-switch this)
-                        (dom/button #js {:className "btn btn-default"
-                                         :onClick   #(auth/login email password location service)}
-                                    "Login"))))))
+                        (vlib/panel-wrapper
+                          (dom/div nil
+                                   (dom/h5 #js {:className "text-center"} "Login")
+                                   (dom/div #js {:className "input-group"}
+                                            (dom/span #js {:className "input-group-addon"}
+                                                      (vlib/fa-icon "fa-user fa-fw"))
+                                            (dom/input #js {:className   "form-control"
+                                                            :onChange    #(commit-component-state this :email %)
+                                                            :value       email
+                                                            :placeholder "email"}))
+                                   (dom/div #js {:className "input-group"}
+                                            (dom/span #js {:className "input-group-addon"}
+                                                      (vlib/fa-icon "fa-key fa-fw"))
+                                            (dom/input #js {:className   "form-control"
+                                                            :onChange    #(commit-component-state this :password %)
+                                                            :value       password
+                                                            :type        "password"
+                                                            :placeholder "password"}))
+                                   (dom/div #js {:className "input-group"}
+                                            (dom/span #js {:className "input-group-addon"}
+                                                      (vlib/fa-icon "fa-map-marker fa-fw"))
+                                            (dom/input #js {:className   "form-control"
+                                                            :onChange    #(commit-component-state this :location %)
+                                                            :value       location
+                                                            :placeholder "Düsseldorf, Germany"}))
+                                   (google-ptc-switch this)
+                                   (vlib/button-primary #(auth/login email password location service) "Login"))))))))
 (def login (om/factory Login))
 
 (defn view-dispatcher
