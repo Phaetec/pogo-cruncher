@@ -1,8 +1,8 @@
-(ns crunsher.communication.main
+(ns cruncher.communication.main
   (:require [ajax.core :refer [GET POST]]
-            [crunsher.communication.utils :as clib]
-            [crunsher.config :as config]
-            [crunsher.utils.lib :as lib]))
+            [cruncher.communication.utils :as clib]
+            [cruncher.config :as config]
+            [cruncher.utils.lib :as lib]))
 
 ;;;; Generic helpers
 (defn process-response

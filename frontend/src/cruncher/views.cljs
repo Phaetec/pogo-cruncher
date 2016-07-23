@@ -1,12 +1,12 @@
-(ns crunsher.views
+(ns cruncher.views
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
-            [crunsher.communication.auth :as auth]
-            [crunsher.communication.main :as com]
-            [crunsher.utils.bootstrap :as bs]
-            [crunsher.utils.extensions]
-            [crunsher.utils.lib :as lib]))
+            [cruncher.communication.auth :as auth]
+            [cruncher.communication.main :as com]
+            [cruncher.utils.bootstrap :as bs]
+            [cruncher.utils.extensions]
+            [cruncher.utils.lib :as lib]))
 
 ;;;; Other
 (defn fa-icon

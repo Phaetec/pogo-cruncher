@@ -1,4 +1,4 @@
-(ns crunsher.data.pokemon)
+(ns cruncher.data.pokemon)
 
 (def all {1 {:pokemon-id                  1
              :name                        "Bulbasaur"

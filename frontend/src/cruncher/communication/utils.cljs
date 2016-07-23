@@ -1,5 +1,5 @@
-(ns crunsher.communication.utils
-  (:require [crunsher.config :as config]
+(ns cruncher.communication.utils
+  (:require [cruncher.config :as config]
             [clojure.walk :refer [keywordize-keys]]
             [cognitect.transit :as transit]))
 

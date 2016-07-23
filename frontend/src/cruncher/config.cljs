@@ -1,4 +1,4 @@
-(ns crunsher.config)
+(ns cruncher.config)
 
 (def api {:host "http://localhost:5000/"
           :init "api/init/"

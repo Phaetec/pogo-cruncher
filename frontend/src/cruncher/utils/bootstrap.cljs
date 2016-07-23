@@ -1,7 +1,7 @@
-(ns crunsher.utils.bootstrap
+(ns cruncher.utils.bootstrap
   "Reusable components, which use twitter bootstrap to reduce redundancy."
   (:require [om.dom :as dom]
-            [crunsher.utils.lib :as lib]))
+            [cruncher.utils.lib :as lib]))
 
 (defn button-primary
   "Create dom element of a bootstrap primary button."

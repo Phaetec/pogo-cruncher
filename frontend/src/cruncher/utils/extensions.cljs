@@ -1,4 +1,4 @@
-(ns crunsher.utils.extensions
+(ns cruncher.utils.extensions
   "Extending JS types to be better accessible in CLJS.")
 
 (def types [js/NodeList

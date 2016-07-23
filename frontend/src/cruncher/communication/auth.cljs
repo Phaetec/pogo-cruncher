@@ -1,8 +1,8 @@
-(ns crunsher.communication.auth
+(ns cruncher.communication.auth
   (:require [ajax.core :refer [POST]]
-            [crunsher.config :as config]
-            [crunsher.communication.main :as com]
-            [crunsher.communication.utils :as clib]))
+            [cruncher.config :as config]
+            [cruncher.communication.main :as com]
+            [cruncher.communication.utils :as clib]))
 
 (defn success-login
   "Callback function when login was successful. Set attributes of user."
