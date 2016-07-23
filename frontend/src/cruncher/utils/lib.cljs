@@ -8,7 +8,8 @@
            {:pokemon []
             :user {:view :default
                    :logged-in? false}
-            :error {:message nil}}))
+            :error {:message nil}
+            :app {:loading? false}}))
 
 
 ;;;; React compatibility
@@ -45,9 +46,17 @@
   [{:keys [state]} _ {:keys [view]}]
   {:action (fn [] (swap! state update-in [:user :view] (fn [] view)))})
 
+(defmethod mutate 'app/loading
+  [{:keys [state]} _ {:keys [status]}]
+  {:action (fn [] (swap! state update-in [:app :loading?] (fn [] status)))})
+
 (defmethod mutate 'update/error
     [{:keys [state]} _ {:keys [message]}]
     {:action (fn [] (swap! state update-in [:error :message] (fn [] message)))})
+
+(defmethod mutate 'user/logged-in
+  [{:keys [state]} _ {:keys [status]}]
+  {:action (fn [] (swap! state update-in [:user :logged-in?] (fn [] status)))})
 
 (defonce reconciler
          (om/reconciler
@@ -70,6 +79,11 @@
   []
   (get-in @app-state [:user :logged-in?]))
 
+(defn logged-in!
+  "Set boolean if user is logged in or not. If no parameters are given, set logged-in to true."
+  ([bool]
+   (om/transact! reconciler `[(user/logged-in {:status ~bool})]))
+  ([] (logged-in! true)))
 
 ;;;; About views
 (defn current-view
@@ -82,6 +96,16 @@
   [key]
   (om/transact! reconciler `[(change/view {:view ~key})]))
 
+(defn loading?
+  "Return boolean if ajax request is still in process."
+  []
+  (get-in @app-state [:app :loading?]))
+
+(defn loading!
+  "Set boolean if ajax request is still in process. Defaults to true without parameters."
+  ([bool]
+   (om/transact! reconciler `[(app/loading {:status ~bool})]))
+  ([] (loading! true)))
 
 ;;;; Error messages
 (defn error?
