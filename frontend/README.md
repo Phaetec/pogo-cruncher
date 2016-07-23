@@ -1,12 +1,22 @@
 # cruncher
 
-FIXME: Write a one-line description of your library/project.
+## Docker Setup
 
-## Overview
+Build container:
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+```bash
+$ docker build -t cruncher-frontend .
+```
 
-## Setup
+And run the container:
+
+```bash
+$ docker run -p 8888:8888 -it cruncher-frontend
+```
+
+The application is now accessible under this address: [http://localhost:8888](http://localhost:8888)
+
+## Dev-Setup
 
 To get an interactive development environment run:
 
@@ -34,6 +44,6 @@ get live reloading, nor a REPL.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2016 Christian Meter, Alexander Schneider
 
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+Distributed under the MIT License.
