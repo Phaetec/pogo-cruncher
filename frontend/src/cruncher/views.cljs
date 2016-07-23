@@ -21,6 +21,11 @@
                :className (str "pointer fa " class)
                :onClick   f})))
 
+(defn safe-html
+  "Creates DOM element with interpreted HTML."
+  [string]
+  (dom/span #js {:dangerouslySetInnerHTML #js {:__html string}}))
+
 ;;;; Controls
 (defui Controls
   Object
@@ -73,10 +78,10 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/h1 nil "Poké-Cruncher"))))
              (dom/div #js {:className "page-header"}
-                      (dom/h1 nil "Poké-Crunsher"))
-             (dom/p nil "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."))))
+                      (dom/h1 nil "Poké-Cruncher"))
+             (dom/p nil "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+             (dom/hr nil))))
 (def header (om/factory Header))
 
 (defn commit-component-state
@@ -149,11 +154,26 @@
       (not (lib/logged-in?)) (login)
       :else (poketable))))
 
+(defui ErrorMessage
+  Object
+  (render [this]
+    (when (lib/error?)
+      (dom/div #js {:className "alert alert-warning"}
+               (dom/a #js {:href "#"
+                           :className "close"
+                           :data-dismiss "alert"
+                           :aria-label "close"}
+                      (safe-html "&times;"))
+               (dom/strong nil "Error: ")
+               (lib/get-error)))))
+(def error-message (om/factory ErrorMessage))
+
 (defui Main
   Object
   (render [this]
     (dom/div nil
              (dom/div nil (header))
+             (dom/div nil (error-message (om/props this)))
              (view-dispatcher)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
