@@ -4,6 +4,7 @@
             [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.main :as com]
+            [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
             [cruncher.utils.views :as vlib]))
@@ -16,7 +17,7 @@
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              " "
-             (vlib/button-primary #(com/route :crunch-selected-pokemon) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
+             (vlib/button-primary #(shredder/power-on) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
 (def controls (om/factory Controls))
 
 ;;;; Poketable
@@ -83,8 +84,9 @@
                                          :target "_blank"}
                                     "app-password")
                              " to your account")
-                     (dom/li nil
-                             "Click on the table headers to sort the data"))
+                     (dom/li nil "Click on the table headers to sort the data")
+                     (dom/li nil "Crunching Pokemon really means you're sending them away -- "
+                             (dom/strong nil "there is no possibility to get them back!!!")))
              (dom/hr nil))))
 (def header (om/factory Header))
 

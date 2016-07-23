@@ -6,6 +6,7 @@
             [cruncher.communication.auth]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
+            [cruncher.shredder.main]
             [cruncher.views :as views]
             [om.next :as om]))
 

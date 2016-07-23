@@ -1,5 +1,7 @@
 (ns cruncher.shredder.main
-  (:require [cruncher.utils.lib :as lib]
+  (:require [ajax.core :refer [GET POST]]
+            [goog.dom :as gdom]
+            [cruncher.utils.lib :as lib]
             [cruncher.config :as config]
             [cruncher.communication.utils :as clib]
             [cruncher.communication.main :as com]))
@@ -13,15 +15,11 @@
 (defn power-on
   "Crunch 'em all!"
   []
-  (if true
-    (println "Not implemented")
-    (do
-      (lib/loading!)
-      (let [url (:crunch-selected-pokemon config/api)
-            ;; TODO
-            ;; (reduce #(conj [] (.. % -value)) (gdom/getElementsByClass "poketable-checkbox"))
-            ;; BUT select only the checked ones
-            selected-pokemon []]
+  (let [url (:crunch-selected-pokemon config/api)
+        selected-pokemon (vec (map #(.. % -value) (filter #(.. % -checked) (gdom/getElementsByClass "poketable-checkbox"))))]
+    (when (pos? (count selected-pokemon))
+      (when (js/confirm "Do you really want to send away the selected Pokemon?\nYou won't get them back!\n\nConsider your decision.")
+        (lib/loading!)
         (POST (clib/make-url url)
               {:body            (clib/clj->json {:ids selected-pokemon})
                :handler         success-handler
