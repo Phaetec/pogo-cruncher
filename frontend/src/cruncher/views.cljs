@@ -39,6 +39,8 @@
   Object
   (render [this]
     (dom/div nil
+             (dom/div nil (controls))
+             (dom/br nil)
              (dom/table #js {:className "table table-hover"}
                         (dom/thead nil
                                    (dom/tr nil
@@ -52,8 +54,7 @@
                                            (dom/th nil "IV Defense")
                                            (dom/th nil "IV Stamina")))
                         (apply dom/tbody nil
-                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
-             (dom/div nil (controls)))))
+                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable (om/factory PokeTable {}))
 
 
@@ -163,6 +164,6 @@
              (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login))
-             (dom/div nil (vlib/loader)))))
+             (dom/div nil (vlib/loader (om/props this))))))
 
 
