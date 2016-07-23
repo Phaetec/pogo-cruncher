@@ -82,14 +82,14 @@
   (dom/form #js {:id   "google-ptc-switch"
                  :role "form"}
             (dom/label #js {:className "radio-inline"}
-                       (dom/input #js {:type "radio"
+                       (dom/input #js {:type    "radio"
                                        :onClick #(commit-component-state this :service "google")
-                                       :name "google-ptc-switch"})
+                                       :name    "google-ptc-switch"})
                        "Google")
             (dom/label #js {:className "radio-inline"}
-                       (dom/input #js {:type "radio"
+                       (dom/input #js {:type    "radio"
                                        :onClick #(commit-component-state this :service "ptc")
-                                       :name "google-ptc-switch"})
+                                       :name    "google-ptc-switch"})
                        "Pokemon Trainer Club")))
 
 (defui Login
@@ -133,22 +133,22 @@
 
 (defn view-dispatcher
   "Dispatch current template in main view by the app state."
-  []
+  [this]
   (let [view (lib/current-view)]
     (cond
-      (= view :login) (login)
-      (not (lib/logged-in?)) (login)
-      :else (poketable))))
+      (= view :login) (login (om/props this))
+      (not (lib/logged-in?)) (login (om/props this))
+      :else (poketable (om/props this)))))
 
 (defui ErrorMessage
   Object
   (render [this]
     (when (lib/error?)
       (dom/div #js {:className "alert alert-warning"}
-               (dom/a #js {:href "#"
-                           :className "close"
+               (dom/a #js {:href         "#"
+                           :className    "close"
                            :data-dismiss "alert"
-                           :aria-label "close"}
+                           :aria-label   "close"}
                       (vlib/safe-html "&times;"))
                (dom/strong nil "Error: ")
                (lib/get-error)))))
@@ -160,7 +160,7 @@
     (dom/div nil
              (dom/div nil (header (om/props this)))
              (dom/div nil (error-message (om/props this)))
-             (view-dispatcher)
+             (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login))
              (dom/div nil (vlib/loader)))))
