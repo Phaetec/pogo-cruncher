@@ -25,6 +25,11 @@
     (let [pokemon (om/props this)
           pokemon-db (lib/get-pokemon-by-id (:pokemon_id pokemon))]
       (dom/tr nil
+              (dom/td nil
+                      (dom/div #js {:className "checkbox"}
+                               (dom/label nil
+                                          (dom/input #js {:type "checkbox"
+                                                          :value (:id pokemon)}))))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon-db))
               (dom/td nil (:nickname pokemon))
@@ -36,13 +41,6 @@
               (dom/td nil (:individual_stamina pokemon))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
-(defn sortable-table-header
-  "Sort list of pokemon by given key."
-  [key & str]
-  (dom/th #js {:className "pointer"
-               :onClick #(lib/sort-pokemon! key)}
-          str))
-
 (defui PokeTable
   Object
   (render [this]
@@ -52,15 +50,16 @@
              (dom/table #js {:className "table table-hover"}
                         (dom/thead nil
                                    (dom/tr nil
-                                           (sortable-table-header :pokemon_id "#")
+                                           (dom/th nil "")
+                                           (vlib/sortable-table-header :pokemon_id "#")
                                            (dom/th nil "Name") ;; TODO Sort by Name
-                                           (sortable-table-header :nickname "Nickname")
-                                           (sortable-table-header :cp "CP")
-                                           (sortable-table-header :health "Health")
-                                           (sortable-table-header :individual_percentage "IV % Perfekt")
-                                           (sortable-table-header :individual_attack "IV Attack")
-                                           (sortable-table-header :individual_defense "IV Defense")
-                                           (sortable-table-header :individual_stamina "IV Stamina")))
+                                           (vlib/sortable-table-header :nickname "Nickname")
+                                           (vlib/sortable-table-header :cp "CP")
+                                           (vlib/sortable-table-header :health "Health")
+                                           (vlib/sortable-table-header :individual_percentage "IV % Perfect")
+                                           (vlib/sortable-table-header :individual_attack "IV Attack")
+                                           (vlib/sortable-table-header :individual_defense "IV Defense")
+                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")))
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable (om/factory PokeTable {}))
@@ -78,7 +77,7 @@
              (dom/ul nil
                      (dom/li nil
                              "If you have 2-factor Auth enabled in your Google Account, please add an "
-                             (dom/a #js {:href "https://security.google.com/settings/security/apppasswords?pli=1"
+                             (dom/a #js {:href   "https://security.google.com/settings/security/apppasswords?pli=1"
                                          :target "_blank"}
                                     "app-password")
                              " to your account")

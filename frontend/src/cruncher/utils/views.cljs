@@ -4,6 +4,13 @@
             [om.dom :as dom :include-macros true]
             [cruncher.utils.lib :as lib]))
 
+(defn sortable-table-header
+  "Sort list of pokemon by given key."
+  [key & str]
+  (dom/th #js {:className "pointer"
+               :onClick   #(lib/sort-pokemon! key)}
+          str))
+
 (defn button-primary
   "Create dom element of a bootstrap primary button."
   [fn & strs]
