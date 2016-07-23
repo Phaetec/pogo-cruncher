@@ -1,9 +1,0 @@
-version: '2'
-services:
-  frontend:
-    build: ../frontend/.
-    command: /bin/bash docker_init.sh
-    volumes:
-      - ../fronted/.:/frontend
-    ports:
-      - "8888:8888"
