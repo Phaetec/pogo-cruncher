@@ -42,6 +42,10 @@
     [{:keys [state]} _ {:keys [pokemon]}]
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
 
+(defmethod mutate 'sort/pokemon
+  [{:keys [state]} _ {:keys [key]}]
+  {:action (fn [] (swap! state update-in [:pokemon] (fn [] (sort-by key (:pokemon @state)))))})
+
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]
   {:action (fn [] (swap! state update-in [:user :view] (fn [] view)))})
@@ -129,8 +133,14 @@
   []
   (get-in @app-state [:error :message]))
 
+
 ;;;; State transitions
 (defn update-pokemon!
   "Update pokemon based on API response."
   [res]
   (om/transact! reconciler `[(update/pokemon {:pokemon ~res})]))
+
+(defn sort-pokemon!
+  "Sort complete list of pokemon by given key."
+  [key]
+  (om/transact! reconciler `[(sort/pokemon {:key ~key})]))
