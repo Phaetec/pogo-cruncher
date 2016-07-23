@@ -4,34 +4,16 @@
             [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.main :as com]
-            [cruncher.utils.bootstrap :as bs]
             [cruncher.utils.extensions]
-            [cruncher.utils.lib :as lib]))
-
-;;;; Other
-(defn fa-icon
-  "Wrapper for font-awesome icons."
-  ([class]
-   (dom/i #js {:react-key (lib/get-unique-key)
-               :key       (lib/get-unique-key)
-               :className (str "fa " class)}))
-  ([class f]
-   (dom/i #js {:react-key (lib/get-unique-key)
-               :key       (lib/get-unique-key)
-               :className (str "pointer fa " class)
-               :onClick   f})))
-
-(defn safe-html
-  "Creates DOM element with interpreted HTML."
-  [string]
-  (dom/span #js {:dangerouslySetInnerHTML #js {:__html string}}))
+            [cruncher.utils.lib :as lib]
+            [cruncher.utils.views :as vlib]))
 
 ;;;; Controls
 (defui Controls
   Object
   (render [this]
     (dom/div nil
-             (bs/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
+             (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
 (def controls (om/factory Controls))
 
 
@@ -76,16 +58,6 @@
 
 
 ;;;; Other
-(defui Loader
-  ; "Spinning icon to indicate if there is data being transferred."
-  Object
-  (render [this]
-    (when (lib/loading?)
-      (dom/div #js {:style #js {:paddingTop "2em"}}
-               (fa-icon "fa-circle-o-notch fa-spin fa-fw")
-               " Loading..."))))
-(def loader (om/factory Loader))
-
 (defui Header
   Object
   (render [this]
@@ -131,14 +103,14 @@
                         (dom/h5 #js {:className "text-center"} "Login")
                         (dom/div #js {:className "input-group"}
                                  (dom/span #js {:className "input-group-addon"}
-                                           (fa-icon "fa-user fa-fw"))
+                                           (vlib/fa-icon "fa-user fa-fw"))
                                  (dom/input #js {:className   "form-control"
                                                  :onChange    #(commit-component-state this :email %)
                                                  :value       email
                                                  :placeholder "email"}))
                         (dom/div #js {:className "input-group"}
                                  (dom/span #js {:className "input-group-addon"}
-                                           (fa-icon "fa-key fa-fw"))
+                                           (vlib/fa-icon "fa-key fa-fw"))
                                  (dom/input #js {:className   "form-control"
                                                  :onChange    #(commit-component-state this :password %)
                                                  :value       password
@@ -146,7 +118,7 @@
                                                  :placeholder "password"}))
                         (dom/div #js {:className "input-group"}
                                  (dom/span #js {:className "input-group-addon"}
-                                           (fa-icon "fa-map-marker fa-fw"))
+                                           (vlib/fa-icon "fa-map-marker fa-fw"))
                                  (dom/input #js {:className   "form-control"
                                                  :onChange    #(commit-component-state this :location %)
                                                  :value       location
@@ -175,7 +147,7 @@
                            :className "close"
                            :data-dismiss "alert"
                            :aria-label "close"}
-                      (safe-html "&times;"))
+                      (vlib/safe-html "&times;"))
                (dom/strong nil "Error: ")
                (lib/get-error)))))
 (def error-message (om/factory ErrorMessage))
@@ -189,6 +161,6 @@
              (view-dispatcher)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login))
-             (dom/div nil (loader)))))
+             (dom/div nil (vlib/loader)))))
 
 
