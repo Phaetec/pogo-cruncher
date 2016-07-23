@@ -20,6 +20,7 @@
                :key       (lib/get-unique-key)
                :className (str "fa " class)}))
   ([class f]
+   (println f)
    (dom/i #js {:react-key (lib/get-unique-key)
                :key       (lib/get-unique-key)
                :className (str "pointer fa " class)
@@ -54,8 +55,13 @@
   (render [this]
     (if (lib/logged-in?)
       (dom/div nil
-               (fa-icon "fa-sign-out" #(lib/logged-in! false)) " Logout")
+               (dom/a #js {:href "javascript:void(0)"
+                           :onClick #(lib/logged-in! false)}
+                      (fa-icon "fa-sign-out")
+                      " Logout"))
       (dom/div nil
-               (fa-icon "fa-sign-in" #(lib/change-view! :login))
-               " Login"))))
+               (dom/a #js {:href "javascript:void(0)"
+                           :onClick #(lib/change-view! :login)}
+                      (fa-icon "fa-sign-out")
+                      " Login")))))
 (def login-indicator (om/factory LoggedIn))
