@@ -14,9 +14,10 @@
   (render [this]
     (dom/div nil
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
-             (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
+             (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
+             " "
+             (vlib/button-primary #(com/route :crunch-selected-pokemon) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
 (def controls (om/factory Controls))
-
 
 ;;;; Poketable
 (defui PokeTableEntry
@@ -28,7 +29,8 @@
               (dom/td nil
                       (dom/div #js {:className "checkbox"}
                                (dom/label nil
-                                          (dom/input #js {:type "checkbox"
+                                          (dom/input #js {:className "poketable-checkbox"
+                                                          :type "checkbox"
                                                           :value (:id pokemon)}))))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon-db))

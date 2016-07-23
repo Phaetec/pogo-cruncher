@@ -2,6 +2,7 @@
   (:require [ajax.core :refer [GET POST]]
             [cruncher.communication.utils :as clib]
             [cruncher.config :as config]
+            [cruncher.shredder.main :as shredder]
             [cruncher.utils.lib :as lib]))
 
 ;;;; Generic helpers
@@ -43,4 +44,5 @@
   [key]
   (cond
     (= :init key) (ajax-get (:init config/api))
-    (= :get-all-pokemon key) (ajax-get (:get-all-pokemon config/api))))
+    (= :get-all-pokemon key) (ajax-get (:get-all-pokemon config/api))
+    (= :crunch-selected-pokemon key) (shredder/power-on)))
