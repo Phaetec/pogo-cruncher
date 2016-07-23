@@ -36,6 +36,13 @@
               (dom/td nil (:individual_stamina pokemon))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
+(defn sortable-table-header
+  "Sort list of pokemon by given key."
+  [key & str]
+  (dom/th #js {:className "pointer"
+               :onClick #(lib/sort-pokemon! key)}
+          str))
+
 (defui PokeTable
   Object
   (render [this]
@@ -45,15 +52,15 @@
              (dom/table #js {:className "table table-hover"}
                         (dom/thead nil
                                    (dom/tr nil
-                                           (dom/th nil "#")
-                                           (dom/th nil "Name")
-                                           (dom/th nil "Nickname")
-                                           (dom/th nil "CP")
-                                           (dom/th nil "Health")
-                                           (dom/th nil "IV % Perfekt")
-                                           (dom/th nil "IV Attack")
-                                           (dom/th nil "IV Defense")
-                                           (dom/th nil "IV Stamina")))
+                                           (sortable-table-header :pokemon_id "#")
+                                           (dom/th nil "Name") ;; TODO Sort by Name
+                                           (sortable-table-header :nickname "Nickname")
+                                           (sortable-table-header :cp "CP")
+                                           (sortable-table-header :health "Health")
+                                           (sortable-table-header :individual_percentage "IV % Perfekt")
+                                           (sortable-table-header :individual_attack "IV Attack")
+                                           (sortable-table-header :individual_defense "IV Defense")
+                                           (sortable-table-header :individual_stamina "IV Stamina")))
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable (om/factory PokeTable {}))
@@ -68,7 +75,15 @@
                       (dom/div #js {:className "pull-right"}
                                (vlib/login-indicator (om/props this)))
                       (dom/h1 nil "Poké-Cruncher"))
-             (dom/p nil "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+             (dom/ul nil
+                     (dom/li nil
+                             "If you have 2-factor Auth enabled in your Google Account, please add an "
+                             (dom/a #js {:href "https://security.google.com/settings/security/apppasswords?pli=1"
+                                         :target "_blank"}
+                                    "app-password")
+                             " to your account")
+                     (dom/li nil
+                             "Click on the table headers to sort the data"))
              (dom/hr nil))))
 (def header (om/factory Header))
 
