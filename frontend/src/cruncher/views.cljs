@@ -13,6 +13,7 @@
   Object
   (render [this]
     (dom/div nil
+             (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon"))))
 (def controls (om/factory Controls))
 
@@ -39,7 +40,7 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/div nil (controls))
+             (dom/div nil (controls (om/props this)))
              (dom/br nil)
              (dom/table #js {:className "table table-hover"}
                         (dom/thead nil
@@ -163,7 +164,6 @@
              (dom/div nil (error-message (om/props this)))
              (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
-             #_(dom/div nil (login))
-             (dom/div nil (vlib/loader (om/props this))))))
+             #_(dom/div nil (login)))))
 
 
