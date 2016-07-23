@@ -1,8 +1,8 @@
-(ns crunsher.communication.auth
+(ns cruncher.communication.auth
   (:require [ajax.core :refer [POST]]
-            [crunsher.config :as config]
-            [crunsher.communication.main :as com]
-            [crunsher.communication.utils :as clib]))
+            [cruncher.config :as config]
+            [cruncher.communication.main :as com]
+            [cruncher.communication.utils :as clib]))
 
 (defn success-login
   "Callback function when login was successful. Set attributes of user."
@@ -12,12 +12,13 @@
 
 (defn ajax-login
   "Get cleaned data and send ajax request."
-  [email password location]
+  [email password location service]
   (let [url (:login config/api)]
     (POST (clib/make-url url)
           {:body            (clib/clj->json {:email email
                                              :password password
-                                             :location location})
+                                             :location location
+                                             :service service})
            :handler         success-login
            :error-handler   com/error-handler
            :response-format :json
@@ -26,9 +27,10 @@
 
 (defn login
   "Use login form data, validate it and send ajax request."
-  [email password location]
+  [email password location service]
   (when (and
           (pos? (count email))
           (pos? (count password))
-          (pos? (count location)))
-    (ajax-login email password location)))
+          (pos? (count location))
+          (pos? (count service)))
+    (ajax-login email password location service)))

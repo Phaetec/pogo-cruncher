@@ -1,4 +1,4 @@
-(defproject crunsher "0.1.0-SNAPSHOT"
+(defproject cruncher "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -25,27 +25,27 @@
 
   :cljsbuild {:builds
               [{:id "dev"
-                :source-paths ["src/crunsher"]
+                :source-paths ["src/cruncher"]
                 ;; the presence of a :figwheel configuration here
                 ;; will cause figwheel to inject the figwheel client
                 ;; into your build
-                :figwheel {:on-jsload "crunsher.core/on-js-reload"
+                :figwheel {:on-jsload "cruncher.core/on-js-reload"
                            ;; :open-urls will pop open your application
                            ;; in the default browser once Figwheel has
                            ;; started and complied your application.
                            ;; Comment this out once it no longer serves you.
                            :open-urls ["http://localhost:3449/index.html"]}
-                :compiler {:main crunsher.core
+                :compiler {:main cruncher.core
                            :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/crunsher.js"
+                           :output-to "resources/public/js/compiled/cruncher.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true}}
                {:id "devcards"
-                :source-paths ["src/crunsher" "src/devcards"]
+                :source-paths ["src/cruncher" "src/devcards"]
                 :figwheel {:devcards true}
-                :compiler {:main crunsher.devcards.core
+                :compiler {:main cruncher.devcards.core
                            :asset-path "js/compiled/devcards/out"
-                           :output-to "resources/public/js/compiled/crunsher.js"
+                           :output-to "resources/public/js/compiled/cruncher.js"
                            :output-dir "resources/public/js/compiled/devcards/out"
                            :source-map-timestamp true}}
                ;; This next build is an compressed minified build for
@@ -53,8 +53,8 @@
                ;; lein cljsbuild once min
                {:id "min"
                 :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/crunsher.js"
-                           :main crunsher.core
+                :compiler {:output-to "resources/public/js/compiled/cruncher.js"
+                           :main cruncher.core
                            :optimizations :advanced
                            :pretty-print false}}]}
 

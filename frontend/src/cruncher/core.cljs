@@ -1,16 +1,17 @@
-(ns crunsher.core
+(ns cruncher.core
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
-            [crunsher.data.pokemon]
-            [crunsher.utils.extensions]
-            [crunsher.utils.lib :as lib]
-            [crunsher.views :as views]
+            [cruncher.data.pokemon]
+            [cruncher.communication.auth]
+            [cruncher.utils.extensions]
+            [cruncher.utils.lib :as lib]
+            [cruncher.views :as views]
             [om.next :as om]))
 
 (enable-console-print!)
 
-(om/add-root! lib/reconciler views/Main (gdom/getElement "crunsher-main"))
+(om/add-root! lib/reconciler views/Main (gdom/getElement "cruncher-main"))
 
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on

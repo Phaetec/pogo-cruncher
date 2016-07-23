@@ -31,6 +31,7 @@ import pprint
 import logging
 import argparse
 import getpass
+import time
 
 # add directory of this file to PATH, so that the package will be found
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
@@ -40,6 +41,7 @@ from pgoapi import pgoapi
 from pgoapi import utilities as util
 
 # other stuff
+from backend.pokemon import Pokemon
 from google.protobuf.internal import encoder
 from geopy.geocoders import GoogleV3
 from s2sphere import Cell, CellId, LatLng
@@ -150,7 +152,7 @@ def main():
 
     # get player profile call
     # ----------------------
-    api.get_player()
+    # api.get_player()
 
     # get inventory call
     # ----------------------
@@ -160,22 +162,17 @@ def main():
     if 'GET_INVENTORY' in response_dict['responses']:
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
 
-
+        print("sleeping 2 seconds")
+        time.sleep(2)
         print("Listing all of your current pokemon")
         # Filter out the Pokemon
         for item in items:
-            print(type(item['item_inventory_data']))
-            if 'pokemon_data' in item['item_inventory_data']:
-                pokemon = item['item_inventory_data']['pokemon_data']
-                print("---------------------")
-                print("Pokedex-Number: " + str(pokemon['pokemon_id']))
-                print("IV ATT: " + str(pokemon['individual_attack']))
-                print("IV STA: " + str(pokemon['individual_stamina']))
-                print("IV DEF: " + str(pokemon['individual_defense']))
-                print("Pokemon CP: " + str(pokemon['cp']))
-                print("Pokemon Health: " + str(pokemon['stamina_max']))
-                print("Unique ID: " + str(pokemon['id']))
-                print("---------------------")
+            if 'pokemon_data' in item['inventory_item_data']:
+                # # Eggs are treated as pokemon by Niantic.
+                 if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                    pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
+                    print(pokemon)
+                    print("---------------------")
     else:
         print("Server sent faulty response, please try again later.")
 
@@ -195,7 +192,7 @@ def main():
 
     # release/transfer a pokemon and get candy for it
     # ----------------------
-    #api.release_pokemon(pokemon_id = <your pokemonid>)
+    api.release_pokemon(pokemon_id = 102436132182299249).release_pokemon(pokemon_id = 6686846638843838493).call()
 
     # evolve a pokemon if you have enough candies
     # ----------------------
