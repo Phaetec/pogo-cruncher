@@ -8,6 +8,7 @@
 (defn process-response
   "Generic success handler, which sets error handling and returns a cljs-compatible response."
   [response]
+  (lib/loading! false)
   (clib/json->clj response))
 
 
@@ -28,6 +29,7 @@
 (defn ajax-get
   "Make ajax call to dialogue based argumentation system."
   ([url handler]
+   (lib/loading!)
    (GET (clib/make-url url)
         {:handler       handler
          :error-handler error-handler}))

@@ -12,12 +12,17 @@
     (if (= "ok" (:status res))
       (do
         (lib/no-error!)
+        (lib/logged-in!)
+        (lib/loading! false)
         (lib/change-view! :default))
-      (lib/error! (:message res)))))
+      (do
+        (lib/error! (:message res))
+        (lib/loading! false)))))
 
 (defn ajax-login
   "Get cleaned data and send ajax request."
   [email password location service]
+  (lib/loading!)
   (let [url (:login config/api)]
     (POST (clib/make-url url)
           {:body            (clib/clj->json {:email email

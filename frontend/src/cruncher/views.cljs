@@ -74,6 +74,18 @@
              (dom/div nil (controls)))))
 (def poketable (om/factory PokeTable {}))
 
+
+;;;; Other
+(defui Loader
+  ; "Spinning icon to indicate if there is data being transferred."
+  Object
+  (render [this]
+    (when (lib/loading?)
+      (dom/div #js {:style #js {:paddingTop "2em"}}
+               (fa-icon "fa-circle-o-notch fa-spin fa-fw")
+               " Loading..."))))
+(def loader (om/factory Loader))
+
 (defui Header
   Object
   (render [this]
@@ -176,6 +188,7 @@
              (dom/div nil (error-message (om/props this)))
              (view-dispatcher)
              #_(dom/div nil (poketable (om/props this)))
-             #_(dom/div nil (login)))))
+             #_(dom/div nil (login))
+             (dom/div nil (loader)))))
 
 
