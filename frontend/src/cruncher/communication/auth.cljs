@@ -2,13 +2,18 @@
   (:require [ajax.core :refer [POST]]
             [cruncher.config :as config]
             [cruncher.communication.main :as com]
-            [cruncher.communication.utils :as clib]))
+            [cruncher.communication.utils :as clib]
+            [cruncher.utils.lib :as lib]))
 
 (defn success-login
   "Callback function when login was successful. Set attributes of user."
   [response]
   (let [res (com/process-response response)]
-    (println "Successfully logged in." res)))
+    (if (= "ok" (:status res))
+      (do
+        (lib/no-error!)
+        (lib/change-view! :default))
+      (lib/error! (:message res)))))
 
 (defn ajax-login
   "Get cleaned data and send ajax request."
