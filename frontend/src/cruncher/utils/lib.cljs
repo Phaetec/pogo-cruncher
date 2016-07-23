@@ -7,7 +7,8 @@
          (atom
            {:pokemon []
             :user {:view :default
-                   :logged-in? false}}))
+                   :logged-in? false}
+            :error {:message nil}}))
 
 
 ;;;; React compatibility
@@ -44,9 +45,9 @@
   [{:keys [state]} _ {:keys [view]}]
   {:action (fn [] (swap! state update-in [:user :view] (fn [] view)))})
 
-(defmethod mutate 'increment
-    [{:keys [state]} _ {:keys [pokemon]}]
-    {:action (fn [] (swap! state update-in [:count] inc))})
+(defmethod mutate 'update/error
+    [{:keys [state]} _ {:keys [message]}]
+    {:action (fn [] (swap! state update-in [:error :message] (fn [] message)))})
 
 (defonce reconciler
          (om/reconciler
@@ -80,6 +81,29 @@
   "Return current selected view."
   [key]
   (om/transact! reconciler `[(change/view {:view ~key})]))
+
+
+;;;; Error messages
+(defn error?
+  "Return boolean if there is an error message."
+  []
+  (let [message (get-in @app-state [:error :message])]
+    (pos? (count message))))
+
+(defn error!
+  "Set error message."
+  [message]
+  (om/transact! reconciler `[(update/error {:message ~message})]))
+
+(defn no-error!
+  "Reset error message."
+  []
+  (error! nil))
+
+(defn get-error
+  "Return error message."
+  []
+  (get-in @app-state [:error :message]))
 
 ;;;; State transitions
 (defn update-pokemon!
