@@ -163,7 +163,7 @@
                                             (dom/input #js {:className   "form-control"
                                                             :onChange    #(commit-component-state this :email %)
                                                             :value       email
-                                                            :placeholder "email"}))
+                                                            :placeholder "email / PTC Username"}))
                                    (dom/div #js {:className "input-group"}
                                             (dom/span #js {:className "input-group-addon"}
                                                       (vlib/fa-icon "fa-key fa-fw"))
