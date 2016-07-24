@@ -10,7 +10,8 @@
   "React on response after sending a new statement. Reset atom and call newly received url."
   [response]
   (let [res (com/process-response response)]
-    (lib/info! "Converted Pokemon to bonbons. Jeah!")))
+    (lib/info! "Converted Pokemon to bonbons. Jeah!")
+    (com/route :get-all-pokemon)))
 
 (defn power-on
   "Crunch 'em all!"
