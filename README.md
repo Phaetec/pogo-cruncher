@@ -1,5 +1,8 @@
 # pogo-cruncher
-This tool lets you send away multiple Pokemon at once in Pokemon GO.
+This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.  
+The tool runs locally on your PC and the Login-Details are not leaving your computer. Feel free to check the source code or contribute.
+
+![Screenshot of PoGo-Cruncher](screenshot.png)
 
 It is a work in progress, so please report all bugs to the issue page.
 
@@ -33,7 +36,6 @@ $ docker-compose up
 Now the app is up and running. Access it on [localhost:8888](http://localhost:8888)  
 You can stop the app by closing the terminal.
 
-![Screenshot of PoGo-Cruncher](screenshot.png)
 
 ## Setup for dev-users
 Requirements:
