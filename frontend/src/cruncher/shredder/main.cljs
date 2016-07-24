@@ -22,7 +22,8 @@
       (when (js/confirm "Do you really want to send away the selected Pokemon?\nYou won't get them back!\n\nConsider your decision.")
         (lib/loading!)
         (POST (clib/make-url url)
-              {:body            (clib/clj->json {:ids selected-pokemon})
+              {:body            (clib/clj->json {:ids selected-pokemon
+                                                 :safe 1})
                :handler         success-handler
                :error-handler   com/error-handler
                :response-format :json
