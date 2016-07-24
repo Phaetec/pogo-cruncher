@@ -17,7 +17,7 @@ $ docker build -t cruncher-backend .
 $ cd frontend
 $ docker build -t cruncher-frontend .
 $ docker run -d -p 5000:5000 -it cruncher-backend
-$ docker run -d -p 8000:8000 -it cruncher-frontend
+$ docker run -d -p 8888:8888 -it cruncher-frontend
 ```
 
 Now the app is up and running. Access it on [localhost:8888](http://localhost:8888)
