@@ -2,8 +2,6 @@ version: '2'
 services:
   backend:
     build: .
-    volumes:
-      - .:/code
     ports:
       - "5000:5000"
   frontend:
