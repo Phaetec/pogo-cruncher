@@ -33,6 +33,8 @@ $ docker-compose up
 Now the app is up and running. Access it on [localhost:8888](http://localhost:8888)  
 You can stop the app by closing the terminal.
 
+!(screenshot.png)
+
 ## Setup for dev-users
 Requirements:
   * python3
