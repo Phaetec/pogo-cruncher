@@ -43,5 +43,4 @@
   [key]
   (cond
     (= :init key) (ajax-get (:init config/api))
-    (= :get-all-pokemon key) (ajax-get (:get-all-pokemon config/api))
-    (= :crunch-selected-pokemon key) (cruncher.shredder.main/power-on)))
+    (= :get-all-pokemon key) (ajax-get (:get-all-pokemon config/api))))
