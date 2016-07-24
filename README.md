@@ -32,7 +32,7 @@ Requirements:
 #### Backend
 This tool ist based on python and the wonderfull Pokemon GO api at https://github.com/tejado
 
-Start it with:
+Start it with this command from the repository's root directory:
 
 ```bash
 $ python app.py
