@@ -6,6 +6,7 @@ It is a work in progress, so please report all bugs to the issue page.
 ## Setup for normal use
 Requirements:
   * docker
+  * git
 
 This is not optimal yet, but you can pack it into two containers and start analyzing your Pokemon.
 
