@@ -6,10 +6,11 @@
 (defonce app-state
          (atom
            {:pokemon []
-            :user {:view :default
-                   :logged-in? false}
-            :error {:message nil}
-            :app {:loading? false}}))
+            :user    {:view       :default
+                      :logged-in? false}
+            :error   {:message nil}
+            :info    {:message nil}
+            :app     {:loading? false}}))
 
 
 ;;;; React compatibility
@@ -39,8 +40,8 @@
 (defmulti mutate om/dispatch)
 
 (defmethod mutate 'update/pokemon
-    [{:keys [state]} _ {:keys [pokemon]}]
-    {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
+  [{:keys [state]} _ {:keys [pokemon]}]
+  {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
@@ -55,8 +56,12 @@
   {:action (fn [] (swap! state update-in [:app :loading?] (fn [] status)))})
 
 (defmethod mutate 'update/error
-    [{:keys [state]} _ {:keys [message]}]
-    {:action (fn [] (swap! state update-in [:error :message] (fn [] message)))})
+  [{:keys [state]} _ {:keys [message]}]
+  {:action (fn [] (swap! state update-in [:error :message] (fn [] message)))})
+
+(defmethod mutate 'update/info
+  [{:keys [state]} _ {:keys [message]}]
+  {:action (fn [] (swap! state update-in [:info :message] (fn [] message)))})
 
 (defmethod mutate 'user/logged-in
   [{:keys [state]} _ {:keys [status]}]
@@ -132,6 +137,29 @@
   "Return error message."
   []
   (get-in @app-state [:error :message]))
+
+
+;;;; Info box
+(defn info?
+  "Return boolean if there is an error message."
+  []
+  (let [message (get-in @app-state [:info :message])]
+    (pos? (count message))))
+
+(defn info!
+  "Set error message."
+  [message]
+  (om/transact! reconciler `[(update/info {:message ~message})]))
+
+(defn no-info!
+  "Reset error message."
+  []
+  (info! nil))
+
+(defn get-info
+  "Return error message."
+  []
+  (get-in @app-state [:info :message]))
 
 
 ;;;; State transitions

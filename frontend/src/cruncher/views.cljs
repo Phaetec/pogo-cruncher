@@ -20,6 +20,36 @@
              (vlib/button-primary #(shredder/power-on) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
 (def controls (om/factory Controls))
 
+
+;;;; Messages
+(defui ErrorMessage
+  Object
+  (render [this]
+    (when (lib/error?)
+      (dom/div #js {:className "alert alert-warning"}
+               (dom/a #js {:href         "#"
+                           :className    "close"
+                           :data-dismiss "alert"
+                           :aria-label   "close"}
+                      (vlib/safe-html "&times;"))
+               (dom/strong nil "Error: ")
+               (lib/get-error)))))
+(def error-message (om/factory ErrorMessage))
+
+(defui InfoMessage
+  Object
+  (render [this]
+    (when (lib/info?)
+      (dom/div #js {:className "alert alert-success"}
+               (dom/a #js {:href         "#"
+                           :onClick      #(lib/info! nil)
+                           :className    "close"
+                           :data-dismiss "alert"
+                           :aria-label   "close"}
+                      (vlib/safe-html "&times;"))
+               (lib/get-info)))))
+(def info-message (om/factory InfoMessage))
+
 ;;;; Poketable
 (defui PokeTableEntry
   Object
@@ -31,8 +61,8 @@
                       (dom/div #js {:className "checkbox"}
                                (dom/label nil
                                           (dom/input #js {:className "poketable-checkbox"
-                                                          :type "checkbox"
-                                                          :value (:id pokemon)}))))
+                                                          :type      "checkbox"
+                                                          :value     (:id pokemon)}))))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon-db))
               (dom/td nil (:nickname pokemon))
@@ -160,26 +190,13 @@
       (not (lib/logged-in?)) (login (om/props this))
       :else (poketable (om/props this)))))
 
-(defui ErrorMessage
-  Object
-  (render [this]
-    (when (lib/error?)
-      (dom/div #js {:className "alert alert-warning"}
-               (dom/a #js {:href         "#"
-                           :className    "close"
-                           :data-dismiss "alert"
-                           :aria-label   "close"}
-                      (vlib/safe-html "&times;"))
-               (dom/strong nil "Error: ")
-               (lib/get-error)))))
-(def error-message (om/factory ErrorMessage))
-
 (defui Main
   Object
   (render [this]
     (dom/div nil
              (dom/div nil (header (om/props this)))
              (dom/div nil (error-message (om/props this)))
+             (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
