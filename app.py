@@ -55,7 +55,7 @@ def get_pokemon():
                  if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                     pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
                     answer.append({
-                        'id':                   pokemon.id,
+                        'id':                   str(pokemon.id),
                         'pokemon_id':           pokemon.pokemon_number,
                         'individual_attack':    pokemon.iv_att,
                         'individual_stamina':   pokemon.iv_sta,
@@ -70,14 +70,13 @@ def get_pokemon():
 @app.route('/api/pokemon/delete', methods=['POST'])
 def delete_pokemon():
     deletion_candidates = request.json['ids']
-
     if 'safe' not in request.json:
         for id in deletion_candidates:
-            pokeapi.release_pokemon(pokemon_id=id)
+            pokeapi.release_pokemon(pokemon_id=int(id))
         pokeapi.call()
     else:
         for id in deletion_candidates:
-            pokeapi.release_pokemon(pokemon_id=id).call()
+            pokeapi.release_pokemon(pokemon_id=int(id)).call()
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
 

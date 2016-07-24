@@ -156,25 +156,25 @@ def main():
 
     # get inventory call
     # ----------------------
-    api.get_inventory()
-
-    response_dict = api.call()
-    if 'GET_INVENTORY' in response_dict['responses']:
-        items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
-
-        print("sleeping 2 seconds")
-        time.sleep(2)
-        print("Listing all of your current pokemon")
-        # Filter out the Pokemon
-        for item in items:
-            if 'pokemon_data' in item['inventory_item_data']:
-                # # Eggs are treated as pokemon by Niantic.
-                 if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
-                    pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
-                    print(pokemon)
-                    print("---------------------")
-    else:
-        print("Server sent faulty response, please try again later.")
+    # api.get_inventory()
+    #
+    # response_dict = api.call()
+    # if 'GET_INVENTORY' in response_dict['responses']:
+    #     items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
+    #
+    #     print("sleeping 2 seconds")
+    #     time.sleep(2)
+    #     print("Listing all of your current pokemon")
+    #     # Filter out the Pokemon
+    #     for item in items:
+    #         if 'pokemon_data' in item['inventory_item_data']:
+    #             # # Eggs are treated as pokemon by Niantic.
+    #              if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+    #                 pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
+    #                 print(pokemon)
+    #                 print("---------------------")
+    # else:
+    #     print("Server sent faulty response, please try again later.")
 
     # get map objects call
     # repeated fields (e.g. cell_id and since_timestamp_ms in get_map_objects) can be provided over a list
@@ -192,7 +192,7 @@ def main():
 
     # release/transfer a pokemon and get candy for it
     # ----------------------
-    api.release_pokemon(pokemon_id = 102436132182299249).release_pokemon(pokemon_id = 6686846638843838493).call()
+    api.release_pokemon(pokemon_id = 12278747429833432301).call()
 
     # evolve a pokemon if you have enough candies
     # ----------------------
