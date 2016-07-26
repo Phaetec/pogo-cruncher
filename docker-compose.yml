@@ -2,8 +2,6 @@ version: '2'
 services:
   frontend:
     build: ./frontend/.
-    volumes:
-      - ./frontend/.:/frontend
     ports:
       - "8888:8888"
     depends_on:
@@ -14,4 +12,3 @@ services:
       - "5000:5000"
     environment:
       - FLASK_APP=/code/app.py
-
