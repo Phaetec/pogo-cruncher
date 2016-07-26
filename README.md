@@ -11,7 +11,7 @@ Requirements:
   * docker
 
 #### Step 1
-Install docker. You can find docker and a installation guide [on the Docker homepage.](https://www.docker.com/products/docker)
+Install docker and docker-compose. You can find docker, docker-compose, and a installation guide [on the Docker homepage.](https://docs.docker.com/compose/install/)
 
 #### Step 2
 Download the newest version of pogo-cruncher.
