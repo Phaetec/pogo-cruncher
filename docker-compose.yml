@@ -1,14 +1,17 @@
 version: '2'
 services:
-  backend:
-    build: .
-    ports:
-      - "5000:5000"
-    environment:
-      - FLASK_APP=app.py
   frontend:
     build: ./frontend/.
     volumes:
       - ./frontend/.:/frontend
     ports:
       - "8888:8888"
+    depends_on:
+      - backend
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=/code/app.py
+
