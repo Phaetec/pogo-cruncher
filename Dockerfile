@@ -1,16 +1,19 @@
-FROM python:3.5
+FROM python:3.5-alpine
 MAINTAINER Christian Meter <cmeter@googlemail.com>
 
-RUN mkdir /code
+RUN apk add --no-cache git gcc musl-dev && \
+    mkdir /code
+
 WORKDIR /code
 
-ADD requirements.txt /code
-RUN pip install -U pip
+COPY requirements.txt /code
+
 RUN pip install -r requirements.txt
 
-ADD app.py /code
-ADD backend /code/backend
+COPY app.py /code
+COPY backend /code/backend
 
 EXPOSE 5000
-CMD export FLASK_APP=/code/app.py
+ENV FLASK_APP /code/app.py
+
 CMD flask run --host=0.0.0.0
