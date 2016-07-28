@@ -6,6 +6,8 @@ services:
       - "8888:8888"
     depends_on:
       - backend
+    links:
+      - backend
   backend:
     build: .
     ports:
