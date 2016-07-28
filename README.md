@@ -8,7 +8,23 @@ The tool runs locally on your PC and the Login-Details are not leaving your comp
 
 It is a work in progress, so please report all bugs to the issue page.
 
-## Installation Setup for normal use
+## Installation Setup for Windows user
+You can also use the Linux / MAC OS docker setup, but for unknown reasons it does not work properly for most windows users. So use instructions below.
+
+  1. Install [Python 3](https://www.python.org/downloads/).
+    * Check "Add Python3.5 to PATH" during installation.
+  2. Download the newest Windows release [here](https://github.com/Wegi/pogo-cruncher/releases).
+  3. Unzip the folder.
+  4. Open `cmd` or `Powershell`.
+  5. Type `cd <C:/Path/to/the/folder>`
+  6. Type `pip install -r requirements.txt`
+  7. After this finishes you may start the cruncher as follows:
+
+### Windows Startup 
+  8. In the application folder type `python app.py`
+  9. Now open the index.html in the folder with your preffered browser.
+
+## Installation Setup for Linux / MAC OS with Docker
 Requirements:
   * docker
 

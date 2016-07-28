@@ -1,6 +1,6 @@
 (ns cruncher.config)
 
-(def api {:host "http://backend:5000/"
+(def api {:host "http://localhost:5000/"
           :init "api/init/"
           :base "api/"
           :login "api/login"
