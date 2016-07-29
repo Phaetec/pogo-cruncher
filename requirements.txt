@@ -7,7 +7,7 @@ gpsoauth==0.3.0
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
--e git+https://github.com/tejado/pgoapi.git@1f25e907f3e5f1b603330e71041e1ad7bee7580f#egg=pgoapi
+./modules/pgoapi-master.zip
 protobuf==3.0.0b4
 pycryptodomex==3.4.2
 requests==2.10.0
