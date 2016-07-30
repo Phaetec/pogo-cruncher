@@ -5,8 +5,10 @@ RUN apk add --no-cache git gcc musl-dev && \
     mkdir /code
 
 WORKDIR /code
+RUN mkdir /code/modules
 
 COPY requirements.txt /code
+COPY modules/pgoapi-master.zip /code/modules
 
 RUN pip install -r requirements.txt
 
