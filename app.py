@@ -72,14 +72,14 @@ def get_pokemon():
 @app.route('/api/pokemon/delete', methods=['POST'])
 def delete_pokemon():
     deletion_candidates = request.json['ids']
+    global pokemon_deletion_amount
+    global deleted_pokemon
     if 'safe' not in request.json:
         for id in deletion_candidates:
             pokeapi.release_pokemon(pokemon_id=int(id))
         pokeapi.call()
     else:
-        global pokemon_deletion_amount
         pokemon_deletion_amount = len(deletion_candidates)
-        global deleted_pokemon
         deleted_pokemon = 0
         for id in deletion_candidates:
             pokeapi.release_pokemon(pokemon_id=int(id)).call()
@@ -87,9 +87,7 @@ def delete_pokemon():
             time.sleep(random.randint(200, 350)/100)
             print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
 
-    global pokemon_deletion_amount
     pokemon_deletion_amount = 0
-    global deleted_pokemon
     deleted_pokemon = 0
 
     return jsonify({'status': 'ok'})
