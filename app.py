@@ -75,10 +75,13 @@ def delete_pokemon():
             pokeapi.release_pokemon(pokemon_id=int(id))
         pokeapi.call()
     else:
+        pokemon_amount = len(deletion_candidates)
+        counter = 0
         for id in deletion_candidates:
             pokeapi.release_pokemon(pokemon_id=int(id)).call()
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
+            print('Deleted Pokemon %d out of %d'%(counter, pokemon_amount))
 
     return jsonify({'status': 'ok'})
 
