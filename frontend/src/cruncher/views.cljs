@@ -95,7 +95,7 @@
                                            (vlib/sortable-table-header :individual_stamina "IV Stamina")))
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
-             (let [jquery (js* "$")]
+             #_(let [jquery (js* "$")]
                (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
 
