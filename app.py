@@ -96,7 +96,7 @@ def delete_pokemon():
 
 
 
-@app.route('api/status/delete', methods=['GET'])
+@app.route('/api/status/delete', methods=['GET'])
 def deletion_status():
     return jsonify({'status':       'ok',
                     'to_delete':    pokemon_deletion_amount,
