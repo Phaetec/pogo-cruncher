@@ -77,7 +77,7 @@
 (defui PokeTable
   Object
   (render [this]
-    (dom/div nil
+    (dom/div #js {:id "poketable"}
              (dom/div nil (controls (om/props this)))
              (dom/br nil)
              (dom/table #js {:className "table table-hover"}
@@ -94,7 +94,9 @@
                                            (vlib/sortable-table-header :individual_defense "IV Defense")
                                            (vlib/sortable-table-header :individual_stamina "IV Stamina")))
                         (apply dom/tbody nil
-                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
+                               (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
+             (let [jquery (js* "$")]
+               (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
 
 
