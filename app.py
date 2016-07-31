@@ -13,6 +13,8 @@ app = Flask(__name__)
 CORS(app)
 
 pokeapi = pgoapi.PGoApi()
+deleted_pokemon = 0
+pokemon_deletion_amount = 0
 
 @app.errorhandler(404)
 def not_found(error):
@@ -75,17 +77,30 @@ def delete_pokemon():
             pokeapi.release_pokemon(pokemon_id=int(id))
         pokeapi.call()
     else:
-        pokemon_amount = len(deletion_candidates)
-        counter = 0
+        global pokemon_deletion_amount
+        pokemon_deletion_amount = len(deletion_candidates)
+        global deleted_pokemon
+        deleted_pokemon = 0
         for id in deletion_candidates:
             pokeapi.release_pokemon(pokemon_id=int(id)).call()
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
-            print('Deleted Pokemon %d out of %d'%(counter, pokemon_amount))
+            print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
+
+    global pokemon_deletion_amount
+    pokemon_deletion_amount = 0
+    global deleted_pokemon
+    deleted_pokemon = 0
 
     return jsonify({'status': 'ok'})
 
 
+
+@app.route('api/status/delete', methods=['GET'])
+def deletion_status():
+    return jsonify({'status':       'ok',
+                    'to_delete':    pokemon_deletion_amount,
+                    'deleted':      deleted_pokemon})
 
 # ----------------- Helper Functions
 
@@ -96,4 +111,4 @@ def get_pos_by_name(location_name):
     return (loc.latitude, loc.longitude, loc.altitude)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
