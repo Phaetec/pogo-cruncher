@@ -80,7 +80,7 @@ def delete_pokemon():
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
 
-    return jsonify({'status': 'finished'})
+    return jsonify({'status': 'ok'})
 
 
 
