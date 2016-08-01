@@ -30,15 +30,19 @@
 (defn query-status
   "Make ajax request to request status of the crunching-progress."
   []
-  (go (while true
+  (lib/progress! true)
+  (go (while (lib/progress?)
         (let [url (:status-delete config/api)
               progress (lib/get-progress-status)
               to-delete (:to-delete progress)
               deleted (:deleted progress)
               status (:status progress)]
-          (when (and (= status "ok") (not= to-delete deleted))
-            (<! (timeout 500))
-            (com/ajax-get url update-progress-handler error-handler))))))
+          (if (and (= status "ok") (not= to-delete deleted))
+            (do
+              (<! (timeout 500))
+              (lib/progress! true)
+              (com/ajax-get url update-progress-handler error-handler))
+            (lib/progress! false))))))
 
 (defui ProgressBar
   Object

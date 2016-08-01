@@ -10,10 +10,12 @@
                       :logged-in? false}
             :error   {:message nil}
             :info    {:message nil}
-            :app     {:loading? false
-                      :progress {:to-delete 100
-                                 :deleted   0
-                                 :status    "ok"}}}))
+            :app     {:loading?         false
+                      :progress         {:running   false
+                                         :to-delete 100
+                                         :deleted   0
+                                         :status    "ok"}
+                      :progress-running? false}}))
 
 (declare get-pokemon-by-id)
 
@@ -79,6 +81,10 @@
                          (fn [] {:status    (:status status)
                                  :to-delete (:to_delete status)
                                  :deleted   (:deleted status)})))})
+
+(defmethod mutate 'toggle/progress
+  [{:keys [state]} _ {:keys [status]}]
+  {:action (fn [] (swap! state update-in [:app :progress-running?] (fn [] status)))})
 
 (defonce reconciler
          (om/reconciler
@@ -185,6 +191,16 @@
   "Receives a map containing information about the progress status, which are then stored in the app-state."
   [response]
   (om/transact! reconciler `[(status/progress {:status ~response})]))
+
+(defn progress!
+  "Toggle progress bar."
+  [bool]
+  (om/transact! reconciler `[(toggle/progress {:status ~bool})]))
+
+(defn progress?
+  "Return bool if a progress is running."
+  []
+  (get-in @app-state [:app :progress-running?]))
 
 ;;;; State transitions
 (defn update-pokemon!
