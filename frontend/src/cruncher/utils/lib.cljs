@@ -45,7 +45,9 @@
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
-  {:action (fn [] (swap! state update-in [:pokemon] (fn [] (reverse (sort-by key (:pokemon @state))))))})
+  {:action (fn [] (swap! state update-in [:pokemon] (fn [] (reverse (sort-by key
+    (sort-by :individual_percentage
+      (reverse (sort-by :cp (:pokemon @state)))))))))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]

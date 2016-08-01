@@ -3,7 +3,7 @@ from pgoapi import pgoapi
 from pgoapi.exceptions import AuthException
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
-from flask import make_response, request, current_app
+from flask import make_response, request
 from flask_cors import CORS
 from geopy.exc import GeocoderServiceError
 import time
