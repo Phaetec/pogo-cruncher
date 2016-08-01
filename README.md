@@ -8,6 +8,11 @@ The tool runs locally on your PC and the Login-Details are not leaving your comp
 
 It is a work in progress, so please report all bugs to the issue page.
 
+# Developers / Maintainers
+Active Maintainers:
+* [n2o](https://github.com/n2o)
+* [Wegi](https://github.com/Wegi)
+
 ## Installation Setup for Windows user
 You can also use the Linux / MAC OS docker setup, but for unknown reasons it does not work properly for most windows users. So use instructions below.
 
@@ -20,7 +25,7 @@ You can also use the Linux / MAC OS docker setup, but for unknown reasons it doe
   6. Type `pip install -r requirements.txt`
   7. After this finishes you may start the cruncher as follows:
 
-### Windows Startup 
+### Windows Startup
   8. In the application folder type `python app.py`
   9. Now open the index.html in the folder with your preffered browser.
 
