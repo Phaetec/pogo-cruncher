@@ -4,6 +4,7 @@
             [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.main :as com]
+            [cruncher.communication.progress :as progress]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
@@ -122,6 +123,7 @@
                              (dom/strong nil "there is no possibility to get them back!!!"))
                      (dom/li nil "Enter a location near you to prevent a softban.")
                      (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour."))
+             (dom/div nil (progress/progress-bar (om/props this)))
              (dom/hr nil))))
 (def header (om/factory Header))
 
