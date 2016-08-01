@@ -6,6 +6,8 @@ from flask import make_response, request, current_app
 from flask_cors import CORS
 import time
 import random
+import logging
+import sys
 
 
 
@@ -15,6 +17,7 @@ CORS(app)
 pokeapi = pgoapi.PGoApi()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+
 
 @app.errorhandler(404)
 def not_found(error):
@@ -30,7 +33,7 @@ def login():
     position = get_pos_by_name(location)
 
     pokeapi.set_position(*position)
-    if not pokeapi.login(service, login_name, password):
+    if not pokeapi.login(service, login_name, password, app_simulation = True):
         return jsonify({'status': 'error',
                         'message': 'Failed to login. If the Pokemon GO Servers are online, your credentials may be wrong.'})
     else:
@@ -38,10 +41,11 @@ def login():
 
 @app.route('/api/pokemon', methods=['GET'])
 def get_pokemon():
-    pokeapi.get_inventory()
+    req = pokeapi.create_request()
+    req.get_inventory()
 
     # Make the Niantic API call
-    response_dict = pokeapi.call()
+    response_dict = req.call()
     if not response_dict:
         return jsonify({'status': 'error',
                         'message': 'Failed to retrieve Pokemon. The servers are probably down right now.'})
@@ -62,7 +66,7 @@ def get_pokemon():
                         'individual_attack':    pokemon.iv_att,
                         'individual_stamina':   pokemon.iv_sta,
                         'individual_defense':   pokemon.iv_def,
-                        'individual_percentage':pokemon.iv_percentage(),
+                        'individual_percentage':float(pokemon.iv_percentage()),
                         'health':               pokemon.stamina_max,
                         'cp':                   pokemon.cp,
                         'nickname':             pokemon.nickname,
@@ -76,15 +80,19 @@ def delete_pokemon():
     global deleted_pokemon
     if 'safe' not in request.json:
         for id in deletion_candidates:
-            pokeapi.release_pokemon(pokemon_id=int(id))
-        pokeapi.call()
+            req = pokeapi.create_request()
+            req.release_pokemon(pokemon_id=int(id))
+        req.call()
     else:
         pokemon_deletion_amount = len(deletion_candidates)
         deleted_pokemon = 0
         for id in deletion_candidates:
-            pokeapi.release_pokemon(pokemon_id=int(id)).call()
+            req = pokeapi.create_request()
+            req.release_pokemon(pokemon_id=int(id))
+            req.call()
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
+            deleted_pokemon += 1
             print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
 
     pokemon_deletion_amount = 0
