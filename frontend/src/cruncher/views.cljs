@@ -54,8 +54,7 @@
 (defui PokeTableEntry
   Object
   (render [this]
-    (let [pokemon (om/props this)
-          pokemon-db (lib/get-pokemon-by-id (:pokemon_id pokemon))]
+    (let [pokemon (om/props this)]
       (dom/tr nil
               (dom/td nil
                       (dom/div #js {:className "checkbox"}
@@ -64,7 +63,7 @@
                                                           :type      "checkbox"
                                                           :value     (:id pokemon)}))))
               (dom/td nil (:pokemon_id pokemon))
-              (dom/td nil (:name pokemon-db))
+              (dom/td nil (:name pokemon))
               (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
               (dom/td nil (:nickname pokemon))
               (dom/td nil (:cp pokemon))
@@ -86,7 +85,7 @@
                                    (dom/tr nil
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :pokemon_id "#")
-                                           (dom/th nil "Name") ;; TODO Sort by Name
+                                           (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :favorite "Favorite")
                                            (vlib/sortable-table-header :nickname "Nickname")
                                            (vlib/sortable-table-header :cp "CP")

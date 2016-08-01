@@ -12,6 +12,7 @@
             :info    {:message nil}
             :app     {:loading? false}}))
 
+(declare get-pokemon-by-id)
 
 ;;;; React compatibility
 (defonce counter (atom 0))
@@ -41,7 +42,9 @@
 
 (defmethod mutate 'update/pokemon
   [{:keys [state]} _ {:keys [pokemon]}]
-  {:action (fn [] (swap! state update-in [:pokemon] (fn [] pokemon)))})
+  (let [named-pokemon (map (fn [pokemap] (merge pokemap {:name (:name (get-pokemon-by-id (:pokemon_id pokemap)))})) pokemon)]
+        (cljs.pprint/pprint named-pokemon)
+    {:action (fn [] (swap! state update-in [:pokemon] (fn [] named-pokemon)))}))
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
