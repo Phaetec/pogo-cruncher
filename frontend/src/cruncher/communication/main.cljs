@@ -17,7 +17,7 @@
   "Generic error handler for ajax requests."
   [{:keys [status status-text]}]
   (lib/loading! false)
-  (.log js/console (str "I feel a disturbance in the Force... " status " " status-text)))
+  (.log js/console (str "Seems like you're not catching 'em all any more... " status " " status-text)))
 
 (defn success-handler
   "React on response after sending a new statement. Reset atom and call newly received url."
