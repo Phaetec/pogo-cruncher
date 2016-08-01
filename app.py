@@ -1,13 +1,13 @@
 from flask import Flask, make_response, jsonify, request
 from pgoapi import pgoapi
+from pgoapi.exceptions import AuthException
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
 from flask import make_response, request, current_app
 from flask_cors import CORS
+from geopy.exc import GeocoderServiceError
 import time
 import random
-import logging
-import sys
 
 
 
@@ -30,10 +30,21 @@ def login():
     service = request.json['service']
     password = request.json['password']
     location = request.json['location']
-    position = get_pos_by_name(location)
+    try:
+        position = get_pos_by_name(location)
+    except GeocoderServiceError:
+        return jsonify({'status':   'error',
+                        'message':  'Location could not be found, please try another one!'})
+
 
     pokeapi.set_position(*position)
-    if not pokeapi.login(service, login_name, password, app_simulation = True):
+    try:
+        logged_in = pokeapi.login(service, login_name, password, app_simulation=True)
+    except AuthException as e:
+        return jsonify({'status': 'error',
+                        'message': e.__str__()})
+
+    if not logged_in:
         return jsonify({'status': 'error',
                         'message': 'Failed to login. If the Pokemon GO Servers are online, your credentials may be wrong.'})
     else:
