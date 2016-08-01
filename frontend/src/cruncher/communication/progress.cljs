@@ -29,6 +29,7 @@
 
 (defn query-status
   "Make ajax request to request status of the crunching-progress."
+<<<<<<< da416801d037474fa44e000aeee4d19da7bd2c16
   [this]
   (lib/progress! true)
   (let [channel (chan)]
@@ -45,6 +46,22 @@
               (do (close! channel)
                   (lib/progress! false))))
           ))))
+=======
+  []
+  (lib/progress! true)
+  (go (while (lib/progress?)
+        (let [url (:status-delete config/api)
+              progress (lib/get-progress-status)
+              to-delete (:to-delete progress)
+              deleted (:deleted progress)
+              status (:status progress)]
+          (if (and (= status "ok") (not= to-delete deleted))
+            (do
+              (<! (timeout 500))
+              (lib/progress! true)
+              (com/ajax-get url update-progress-handler error-handler))
+            (lib/progress! false))))))
+>>>>>>> Add flat to kill async process
 
 (defui ProgressBar
   Object
