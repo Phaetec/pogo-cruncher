@@ -109,4 +109,4 @@ def get_pos_by_name(location_name):
     return (loc.latitude, loc.longitude, loc.altitude)
 
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True)
+    app.run(threaded=True)
