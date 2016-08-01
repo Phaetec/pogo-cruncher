@@ -7,6 +7,7 @@ class Pokemon(object):
         self.battles_attacked = pokemondict.get('battles_attacked', 0)
         self.battles_defended = pokemondict.get('battles_defended', 0)
         self.cp = pokemondict.get('cp', 0)
+        self.favorite = pokemondict.get('favorite', 0)
         self.captured_cell_id = pokemondict.get('captured_cell_id', 0)
         self.creation_time_ms = pokemondict.get('creation_time_ms', 0)
 
@@ -34,6 +35,10 @@ class Pokemon(object):
         self.weight_kg = pokemondict.get('weight_kg', 1)
         self.nickname = pokemondict.get('nickname', '')
 
+    def is_favorite(self):
+        if self.favorite == 1:
+            return True
+        return False
 
     def iv_percentage(self):
         score = self.iv_sta + self.iv_att + self.iv_def

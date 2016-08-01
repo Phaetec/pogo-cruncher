@@ -81,6 +81,7 @@ def get_pokemon():
                         'health':               pokemon.stamina_max,
                         'cp':                   pokemon.cp,
                         'nickname':             pokemon.nickname,
+                        'favorite':             pokemon.is_favorite(),
                     })
         return jsonify(answer)
 
