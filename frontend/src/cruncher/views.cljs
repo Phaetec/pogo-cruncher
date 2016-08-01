@@ -65,6 +65,7 @@
                                                           :value     (:id pokemon)}))))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon-db))
+              (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
               (dom/td nil (:nickname pokemon))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:health pokemon))
@@ -86,6 +87,7 @@
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :pokemon_id "#")
                                            (dom/th nil "Name") ;; TODO Sort by Name
+                                           (vlib/sortable-table-header :favorite "Favorite")
                                            (vlib/sortable-table-header :nickname "Nickname")
                                            (vlib/sortable-table-header :cp "CP")
                                            (vlib/sortable-table-header :health "Health")
