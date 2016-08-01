@@ -5,4 +5,5 @@
           :base "api/"
           :login "api/login"
           :get-all-pokemon "api/pokemon"
-          :crunch-selected-pokemon "api/pokemon/delete"})
+          :crunch-selected-pokemon "api/pokemon/delete"
+          :status-delete "api/status/delete"})
