@@ -11,7 +11,9 @@
             :error   {:message nil}
             :info    {:message nil}
             :app     {:loading? false
-                      :progress {}}}))
+                      :progress {:to-delete 100
+                                 :deleted   0
+                                 :status    "ok"}}}))
 
 (declare get-pokemon-by-id)
 
@@ -74,7 +76,8 @@
 (defmethod mutate 'status/progress
   [{:keys [state]} _ {:keys [status]}]
   {:action (fn [] (swap! state update-in [:app :progress]
-                         (fn [] {:to-delete (:to_delete status)
+                         (fn [] {:status    (:status status)
+                                 :to-delete (:to_delete status)
                                  :deleted   (:deleted status)})))})
 
 (defonce reconciler
