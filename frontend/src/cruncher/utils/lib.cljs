@@ -10,7 +10,8 @@
                       :logged-in? false}
             :error   {:message nil}
             :info    {:message nil}
-            :app     {:loading? false}}))
+            :app     {:loading? false
+                      :progress {}}}))
 
 (declare get-pokemon-by-id)
 
@@ -69,6 +70,12 @@
 (defmethod mutate 'user/logged-in
   [{:keys [state]} _ {:keys [status]}]
   {:action (fn [] (swap! state update-in [:user :logged-in?] (fn [] status)))})
+
+(defmethod mutate 'status/progress
+  [{:keys [state]} _ {:keys [status]}]
+  {:action (fn [] (swap! state update-in [:app :progress]
+                         (fn [] {:to-delete (:to_delete status)
+                                 :deleted   (:deleted status)})))})
 
 (defonce reconciler
          (om/reconciler
@@ -164,6 +171,17 @@
   []
   (get-in @app-state [:info :message]))
 
+
+;;;; Status information
+(defn get-progress-status
+  "Return map containing progress information."
+  []
+  (get-in @app-state [:app :progress]))
+
+(defn update-progress-status!
+  "Receives a map containing information about the progress status, which are then stored in the app-state."
+  [response]
+  (om/transact! reconciler `[(status/progress {:status ~response})]))
 
 ;;;; State transitions
 (defn update-pokemon!
