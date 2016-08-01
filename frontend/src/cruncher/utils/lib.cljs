@@ -25,6 +25,9 @@
             :info    {:message nil}
             :app     {:loading? false
                       :progress {}}}))
+<<<<<<< 2eacc09b925a97a5b015af1af1c5c0f3934e5388
+>>>>>>> Add reconciler function to store progress status
+=======
 >>>>>>> Add reconciler function to store progress status
 
 (declare get-pokemon-by-id)
@@ -87,6 +90,7 @@
 
 (defmethod mutate 'status/progress
   [{:keys [state]} _ {:keys [status]}]
+<<<<<<< 2eacc09b925a97a5b015af1af1c5c0f3934e5388
 <<<<<<< 010157a5406735dcd98fd6520b39944f79e7b6c1
   {:action (fn [] (swap! state update-in [:progress]
                          (fn [] {:status    (:status status)
@@ -98,10 +102,15 @@
   {:action (fn [] (swap! state update-in [:progress-running?] (fn [] status)))})
 
 =======
+=======
+>>>>>>> Add reconciler function to store progress status
   {:action (fn [] (swap! state update-in [:app :progress]
                          (fn [] {:to-delete (:to_delete status)
                                  :deleted   (:deleted status)})))})
 
+<<<<<<< 2eacc09b925a97a5b015af1af1c5c0f3934e5388
+>>>>>>> Add reconciler function to store progress status
+=======
 >>>>>>> Add reconciler function to store progress status
 (defonce reconciler
          (om/reconciler
@@ -219,6 +228,7 @@
   "Return bool if a progress is running."
   []
   (get-in @app-state [:progress-running?]))
+
 
 ;;;; State transitions
 (defn update-pokemon!
