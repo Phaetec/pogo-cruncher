@@ -1,25 +1,44 @@
 (ns cruncher.communication.progress
   "Functions concerning the progress bar."
-  (:require [om.next :as om :refer-macros [defui]]
+  (:require [cljs.core.async :refer [chan close! <!]]
+            [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
-            [goog.dom :as gdom]
-            [cruncher.communication.auth :as auth]
             [cruncher.communication.main :as com]
             [cruncher.config :as config]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
-            [cruncher.utils.views :as vlib]))
+            [cruncher.utils.views :as vlib])
+  (:require-macros [cljs.core.async.macros :as m :refer [go]]))
+
+(defn timeout [ms]
+  (let [c (chan)]
+    (js/setTimeout (fn [] (close! c)) ms)
+    c))
 
 (defn update-progress-handler
   "Set new app state with the progress information from the API."
   [response]
+  (lib/no-error!)
   (lib/update-progress-status! (com/process-response response)))
+
+(defn error-handler
+  "Show some information to the user if something went wrong."
+  [response]
+  (let [res (com/process-response response)]
+    (lib/error! (str "API is not responding while crunching the pokemon... " (:status res)))))
 
 (defn query-status
   "Make ajax request to request status of the crunching-progress."
   []
-  (let [url (:status-delete config/api)]
-    (com/ajax-get url update-progress-handler)))
+  (go (while true
+        (let [url (:status-delete config/api)
+              progress (lib/get-progress-status)
+              to-delete (:to-delete progress)
+              deleted (:deleted progress)
+              status (:status progress)]
+          (when (and (= status "ok") (not= to-delete deleted))
+            (<! (timeout 500))
+            (com/ajax-get url update-progress-handler error-handler))))))
 
 (defui ProgressBar
   Object
