@@ -9,6 +9,8 @@
 * Several bug fixes
 * Minor text fixes
 * Add a testserver for developers
+* Select all but favorite Pokemon
+* Select all Pokemon below a specified IV threshold
 
 ## 0.1
 * Initial release

@@ -5,18 +5,30 @@
 This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.  
 The tool runs locally on your PC and the Login-Details are not leaving your computer. Feel free to check the source code or contribute.
 
-*This tool is not an official production of Niantic or the Pokemon Company. Use at own risk*
+*This tool is not an official production of Niantic or the Pokemon Company. Use at own risk.*
 
 ![Screenshot of PoGo-Cruncher](screenshot.png)
 
 It is a work in progress, so please report all bugs to the issue page.
 
-# Developers / Maintainers
-Active Maintainers:
-* [n2o](https://github.com/n2o)
-* [Wegi](https://github.com/Wegi)
+## New Features
+  * Progress bar
+  * Select all Pokemon except your favorites
 
-## Installation Setup for Windows user
+For more upcoming features, see the
+[Changelog](https://github.com/Phaetec/pogo-cruncher/blob/master/CHANGELOG.md),
+[Milestones](https://github.com/Phaetec/pogo-cruncher/milestones) and
+[Issues](https://github.com/Phaetec/pogo-cruncher/issues).
+
+## Developers / Maintainers
+Active Maintainers:
+  * [n2o](https://github.com/n2o)
+  * [Wegi](https://github.com/Wegi)
+
+
+## Installation
+
+### Setup for Windows Users
 You can also use the Linux / MAC OS docker setup, but for unknown reasons it does not work properly for most windows users. So use instructions below.
 
   1. Install [Python 3](https://www.python.org/downloads/).
@@ -28,11 +40,11 @@ You can also use the Linux / MAC OS docker setup, but for unknown reasons it doe
   6. Type `pip install -r requirements.txt`
   7. After this finishes you may start the cruncher as follows:
 
-### Windows Startup
+#### Windows Startup
   8. In the application folder type `python app.py`
   9. Now open the index.html in the folder with your preffered browser.
 
-## Installation Setup for Linux / MAC OS with Docker
+### Setup for Linux / Mac OS X with Docker
 Requirements:
   * docker
 
@@ -54,7 +66,7 @@ Open a Terminal and enter the pogo-cruncher directory, then do build the app via
 $ docker-compose build
 ```
 
-### Run Pogo-Cruncher
+#### Run Pogo-Cruncher
 Open a Terminal and enter the pogo-cruncher directory, then start the app via:
 ```bash
 $ docker-compose up
@@ -63,7 +75,7 @@ Now the app is up and running. Access it on [localhost:8888](http://localhost:88
 You can stop the app by closing the terminal.
 
 
-## Setup for dev-users
+### Setup for dev-users
 Requirements:
   * python3
   * bower
