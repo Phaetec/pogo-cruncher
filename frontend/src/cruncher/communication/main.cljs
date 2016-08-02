@@ -29,12 +29,13 @@
 ;;;; Requests
 (defn ajax-get
   "Make ajax call to defined server in config."
-  ([url success-handler error-handler]
-   (lib/loading!)
+  ([url success-handler error-handler toggle-loading?]
+   (when toggle-loading?
+     (lib/loading!))
    (GET (clib/make-url url)
         {:handler       success-handler
          :error-handler error-handler}))
-  ([url success-handler] (ajax-get url success-handler error-handler))
+  ([url success-handler] (ajax-get url success-handler error-handler true))
   ([url] (ajax-get url success-handler)))
 
 
