@@ -109,7 +109,7 @@ def delete_pokemon():
     invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
 
     if 'safe' not in request.json:
-        while(deletion_candidates):
+        while(len(deletion_candidates) != 0):
             invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
             for count, item in enumerate(invlist):
                 if 'pokemon_data' in item['inventory_item_data']:
@@ -119,10 +119,11 @@ def delete_pokemon():
                             data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
                             deletion_candidates.remove(str(item['inventory_item_data']['pokemon_data']['id']))
                             break
+        print("Done deleting")
     else:
         pokemon_deletion_amount = len(deletion_candidates)
         deleted_pokemon = 0
-        while(deletion_candidates):
+        while(len(deletion_candidates) != 0):
             invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
             for count, item in enumerate(invlist):
                 if 'pokemon_data' in item['inventory_item_data']:
@@ -135,6 +136,7 @@ def delete_pokemon():
                             print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
                             time.sleep(random.randint(200, 350)/100)
                             break
+        print("Done deleting")
 
     pokemon_deletion_amount = 0
     deleted_pokemon = 0
