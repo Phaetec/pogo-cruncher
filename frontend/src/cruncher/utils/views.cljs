@@ -16,7 +16,7 @@
   [fn & strs]
   (dom/button #js {:className "btn btn-primary"
                    :onClick   fn
-                   :disabled  (lib/loading?)
+                   :disabled  (or (lib/loading?) (lib/progress?))
                    :react-key (lib/get-unique-key)}
               strs))
 
@@ -51,7 +51,7 @@
   ; "Spinning icon to indicate if there is data being transferred."
   Object
   (render [this]
-    (when (lib/loading?)
+    (when (or (lib/loading?) (lib/progress?))
       (dom/div #js {:style #js {:paddingTop "2em"}}
                (fa-icon "fa-circle-o-notch fa-spin fa-fw")
                " Loading..."))))
