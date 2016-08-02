@@ -5,12 +5,12 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t pogo-cruncher/frontend frontend/.
+    # - docker build -t pogo-cruncher/frontend frontend/.
     - docker build -t pogo-cruncher/backend .
 
 test:
   override:
-    - docker run -d pogo-cruncher/frontend; sleep 15
+    # - docker run -d pogo-cruncher/frontend; sleep 15
     - docker run -d pogo-cruncher/backend; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:8888
+    # - curl --retry 10 --retry-delay 5 -v http://localhost:8888
     - curl --retry 10 --retry-delay 5 -v http://localhost:5000
