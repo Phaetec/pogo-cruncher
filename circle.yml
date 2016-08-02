@@ -8,7 +8,7 @@ dependencies:
     # - docker build -t pogo-cruncher/frontend frontend/.
     # - docker build -t pogo-cruncher/backend .
     - sudo pip install docker-compose
-    - docker-compose build .
+    - docker-compose build
 
 test:
   override:
