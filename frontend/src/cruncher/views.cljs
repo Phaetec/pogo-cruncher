@@ -18,7 +18,7 @@
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              " "
-             (vlib/button-primary #(shredder/power-on) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
+             (vlib/button-primary #(shredder/power-on this) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
 (def controls (om/factory Controls))
 
 
@@ -123,7 +123,6 @@
                              (dom/strong nil "there is no possibility to get them back!!!"))
                      (dom/li nil "Enter a location near you to prevent a softban.")
                      (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour."))
-             (dom/div nil (progress/progress-bar (om/props this)))
              (dom/hr nil))))
 (def header (om/factory Header))
 
@@ -204,6 +203,7 @@
              (dom/div nil (header (om/props this)))
              (dom/div nil (error-message (om/props this)))
              (dom/div nil (info-message (om/props this)))
+             (dom/div nil (progress/progress-bar (om/props this)))
              (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
