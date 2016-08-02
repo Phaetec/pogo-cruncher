@@ -13,12 +13,13 @@
 
 (defn button-primary
   "Create dom element of a bootstrap primary button."
-  [fn & strs]
-  (dom/button #js {:className "btn btn-primary"
-                   :onClick   fn
-                   :disabled  (or (lib/loading?) (lib/progress?))
-                   :react-key (lib/get-unique-key)}
-              strs))
+  ([fn not-empty? str]
+   (dom/button #js {:className "btn btn-primary"
+                    :onClick   fn
+                    :disabled  (or (lib/loading?) (lib/progress?) (not not-empty?))
+                    :react-key (lib/get-unique-key)}
+               str))
+  ([fn str] (button-primary fn true str)))
 
 (defn fa-icon
   "Wrapper for font-awesome icons."
