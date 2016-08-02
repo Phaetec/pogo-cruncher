@@ -183,11 +183,6 @@
 
 
 ;;;; Status information
-(defn get-progress-status
-  "Return map containing progress information."
-  []
-  (get-in @app-state [:app :progress]))
-
 (defn update-progress-status!
   "Receives a map containing information about the progress status, which are then stored in the app-state."
   [response]
