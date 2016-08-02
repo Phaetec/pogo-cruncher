@@ -114,6 +114,7 @@
    (om/transact! reconciler `[(user/logged-in {:status ~bool})]))
   ([] (logged-in! true)))
 
+
 ;;;; About views
 (defn current-view
   "Return current selected view."
@@ -135,6 +136,7 @@
   ([bool]
    (om/transact! reconciler `[(app/loading {:status ~bool})]))
   ([] (loading! true)))
+
 
 ;;;; Error messages
 (defn error?
