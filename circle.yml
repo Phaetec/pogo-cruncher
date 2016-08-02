@@ -8,7 +8,6 @@ dependencies:
     - docker build -t pogo-cruncher/frontend frontend/.
     - docker build -t pogo-cruncher/backend .
 
-
 test:
   override:
     - docker run -d pogo-cruncher/frontend; sleep 15
