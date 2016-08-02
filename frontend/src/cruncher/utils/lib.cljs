@@ -5,6 +5,7 @@
 
 (defonce app-state
          (atom
+<<<<<<< 010157a5406735dcd98fd6520b39944f79e7b6c1
            {:pokemon           []
             :user              {:view       :default
                                 :logged-in? false}
@@ -16,6 +17,15 @@
                                 :deleted   0
                                 :status    "ok"}
             :progress-running? false}))
+=======
+           {:pokemon []
+            :user    {:view       :default
+                      :logged-in? false}
+            :error   {:message nil}
+            :info    {:message nil}
+            :app     {:loading? false
+                      :progress {}}}))
+>>>>>>> Add reconciler function to store progress status
 
 (declare get-pokemon-by-id)
 
@@ -77,6 +87,7 @@
 
 (defmethod mutate 'status/progress
   [{:keys [state]} _ {:keys [status]}]
+<<<<<<< 010157a5406735dcd98fd6520b39944f79e7b6c1
   {:action (fn [] (swap! state update-in [:progress]
                          (fn [] {:status    (:status status)
                                  :to_delete (:to_delete status)
@@ -86,6 +97,12 @@
   [{:keys [state]} _ {:keys [status]}]
   {:action (fn [] (swap! state update-in [:progress-running?] (fn [] status)))})
 
+=======
+  {:action (fn [] (swap! state update-in [:app :progress]
+                         (fn [] {:to-delete (:to_delete status)
+                                 :deleted   (:deleted status)})))})
+
+>>>>>>> Add reconciler function to store progress status
 (defonce reconciler
          (om/reconciler
            {:state  app-state
@@ -183,6 +200,11 @@
 
 
 ;;;; Status information
+(defn get-progress-status
+  "Return map containing progress information."
+  []
+  (get-in @app-state [:app :progress]))
+
 (defn update-progress-status!
   "Receives a map containing information about the progress status, which are then stored in the app-state."
   [response]
