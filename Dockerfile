@@ -7,14 +7,14 @@ RUN apk add --no-cache git gcc musl-dev && \
 WORKDIR /code
 RUN mkdir /code/modules
 
-ADD requirements.txt /code
+ADD . /code
 ADD modules/pgoapi-master.zip /code/modules
 
 RUN ls -al /code
 RUN pip install -r requirements.txt
 
-COPY app.py /code
-COPY backend /code/backend
+# COPY app.py /code
+# COPY backend /code/backend
 
 EXPOSE 5000
 ENV FLASK_APP /code/app.py
