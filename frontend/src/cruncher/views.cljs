@@ -18,7 +18,10 @@
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              " "
-             (vlib/button-primary #(shredder/power-on this) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))))
+             (vlib/button-primary #(shredder/power-on this) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")
+             (dom/br nil)
+             (dom/br nil)
+             (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
 
 
@@ -203,7 +206,6 @@
              (dom/div nil (header (om/props this)))
              (dom/div nil (error-message (om/props this)))
              (dom/div nil (info-message (om/props this)))
-             (dom/div nil (progress/progress-bar (om/props this)))
              (view-dispatcher this)
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
