@@ -6,8 +6,7 @@
             [cruncher.communication.main :as com]
             [cruncher.config :as config]
             [cruncher.utils.extensions]
-            [cruncher.utils.lib :as lib]
-            [cruncher.utils.views :as vlib])
+            [cruncher.utils.lib :as lib])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
 (defn timeout [ms]
@@ -51,13 +50,12 @@
     (let [{:keys [progress]} (om/props this)
           to-delete (:to_delete progress)
           deleted (:deleted progress)
-          status (:status progress)
           percent (* 100 (/ deleted to-delete))]
       (dom/div nil
                (dom/div #js {:id        "progress-bar"
                              :className "progress"}
                         (dom/div #js {:className     (str "progress-bar progress-bar-striped"
-                                                          (when (and (zero? to-delete) (zero? deleted) (not (lib/progress?))) " progress-bar-success")
+                                                          (when (and (zero? to-delete) (zero? deleted) (not (lib/progress?))) " progress-bar-success ")
                                                           (when (lib/progress?) " active"))
                                       :role          "progressbar"
                                       :aria-valuenow percent
