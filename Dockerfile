@@ -8,7 +8,7 @@ WORKDIR /code
 RUN mkdir /code/modules
 
 ADD . /code
-ADD modules/pgoapi-master.zip /code/modules
+# ADD modules/pgoapi-master.zip /code/modules
 
 RUN ls -al /code
 RUN pip install -r requirements.txt
