@@ -9,7 +9,7 @@ RUN mkdir /code/modules
 RUN ls -al /code
 
 COPY requirements.txt /code/
-COPY modules/pgoapi-master.zip /code/modules
+# COPY modules/pgoapi-master.zip /code/modules
 
 RUN pip install -r requirements.txt
 
