@@ -29,36 +29,35 @@
 
 (defn query-status
   "Make ajax request to request status of the crunching-progress."
-  []
+  [this]
   (lib/progress! true)
-  (go (while (lib/progress?)
-        (let [url (:status-delete config/api)
-              progress (lib/get-progress-status)
-              to-delete (:to-delete progress)
-              deleted (:deleted progress)
-              status (:status progress)]
-          (if (and (= status "ok") (not= to-delete deleted))
-            (do
-              (<! (timeout 500))
-              (lib/progress! true)
-              (com/ajax-get url update-progress-handler error-handler))
-            (lib/progress! false))))))
+  (let [channel (chan)]
+    (go (loop [_ 1]
+          (let [{:keys [progress]} (om/props this)
+                to-delete (:to_delete progress)
+                deleted (:deleted progress)
+                status (:status progress)]
+            (if (and (< deleted to-delete)
+                     (= status "ok"))
+              (do (<! (timeout 1000))
+                  (com/ajax-get (:status-delete config/api) update-progress-handler error-handler)
+                  (recur 1))
+              (do (close! channel)
+                  (lib/progress! false))))
+          ))))
 
 (defui ProgressBar
   Object
   (render [this]
-    (let [progress (lib/get-progress-status)
-          to-delete (:to-delete progress)
+    ;;(when (lib/progress?))
+    (let [{:keys [progress]} (om/props this)
+          to-delete (:to_delete progress)
           deleted (:deleted progress)
           percent (* 100 (/ deleted to-delete))]
       (dom/div nil
-               (vlib/button-primary #(println (lib/get-progress-status)) "Get progress status")
-               " "
-               (vlib/button-primary #(query-status) "Query")
-               (dom/br nil)
-               (dom/br nil)
-               (dom/div #js {:className "progress"}
-                        (dom/div #js {:className     "progress-bar progress-bar-striped active"
+               (dom/div #js {:id        "progress-bar"
+                             :className "progress"}
+                        (dom/div #js {:className     (str "progress-bar progress-bar-striped active" (when (and (zero? to-delete) (zero? deleted) (not (lib/progress?))) " progress-bar-success"))
                                       :role          "progressbar"
                                       :aria-valuenow percent
                                       :aria-valuemin 0
