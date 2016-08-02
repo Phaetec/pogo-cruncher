@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t pogo-cruncher/frontend frontend/.
+
+test:
+  override:
+    - docker run -d -p 8888:8888 pogo-cruncher/frontend; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:8888
