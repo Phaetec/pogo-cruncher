@@ -10,6 +10,17 @@
             [cruncher.utils.lib :as lib]
             [cruncher.utils.views :as vlib]))
 
+;;;; Selections
+(defn select-all-but-favorite
+  []
+  (let [rows (gdom/getElementsByClass "poketable-row")]
+    (doall (map (fn [row]
+                  (let [id (.getAttribute row "data-id")
+                        favorite (.getAttribute row "data-favorite")
+                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                    (when-not (= "true" favorite)
+                      (set! (.. checkbox -checked) true)))) rows))))
+
 ;;;; Controls
 (defui Controls
   Object
@@ -18,7 +29,9 @@
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              " "
-             (vlib/button-primary #(shredder/power-on this) (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")
+             (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
+             " "
+             (vlib/button-primary select-all-but-favorite "Select all but favorite")
              (dom/br nil)
              (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
@@ -54,18 +67,24 @@
                (lib/get-info)))))
 (def info-message (om/factory InfoMessage))
 
+
 ;;;; Poketable
 (defui PokeTableEntry
   Object
   (render [this]
     (let [pokemon (om/props this)]
-      (dom/tr nil
+      (dom/tr #js {:id            (str "poketable-row-" (:id pokemon))
+                   :className     "poketable-row"
+                   :data-favorite (:favorite pokemon)
+                   :data-id       (:id pokemon)
+                   :data-iv-perfect (:individual_percentage pokemon)}
               (dom/td nil
-                      (dom/div #js {:className "checkbox"}
-                               (dom/label nil
-                                          (dom/input #js {:className "poketable-checkbox"
-                                                          :type      "checkbox"
-                                                          :value     (:id pokemon)}))))
+                      (dom/div #js {:className "checkbox"})
+                      (dom/label nil
+                                 (dom/input #js {:id        (str "poketable-checkbox-" (:id pokemon))
+                                                 :className "poketable-checkbox"
+                                                 :type      "checkbox"
+                                                 :value     (:id pokemon)})))
               (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon))
