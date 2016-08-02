@@ -101,7 +101,7 @@
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
              #_(let [jquery (js* "$")]
-               (.stickyTableHeaders (jquery "#poketable"))))))
+                 (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
 
 
@@ -151,6 +151,16 @@
                                        :name    "google-ptc-switch"})
                        "Pokemon Trainer Club")))
 
+(defn validate-login-button
+  "Show Login button and disable it when one of these fields is empty."
+  [email password location service]
+  (let [not-empty? (and
+                     (pos? (count email))
+                     (pos? (count password))
+                     (pos? (count location))
+                     (pos? (count service)))]
+    (vlib/button-primary #(auth/login email password location service) not-empty? "Login")))
+
 (defui Login
   Object
   (render [this]
@@ -187,7 +197,7 @@
                                                             :value       location
                                                             :placeholder "Düsseldorf, Germany"}))
                                    (google-ptc-switch this)
-                                   (vlib/button-primary #(auth/login email password location service) "Login"))))))))
+                                   (validate-login-button email password location service))))))))
 (def login (om/factory Login))
 
 (defn view-dispatcher
