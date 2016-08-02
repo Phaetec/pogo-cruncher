@@ -40,7 +40,7 @@
             (if (and (< deleted to-delete)
                      (= status "ok"))
               (do (<! (timeout 1000))
-                  (com/ajax-get (:status-delete config/api) update-progress-handler error-handler)
+                  (com/ajax-get (:status-delete config/api) update-progress-handler error-handler false)
                   (recur 1))
               (do (close! channel)
                   (lib/progress! false))))))))
@@ -51,11 +51,14 @@
     (let [{:keys [progress]} (om/props this)
           to-delete (:to_delete progress)
           deleted (:deleted progress)
+          status (:status progress)
           percent (* 100 (/ deleted to-delete))]
       (dom/div nil
                (dom/div #js {:id        "progress-bar"
                              :className "progress"}
-                        (dom/div #js {:className     (str "progress-bar progress-bar-striped active" (when (and (zero? to-delete) (zero? deleted) (not (lib/progress?))) " progress-bar-success"))
+                        (dom/div #js {:className     (str "progress-bar progress-bar-striped"
+                                                          (when (and (zero? to-delete) (zero? deleted) (not (lib/progress?))) " progress-bar-success")
+                                                          (when (lib/progress?) " active"))
                                       :role          "progressbar"
                                       :aria-valuenow percent
                                       :aria-valuemin 0
