@@ -43,7 +43,6 @@
 (defmethod mutate 'update/pokemon
   [{:keys [state]} _ {:keys [pokemon]}]
   (let [named-pokemon (map (fn [pokemap] (merge pokemap {:name (:name (get-pokemon-by-id (:pokemon_id pokemap)))})) pokemon)]
-        (cljs.pprint/pprint named-pokemon)
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] named-pokemon)))}))
 
 (defmethod mutate 'sort/pokemon
