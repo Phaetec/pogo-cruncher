@@ -88,9 +88,9 @@
                         (dom/thead nil
                                    (dom/tr nil
                                            (dom/th nil "")
+                                           (vlib/sortable-table-header :favorite "Fav.")
                                            (vlib/sortable-table-header :pokemon_id "#")
                                            (vlib/sortable-table-header :name "Name")
-                                           (vlib/sortable-table-header :favorite "Favorite")
                                            (vlib/sortable-table-header :nickname "Nickname")
                                            (vlib/sortable-table-header :cp "CP")
                                            (vlib/sortable-table-header :health "Health")
