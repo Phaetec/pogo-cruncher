@@ -106,27 +106,35 @@ def delete_pokemon():
     global data
 
     print('In Deletion process')
-    invlist = data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
 
     if 'safe' not in request.json:
-        for count, item in enumerate(invlist):
-            if 'pokemon_data' in item['inventory_item_data']:
-                # Eggs are treated as pokemon by Niantic.
-                if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
-                    if str(item['inventory_item_data']['pokemon_data']['id']) in deletion_candidates:
-                        data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
+        while(deletion_candidates):
+            invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+            for count, item in enumerate(invlist):
+                if 'pokemon_data' in item['inventory_item_data']:
+                    # Eggs are treated as pokemon by Niantic.
+                    if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                        if str(item['inventory_item_data']['pokemon_data']['id']) in deletion_candidates:
+                            data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
+                            deletion_candidates.remove(str(item['inventory_item_data']['pokemon_data']['id']))
+                            break
     else:
         pokemon_deletion_amount = len(deletion_candidates)
         deleted_pokemon = 0
-        for count, item in enumerate(invlist):
-            if 'pokemon_data' in item['inventory_item_data']:
-                # Eggs are treated as pokemon by Niantic.
-                if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
-                    if str(item['inventory_item_data']['pokemon_data']['id']) in deletion_candidates:
-                        data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
-                        deleted_pokemon += 1
-                        print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
-                        time.sleep(random.randint(200, 350)/100)
+        while(deletion_candidates):
+            invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+            for count, item in enumerate(invlist):
+                if 'pokemon_data' in item['inventory_item_data']:
+                    # Eggs are treated as pokemon by Niantic.
+                    if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                        if str(item['inventory_item_data']['pokemon_data']['id']) in deletion_candidates:
+                            data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
+                            deletion_candidates.remove(str(item['inventory_item_data']['pokemon_data']['id']))
+                            deleted_pokemon += 1
+                            print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
+                            time.sleep(random.randint(200, 350)/100)
+                            break
 
     pokemon_deletion_amount = 0
     deleted_pokemon = 0
