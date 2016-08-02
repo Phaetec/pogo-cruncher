@@ -5,6 +5,10 @@
 
 ## WIP 0.2
 * Add progress bar to indicate the crunching progress
+* Fix numerical sorting of IV%
+* Several bug fixes
+* Minor text fixes
+* Add a testserver for developers
 
 ## 0.1
 * Initial release
