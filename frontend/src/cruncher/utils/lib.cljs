@@ -5,17 +5,17 @@
 
 (defonce app-state
          (atom
-           {:pokemon []
-            :user    {:view       :default
-                      :logged-in? false}
-            :error   {:message nil}
-            :info    {:message nil}
-            :app     {:loading?         false
-                      :progress         {:running   false
-                                         :to-delete 100
-                                         :deleted   0
-                                         :status    "ok"}
-                      :progress-running? false}}))
+           {:pokemon           []
+            :user              {:view       :default
+                                :logged-in? false}
+            :error             {:message nil}
+            :info              {:message nil}
+            :app               {:loading? false}
+            :progress          {:running   false
+                                :to_delete 100
+                                :deleted   0
+                                :status    "ok"}
+            :progress-running? false}))
 
 (declare get-pokemon-by-id)
 
@@ -77,19 +77,20 @@
 
 (defmethod mutate 'status/progress
   [{:keys [state]} _ {:keys [status]}]
-  {:action (fn [] (swap! state update-in [:app :progress]
+  {:action (fn [] (swap! state update-in [:progress]
                          (fn [] {:status    (:status status)
-                                 :to-delete (:to_delete status)
+                                 :to_delete (:to_delete status)
                                  :deleted   (:deleted status)})))})
 
 (defmethod mutate 'toggle/progress
   [{:keys [state]} _ {:keys [status]}]
-  {:action (fn [] (swap! state update-in [:app :progress-running?] (fn [] status)))})
+  {:action (fn [] (swap! state update-in [:progress-running?] (fn [] status)))})
 
 (defonce reconciler
          (om/reconciler
            {:state  app-state
             :parser (om/parser {:read read :mutate mutate})}))
+
 
 ;;;; Get stuff
 (defn inventory-pokemon
@@ -182,11 +183,6 @@
 
 
 ;;;; Status information
-(defn get-progress-status
-  "Return map containing progress information."
-  []
-  (get-in @app-state [:app :progress]))
-
 (defn update-progress-status!
   "Receives a map containing information about the progress status, which are then stored in the app-state."
   [response]
@@ -200,7 +196,7 @@
 (defn progress?
   "Return bool if a progress is running."
   []
-  (get-in @app-state [:app :progress-running?]))
+  (get-in @app-state [:progress-running?]))
 
 ;;;; State transitions
 (defn update-pokemon!
