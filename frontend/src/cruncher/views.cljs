@@ -63,9 +63,9 @@
                                           (dom/input #js {:className "poketable-checkbox"
                                                           :type      "checkbox"
                                                           :value     (:id pokemon)}))))
+              (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon))
-              (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
               (dom/td nil (:nickname pokemon))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:health pokemon))
