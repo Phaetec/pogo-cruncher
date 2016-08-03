@@ -162,7 +162,7 @@ def favorite_pokemon():
     :return: Returns status ok if there were no errors.
     """
     pokemon_id = int(request.json['id'])
-    set_favorite = request.json['is_favorite']
+    set_favorite = request.json['set_favorite']
     global data
     for count, item in enumerate(data):
         if 'pokemon_data' in item['inventory_item_data']:
