@@ -171,7 +171,7 @@ def favorite_pokemon():
             if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                 if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
                     data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'] = set_favorite
-                    print("Pokemon favorite status has been set to " + 
+                    print("Pokemon favorite status has been set to " +
                         data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'])
                     break
 
