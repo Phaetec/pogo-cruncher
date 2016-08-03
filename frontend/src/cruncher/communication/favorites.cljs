@@ -7,13 +7,14 @@
 
 (defn success-handler [response]
   (let [res (com/process-response response)]
-    (println "success")
-    (println res)))
+    (let [col (map-indexed vector (get-in @lib/app-state [:pokemon]))
+          [index] (doall (for [[index pokemon] col :when (= (:id pokemon) (:id res))] index))
+          new-col (update-in (vec (get-in @lib/app-state [:pokemon])) [index :favorite] (constantly (:set_favorite res)))]
+      (lib/update-pokemon! new-col))))
 
 (defn error-handler [response]
   (let [res (com/process-response response)]
-    (println "error")
-    (println res)))
+    (lib/error! (:message res))))
 
 (defn post-favorite
   "Get cleaned data and send ajax request."
@@ -32,5 +33,4 @@
 (defn toggle-favorite
   "Mark / Unmark Pokemon as favorite."
   [id favorite]
-  (post-favorite id (not favorite))
-  )
+  (post-favorite id (not favorite)))

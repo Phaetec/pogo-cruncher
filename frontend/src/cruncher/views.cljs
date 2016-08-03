@@ -12,6 +12,13 @@
             [cruncher.utils.lib :as lib]
             [cruncher.utils.views :as vlib]))
 
+;;;; Auxiliary
+(defn favorite-td [id favorite]
+  (dom/span #js {:className "pointer"
+                 :onClick   #(favorites/toggle-favorite id favorite)}
+            (if favorite (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o"))))
+
+
 ;;;; Controls
 (defui Controls
   Object
@@ -59,10 +66,6 @@
 
 
 ;;;; Poketable
-(defn favorite-td [id favorite]
-  (dom/span #js {:onClick #(favorites/toggle-favorite id favorite)}
-            (if favorite (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o"))))
-
 (defui PokeTableEntry
   Object
   (render [this]
