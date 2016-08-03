@@ -3,6 +3,7 @@
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
+            [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
             [cruncher.selections :as selections]
@@ -58,6 +59,10 @@
 
 
 ;;;; Poketable
+(defn favorite-td [id favorite]
+  (dom/span #js {:onClick #(favorites/toggle-favorite id favorite)}
+            (if favorite (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o"))))
+
 (defui PokeTableEntry
   Object
   (render [this]
@@ -75,7 +80,7 @@
                                                  :className "poketable-checkbox"
                                                  :type      "checkbox"
                                                  :value     (:id pokemon)})))
-              (dom/td nil (if (:favorite pokemon) (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o")))
+              (dom/td nil (favorite-td (:id pokemon) (:favorite pokemon)))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (:name pokemon))
               (dom/td nil (:nickname pokemon))
