@@ -1,9 +1,7 @@
 FROM clojure:alpine
 MAINTAINER Christian Meter <cmeter@googlemail.com>
 
-ENV FLASK_APP /code/app.py
-
-RUN apk add --no-cache nodejs ruby git python python3 python3-dev gcc musl-dev && \
+RUN apk add --no-cache nodejs ruby git supervisor python python3 python3-dev gcc musl-dev && \
     (gem install sass; exit 0) && \
     npm install bower -g && \
     mkdir /code
@@ -24,8 +22,8 @@ RUN cd /code/frontend && \
     sass css/style.sass css/style.css --style compressed && \
     rm -rf .sass-cache
 
-WORKDIR /code/frontend/resources/public
+COPY supervisord.conf /etc/supervisord.conf
 
 # Start SimpleHTTPServer to serve application
 EXPOSE 8888 5000
-CMD python -m SimpleHTTPServer 8888 & flask run --host=0.0.0.0 &
+CMD ["/usr/bin/supervisord"]
