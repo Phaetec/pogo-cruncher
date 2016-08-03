@@ -28,9 +28,6 @@
 (defn unselect-all []
   (mass-selections "data-id" 0 not= false))
 
-(defn select-all []
-  (mass-selections "data-id" 0 < true))
-
 (defn select-below-iv-threshold [percentage]
   (mass-selections "data-iv-perfect" percentage > true))
 
@@ -81,7 +78,6 @@
                       (dom/div #js {:className "col-md-6"}
                                (dom/label #js {:className "control-label"} "Clicking a button always overrides manual selections")
                                (dom/br nil)
-                               (vlib/button-default select-all "Select all")
                                (vlib/button-default unselect-all "Unselect all")
                                (vlib/button-default select-all-but-favorite "Select all but favorite"))
                       (dom/div #js {:className "col-md-3"}
