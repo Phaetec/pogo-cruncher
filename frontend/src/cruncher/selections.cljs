@@ -49,7 +49,7 @@
                                         :placeholder "42"})
                         (dom/span #js {:className "input-group-addon"} "%")
                         (dom/span #js {:className "input-group-btn"}
-                                  (vlib/button-default #(select-below-iv-perfect percentage) "Select")))))))
+                                  (vlib/button-default #(select-below-iv-perfect percentage) (not (js/isNaN (js/parseFloat percentage))) "Select")))))))
 (def iv-percentage (om/factory IVPercentage))
 
 (defui SelectionButtons
