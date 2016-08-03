@@ -164,15 +164,17 @@ def favorite_pokemon():
     pokemon_id = int(request.json['id'])
     set_favorite = request.json['set_favorite']
     global data
-    for count, item in enumerate(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']):
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+    for count, item in enumerate(invlist):
         if 'pokemon_data' in item['inventory_item_data']:
             # Eggs are treated as pokemon by Niantic.
             if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                 if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
-                    data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['pokemon_data']['favorite'] = set_favorite
+                    data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'] = set_favorite
+                    print(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'])
                     break
 
-    print(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['pokemon_data'])
+
 
     return jsonify({'status':   'ok'})
 
