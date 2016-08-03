@@ -33,4 +33,5 @@
 (defn toggle-favorite
   "Mark / Unmark Pokemon as favorite."
   [id favorite]
-  (post-favorite id (not favorite)))
+  (lib/info! "Coming soon: Mark / Unmark your favorite Pokemon")
+  #_(post-favorite id (not favorite)))

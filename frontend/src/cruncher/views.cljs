@@ -14,7 +14,8 @@
 
 ;;;; Auxiliary
 (defn favorite-td [id favorite]
-  (dom/span #js {:className "pointer"
+  (dom/span #js {:title "Coming soon: Mark / Unmark your favorite Pokemon"
+                 :className "pointer"
                  :onClick   #(favorites/toggle-favorite id favorite)}
             (if favorite (vlib/fa-icon "fa-star") (vlib/fa-icon "fa-star-o"))))
 

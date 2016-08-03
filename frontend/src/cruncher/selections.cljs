@@ -15,6 +15,7 @@
    (let [rows (gdom/getElementsByClass "poketable-row")]
      (doall (map (fn [row]
                    (let [id (.getAttribute row "data-id")
+                         favorite (.getAttribute row "data-favorite")
                          data-prop (.getAttribute row data-prop-str)
                          checkbox (gdom/getElement (str "poketable-checkbox-" id))]
                      (if (operator comparator (lib/str->int data-prop))
