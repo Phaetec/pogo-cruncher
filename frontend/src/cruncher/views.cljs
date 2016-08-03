@@ -5,21 +5,11 @@
             [cruncher.communication.auth :as auth]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
+            [cruncher.selections :as selections]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
             [cruncher.utils.views :as vlib]))
-
-;;;; Selections
-(defn select-all-but-favorite
-  []
-  (let [rows (gdom/getElementsByClass "poketable-row")]
-    (doall (map (fn [row]
-                  (let [id (.getAttribute row "data-id")
-                        favorite (.getAttribute row "data-favorite")
-                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                    (when-not (= "true" favorite)
-                      (set! (.. checkbox -checked) true)))) rows))))
 
 ;;;; Controls
 (defui Controls
@@ -27,13 +17,12 @@
   (render [this]
     (dom/div nil
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
+             (dom/p #js {:className "lead"} "Controls")
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
-             " "
              (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
-             " "
-             (vlib/button-primary select-all-but-favorite "Select all but favorite")
-             (dom/br nil)
-             (dom/br nil)
+             (dom/br nil) (dom/br nil)
+             (selections/controls)
+             (dom/br nil) (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
 
