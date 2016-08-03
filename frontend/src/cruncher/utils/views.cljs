@@ -2,6 +2,7 @@
   "Reusable components, which use twitter bootstrap to reduce redundancy."
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
+            [goog.dom :as gdom]
             [cruncher.utils.lib :as lib]))
 
 (defn sortable-table-header
@@ -25,12 +26,10 @@
   "Wrapper for font-awesome icons."
   ([class]
    (dom/i #js {:react-key (lib/get-unique-key)
-               :key       (lib/get-unique-key)
                :className (str "fa " class)}))
   ([class f]
    (println f)
    (dom/i #js {:react-key (lib/get-unique-key)
-               :key       (lib/get-unique-key)
                :className (str "pointer fa " class)
                :onClick   f})))
 
@@ -73,3 +72,12 @@
                       (fa-icon "fa-sign-out")
                       " Login")))))
 (def login-indicator (om/factory LoggedIn))
+
+(defui BackToTop
+  Object
+  (render [this]
+    (dom/div #js {:className (str "scrolltop")
+                  :onClick   #(.scroll js/window 0 0)}
+             (dom/div #js {:className "scroll icon"}
+                      (fa-icon "fa-angle-up")))))
+(def back-to-top (om/factory BackToTop))
