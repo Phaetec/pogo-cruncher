@@ -27,5 +27,5 @@ RUN cd /code/frontend && \
 WORKDIR /code/frontend/resources/public
 
 # Start SimpleHTTPServer to serve application
-EXPOSE 8888
-CMD python -m SimpleHTTPServer 8888 && flask run --host=0.0.0.0
+EXPOSE 8888 5000
+CMD python -m SimpleHTTPServer 8888 & flask run --host=0.0.0.0 &
