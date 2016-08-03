@@ -75,6 +75,10 @@
   [{:keys [state]} _ {:keys [status]}]
   {:action (fn [] (swap! state update-in [:user :logged-in?] (fn [] status)))})
 
+(defmethod mutate 'user/remove-pokemon-cache
+  [{:keys [state]} _]
+  {:action (fn [] (swap! state update-in [:pokemon] (fn [] [])))})
+
 (defmethod mutate 'status/progress
   [{:keys [state]} _ {:keys [status]}]
   {:action (fn [] (swap! state update-in [:progress]
@@ -111,6 +115,7 @@
 (defn logged-in!
   "Set boolean if user is logged in or not. If no parameters are given, set logged-in to true."
   ([bool]
+   (if (not bool) (om/transact! reconciler `[(user/remove-pokemon-cache {})]))
    (om/transact! reconciler `[(user/logged-in {:status ~bool})]))
   ([] (logged-in! true)))
 
