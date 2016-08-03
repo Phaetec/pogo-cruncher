@@ -3,7 +3,8 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
-            [cruncher.utils.views :as vlib]))
+            [cruncher.utils.views :as vlib]
+            [cruncher.utils.lib :as lib]))
 
 (defn mass-selections
   "Function for mass selections of pokemon depending on a predicate.
@@ -16,7 +17,8 @@
                    (let [id (.getAttribute row "data-id")
                          data-prop (.getAttribute row data-prop-str)
                          checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                     (if (operator comparator data-prop)
+                     (println (type data-prop))
+                     (if (operator comparator (lib/str->int data-prop))
                        (set! (.. checkbox -checked) checked)
                        (set! (.. checkbox -checked) (not checked))))) rows))))
   ([data-prop-str comparator] (mass-selections data-prop-str comparator = true)))
@@ -30,12 +32,31 @@
 (defn select-all []
   (mass-selections "data-id" 0 < true))
 
-(defn select-below-iv-perfect [percentage]
+(defn select-below-iv-threshold [percentage]
   (mass-selections "data-iv-perfect" percentage > true))
 
+(defn select-below-cp-threshold [percentage]
+  (mass-selections "data-cp" percentage > true))
 
 ;;;; Views
-(defui IVPercentage
+(defui CPThreshold
+  Object
+  (render [this]
+    (let [percentage (om/get-state this :percentage)]
+      (dom/div #js {:className "form-group"}
+               (dom/label #js {:className "control-label"} "Select all below CP Threshold")
+               (dom/div #js {:className "input-group"}
+                        (dom/input #js {:type        "text"
+                                        :className   "form-control"
+                                        :onChange    #(vlib/commit-component-state this :percentage %)
+                                        :value       percentage
+                                        :placeholder "in whole numbers"})
+                        (dom/span #js {:className "input-group-addon"} "CP")
+                        (dom/span #js {:className "input-group-btn"}
+                                  (vlib/button-default #(select-below-cp-threshold percentage) (not (js/isNaN (js/parseFloat percentage))) "Select")))))))
+(def cp-threshold (om/factory CPThreshold))
+
+(defui IVThreshold
   Object
   (render [this]
     (let [percentage (om/get-state this :percentage)]
@@ -46,11 +67,11 @@
                                         :className   "form-control"
                                         :onChange    #(vlib/commit-component-state this :percentage %)
                                         :value       percentage
-                                        :placeholder "42"})
+                                        :placeholder "in whole numbers"})
                         (dom/span #js {:className "input-group-addon"} "%")
                         (dom/span #js {:className "input-group-btn"}
-                                  (vlib/button-default #(select-below-iv-perfect percentage) (not (js/isNaN (js/parseFloat percentage))) "Select")))))))
-(def iv-percentage (om/factory IVPercentage))
+                                  (vlib/button-default #(select-below-iv-threshold percentage) (not (js/isNaN (js/parseFloat percentage))) "Select")))))))
+(def iv-threshold (om/factory IVThreshold))
 
 (defui SelectionButtons
   Object
@@ -64,6 +85,8 @@
                                (vlib/button-default select-all "Select all")
                                (vlib/button-default unselect-all "Unselect all")
                                (vlib/button-default select-all-but-favorite "Select all but favorite"))
-                      (dom/div #js {:className "col-md-offset-2 col-md-4"}
-                               (dom/div nil (iv-percentage (om/props this))))))))
+                      (dom/div #js {:className "col-md-3"}
+                               (dom/div nil (cp-threshold (om/props this))))
+                      (dom/div #js {:className "col-md-3"}
+                               (dom/div nil (iv-threshold (om/props this))))))))
 (def controls (om/factory SelectionButtons))
