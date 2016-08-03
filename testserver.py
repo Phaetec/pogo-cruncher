@@ -172,9 +172,8 @@ def favorite_pokemon():
                 if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
                     data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'] = set_favorite
                     print("Pokemon favorite status has been set to " +
-                        data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'])
+                        str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite']))
                     break
-
 
     return jsonify({'status':   'ok',
                     'id':       str(pokemon_id),
