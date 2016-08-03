@@ -225,6 +225,7 @@
              (dom/div nil (error-message (om/props this)))
              (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
+             (dom/div nil (vlib/back-to-top))
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
 
