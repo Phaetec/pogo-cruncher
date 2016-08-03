@@ -39,5 +39,13 @@
                         (dom/p #js {:className "lead"} "Selections")
                         (vlib/button-primary select-all "Select all")
                         (vlib/button-primary unselect-all "Unselect all")
-                        (vlib/button-primary select-all-but-favorite "Select all but favorite"))))
+                        (vlib/button-primary select-all-but-favorite "Select all but favorite")
+                        (dom/input #js {:type "range"})
+                        (dom/div #js {:className "input-group"
+                                      :style #js {:width "200px"}}
+                                 (dom/span #js {:className "input-group-addon"} "IV <")
+                                 (dom/input #js {:type "text", :className "form-control"})
+                                 (dom/span #js {:className "input-group-addon"} "%")
+                                 )
+                        )))
 (def controls (om/factory SelectionButtons))
