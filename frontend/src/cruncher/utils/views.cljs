@@ -19,15 +19,24 @@
                :onClick   #(lib/sort-pokemon! key)}
           str))
 
-(defn button-primary
+(defn button
   "Create dom element of a bootstrap primary button."
-  ([fn not-empty? str]
-   (dom/button #js {:className "btn btn-primary"
+  ([fn not-empty? str btn-class]
+   (dom/button #js {:className (clojure.string/join " " ["btn" btn-class])
                     :onClick   fn
                     :disabled  (or (lib/loading?) (lib/progress?) (not not-empty?))
                     :react-key (lib/get-unique-key)}
-               str))
+               str)))
+
+(defn button-primary
+  "Create primary button in bootstrap style."
+  ([fn not-empty? str] (button fn not-empty? str "btn-primary"))
   ([fn str] (button-primary fn true str)))
+
+(defn button-default
+  "Create default button in bootstrap style."
+  ([fn not-empty? str] (button fn not-empty? str "btn-default"))
+  ([fn str] (button-default fn true str)))
 
 (defn fa-icon
   "Wrapper for font-awesome icons."
@@ -71,12 +80,12 @@
   (render [this]
     (if (lib/logged-in?)
       (dom/div nil
-               (dom/a #js {:href "javascript:void(0)"
+               (dom/a #js {:href    "javascript:void(0)"
                            :onClick #(lib/logged-in! false)}
                       (fa-icon "fa-sign-out")
                       " Logout"))
       (dom/div nil
-               (dom/a #js {:href "javascript:void(0)"
+               (dom/a #js {:href    "javascript:void(0)"
                            :onClick #(lib/change-view! :login)}
                       (fa-icon "fa-sign-out")
                       " Login")))))

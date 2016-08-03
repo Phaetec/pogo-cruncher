@@ -21,7 +21,7 @@
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
              (dom/br nil) (dom/br nil)
-             (selections/controls)
+             (selections/controls (om/props this))
              (dom/br nil) (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
