@@ -6,6 +6,7 @@
             [cruncher.communication.auth]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
+            [cruncher.selections]
             [cruncher.shredder.main]
             [cruncher.views :as views]
             [om.next :as om]))
@@ -18,4 +19,4 @@
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
+  )
