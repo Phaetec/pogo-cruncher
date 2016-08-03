@@ -17,7 +17,6 @@
                    (let [id (.getAttribute row "data-id")
                          data-prop (.getAttribute row data-prop-str)
                          checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                     (println (type data-prop))
                      (if (operator comparator (lib/str->int data-prop))
                        (set! (.. checkbox -checked) checked)
                        (set! (.. checkbox -checked) (not checked))))) rows))))

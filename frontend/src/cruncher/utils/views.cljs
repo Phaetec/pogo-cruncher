@@ -45,7 +45,6 @@
    (dom/i #js {:react-key (lib/get-unique-key)
                :className (str "fa " class)}))
   ([class f]
-   (println f)
    (dom/i #js {:react-key (lib/get-unique-key)
                :className (str "pointer fa " class)
                :onClick   f})))
