@@ -65,23 +65,24 @@ def get_pokemon():
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
 
         # Build answer Pokemon list
-        answer = dict()
+        answer = list()
         for item in items:
             if 'pokemon_data' in item['inventory_item_data']:
                 # Eggs are treated as pokemon by Niantic.
                  if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                     pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
-                    answer[str(pokemon.id)] = {
-                            'pokemon_id':           pokemon.pokemon_number,
-                            'individual_attack':    pokemon.iv_att,
-                            'individual_stamina':   pokemon.iv_sta,
-                            'individual_defense':   pokemon.iv_def,
-                            'individual_percentage':float(pokemon.iv_percentage()),
-                            'health':               pokemon.stamina_max,
-                            'cp':                   pokemon.cp,
-                            'nickname':             pokemon.nickname,
-                            'favorite':             pokemon.is_favorite(),
-                        }
+                    answer.append({
+                        'id':                   str(pokemon.id),
+                        'pokemon_id':           pokemon.pokemon_number,
+                        'individual_attack':    pokemon.iv_att,
+                        'individual_stamina':   pokemon.iv_sta,
+                        'individual_defense':   pokemon.iv_def,
+                        'individual_percentage':float(pokemon.iv_percentage()),
+                        'health':               pokemon.stamina_max,
+                        'cp':                   pokemon.cp,
+                        'nickname':             pokemon.nickname,
+                        'favorite':             pokemon.is_favorite(),
+                    })
         return jsonify(answer)
 
 @app.route('/api/pokemon/delete', methods=['POST'])
