@@ -4,13 +4,15 @@
 * More information about Pokemon, including attack moves, bonbons, ...
 
 ## WIP 0.2
+* Create automatic build on DockerHub
 * Add progress bar to indicate the crunching progress
-* Fix numerical sorting of IV%
-* Several bug fixes
-* Minor text fixes
 * Add a testserver for developers
 * Select all but favorite Pokemon
 * Select all Pokemon below a specified IV threshold
+* Select all Pokemon below a specified CP threshold
+* Fix numerical sorting of IV%
+* Several bug fixes
+* Minor text fixes
 
 ## 0.1
 * Initial release
