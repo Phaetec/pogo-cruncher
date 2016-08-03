@@ -25,14 +25,19 @@ For more upcoming features, see the
 [Issues](https://github.com/Phaetec/pogo-cruncher/issues).
 
 
+## Installation
+For an Installation guide please refer to our [wiki](https://github.com/Phaetec/pogo-cruncher/wiki).
+
+Shorthand:
+```bash
+docker run -d -p 8888:8888 -p 5000:5000 phaetec/pogo-cruncher
+```
+
 ## Developers / Maintainers
 Active Maintainers:
   * [n2o](https://github.com/n2o)
   * [Wegi](https://github.com/Wegi)
 
-
-## Installation
-For an Installation guide please refer to our [wiki](https://github.com/Phaetec/pogo-cruncher/wiki).
 
 ## Feature Requests
 For feature requests please open up a new issue on this repository.
