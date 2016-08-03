@@ -224,4 +224,5 @@
   [s]
   (let [converted (js/parseInt s)]
     (if-not (js/isNaN converted)
-      converted s)))
+      converted
+      s)))
