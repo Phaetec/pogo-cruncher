@@ -31,7 +31,6 @@
   (mass-selections "data-id" 0 < true))
 
 (defn select-below-iv-perfect [percentage]
-  (println "Select all below " percentage "%")
   (mass-selections "data-iv-perfect" percentage > true))
 
 
@@ -50,9 +49,7 @@
                                         :placeholder "42"})
                         (dom/span #js {:className "input-group-addon"} "%")
                         (dom/span #js {:className "input-group-btn"}
-                                  (dom/button #js {:className "btn btn-default"
-                                                   :onClick   #(select-below-iv-perfect percentage)} "Select"))
-                        )))))
+                                  (vlib/button-default #(select-below-iv-perfect percentage) "Select")))))))
 (def iv-percentage (om/factory IVPercentage))
 
 (defui SelectionButtons
@@ -60,9 +57,13 @@
   (render [this]
     (dom/div nil
              (dom/p #js {:className "lead"} "Selections")
-             (vlib/button-primary select-all "Select all")
-             (vlib/button-primary unselect-all "Unselect all")
-             (vlib/button-primary select-all-but-favorite "Select all but favorite")
-             (dom/div nil (iv-percentage))
-             )))
+             (dom/div #js {:className "row"}
+                      (dom/div #js {:className "col-md-6"}
+                               (dom/label #js {:className "control-label"} "Clicking a button always overrides manual selections")
+                               (dom/br nil)
+                               (vlib/button-default select-all "Select all")
+                               (vlib/button-default unselect-all "Unselect all")
+                               (vlib/button-default select-all-but-favorite "Select all but favorite"))
+                      (dom/div #js {:className "col-md-offset-2 col-md-4"}
+                               (dom/div nil (iv-percentage (om/props this))))))))
 (def controls (om/factory SelectionButtons))
