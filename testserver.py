@@ -176,7 +176,9 @@ def favorite_pokemon():
                     break
 
 
-    return jsonify({'status':   'ok'})
+    return jsonify({'status':   'ok',
+                    'id':       str(pokemon_id),
+                    'set_favorite':set_favorite})
 
 # ----------------- Helper Functions
 

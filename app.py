@@ -130,7 +130,9 @@ def favorite_pokemon():
     req.set_favorite_pokemon(id=pokemon_id, set_favorite=set_favorite)
     req.call()
 
-    return jsonify({'status':   'ok'})
+    return jsonify({'status':       'ok',
+                    'id':           str(pokemon_id),
+                    'set_davorite': set_favorite})
 
 # ----------------- Helper Functions
 
