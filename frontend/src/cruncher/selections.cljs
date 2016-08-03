@@ -30,22 +30,39 @@
 (defn select-all []
   (mass-selections "data-id" 0 < true))
 
+(defn select-below-iv-perfect [percentage]
+  (println "Select all below " percentage "%")
+  (mass-selections "data-iv-perfect" percentage > true))
+
 
 ;;;; Views
+(defui IVPercentage
+  Object
+  (render [this]
+    (let [percentage (om/get-state this :percentage)]
+      (dom/div #js {:className "form-group"}
+               (dom/label #js {:className "control-label"} "Select all below IV % Perfect Threshold")
+               (dom/div #js {:className "input-group"}
+                        (dom/input #js {:type        "text"
+                                        :className   "form-control"
+                                        :onChange    #(vlib/commit-component-state this :percentage %)
+                                        :value       percentage
+                                        :placeholder "42"})
+                        (dom/span #js {:className "input-group-addon"} "%")
+                        (dom/span #js {:className "input-group-btn"}
+                                  (dom/button #js {:className "btn btn-default"
+                                                   :onClick   #(select-below-iv-perfect percentage)} "Select"))
+                        )))))
+(def iv-percentage (om/factory IVPercentage))
+
 (defui SelectionButtons
-       Object
-       (render [this]
-               (dom/div nil
-                        (dom/p #js {:className "lead"} "Selections")
-                        (vlib/button-primary select-all "Select all")
-                        (vlib/button-primary unselect-all "Unselect all")
-                        (vlib/button-primary select-all-but-favorite "Select all but favorite")
-                        (dom/input #js {:type "range"})
-                        (dom/div #js {:className "input-group"
-                                      :style #js {:width "200px"}}
-                                 (dom/span #js {:className "input-group-addon"} "IV <")
-                                 (dom/input #js {:type "text", :className "form-control"})
-                                 (dom/span #js {:className "input-group-addon"} "%")
-                                 )
-                        )))
+  Object
+  (render [this]
+    (dom/div nil
+             (dom/p #js {:className "lead"} "Selections")
+             (vlib/button-primary select-all "Select all")
+             (vlib/button-primary unselect-all "Unselect all")
+             (vlib/button-primary select-all-but-favorite "Select all but favorite")
+             (dom/div nil (iv-percentage))
+             )))
 (def controls (om/factory SelectionButtons))
