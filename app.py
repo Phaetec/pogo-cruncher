@@ -127,7 +127,7 @@ def favorite_pokemon():
     set_favorite = request.json['set_favorite']
 
     req = pokeapi.create_request()
-    req.set_favorite_pokemon(id=pokemon_id, set_favorite=set_favorite)
+    req.set_favorite_pokemon(id=pokemon_id, is_favorite=set_favorite)
     req.call()
 
     return jsonify({'status':       'ok',
