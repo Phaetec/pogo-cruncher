@@ -21,7 +21,7 @@
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
              (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
              (dom/br nil) (dom/br nil)
-             (selections/controls)
+             (selections/controls (om/props this))
              (dom/br nil) (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
@@ -62,10 +62,10 @@
   Object
   (render [this]
     (let [pokemon (om/props this)]
-      (dom/tr #js {:id            (str "poketable-row-" (:id pokemon))
-                   :className     "poketable-row"
-                   :data-favorite (:favorite pokemon)
-                   :data-id       (:id pokemon)
+      (dom/tr #js {:id              (str "poketable-row-" (:id pokemon))
+                   :className       "poketable-row"
+                   :data-favorite   (:favorite pokemon)
+                   :data-id         (:id pokemon)
                    :data-iv-perfect (:individual_percentage pokemon)}
               (dom/td nil
                       (dom/div #js {:className "checkbox"})
@@ -137,25 +137,17 @@
              (dom/hr nil))))
 (def header (om/factory Header))
 
-(defn commit-component-state
-  "Set local state of view, parse the value of the target of val."
-  [this key val]
-  (cond
-    (= (type val) js/Event) (om/update-state! this assoc key (.. val -target -value))
-    (= (type val) js/String) (om/update-state! this assoc key val)
-    :else (om/update-state! this assoc key (.. val -target -value))))
-
 (defn google-ptc-switch [this]
   (dom/form #js {:id   "google-ptc-switch"
                  :role "form"}
             (dom/label #js {:className "radio-inline"}
                        (dom/input #js {:type    "radio"
-                                       :onClick #(commit-component-state this :service "google")
+                                       :onClick #(vlib/commit-component-state this :service "google")
                                        :name    "google-ptc-switch"})
                        "Google")
             (dom/label #js {:className "radio-inline"}
                        (dom/input #js {:type    "radio"
-                                       :onClick #(commit-component-state this :service "ptc")
+                                       :onClick #(vlib/commit-component-state this :service "ptc")
                                        :name    "google-ptc-switch"})
                        "Pokemon Trainer Club")))
 
@@ -186,14 +178,14 @@
                                             (dom/span #js {:className "input-group-addon"}
                                                       (vlib/fa-icon "fa-user fa-fw"))
                                             (dom/input #js {:className   "form-control"
-                                                            :onChange    #(commit-component-state this :email %)
+                                                            :onChange    #(vlib/commit-component-state this :email %)
                                                             :value       email
                                                             :placeholder "email / PTC Username"}))
                                    (dom/div #js {:className "input-group"}
                                             (dom/span #js {:className "input-group-addon"}
                                                       (vlib/fa-icon "fa-key fa-fw"))
                                             (dom/input #js {:className   "form-control"
-                                                            :onChange    #(commit-component-state this :password %)
+                                                            :onChange    #(vlib/commit-component-state this :password %)
                                                             :value       password
                                                             :type        "password"
                                                             :placeholder "password"}))
@@ -201,7 +193,7 @@
                                             (dom/span #js {:className "input-group-addon"}
                                                       (vlib/fa-icon "fa-map-marker fa-fw"))
                                             (dom/input #js {:className   "form-control"
-                                                            :onChange    #(commit-component-state this :location %)
+                                                            :onChange    #(vlib/commit-component-state this :location %)
                                                             :value       location
                                                             :placeholder "Düsseldorf, Germany"}))
                                    (google-ptc-switch this)
