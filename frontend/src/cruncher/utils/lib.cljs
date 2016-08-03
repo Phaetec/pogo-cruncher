@@ -216,3 +216,12 @@
   "Sort complete list of pokemon by given key."
   [key]
   (om/transact! reconciler `[(sort/pokemon {:key ~key})]))
+
+
+;;;; Conversions
+(defn str->int
+  "Convert String to Integer."
+  [s]
+  (let [converted (js/parseInt s)]
+    (when-not (js/isNaN converted)
+      converted)))
