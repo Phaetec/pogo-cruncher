@@ -14,6 +14,7 @@ It is a work in progress, so please report all bugs to the issue page.
 ## New Features
   * Progress bar
   * Select all Pokemon except your favorites
+  * Select all Pokemon below a specified IV % Perfect threshold
 
 For more upcoming features, see the
 [Changelog](https://github.com/Phaetec/pogo-cruncher/blob/master/CHANGELOG.md),
