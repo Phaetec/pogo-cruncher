@@ -154,6 +154,28 @@ def deletion_status():
                     'to_delete':    pokemon_deletion_amount,
                     'deleted':      deleted_pokemon})
 
+
+@app.route('/api/pokemon/favorite', methods=['POST'])
+def favorite_pokemon():
+    """
+    Set or unset a favorite pokemon. Expects the values `id` and `set_favorite` (boolean).
+    :return: Returns status ok if there were no errors.
+    """
+    pokemon_id = int(request.json['id'])
+    set_favorite = request.json['is_favorite']
+    global data
+    for count, item in enumerate(data):
+        if 'pokemon_data' in item['inventory_item_data']:
+            # Eggs are treated as pokemon by Niantic.
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
+                    data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['pokemon_data']['favorite'] = set_favorite
+                    break
+
+    print(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['pokemon_data'])
+
+    return jsonify({'status':   'ok'})
+
 # ----------------- Helper Functions
 
 
