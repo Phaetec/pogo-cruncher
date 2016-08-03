@@ -4,6 +4,14 @@
             [om.dom :as dom :include-macros true]
             [cruncher.utils.lib :as lib]))
 
+(defn commit-component-state
+  "Set local state of view, parse the value of the target of val."
+  [this key val]
+  (cond
+    (= (type val) js/Event) (om/update-state! this assoc key (.. val -target -value))
+    (= (type val) js/String) (om/update-state! this assoc key val)
+    :else (om/update-state! this assoc key (.. val -target -value))))
+
 (defn sortable-table-header
   "Sort list of pokemon by given key."
   [key & str]
