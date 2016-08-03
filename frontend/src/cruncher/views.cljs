@@ -66,7 +66,8 @@
                    :className       "poketable-row"
                    :data-favorite   (:favorite pokemon)
                    :data-id         (:id pokemon)
-                   :data-iv-perfect (:individual_percentage pokemon)}
+                   :data-iv-perfect (:individual_percentage pokemon)
+                   :data-cp         (:cp pokemon)}
               (dom/td nil
                       (dom/div #js {:className "checkbox"})
                       (dom/label nil
