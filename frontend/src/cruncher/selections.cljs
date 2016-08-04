@@ -6,6 +6,27 @@
             [cruncher.utils.views :as vlib]
             [cruncher.utils.lib :as lib]))
 
+(defn unselect-favorites
+  "Unselect all favorites. Useful before crunching them."
+  []
+  (let [rows (gdom/getElementsByClass "poketable-row")]
+    (doall (map (fn [row]
+                  (let [id (.getAttribute row "data-id")
+                        favorite (lib/str->bool (.getAttribute row "data-favorite"))
+                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                    (when favorite (set! (.. checkbox -checked) false))))
+                rows))))
+
+(defn unselect-all
+  "Unselect all pokemon."
+  []
+  (let [rows (gdom/getElementsByClass "poketable-row")]
+    (doall (map (fn [row]
+                  (let [id (.getAttribute row "data-id")
+                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                    (set! (.. checkbox -checked) false)))
+                rows))))
+
 (defn mass-selections
   "Function for mass selections of pokemon depending on a predicate.
 
@@ -15,21 +36,16 @@
    (let [rows (gdom/getElementsByClass "poketable-row")]
      (doall (map (fn [row]
                    (let [id (.getAttribute row "data-id")
+                         favorite (lib/str->bool (.getAttribute row "data-favorite"))
                          data-prop (.getAttribute row data-prop-str)
                          checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                     (if (operator comparator (lib/str->int data-prop))
+                     (if (and (not favorite) (operator comparator (lib/str->int data-prop)))
                        (set! (.. checkbox -checked) checked)
                        (set! (.. checkbox -checked) (not checked))))) rows))))
   ([data-prop-str comparator] (mass-selections data-prop-str comparator = true)))
 
 (defn select-all-but-favorite []
   (mass-selections "data-favorite" "false"))
-
-(defn unselect-all []
-  (mass-selections "data-id" 0 not= false))
-
-(defn select-all []
-  (mass-selections "data-id" 0 < true))
 
 (defn select-below-iv-threshold [percentage]
   (mass-selections "data-iv-perfect" percentage > true))
@@ -81,8 +97,8 @@
                       (dom/div #js {:className "col-md-6"}
                                (dom/label #js {:className "control-label"} "Clicking a button always overrides manual selections")
                                (dom/br nil)
-                               (vlib/button-default select-all "Select all")
-                               (vlib/button-default unselect-all "Unselect all")
+                               (vlib/button-default unselect-all "Unselect")
+                               (vlib/button-default unselect-favorites "Unselect Favorites")
                                (vlib/button-default select-all-but-favorite "Select all but favorite"))
                       (dom/div #js {:className "col-md-3"}
                                (dom/div nil (cp-threshold (om/props this))))

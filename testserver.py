@@ -37,6 +37,7 @@ def login():
     If you want to test the location resolve send an additonal `'resolve': 1` value.
     If you want to simulate a failing login, send an additonal `'fail': <some message>`. The API will answer
     with an error and return the message inside the `message` field.
+    
     :return: Always returns an `ok` status if `resolve` is not sent. Otherwise return `ok` when the location could be
         found and an `error` including a message if not.
     """
@@ -66,6 +67,7 @@ def login():
 def get_pokemon():
     """
     The API endpoint allways returns the same test data. If you want to reset the pokemon list, logout and back in.
+
     :return: Returns a list of Pokemon inside a dict.
     """
 
@@ -98,6 +100,7 @@ def delete_pokemon():
     """
     Deletes the sent pokemon inside the local storage. If you want to reset the db, send a new login call.
     Simulates the sleeoing calls from the main app as well.
+
     :return: Returns `'status': 'ok'`, as soon as the db is done.
     """
     deletion_candidates = request.json['ids']
@@ -148,6 +151,7 @@ def delete_pokemon():
 def deletion_status():
     """
     Request how much pokemon have been deelted in the current sitting.
+
     :return: Returns the amount of pokemon to be deleted in total and the count of pokemon currently deleted.
     """
     return jsonify({'status':       'ok',
@@ -159,8 +163,10 @@ def deletion_status():
 def favorite_pokemon():
     """
     Set or unset a favorite pokemon. Expects the values `id` and `set_favorite` (boolean).
+
     :return: Returns status ok if there were no errors.
     """
+
     pokemon_id = int(request.json['id'])
     set_favorite = request.json['set_favorite']
     global data

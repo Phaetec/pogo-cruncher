@@ -1,9 +1,12 @@
 # Changelog
 
-## Upcoming 0.3
-* More information about Pokemon, including attack moves, bonbons, ...
+## 0.4 [Upcoming]
 
-## WIP 0.2
+## 0.3 [WIP]
+* More information about Pokemon, including attack moves, bonbons, ...
+* Don't allow sending away your favorite pokemon
+
+## 0.2
 * Create automatic build on DockerHub
 * Add progress bar to indicate the crunching progress
 * Add a testserver for developers

@@ -125,14 +125,13 @@ def deletion_status():
 def favorite_pokemon():
     pokemon_id = int(request.json['id'])
     set_favorite = request.json['set_favorite']
-
     req = pokeapi.create_request()
-    req.set_favorite_pokemon(id=pokemon_id, set_favorite=set_favorite)
+    req.set_favorite_pokemon(pokemon_id=pokemon_id, is_favorite=set_favorite)
     req.call()
 
     return jsonify({'status':       'ok',
                     'id':           str(pokemon_id),
-                    'set_davorite': set_favorite})
+                    'set_favorite': set_favorite})
 
 @app.route('api/status', methods=['GET'])
 def api_status():

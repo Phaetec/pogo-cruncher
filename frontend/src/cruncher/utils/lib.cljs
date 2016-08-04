@@ -226,3 +226,9 @@
     (if-not (js/isNaN converted)
       converted
       s)))
+
+(defn str->bool
+  "Convert JS String to boolean."
+  [str]
+  (when (string? str)
+    (= "true" str)))
