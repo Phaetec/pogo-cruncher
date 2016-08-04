@@ -1,10 +1,13 @@
 import json
+import os
 
 class Pokehelper(object):
 
     def __init__(self):
 
-        with open('data/pokemon.json') as pokejson:
+        basepath = os.path.dirname(__file__)
+        filepath = os.path.abspath(os.path.join(basepath, 'data/pokemon.json' ))
+        with open(filepath) as pokejson:
             self.pokelist = json.load(pokejson)
 
 

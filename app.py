@@ -93,7 +93,7 @@ def get_pokemon():
         # add candies to answerdict
         for poke in answer:
             family = pokehelper.get_pokefamily(poke['pokemon_id'])
-            poke['candy'] = candies[family]
+            poke['candy'] = candies.get(family, 0)
 
         return jsonify(answer)
 
