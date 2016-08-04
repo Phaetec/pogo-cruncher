@@ -16,6 +16,7 @@ app = Flask(__name__)
 CORS(app)
 
 pokeapi = pgoapi.PGoApi()
+pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
 
@@ -64,9 +65,9 @@ def get_pokemon():
 
     if 'GET_INVENTORY' in response_dict['responses']:
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
-        pokehelper = Pokehelper()
         # Build answer Pokemon list
         answer = list()
+        candies = dict()
         for item in items:
             if 'pokemon_data' in item['inventory_item_data']:
                 # Eggs are treated as pokemon by Niantic.
@@ -83,8 +84,17 @@ def get_pokemon():
                         'cp':                   pokemon.cp,
                         'nickname':             pokemon.nickname,
                         'favorite':             pokemon.is_favorite(),
-                        'family':               pokehelper.get_pokefamily(pokemon.id)
                     })
+
+            elif 'pokemon_family' in item['inventory_item_data']:
+                candy_data = item['inventory_item_data']['pokemon_family']
+                candies[candy_data['family_id']] = candy_data['candy']
+
+        # add candies to answerdict
+        for poke in answer:
+            family = pokehelper.get_pokefamily(poke['pokemon_id'])
+            poke['candy'] = candies[family]
+            
         return jsonify(answer)
 
 @app.route('/api/pokemon/delete', methods=['POST'])
