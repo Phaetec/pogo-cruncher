@@ -3,6 +3,7 @@ from pgoapi import pgoapi
 from pgoapi.exceptions import AuthException
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
+from backend.pokehelper import Pokehelper
 from flask import make_response, request
 from flask_cors import CORS
 from geopy.exc import GeocoderServiceError
@@ -63,7 +64,7 @@ def get_pokemon():
 
     if 'GET_INVENTORY' in response_dict['responses']:
         items = response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items']
-
+        pokehelper = Pokehelper()
         # Build answer Pokemon list
         answer = list()
         for item in items:
@@ -71,7 +72,6 @@ def get_pokemon():
                 # Eggs are treated as pokemon by Niantic.
                  if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                     pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
-                    # TODO add family id to pokemon
                     answer.append({
                         'id':                   str(pokemon.id),
                         'pokemon_id':           pokemon.pokemon_number,
@@ -83,6 +83,7 @@ def get_pokemon():
                         'cp':                   pokemon.cp,
                         'nickname':             pokemon.nickname,
                         'favorite':             pokemon.is_favorite(),
+                        'family':               pokehelper.get_pokefamily(pokemon.id)
                     })
         return jsonify(answer)
 
