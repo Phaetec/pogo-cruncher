@@ -1,5 +1,6 @@
 # pogo-cruncher
 
+[![Discord](https://img.shields.io/badge/discord-Phaetec-blue.svg)](https://discord.gg/W6rsEq2)
 [![CircleCI](https://circleci.com/gh/Phaetec/pogo-cruncher.svg?style=svg)](https://circleci.com/gh/Phaetec/pogo-cruncher)
 
 This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.  
