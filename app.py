@@ -134,6 +134,10 @@ def favorite_pokemon():
                     'id':           str(pokemon_id),
                     'set_davorite': set_favorite})
 
+@app.route('api/status', methods=['GET'])
+def api_status():
+    return jsonify({'status': 'ok'})
+
 # ----------------- Helper Functions
 
 def get_pos_by_name(location_name):
