@@ -15,10 +15,10 @@
    (let [rows (gdom/getElementsByClass "poketable-row")]
      (doall (map (fn [row]
                    (let [id (.getAttribute row "data-id")
-                         favorite (.getAttribute row "data-favorite")
+                         favorite (lib/str->bool (.getAttribute row "data-favorite"))
                          data-prop (.getAttribute row data-prop-str)
                          checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                     (if (operator comparator (lib/str->int data-prop))
+                     (if (and (not favorite) (operator comparator (lib/str->int data-prop)))
                        (set! (.. checkbox -checked) checked)
                        (set! (.. checkbox -checked) (not checked))))) rows))))
   ([data-prop-str comparator] (mass-selections data-prop-str comparator = true)))
