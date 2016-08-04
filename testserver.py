@@ -186,7 +186,7 @@ def favorite_pokemon():
                     'set_favorite':set_favorite})
 
 
-@app.route('api/status', methods=['GET'])
+@app.route('/api/status', methods=['GET'])
 def api_status():
     return jsonify({'status': 'ok'})
 

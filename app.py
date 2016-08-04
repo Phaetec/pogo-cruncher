@@ -133,9 +133,24 @@ def favorite_pokemon():
                     'id':           str(pokemon_id),
                     'set_favorite': set_favorite})
 
-@app.route('api/status', methods=['GET'])
+
+@app.route('/api/status', methods=['GET'])
 def api_status():
     return jsonify({'status': 'ok'})
+
+
+@app.route('/api/status/niantic', methods=['GET'])
+def niantic_status():
+    req = pokeapi.create_request()
+    req.echo()
+    response_dict = req.call()
+
+    if 'ECHO' in response_dict['responses']:
+        return jsonify({'status': 'ok'})
+
+    return jsonify({'status': 'error',
+                    'message': 'The connection to the Pokemon Go Servers could not be established. Please Logout and back in.'})
+
 
 # ----------------- Helper Functions
 
