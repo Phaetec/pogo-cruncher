@@ -33,6 +33,9 @@ Shorthand:
 docker run -d -p 8888:8888 -p 5000:5000 phaetec/pogo-cruncher
 ```
 
+and open your browser at [http://localhost:8888](http://localhost:8888)
+
+
 ## Developers / Maintainers
 Active Maintainers:
   * [n2o](https://github.com/n2o)
