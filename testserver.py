@@ -21,6 +21,7 @@ CORS(app)
 with open('example_dump.txt') as pokemon_data:
     data = json.load(pokemon_data)
 
+status = {'logged_in':      False}
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
 
@@ -60,6 +61,8 @@ def login():
             return jsonify({'status':   'error',
                             'message':  'Location could not be found, please try another one!'})
 
+    global status
+    status['logged_in'] = True
     return jsonify({'status': 'ok'})
 
 
@@ -189,6 +192,17 @@ def favorite_pokemon():
 @app.route('/api/status', methods=['GET'])
 def api_status():
     return jsonify({'status': 'ok'})
+
+
+@app.route('/api/status/niantic', methods=['GET'])
+def niantic_status():
+
+    if status['logged_in']:
+        return jsonify({'status': 'ok'})
+
+    return jsonify({'status': 'error',
+                    'message': 'The connection to the Pokemon Go Servers could not be established. Please Logout and back in.'})
+
 
 # ----------------- Helper Functions
 
