@@ -6,6 +6,7 @@ The replies and test functions are described inside the docstrings.
 from flask import Flask, jsonify
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
+from backend.pokehelper import Pokehelper
 from flask import make_response, request
 from flask_cors import CORS
 from geopy.exc import GeocoderServiceError
@@ -21,6 +22,7 @@ CORS(app)
 with open('example_dump.txt') as pokemon_data:
     data = json.load(pokemon_data)
 
+pokehelper = Pokehelper()
 status = {'logged_in':      False}
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
@@ -78,6 +80,7 @@ def get_pokemon():
 
     # Build answer Pokemon list
     answer = list()
+    candies = dict()
     for item in items:
         if 'pokemon_data' in item['inventory_item_data']:
             # Eggs are treated as pokemon by Niantic.
@@ -95,6 +98,13 @@ def get_pokemon():
                     'nickname':             pokemon.nickname,
                     'favorite':             pokemon.is_favorite(),
                 })
+        elif 'pokemon_family' in item['inventory_item_data']:
+                candy_data = item['inventory_item_data']['pokemon_family']
+                candies[candy_data['family_id']] = candy_data['candy']
+
+    for poke in answer:
+        family = pokehelper.get_pokefamily(poke['pokemon_id'])
+        poke['candy'] = candies[family]
     return jsonify(answer)
 
 
