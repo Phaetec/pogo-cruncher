@@ -71,6 +71,7 @@ def get_pokemon():
                 # Eggs are treated as pokemon by Niantic.
                  if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                     pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
+                    # TODO add family id to pokemon
                     answer.append({
                         'id':                   str(pokemon.id),
                         'pokemon_id':           pokemon.pokemon_number,
