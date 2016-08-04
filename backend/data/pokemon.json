@@ -10,7 +10,7 @@
       "defense": 126
     },
     "candy": 25,
-    "family": "FAMILY_BULBASAUR",
+    "family": 1,
     "moves1": [],
     "moves2": []
   },
@@ -25,7 +25,7 @@
       "defense": 158
     },
     "candy": 100,
-    "family": "FAMILY_BULBASAUR",
+    "family": 1,
     "moves1": [],
     "moves2": []
   },
@@ -39,7 +39,7 @@
       "attack": 198,
       "defense": 200
     },
-    "family": "FAMILY_BULBASAUR",
+    "family": 1,
     "moves1": [],
     "moves2": []
   },
@@ -53,7 +53,7 @@
       "defense": 108
     },
     "candy": 25,
-    "family": "FAMILY_CHARMANDER",
+    "family": 4,
     "moves1": [],
     "moves2": []
   },
@@ -67,7 +67,7 @@
       "defense": 140
     },
     "candy": 100,
-    "family": "FAMILY_CHARMANDER",
+    "family": 4,
     "moves1": [],
     "moves2": []
   },
@@ -81,7 +81,7 @@
       "attack": 212,
       "defense": 182
     },
-    "family": "FAMILY_CHARMANDER",
+    "family": 4,
     "moves1": [],
     "moves2": []
   },
@@ -95,7 +95,7 @@
       "defense": 142
     },
     "candy": 25,
-    "family": "FAMILY_SQUIRTLE",
+    "family": 7,
     "moves1": [],
     "moves2": []
   },
@@ -109,7 +109,7 @@
       "defense": 176
     },
     "candy": 100,
-    "family": "FAMILY_SQUIRTLE",
+    "family": 7,
     "moves1": [],
     "moves2": []
   },
@@ -122,7 +122,7 @@
       "attack": 186,
       "defense": 222
     },
-    "family": "FAMILY_SQUIRTLE",
+    "family": 7,
     "moves1": [],
     "moves2": []
   },
@@ -136,7 +136,7 @@
       "defense": 66
     },
     "candy": 12,
-    "family": "FAMILY_CATERPIE",
+    "family": 10,
     "moves1": [],
     "moves2": []
   },
@@ -150,7 +150,7 @@
       "defense": 86
     },
     "candy": 50,
-    "family": "FAMILY_CATERPIE",
+    "family": 10,
     "moves1": [],
     "moves2": []
   },
@@ -164,7 +164,7 @@
       "attack": 144,
       "defense": 144
     },
-    "family": "FAMILY_CATERPIE",
+    "family": 10,
     "moves1": [],
     "moves2": []
   },
@@ -179,7 +179,7 @@
       "defense": 64
     },
     "candy": 12,
-    "family": "FAMILY_WEEDLE",
+    "family": 13,
     "moves1": [],
     "moves2": []
   },
@@ -194,7 +194,7 @@
       "defense": 82
     },
     "candy": 50,
-    "family": "FAMILY_WEEDLE",
+    "family": 13,
     "moves1": [],
     "moves2": []
   },
@@ -208,7 +208,7 @@
       "attack": 144,
       "defense": 130
     },
-    "family": "FAMILY_WEEDLE",
+    "family": 13,
     "moves1": [],
     "moves2": []
   },
@@ -223,7 +223,7 @@
       "defense": 90
     },
     "candy": 12,
-    "family": "FAMILY_PIDGEY",
+    "family": 16,
     "moves1": [],
     "moves2": []
   },
@@ -238,7 +238,7 @@
       "defense": 122
     },
     "candy": 50,
-    "family": "FAMILY_PIDGEY",
+    "family": 16,
     "moves1": [],
     "moves2": []
   },
@@ -252,7 +252,7 @@
       "attack": 170,
       "defense": 166
     },
-    "family": "FAMILY_PIDGEY",
+    "family": 16,
     "moves1": [],
     "moves2": []
   },
@@ -266,7 +266,7 @@
       "defense": 86
     },
     "candy": 25,
-    "family": "FAMILY_RATTATA",
+    "family": 19,
     "moves1": [],
     "moves2": []
   },
@@ -279,7 +279,7 @@
       "attack": 146,
       "defense": 150
     },
-    "family": "FAMILY_RATTATA",
+    "family": 19,
     "moves1": [],
     "moves2": []
   },
@@ -294,7 +294,7 @@
       "defense": 78
     },
     "candy": 50,
-    "family": "FAMILY_SPEAROW",
+    "family": 21,
     "moves1": [],
     "moves2": []
   },
@@ -308,7 +308,7 @@
       "attack": 168,
       "defense": 146
     },
-    "family": "FAMILY_SPEAROW",
+    "family": 21,
     "moves1": [],
     "moves2": []
   },
@@ -322,7 +322,7 @@
       "defense": 112
     },
     "candy": 50,
-    "family": "FAMILY_EKANS",
+    "family": 23,
     "moves1": [],
     "moves2": []
   },
@@ -335,7 +335,7 @@
       "attack": 166,
       "defense": 166
     },
-    "family": "FAMILY_EKANS",
+    "family": 23,
     "moves1": [],
     "moves2": []
   },
@@ -349,7 +349,7 @@
       "defense": 108
     },
     "candy": 50,
-    "family": "FAMILY_PIKACHU",
+    "family": 25,
     "moves1": [],
     "moves2": []
   },
@@ -362,7 +362,7 @@
       "attack": 200,
       "defense": 154
     },
-    "family": "FAMILY_PIKACHU",
+    "family": 25,
     "moves1": [],
     "moves2": []
   },
@@ -376,7 +376,7 @@
       "defense": 114
     },
     "candy": 50,
-    "family": "FAMILY_SANDSHREW",
+    "family": 27,
     "moves1": [],
     "moves2": []
   },
@@ -389,7 +389,7 @@
       "attack": 150,
       "defense": 172
     },
-    "family": "FAMILY_SANDSHREW",
+    "family": 27,
     "moves1": [],
     "moves2": []
   },
@@ -403,7 +403,7 @@
       "defense": 104
     },
     "candy": 25,
-    "family": "FAMILY_NIDORAN_FEMALE",
+    "family": 29,
     "moves1": [],
     "moves2": []
   },
@@ -417,7 +417,7 @@
       "defense": 136
     },
     "candy": 100,
-    "family": "FAMILY_NIDORAN_FEMALE",
+    "family": 29,
     "moves1": [],
     "moves2": []
   },
@@ -431,7 +431,7 @@
       "attack": 184,
       "defense": 190
     },
-    "family": "FAMILY_NIDORAN_FEMALE",
+    "family": 29,
     "moves1": [],
     "moves2": []
   },
@@ -445,7 +445,7 @@
       "defense": 94
     },
     "candy": 25,
-    "family": "FAMILY_NIDORAN_MALE",
+    "family": 32,
     "moves1": [],
     "moves2": []
   },
@@ -459,7 +459,7 @@
       "defense": 128
     },
     "candy": 100,
-    "family": "FAMILY_NIDORAN_MALE",
+    "family": 32,
     "moves1": [],
     "moves2": []
   },
@@ -473,7 +473,7 @@
       "attack": 204,
       "defense": 170
     },
-    "family": "FAMILY_NIDORAN_MALE",
+    "family": 32,
     "moves1": [],
     "moves2": []
   },
@@ -487,7 +487,7 @@
       "defense": 124
     },
     "candy": 50,
-    "family": "FAMILY_CLEFAIRY",
+    "family": 35,
     "moves1": [],
     "moves2": []
   },
@@ -500,7 +500,7 @@
       "attack": 178,
       "defense": 178
     },
-    "family": "FAMILY_CLEFAIRY",
+    "family": 35,
     "moves1": [],
     "moves2": []
   },
@@ -514,7 +514,7 @@
       "defense": 118
     },
     "candy": 50,
-    "family": "FAMILY_VULPIX",
+    "family": 37,
     "moves1": [],
     "moves2": []
   },
@@ -527,7 +527,7 @@
       "attack": 176,
       "defense": 194
     },
-    "family": "FAMILY_VULPIX",
+    "family": 37,
     "moves1": [],
     "moves2": []
   },
@@ -542,7 +542,7 @@
       "defense": 54
     },
     "candy": 50,
-    "family": "FAMILY_JIGGLYPUFF",
+    "family": 39,
     "moves1": [],
     "moves2": []
   },
@@ -556,7 +556,7 @@
       "attack": 168,
       "defense": 108
     },
-    "family": "FAMILY_JIGGLYPUFF",
+    "family": 39,
     "moves1": [],
     "moves2": []
   },
@@ -571,7 +571,7 @@
       "defense": 90
     },
     "candy": 50,
-    "family": "FAMILY_ZUBAT",
+    "family": 41,
     "moves1": [],
     "moves2": []
   },
@@ -585,7 +585,7 @@
       "attack": 164,
       "defense": 164
     },
-    "family": "FAMILY_ZUBAT",
+    "family": 41,
     "moves1": [],
     "moves2": []
   },
@@ -600,7 +600,7 @@
       "defense": 130
     },
     "candy": 25,
-    "family": "FAMILY_ODDISH",
+    "family": 43,
     "moves1": [],
     "moves2": []
   },
@@ -615,7 +615,7 @@
       "defense": 158
     },
     "candy": 100,
-    "family": "FAMILY_ODDISH",
+    "family": 43,
     "moves1": [],
     "moves2": []
   },
@@ -629,7 +629,7 @@
       "attack": 202,
       "defense": 190
     },
-    "family": "FAMILY_ODDISH",
+    "family": 43,
     "moves1": [],
     "moves2": []
   },
@@ -644,7 +644,7 @@
       "defense": 120
     },
     "candy": 50,
-    "family": "FAMILY_PARAS",
+    "family": 46,
     "moves1": [],
     "moves2": []
   },
@@ -658,7 +658,7 @@
       "attack": 162,
       "defense": 170
     },
-    "family": "FAMILY_PARAS",
+    "family": 46,
     "moves1": [],
     "moves2": []
   },
@@ -673,7 +673,7 @@
       "defense": 118
     },
     "candy": 50,
-    "family": "FAMILY_VENONAT",
+    "family": 48,
     "moves1": [],
     "moves2": []
   },
@@ -687,7 +687,7 @@
       "attack": 172,
       "defense": 154
     },
-    "family": "FAMILY_VENONAT",
+    "family": 48,
     "moves1": [],
     "moves2": []
   },
@@ -701,7 +701,7 @@
       "defense": 86
     },
     "candy": 50,
-    "family": "FAMILY_DIGLETT",
+    "family": 50,
     "moves1": [],
     "moves2": []
   },
@@ -714,7 +714,7 @@
       "attack": 148,
       "defense": 140
     },
-    "family": "FAMILY_DIGLETT",
+    "family": 50,
     "moves1": [],
     "moves2": []
   },
@@ -728,7 +728,7 @@
       "defense": 94
     },
     "candy": 50,
-    "family": "FAMILY_MEOWTH",
+    "family": 52,
     "moves1": [],
     "moves2": []
   },
@@ -741,7 +741,7 @@
       "attack": 156,
       "defense": 146
     },
-    "family": "FAMILY_MEOWTH",
+    "family": 52,
     "moves1": [],
     "moves2": []
   },
@@ -755,7 +755,7 @@
       "defense": 112
     },
     "candy": 50,
-    "family": "FAMILY_PSYDUCK",
+    "family": 54,
     "moves1": [],
     "moves2": []
   },
@@ -768,7 +768,7 @@
       "attack": 194,
       "defense": 176
     },
-    "family": "FAMILY_PSYDUCK",
+    "family": 54,
     "moves1": [],
     "moves2": []
   },
@@ -782,7 +782,7 @@
       "defense": 96
     },
     "candy": 50,
-    "family": "FAMILY_MANKEY",
+    "family": 56,
     "moves1": [],
     "moves2": []
   },
@@ -795,7 +795,7 @@
       "attack": 178,
       "defense": 150
     },
-    "family": "FAMILY_MANKEY",
+    "family": 56,
     "moves1": [],
     "moves2": []
   },
@@ -809,7 +809,7 @@
       "defense": 110
     },
     "candy": 50,
-    "family": "FAMILY_GROWLITHE",
+    "family": 58,
     "moves1": [],
     "moves2": []
   },
@@ -822,7 +822,7 @@
       "attack": 230,
       "defense": 180
     },
-    "family": "FAMILY_GROWLITHE",
+    "family": 58,
     "moves1": [],
     "moves2": []
   },
@@ -836,7 +836,7 @@
       "defense": 98
     },
     "candy": 25,
-    "family": "FAMILY_POLIWAG",
+    "family": 60,
     "moves1": [],
     "moves2": []
   },
@@ -850,7 +850,7 @@
       "defense": 132
     },
     "candy": 100,
-    "family": "FAMILY_POLIWAG",
+    "family": 60,
     "moves1": [],
     "moves2": []
   },
@@ -864,7 +864,7 @@
       "attack": 180,
       "defense": 202
     },
-    "family": "FAMILY_POLIWAG",
+    "family": 60,
     "moves1": [],
     "moves2": []
   },
@@ -878,7 +878,7 @@
       "defense": 76
     },
     "candy": 25,
-    "family": "FAMILY_ABRA",
+    "family": 63,
     "moves1": [],
     "moves2": []
   },
@@ -892,7 +892,7 @@
       "defense": 112
     },
     "candy": 100,
-    "family": "FAMILY_ABRA",
+    "family": 63,
     "moves1": [],
     "moves2": []
   },
@@ -905,7 +905,7 @@
       "attack": 186,
       "defense": 152
     },
-    "family": "FAMILY_ABRA",
+    "family": 63,
     "moves1": [],
     "moves2": []
   },
@@ -919,7 +919,7 @@
       "defense": 96
     },
     "candy": 25,
-    "family": "FAMILY_MACHOP",
+    "family": 66,
     "moves1": [],
     "moves2": []
   },
@@ -933,7 +933,7 @@
       "defense": 144
     },
     "candy": 100,
-    "family": "FAMILY_MACHOP",
+    "family": 66,
     "moves1": [],
     "moves2": []
   },
@@ -946,7 +946,7 @@
       "attack": 198,
       "defense": 180
     },
-    "family": "FAMILY_MACHOP",
+    "family": 66,
     "moves1": [],
     "moves2": []
   },
@@ -961,7 +961,7 @@
       "defense": 78
     },
     "candy": 25,
-    "family": "FAMILY_BELLSPROUT",
+    "family": 69,
     "moves1": [],
     "moves2": []
   },
@@ -976,7 +976,7 @@
       "defense": 110
     },
     "candy": 100,
-    "family": "FAMILY_BELLSPROUT",
+    "family": 69,
     "moves1": [],
     "moves2": []
   },
@@ -990,7 +990,7 @@
       "attack": 222,
       "defense": 152
     },
-    "family": "FAMILY_BELLSPROUT",
+    "family": 69,
     "moves1": [],
     "moves2": []
   },
@@ -1005,7 +1005,7 @@
       "defense": 136
     },
     "candy": 50,
-    "family": "FAMILY_TENTACOOL",
+    "family": 72,
     "moves1": [],
     "moves2": []
   },
@@ -1019,7 +1019,7 @@
       "attack": 170,
       "defense": 196
     },
-    "family": "FAMILY_TENTACOOL",
+    "family": 72,
     "moves1": [],
     "moves2": []
   },
@@ -1034,7 +1034,7 @@
       "defense": 118
     },
     "candy": 25,
-    "family": "FAMILY_GEODUDE",
+    "family": 74,
     "moves1": [],
     "moves2": []
   },
@@ -1049,7 +1049,7 @@
       "defense": 156
     },
     "candy": 100,
-    "family": "FAMILY_GEODUDE",
+    "family": 74,
     "moves1": [],
     "moves2": []
   },
@@ -1063,7 +1063,7 @@
       "attack": 176,
       "defense": 198
     },
-    "family": "FAMILY_GEODUDE",
+    "family": 74,
     "moves1": [],
     "moves2": []
   },
@@ -1077,7 +1077,7 @@
       "defense": 138
     },
     "candy": 50,
-    "family": "FAMILY_PONYTA",
+    "family": 77,
     "moves1": [],
     "moves2": []
   },
@@ -1090,7 +1090,7 @@
       "attack": 200,
       "defense": 170
     },
-    "family": "FAMILY_PONYTA",
+    "family": 77,
     "moves1": [],
     "moves2": []
   },
@@ -1105,7 +1105,7 @@
       "defense": 110
     },
     "candy": 50,
-    "family": "FAMILY_SLOWPOKE",
+    "family": 79,
     "moves1": [],
     "moves2": []
   },
@@ -1119,7 +1119,7 @@
       "attack": 184,
       "defense": 198
     },
-    "family": "FAMILY_SLOWPOKE",
+    "family": 79,
     "moves1": [],
     "moves2": []
   },
@@ -1134,7 +1134,7 @@
       "defense": 138
     },
     "candy": 50,
-    "family": "FAMILY_MAGNEMITE",
+    "family": 81,
     "moves1": [],
     "moves2": []
   },
@@ -1148,7 +1148,7 @@
       "attack": 186,
       "defense": 180
     },
-    "family": "FAMILY_MAGNEMITE",
+    "family": 81,
     "moves1": [],
     "moves2": []
   },
@@ -1162,7 +1162,7 @@
       "attack": 138,
       "defense": 132
     },
-    "family": "FAMILY_FARFETCHD",
+    "family": 83,
     "moves1": [],
     "moves2": []
   },
@@ -1177,7 +1177,7 @@
       "defense": 96
     },
     "candy": 50,
-    "family": "FAMILY_DODUO",
+    "family": 84,
     "moves1": [],
     "moves2": []
   },
@@ -1191,7 +1191,7 @@
       "attack": 182,
       "defense": 150
     },
-    "family": "FAMILY_DODUO",
+    "family": 84,
     "moves1": [],
     "moves2": []
   },
@@ -1205,7 +1205,7 @@
       "defense": 138
     },
     "candy": 50,
-    "family": "FAMILY_SEEL",
+    "family": 86,
     "moves1": [],
     "moves2": []
   },
@@ -1219,7 +1219,7 @@
       "attack": 156,
       "defense": 192
     },
-    "family": "FAMILY_SEEL",
+    "family": 86,
     "moves1": [],
     "moves2": []
   },
@@ -1233,7 +1233,7 @@
       "defense": 110
     },
     "candy": 50,
-    "family": "FAMILY_GRIMER",
+    "family": 88,
     "moves1": [],
     "moves2": []
   },
@@ -1246,7 +1246,7 @@
       "attack": 180,
       "defense": 188
     },
-    "family": "FAMILY_GRIMER",
+    "family": 88,
     "moves1": [],
     "moves2": []
   },
@@ -1260,7 +1260,7 @@
       "defense": 112
     },
     "candy": 50,
-    "family": "FAMILY_SHELLDER",
+    "family": 90,
     "moves1": [],
     "moves2": []
   },
@@ -1274,7 +1274,7 @@
       "attack": 196,
       "defense": 196
     },
-    "family": "FAMILY_SHELLDER",
+    "family": 90,
     "moves1": [],
     "moves2": []
   },
@@ -1289,7 +1289,7 @@
       "defense": 82
     },
     "candy": 25,
-    "family": "FAMILY_GASTLY",
+    "family": 92,
     "moves1": [],
     "moves2": []
   },
@@ -1304,7 +1304,7 @@
       "defense": 118
     },
     "candy": 100,
-    "family": "FAMILY_GASTLY",
+    "family": 92,
     "moves1": [],
     "moves2": []
   },
@@ -1318,7 +1318,7 @@
       "attack": 204,
       "defense": 156
     },
-    "family": "FAMILY_GASTLY",
+    "family": 92,
     "moves1": [],
     "moves2": []
   },
@@ -1332,7 +1332,7 @@
       "attack": 90,
       "defense": 186
     },
-    "family": "FAMILY_ONIX",
+    "family": 95,
     "moves1": [],
     "moves2": []
   },
@@ -1346,7 +1346,7 @@
       "defense": 140
     },
     "candy": 50,
-    "family": "FAMILY_DROWZEE",
+    "family": 96,
     "moves1": [],
     "moves2": []
   },
@@ -1359,7 +1359,7 @@
       "attack": 162,
       "defense": 196
     },
-    "family": "FAMILY_DROWZEE",
+    "family": 96,
     "moves1": [],
     "moves2": []
   },
@@ -1373,7 +1373,7 @@
       "defense": 110
     },
     "candy": 50,
-    "family": "FAMILY_KRABBY",
+    "family": 98,
     "moves1": [],
     "moves2": []
   },
@@ -1386,7 +1386,7 @@
       "attack": 178,
       "defense": 168
     },
-    "family": "FAMILY_KRABBY",
+    "family": 98,
     "moves1": [],
     "moves2": []
   },
@@ -1400,7 +1400,7 @@
       "defense": 124
     },
     "candy": 50,
-    "family": "FAMILY_VOLTORB",
+    "family": 100,
     "moves1": [],
     "moves2": []
   },
@@ -1413,7 +1413,7 @@
       "attack": 150,
       "defense": 174
     },
-    "family": "FAMILY_VOLTORB",
+    "family": 100,
     "moves1": [],
     "moves2": []
   },
@@ -1428,7 +1428,7 @@
       "defense": 132
     },
     "candy": 50,
-    "family": "FAMILY_EXEGGCUTE",
+    "family": 102,
     "moves1": [],
     "moves2": []
   },
@@ -1442,7 +1442,7 @@
       "attack": 232,
       "defense": 164
     },
-    "family": "FAMILY_EXEGGCUTE",
+    "family": 102,
     "moves1": [],
     "moves2": []
   },
@@ -1456,7 +1456,7 @@
       "defense": 150
     },
     "candy": 50,
-    "family": "FAMILY_CUBONE",
+    "family": 104,
     "moves1": [],
     "moves2": []
   },
@@ -1469,7 +1469,7 @@
       "attack": 140,
       "defense": 202
     },
-    "family": "FAMILY_CUBONE",
+    "family": 104,
     "moves1": [],
     "moves2": []
   },
@@ -1482,7 +1482,7 @@
       "attack": 148,
       "defense": 172
     },
-    "family": "FAMILY_HITMONLEE",
+    "family": 106,
     "moves1": [],
     "moves2": []
   },
@@ -1495,7 +1495,7 @@
       "attack": 138,
       "defense": 204
     },
-    "family": "FAMILY_HITMONCHAN",
+    "family": 107,
     "moves1": [],
     "moves2": []
   },
@@ -1508,7 +1508,7 @@
       "attack": 126,
       "defense": 160
     },
-    "family": "FAMILY_LICKITUNG",
+    "family": 108,
     "moves1": [],
     "moves2": []
   },
@@ -1522,7 +1522,7 @@
       "defense": 142
     },
     "candy": 50,
-    "family": "FAMILY_KOFFING",
+    "family": 109,
     "moves1": [],
     "moves2": []
   },
@@ -1535,7 +1535,7 @@
       "attack": 190,
       "defense": 198
     },
-    "family": "FAMILY_KOFFING",
+    "family": 109,
     "moves1": [],
     "moves2": []
   },
@@ -1550,7 +1550,7 @@
       "defense": 116
     },
     "candy": 50,
-    "family": "FAMILY_RHYHORN",
+    "family": 111,
     "moves1": [],
     "moves2": []
   },
@@ -1564,7 +1564,7 @@
       "attack": 166,
       "defense": 160
     },
-    "family": "FAMILY_RHYHORN",
+    "family": 111,
     "moves1": [],
     "moves2": []
   },
@@ -1577,7 +1577,7 @@
       "attack": 40,
       "defense": 60
     },
-    "family": "FAMILY_CHANSEY",
+    "family": 113,
     "moves1": [],
     "moves2": []
   },
@@ -1590,7 +1590,7 @@
       "attack": 164,
       "defense": 152
     },
-    "family": "FAMILY_TANGELA",
+    "family": 114,
     "moves1": [],
     "moves2": []
   },
@@ -1603,7 +1603,7 @@
       "attack": 142,
       "defense": 178
     },
-    "family": "FAMILY_KANGASKHAN",
+    "family": 115,
     "moves1": [],
     "moves2": []
   },
@@ -1617,7 +1617,7 @@
       "defense": 100
     },
     "candy": 50,
-    "family": "FAMILY_HORSEA",
+    "family": 116,
     "moves1": [],
     "moves2": []
   },
@@ -1630,7 +1630,7 @@
       "attack": 176,
       "defense": 150
     },
-    "family": "FAMILY_HORSEA",
+    "family": 116,
     "moves1": [],
     "moves2": []
   },
@@ -1644,7 +1644,7 @@
       "defense": 126
     },
     "candy": 50,
-    "family": "FAMILY_GOLDEEN",
+    "family": 118,
     "moves1": [],
     "moves2": []
   },
@@ -1657,7 +1657,7 @@
       "attack": 172,
       "defense": 160
     },
-    "family": "FAMILY_GOLDEEN",
+    "family": 118,
     "moves1": [],
     "moves2": []
   },
@@ -1671,7 +1671,7 @@
       "defense": 128
     },
     "candy": 50,
-    "family": "FAMILY_STARYU",
+    "family": 120,
     "moves1": [],
     "moves2": []
   },
@@ -1685,7 +1685,7 @@
       "attack": 194,
       "defense": 192
     },
-    "family": "FAMILY_STARYU",
+    "family": 120,
     "moves1": [],
     "moves2": []
   },
@@ -1699,7 +1699,7 @@
       "attack": 154,
       "defense": 196
     },
-    "family": "FAMILY_MR_MIME",
+    "family": 122,
     "moves1": [],
     "moves2": []
   },
@@ -1713,7 +1713,7 @@
       "attack": 176,
       "defense": 180
     },
-    "family": "FAMILY_SCYTHER",
+    "family": 123,
     "moves1": [],
     "moves2": []
   },
@@ -1727,7 +1727,7 @@
       "attack": 172,
       "defense": 134
     },
-    "family": "FAMILY_JYNX",
+    "family": 124,
     "moves1": [],
     "moves2": []
   },
@@ -1740,7 +1740,7 @@
       "attack": 198,
       "defense": 160
     },
-    "family": "FAMILY_ELECTABUZZ",
+    "family": 125,
     "moves1": [],
     "moves2": []
   },
@@ -1753,7 +1753,7 @@
       "attack": 214,
       "defense": 158
     },
-    "family": "FAMILY_MAGMAR",
+    "family": 126,
     "moves1": [],
     "moves2": []
   },
@@ -1766,7 +1766,7 @@
       "attack": 184,
       "defense": 186
     },
-    "family": "FAMILY_PINSIR",
+    "family": 127,
     "moves1": [],
     "moves2": []
   },
@@ -1779,7 +1779,7 @@
       "attack": 148,
       "defense": 184
     },
-    "family": "FAMILY_TAUROS",
+    "family": 128,
     "moves1": [],
     "moves2": []
   },
@@ -1793,7 +1793,7 @@
       "defense": 84
     },
     "candy": 400,
-    "family": "FAMILY_MAGIKARP",
+    "family": 129,
     "moves1": [],
     "moves2": []
   },
@@ -1807,7 +1807,7 @@
       "attack": 192,
       "defense": 196
     },
-    "family": "FAMILY_MAGIKARP",
+    "family": 129,
     "moves1": [],
     "moves2": []
   },
@@ -1821,7 +1821,7 @@
       "attack": 186,
       "defense": 190
     },
-    "family": "FAMILY_LAPRAS",
+    "family": 131,
     "moves1": [],
     "moves2": []
   },
@@ -1834,7 +1834,7 @@
       "attack": 110,
       "defense": 110
     },
-    "family": "FAMILY_DITTO",
+    "family": 132,
     "moves1": [],
     "moves2": []
   },
@@ -1848,7 +1848,7 @@
       "defense": 128
     },
     "candy": 25,
-    "family": "FAMILY_EEVEE",
+    "family": 133,
     "moves1": [],
     "moves2": []
   },
@@ -1861,7 +1861,7 @@
       "attack": 186,
       "defense": 168
     },
-    "family": "FAMILY_EEVEE",
+    "family": 133,
     "moves1": [],
     "moves2": []
   },
@@ -1874,7 +1874,7 @@
       "attack": 192,
       "defense": 174
     },
-    "family": "FAMILY_EEVEE",
+    "family": 133,
     "moves1": [],
     "moves2": []
   },
@@ -1887,7 +1887,7 @@
       "attack": 238,
       "defense": 178
     },
-    "family": "FAMILY_EEVEE",
+    "family": 133,
     "moves1": [],
     "moves2": []
   },
@@ -1900,7 +1900,7 @@
       "attack": 156,
       "defense": 158
     },
-    "family": "FAMILY_PORYGON",
+    "family": 137,
     "moves1": [],
     "moves2": []
   },
@@ -1915,7 +1915,7 @@
       "defense": 160
     },
     "candy": 50,
-    "family": "FAMILY_OMANYTE",
+    "family": 138,
     "moves1": [],
     "moves2": []
   },
@@ -1929,7 +1929,7 @@
       "attack": 180,
       "defense": 202
     },
-    "family": "FAMILY_OMANYTE",
+    "family": 138,
     "moves1": [],
     "moves2": []
   },
@@ -1944,7 +1944,7 @@
       "defense": 142
     },
     "candy": 50,
-    "family": "FAMILY_KABUTO",
+    "family": 140,
     "moves1": [],
     "moves2": []
   },
@@ -1958,7 +1958,7 @@
       "attack": 190,
       "defense": 190
     },
-    "family": "FAMILY_KABUTO",
+    "family": 140,
     "moves1": [],
     "moves2": []
   },
@@ -1972,7 +1972,7 @@
       "attack": 182,
       "defense": 162
     },
-    "family": "FAMILY_AERODACTYL",
+    "family": 142,
     "moves1": [],
     "moves2": []
   },
@@ -1985,7 +1985,7 @@
       "attack": 180,
       "defense": 180
     },
-    "family": "FAMILY_SNORLAX",
+    "family": 143,
     "moves1": [],
     "moves2": []
   },
@@ -1999,7 +1999,7 @@
       "attack": 198,
       "defense": 242
     },
-    "family": "FAMILY_ARTICUNO",
+    "family": 144,
     "moves1": [],
     "moves2": []
   },
@@ -2013,7 +2013,7 @@
       "attack": 232,
       "defense": 194
     },
-    "family": "FAMILY_ZAPDOS",
+    "family": 145,
     "moves1": [],
     "moves2": []
   },
@@ -2027,7 +2027,7 @@
       "attack": 242,
       "defense": 194
     },
-    "family": "FAMILY_MOLTRES",
+    "family": 146,
     "moves1": [],
     "moves2": []
   },
@@ -2041,7 +2041,7 @@
       "defense": 110
     },
     "candy": 25,
-    "family": "FAMILY_DRATINI",
+    "family": 147,
     "moves1": [],
     "moves2": []
   },
@@ -2055,7 +2055,7 @@
       "defense": 152
     },
     "candy": 100,
-    "family": "FAMILY_DRATINI",
+    "family": 148,
     "moves1": [],
     "moves2": []
   },
@@ -2069,7 +2069,7 @@
       "attack": 250,
       "defense": 212
     },
-    "family": "FAMILY_DRATINI",
+    "family": 149,
     "moves1": [],
     "moves2": []
   },
@@ -2082,7 +2082,7 @@
       "attack": 284,
       "defense": 202
     },
-    "family": "FAMILY_MEWTWO",
+    "family": 150,
     "moves1": [],
     "moves2": []
   },
@@ -2095,7 +2095,7 @@
       "attack": 220,
       "defense": 220
     },
-    "family": "FAMILY_MEW",
+    "family": 151,
     "moves1": [],
     "moves2": []
   }
