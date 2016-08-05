@@ -14,7 +14,7 @@
         (lib/no-error!)
         (lib/logged-in!)
         (lib/loading! false)
-        (com/ajax-get :get-player com/player-sucess-handler)
+        (com/ajax-get (:get-player config/api) com/player-success-handler)
         (lib/change-view! :default))
       (do
         (lib/error! (:message res))
@@ -26,10 +26,10 @@
   (lib/loading!)
   (let [url (:login config/api)]
     (POST (clib/make-url url)
-          {:body            (clib/clj->json {:email email
+          {:body            (clib/clj->json {:email    email
                                              :password password
                                              :location location
-                                             :service service})
+                                             :service  service})
            :handler         success-login
            :error-handler   com/error-handler
            :response-format :json

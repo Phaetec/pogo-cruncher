@@ -25,7 +25,7 @@
   (let [res (process-response response)]
     (lib/update-pokemon! res)))
 
-(defn player-sucess-handler
+(defn player-success-handler
   "React upon the receival of updated playerdata. Insert Information into app-state atom."
   [response]
   (let [res (process-response response)]
