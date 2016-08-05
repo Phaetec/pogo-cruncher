@@ -92,7 +92,8 @@
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
-              (dom/td nil (:individual_stamina pokemon))))))
+              (dom/td nil (:individual_stamina pokemon))
+              (dom/td nil (:candy pokemon))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
 (defui PokeTable
@@ -114,7 +115,8 @@
                                            (vlib/sortable-table-header :individual_percentage "IV % Perfect")
                                            (vlib/sortable-table-header :individual_attack "IV Attack")
                                            (vlib/sortable-table-header :individual_defense "IV Defense")
-                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")))
+                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")
+                                           (vlib/sortable-table-header :candy "Candy")))
                         (apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
              #_(let [jquery (js* "$")]

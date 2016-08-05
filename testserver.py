@@ -6,6 +6,7 @@ The replies and test functions are described inside the docstrings.
 from flask import Flask, jsonify
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
+from backend.pokehelper import Pokehelper
 from flask import make_response, request
 from flask_cors import CORS
 from geopy.exc import GeocoderServiceError
@@ -21,6 +22,8 @@ CORS(app)
 with open('example_dump.txt') as pokemon_data:
     data = json.load(pokemon_data)
 
+pokehelper = Pokehelper()
+status = {'logged_in':      False}
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
 
@@ -60,6 +63,8 @@ def login():
             return jsonify({'status':   'error',
                             'message':  'Location could not be found, please try another one!'})
 
+    global status
+    status['logged_in'] = True
     return jsonify({'status': 'ok'})
 
 
@@ -75,6 +80,7 @@ def get_pokemon():
 
     # Build answer Pokemon list
     answer = list()
+    candies = dict()
     for item in items:
         if 'pokemon_data' in item['inventory_item_data']:
             # Eggs are treated as pokemon by Niantic.
@@ -92,6 +98,13 @@ def get_pokemon():
                     'nickname':             pokemon.nickname,
                     'favorite':             pokemon.is_favorite(),
                 })
+        elif 'candy' in item['inventory_item_data']:
+            candy_data = item['inventory_item_data']['candy']
+            candies[candy_data['family_id']] = candy_data['candy']
+
+    for poke in answer:
+        family = pokehelper.get_pokefamily(poke['pokemon_id'])
+        poke['candy'] = candies.get(family, 0)
     return jsonify(answer)
 
 
@@ -184,6 +197,48 @@ def favorite_pokemon():
     return jsonify({'status':   'ok',
                     'id':       str(pokemon_id),
                     'set_favorite':set_favorite})
+
+
+@app.route('/api/status', methods=['GET'])
+def api_status():
+    return jsonify({'status': 'ok'})
+
+
+@app.route('/api/status/niantic', methods=['GET'])
+def niantic_status():
+
+    if status['logged_in']:
+        return jsonify({'status': 'ok'})
+
+    return jsonify({'status': 'error',
+                    'message': 'The connection to the Pokemon Go Servers could not be established. Please Logout and back in.'})
+
+
+@app.route('/api/player', methods=['GET'])
+def get_player():
+    """
+    Request Information about the player.
+
+    :return: Return a json dictionary including `name`, `stardust`, `pokecoins`.
+    """
+
+    player_data = data['responses']['GET_PLAYER']['player_data']
+
+    pokecoins = 0
+    stardust = 0
+    for currency in player_data['currencies']:
+        if currency['name'] == 'STARDUST':
+            stardust = currency.get('amount', 0)
+        elif currency['name'] == 'POKECOIN':
+            pokecoins = currency.get('amount', 0)
+
+    answer = {
+        'name':         player_data.get('username'),
+        'stardust':     stardust,
+        'pokecoins':    pokecoins,
+    }
+
+    return jsonify(answer)
 
 # ----------------- Helper Functions
 

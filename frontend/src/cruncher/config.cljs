@@ -7,4 +7,5 @@
           :get-all-pokemon "api/pokemon"
           :toggle-favorite "api/pokemon/favorite"
           :crunch-selected-pokemon "api/pokemon/delete"
-          :status-delete "api/status/delete"})
+          :status-delete "api/status/delete"
+          :get-player "api/player"})

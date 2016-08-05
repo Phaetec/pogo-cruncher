@@ -15,7 +15,8 @@
                                 :to_delete 100
                                 :deleted   0
                                 :status    "ok"}
-            :progress-running? false}))
+            :progress-running? false
+            :player            {}}))
 
 (declare get-pokemon-by-id)
 
@@ -49,6 +50,10 @@
   [{:keys [state]} _ {:keys [pokemon]}]
   (let [named-pokemon (map (fn [pokemap] (merge pokemap {:name (:name (get-pokemon-by-id (:pokemon_id pokemap)))})) pokemon)]
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] named-pokemon)))}))
+
+(defmethod mutate 'update/player
+  [{:keys [state]} _ {:keys [player]}]
+  {:action (fn [] (swap! state update-in [:player] (fn [] player)))})
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
@@ -216,6 +221,11 @@
   "Sort complete list of pokemon by given key."
   [key]
   (om/transact! reconciler `[(sort/pokemon {:key ~key})]))
+
+(defn update-player!
+  "Update the playerdata."
+  [res]
+  (om/transact! reconciler `[(update/player {:player ~res})]))
 
 
 ;;;; Conversions
