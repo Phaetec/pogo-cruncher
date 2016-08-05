@@ -98,9 +98,9 @@ def get_pokemon():
                     'nickname':             pokemon.nickname,
                     'favorite':             pokemon.is_favorite(),
                 })
-        elif 'pokemon_family' in item['inventory_item_data']:
-                candy_data = item['inventory_item_data']['pokemon_family']
-                candies[candy_data['family_id']] = candy_data['candy']
+        elif 'candy' in item['inventory_item_data']:
+            candy_data = item['inventory_item_data']['candy']
+            candies[candy_data['family_id']] = candy_data['candy']
 
     for poke in answer:
         family = pokehelper.get_pokefamily(poke['pokemon_id'])
