@@ -86,8 +86,8 @@ def get_pokemon():
                         'favorite':             pokemon.is_favorite(),
                     })
 
-            elif 'pokemon_family' in item['inventory_item_data']:
-                candy_data = item['inventory_item_data']['pokemon_family']
+            elif 'candy' in item['inventory_item_data']:
+                candy_data = item['inventory_item_data']['candy']
                 candies[candy_data['family_id']] = candy_data['candy']
 
         # add candies to answerdict
