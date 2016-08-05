@@ -214,6 +214,32 @@ def niantic_status():
                     'message': 'The connection to the Pokemon Go Servers could not be established. Please Logout and back in.'})
 
 
+@app.route('/api/player', methods=['GET'])
+def get_player():
+    """
+    Request Information about the player.
+
+    :return: Return a json dictionary including `name`, `stardust`, `pokecoins`.
+    """
+
+    player_data = data['responses']['GET_PLAYER']['player_data']
+
+    pokecoins = 0
+    stardust = 0
+    for currency in player_data['currencies']:
+        if currency['name'] == 'STARDUST':
+            stardust = currency.get('amount', 0)
+        elif currency['name'] == 'POKECOIN':
+            pokecoins = currency.get('amount', 0)
+
+    answer = {
+        'name':         player_data.get('username'),
+        'stardust':     stardust,
+        'pokecoins':    pokecoins,
+    }
+
+    return jsonify(answer)
+
 # ----------------- Helper Functions
 
 
