@@ -14,6 +14,7 @@
         (lib/no-error!)
         (lib/logged-in!)
         (lib/loading! false)
+        (com/ajax-get :get-player com/player-sucess-handler)
         (lib/change-view! :default))
       (do
         (lib/error! (:message res))
