@@ -165,7 +165,7 @@ def niantic_status():
 
 
 @app.route('/api/player', methods=['GET'])
-def get_plyer():
+def get_player():
     """
     Request Information about the player.
 
