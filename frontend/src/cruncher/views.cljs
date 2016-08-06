@@ -72,9 +72,13 @@
     (let [pokemon (om/props this)]
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
-              (dom/td #js {:className "well"
-                           :colSpan 13}
-                      "ahoi")))))
+              (dom/td #js {:className "well"})
+              (dom/td #js {:className "well" :colSpan 3} (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png")
+                                                                       :className "pokemon-image"}))
+              (dom/td #js {:className "well" :colSpan 10}
+                      (dom/div #js {:className "row"}
+                               (dom/div #js {:className "col-md-2"} "Available Candy:")
+                               (dom/div #js {:className "col-md-10"} (:candy pokemon))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
@@ -96,6 +100,7 @@
                                                  :value     (:id pokemon)})))
               (dom/td nil (favorite-td (:id pokemon) (:favorite pokemon)))
               (dom/td nil (:pokemon_id pokemon))
+              (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (dom/td nil (:name pokemon))
               (dom/td nil (:nickname pokemon))
               (dom/td nil (:cp pokemon))
@@ -126,6 +131,7 @@
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :favorite "Fav.")
                                            (vlib/sortable-table-header :pokemon_id "#")
+                                           (dom/th nil "")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :nickname "Nickname")
                                            (vlib/sortable-table-header :cp "CP")
@@ -139,9 +145,7 @@
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon))))
-                        #_(apply dom/tbody nil
-                                 (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
+                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
              #_(let [jquery (js* "$")]
                  (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
