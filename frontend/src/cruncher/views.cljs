@@ -73,20 +73,18 @@
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
-              (dom/td #js {:className "well" :colSpan 3} (dom/img #js {:src       (str "img/pokemon/models/" (:pokemon_id pokemon) ".png")
-                                                                       :className "pokemon-image"}))
-              (dom/td #js {:className "well" :colSpan 9}
+              (dom/td #js {:className "well" :colSpan 12}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-3"} "Evolves to:")
-                               (dom/div #js {:className "col-md-9"} (if (lib/pokemon-evolution pokemon)
+                               (dom/div #js {:className "col-md-4"} "Evolves to:")
+                               (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
                                                                        (lib/pokemon-evolution pokemon)
                                                                        "None")))
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-3"} "Available Candy:")
-                               (dom/div #js {:className "col-md-9"} (:candy pokemon)))
+                               (dom/div #js {:className "col-md-4"} "Available Candy:")
+                               (dom/div #js {:className "col-md-8"} (:candy pokemon)))
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-3"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-9"} (lib/calc-evolutions pokemon))))))))
+                               (dom/div #js {:className "col-md-4"} "Available Evolutions:")
+                               (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
