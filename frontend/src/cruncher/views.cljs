@@ -73,9 +73,9 @@
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
-              (dom/td #js {:className "well" :colSpan 3} (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png")
+              (dom/td #js {:className "well" :colSpan 3} (dom/img #js {:src       (str "img/pokemon/models/" (:pokemon_id pokemon) ".png")
                                                                        :className "pokemon-image"}))
-              (dom/td #js {:className "well" :colSpan 10}
+              (dom/td #js {:className "well" :colSpan 9}
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-2"} "Available Candy:")
                                (dom/div #js {:className "col-md-10"} (:candy pokemon))))))))
@@ -109,13 +109,12 @@
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
               (dom/td nil (:individual_stamina pokemon))
-              (dom/td nil (:candy pokemon))
-              (dom/td nil (dom/button #js {:className "btn btn-sm btn-info"
-                                           :type "button"
-                                           :data-toggle     "collapse"
-                                           :data-target     (str "#poketable-row-details-" (:id pokemon))
-                                           :aria-expanded   "false"
-                                           :aria-controls   (str "poketable-row-details-" (:id pokemon))}
+              (dom/td nil (dom/button #js {:className     "btn btn-sm btn-info"
+                                           :type          "button"
+                                           :data-toggle   "collapse"
+                                           :data-target   (str "#poketable-row-details-" (:id pokemon))
+                                           :aria-expanded "false"
+                                           :aria-controls (str "poketable-row-details-" (:id pokemon))}
                                       "Details"))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
@@ -140,7 +139,6 @@
                                            (vlib/sortable-table-header :individual_attack "IV Attack")
                                            (vlib/sortable-table-header :individual_defense "IV Defense")
                                            (vlib/sortable-table-header :individual_stamina "IV Stamina")
-                                           (vlib/sortable-table-header :candy "Candy")
                                            (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
