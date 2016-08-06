@@ -242,3 +242,8 @@
   [str]
   (when (string? str)
     (= "true" str)))
+
+;;;; Helpers
+(defn pokemon-evolution
+  [pokemon]
+  (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon)))))))

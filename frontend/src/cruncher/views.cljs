@@ -77,6 +77,11 @@
                                                                        :className "pokemon-image"}))
               (dom/td #js {:className "well" :colSpan 9}
                       (dom/div #js {:className "row"}
+                               (dom/div #js {:className "col-md-2"} "Evolves to:")
+                               (dom/div #js {:className "col-md-10"} (if (lib/pokemon-evolution pokemon)
+                                                                       (lib/pokemon-evolution pokemon)
+                                                                       "None")))
+                      (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-2"} "Available Candy:")
                                (dom/div #js {:className "col-md-10"} (:candy pokemon))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
