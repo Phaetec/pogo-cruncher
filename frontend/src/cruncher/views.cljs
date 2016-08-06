@@ -109,7 +109,7 @@
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
               (dom/td nil (:individual_stamina pokemon))
-              #_(dom/td nil (dom/button #js {:className     "btn btn-sm btn-info"
+              (dom/td nil (dom/button #js {:className     "btn btn-sm btn-info"
                                            :type          "button"
                                            :data-toggle   "collapse"
                                            :data-target   (str "#poketable-row-details-" (:id pokemon))
@@ -139,7 +139,7 @@
                                            (vlib/sortable-table-header :individual_attack "IV Attack")
                                            (vlib/sortable-table-header :individual_defense "IV Defense")
                                            (vlib/sortable-table-header :individual_stamina "IV Stamina")
-                                           #_(dom/th nil "")))
+                                           (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
