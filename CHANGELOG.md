@@ -5,6 +5,8 @@
 ## 0.3 [WIP]
 * More information about Pokemon, including attack moves, bonbons, ...
 * Don't allow sending away your favorite pokemon
+* Add Candy Information
+* See Stardust and Pokecoins of your Trainer-Character
 
 ## 0.2
 * Create automatic build on DockerHub
