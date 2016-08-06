@@ -1,6 +1,6 @@
 (ns cruncher.utils.lib
   (:require [om.next :as om :refer-macros [defui]]
-            [goog.dom :as gdom]
+            [cljs.core.async :refer [chan close!]]
             [cruncher.data.pokemon :as pokemon]))
 
 (defonce app-state
@@ -90,6 +90,10 @@
                          (fn [] {:status    (:status status)
                                  :to_delete (:to_delete status)
                                  :deleted   (:deleted status)})))})
+
+(defmethod mutate 'status/niantic
+  [{:keys [state]} _ {:keys [status]}]
+  {:action (fn [] (swap! state update-in [:connected?] (fn [] status)))})
 
 (defmethod mutate 'toggle/progress
   [{:keys [state]} _ {:keys [status]}]
@@ -242,6 +246,16 @@
   [str]
   (when (string? str)
     (= "true" str)))
+
+
+;;;; Threading
+(defn timeout
+  "Set timeout for the current thread."
+  [ms]
+  (let [c (chan)]
+    (js/setTimeout (fn [] (close! c)) ms)
+    c))
+
 
 ;;;; Helpers
 (defn pokemon-evolution
