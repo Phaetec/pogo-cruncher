@@ -79,9 +79,10 @@
     (if (lib/logged-in?)
       (let [{:keys [player]} (om/props this)]
         (dom/div nil
-                 (dom/div nil (:name player) " "
-                          (:stardust player) (dom/img #js {:src "img/stardust_vector.png" :className "currency_image"})
-                          (:pokecoins player) (dom/img #js {:src "img/pokecoin.png" :className "currency_image"}))
+                 (dom/div nil (:name player))
+                 (dom/div nil
+                          (:stardust player) (dom/img #js {:src "img/stardust_vector.png" :className "currency_image" :title "Dust"})
+                          (:pokecoins player) (dom/img #js {:src "img/pokecoin.png" :className "currency_image" :title "Coins"}))
                  (dom/a #js {:href    "javascript:void(0)"
                              :onClick #(lib/logged-in! false)}
                         (fa-icon "fa-sign-out")
