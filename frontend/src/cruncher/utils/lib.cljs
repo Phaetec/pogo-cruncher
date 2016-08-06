@@ -247,3 +247,8 @@
 (defn pokemon-evolution
   [pokemon]
   (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon)))))))
+
+(defn calc-evolutions
+  [pokemon]
+  (let [needed-candy (:amount (:next-evolution-requirements (get-pokemon-by-id (:pokemon_id pokemon))))]
+    (quot (:candy pokemon) needed-candy)))
