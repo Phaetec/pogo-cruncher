@@ -11,7 +11,6 @@ import time
 import random
 
 
-
 app = Flask(__name__)
 CORS(app)
 
@@ -19,6 +18,12 @@ pokeapi = pgoapi.PGoApi()
 pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+
+
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({'status': 'ok',
+                    'message': 'Welcome to the pogo-cruncher API! Seems like everything is working fine.'})
 
 
 @app.errorhandler(404)
@@ -38,7 +43,6 @@ def login():
         return jsonify({'status':   'error',
                         'message':  'Location could not be found, please try another one!'})
 
-
     pokeapi.set_position(*position)
     try:
         logged_in = pokeapi.login(service, login_name, password, app_simulation=True)
@@ -51,6 +55,7 @@ def login():
                         'message': 'Failed to login. If the Pokemon GO Servers are online, your credentials may be wrong.'})
     else:
         return jsonify({'status': 'ok'})
+
 
 @app.route('/api/pokemon', methods=['GET'])
 def get_pokemon():
@@ -71,19 +76,19 @@ def get_pokemon():
         for item in items:
             if 'pokemon_data' in item['inventory_item_data']:
                 # Eggs are treated as pokemon by Niantic.
-                 if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                     pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
                     answer.append({
-                        'id':                   str(pokemon.id),
-                        'pokemon_id':           pokemon.pokemon_number,
-                        'individual_attack':    pokemon.iv_att,
-                        'individual_stamina':   pokemon.iv_sta,
-                        'individual_defense':   pokemon.iv_def,
-                        'individual_percentage':float(pokemon.iv_percentage()),
-                        'health':               pokemon.stamina_max,
-                        'cp':                   pokemon.cp,
-                        'nickname':             pokemon.nickname,
-                        'favorite':             pokemon.is_favorite(),
+                        'id':                    str(pokemon.id),
+                        'pokemon_id':            pokemon.pokemon_number,
+                        'individual_attack':     pokemon.iv_att,
+                        'individual_stamina':    pokemon.iv_sta,
+                        'individual_defense':    pokemon.iv_def,
+                        'individual_percentage': float(pokemon.iv_percentage()),
+                        'health':                pokemon.stamina_max,
+                        'cp':                    pokemon.cp,
+                        'nickname':              pokemon.nickname,
+                        'favorite':              pokemon.is_favorite(),
                     })
 
             elif 'candy' in item['inventory_item_data']:
@@ -96,6 +101,7 @@ def get_pokemon():
             poke['candy'] = candies.get(family, 0)
 
         return jsonify(answer)
+
 
 @app.route('/api/pokemon/delete', methods=['POST'])
 def delete_pokemon():
@@ -117,13 +123,12 @@ def delete_pokemon():
             # Sleep some random time between two and three seconds
             time.sleep(random.randint(200, 350)/100)
             deleted_pokemon += 1
-            print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
+            print('Deleted Pokemon %d out of %d' % (deleted_pokemon, pokemon_deletion_amount))
 
     pokemon_deletion_amount = 0
     deleted_pokemon = 0
 
     return jsonify({'status': 'ok'})
-
 
 
 @app.route('/api/status/delete', methods=['GET'])
