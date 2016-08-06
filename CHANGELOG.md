@@ -4,6 +4,7 @@
 
 ## 0.3 [WIP]
 * More information about Pokemon, including attack moves, bonbons, ...
+* Show Pokemon thumbnail
 * Don't allow sending away your favorite pokemon
 * Add Candy Information
 * See Stardust and Pokecoins of your Trainer-Character
