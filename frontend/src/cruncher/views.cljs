@@ -170,7 +170,7 @@
                      (pos? (count password))
                      (pos? (count location))
                      (pos? (count service)))]
-    (vlib/button-primary #(auth/login email password location service) not-empty? "Login")))
+    (vlib/button-primary #(auth/ajax-login email password location service) not-empty? "Login")))
 
 (defui Login
   Object

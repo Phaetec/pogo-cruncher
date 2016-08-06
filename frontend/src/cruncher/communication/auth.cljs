@@ -8,17 +8,12 @@
 (defn success-login
   "Callback function when login was successful. Set attributes of user."
   [response]
-  (let [res (com/process-response response)]
-    (if (= "ok" (:status res))
-      (do
-        (lib/no-error!)
-        (lib/logged-in!)
-        (lib/loading! false)
-        (com/ajax-get (:get-player config/api) com/player-success-handler)
-        (lib/change-view! :default))
-      (do
-        (lib/error! (:message res))
-        (lib/loading! false)))))
+  (let [res (com/process-response response)
+        errors? (com/something-went-wrong? (:status res) (:message res))]
+    (when-not errors?
+      (lib/logged-in!)
+      (com/ajax-get (:get-player config/api) com/player-success-handler)
+      (lib/change-view! :default))))
 
 (defn ajax-login
   "Get cleaned data and send ajax request."
@@ -35,13 +30,3 @@
            :response-format :json
            :headers         {"Content-Type" "application/json"}
            :keywords?       true})))
-
-(defn login
-  "Use login form data, validate it and send ajax request."
-  [email password location service]
-  (when (and
-          (pos? (count email))
-          (pos? (count password))
-          (pos? (count location))
-          (pos? (count service)))
-    (ajax-login email password location service)))
