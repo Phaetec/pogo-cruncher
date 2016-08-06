@@ -66,6 +66,15 @@
 
 
 ;;;; Poketable
+(defui PokeTableEntryDetails
+  Object
+  (render [this]
+    (let [pokemon (om/props this)]
+      (dom/tr #js {:id              (str "poketable-row-details-" (:id pokemon))
+                   :className       "collapse"}
+              (dom/td #js {:colSpan 12} "ahoi")))))
+(def poketable-entry-details (om/factory PokeTableEntryDetails {}))
+
 (defui PokeTableEntry
   Object
   (render [this]
@@ -75,7 +84,11 @@
                    :data-favorite   (:favorite pokemon)
                    :data-id         (:id pokemon)
                    :data-iv-perfect (:individual_percentage pokemon)
-                   :data-cp         (:cp pokemon)}
+                   :data-cp         (:cp pokemon)
+                   :data-toggle   "collapse"
+                   :data-target   (str "#poketable-row-details-" (:id pokemon))
+                   :aria-expanded "false"
+                   :aria-controls "collapseExample"}
               (dom/td nil
                       (dom/div #js {:className "checkbox"})
                       (dom/label nil
@@ -117,7 +130,11 @@
                                            (vlib/sortable-table-header :individual_defense "IV Defense")
                                            (vlib/sortable-table-header :individual_stamina "IV Stamina")
                                            (vlib/sortable-table-header :candy "Candy")))
-                        (apply dom/tbody nil
+                        (dom/tbody nil
+                                   (interleave
+                                     (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
+                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon))))
+                        #_(apply dom/tbody nil
                                (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))))
              #_(let [jquery (js* "$")]
                  (.stickyTableHeaders (jquery "#poketable"))))))
