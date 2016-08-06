@@ -24,6 +24,7 @@
   Object
   (render [this]
     (dom/div nil
+             (dom/div nil (lib/evolution-sum) " Evolutions ")
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (dom/p #js {:className "lead"} "Controls")
              (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")

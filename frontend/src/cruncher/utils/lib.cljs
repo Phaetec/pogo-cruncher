@@ -58,7 +58,7 @@
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
   {:action (fn [] (swap! state update-in [:pokemon] (fn []
-    (reverse (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))))))})
+                                                      (reverse (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))))))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]
@@ -250,5 +250,14 @@
 
 (defn calc-evolutions
   [pokemon]
-  (let [needed-candy (:amount (:next-evolution-requirements (get-pokemon-by-id (:pokemon_id pokemon))))]
-    (quot (:candy pokemon) needed-candy)))
+  (let [requirement (:next-evolution-requirements (get-pokemon-by-id (:pokemon_id pokemon)))
+        amount (if requirement (:amount requirement) 1000000000000) ;; More elegant way available?
+        result (quot (:candy pokemon) amount)]
+    result))
+
+(defn evolution-sum
+  []                                                        ;; TODO
+  (let [grouped-pokemon (group-by :name (get-in @app-state [:pokemon]))
+        unique-pokes-lists (into [] (map second grouped-pokemon))
+        unique-pokes (map first unique-pokes-lists)]
+    (reduce + (map calc-evolutions (flatten unique-pokes)))))
