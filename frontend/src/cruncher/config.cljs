@@ -8,4 +8,5 @@
           :toggle-favorite "api/pokemon/favorite"
           :crunch-selected-pokemon "api/pokemon/delete"
           :status-delete "api/status/delete"
-          :get-player "api/player"})
+          :get-player "api/player"
+          :api-status "api/status/niantic"})
