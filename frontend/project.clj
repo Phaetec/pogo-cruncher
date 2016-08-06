@@ -1,4 +1,4 @@
-(defproject cruncher "0.1.0-SNAPSHOT"
+(defproject cruncher "0.2.1"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
