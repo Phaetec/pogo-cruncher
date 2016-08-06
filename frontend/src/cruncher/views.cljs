@@ -7,6 +7,7 @@
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
             [cruncher.selections :as selections]
+            [cruncher.utils.status :as status]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
@@ -165,6 +166,8 @@
                       (dom/div #js {:className "pull-right"}
                                (vlib/login-indicator (om/props this)))
                       (dom/h1 nil "Poké-Cruncher"))
+             (dom/div #js {:className "pull-right"}
+                      (dom/div nil (status/api-connected-badge {})))
              (dom/ul nil
                      (dom/li nil
                              "If you have 2-factor Auth enabled in your Google Account, please add an "
