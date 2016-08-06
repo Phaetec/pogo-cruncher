@@ -15,7 +15,6 @@ import time
 import random
 
 
-
 app = Flask(__name__)
 CORS(app)
 
@@ -26,6 +25,12 @@ pokehelper = Pokehelper()
 status = {'logged_in':      False}
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+
+
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({'status': 'ok',
+                    'message': 'Welcome to the pogo-cruncher API! Seems like everything is working fine.'})
 
 
 @app.errorhandler(404)
@@ -40,7 +45,7 @@ def login():
     If you want to test the location resolve send an additonal `'resolve': 1` value.
     If you want to simulate a failing login, send an additonal `'fail': <some message>`. The API will answer
     with an error and return the message inside the `message` field.
-    
+
     :return: Always returns an `ok` status if `resolve` is not sent. Otherwise return `ok` when the location could be
         found and an `error` including a message if not.
     """
@@ -84,19 +89,19 @@ def get_pokemon():
     for item in items:
         if 'pokemon_data' in item['inventory_item_data']:
             # Eggs are treated as pokemon by Niantic.
-             if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
                 pokemon = Pokemon(item['inventory_item_data']['pokemon_data'])
                 answer.append({
-                    'id':                   str(pokemon.id),
-                    'pokemon_id':           pokemon.pokemon_number,
-                    'individual_attack':    pokemon.iv_att,
-                    'individual_stamina':   pokemon.iv_sta,
-                    'individual_defense':   pokemon.iv_def,
-                    'individual_percentage':float(pokemon.iv_percentage()),
-                    'health':               pokemon.stamina_max,
-                    'cp':                   pokemon.cp,
-                    'nickname':             pokemon.nickname,
-                    'favorite':             pokemon.is_favorite(),
+                    'id':                    str(pokemon.id),
+                    'pokemon_id':            pokemon.pokemon_number,
+                    'individual_attack':     pokemon.iv_att,
+                    'individual_stamina':    pokemon.iv_sta,
+                    'individual_defense':    pokemon.iv_def,
+                    'individual_percentage': float(pokemon.iv_percentage()),
+                    'health':                pokemon.stamina_max,
+                    'cp':                    pokemon.cp,
+                    'nickname':              pokemon.nickname,
+                    'favorite':              pokemon.is_favorite(),
                 })
         elif 'candy' in item['inventory_item_data']:
             candy_data = item['inventory_item_data']['candy']
@@ -149,7 +154,7 @@ def delete_pokemon():
                             data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'].pop(count)
                             deletion_candidates.remove(str(item['inventory_item_data']['pokemon_data']['id']))
                             deleted_pokemon += 1
-                            print('Deleted Pokemon %d out of %d'%(deleted_pokemon, pokemon_deletion_amount))
+                            print('Deleted Pokemon %d out of %d' % (deleted_pokemon, pokemon_deletion_amount))
                             time.sleep(random.randint(200, 350)/100)
                             break
         print("Done deleting")
@@ -191,12 +196,12 @@ def favorite_pokemon():
                 if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
                     data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite'] = set_favorite
                     print("Pokemon favorite status has been set to " +
-                        str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite']))
+                          str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['favorite']))
                     break
 
-    return jsonify({'status':   'ok',
-                    'id':       str(pokemon_id),
-                    'set_favorite':set_favorite})
+    return jsonify({'status':       'ok',
+                    'id':           str(pokemon_id),
+                    'set_favorite': set_favorite})
 
 
 @app.route('/api/status', methods=['GET'])
