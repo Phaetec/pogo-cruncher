@@ -255,6 +255,7 @@ def evolve_pokemon():
     evolution_candidate = int(request.json['id'])
     global data
     answer = {'status'  : 'ok'}
+    
     invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
     for count, item in enumerate(invlist):
         if 'pokemon_data' in item['inventory_item_data']:
@@ -263,7 +264,7 @@ def evolve_pokemon():
                 if item['inventory_item_data']['pokemon_data']['id'] == evolution_candidate:
                     pokemon = data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']
                     pokemon['cp'] *= 2
-                    pokemon['name'] = pokehelper.get_evolution_name(evolution_candidate)
+                    pokemon['name'] = pokehelper.get_evolution_name(pokemon['pokemon_id'])
                     pokemon['pokemon_id'] += 1
 
                     print("Pokemon has been evolved to " +

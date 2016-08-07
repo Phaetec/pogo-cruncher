@@ -6,6 +6,7 @@
             [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
+            [cruncher.communication.evolutions :as evolutions]
             [cruncher.selections :as selections]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
@@ -81,14 +82,18 @@
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-4"} "Evolves to:")
                                (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
-                                                                       (lib/pokemon-evolution pokemon)
-                                                                       "None")))
+                                                                      (lib/pokemon-evolution pokemon)
+                                                                      "None")))
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-4"} "Available Candy:")
                                (dom/div #js {:className "col-md-8"} (:candy pokemon)))
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon))))))))
+                               (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))
+                               (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
+                                                                                     :type      "button"
+                                                                                     :onClick   #(evolutions/evolve (:id pokemon))}
+                                                                                "Evolve!"))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
