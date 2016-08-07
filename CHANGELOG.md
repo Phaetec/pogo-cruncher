@@ -8,6 +8,7 @@
 * Don't allow sending away your favorite pokemon
 * Add Candy Information
 * See Stardust and Pokecoins of your Trainer-Character
+* Evolve Pokemon
 
 ## 0.2
 * Create automatic build on DockerHub
