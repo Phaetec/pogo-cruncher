@@ -12,10 +12,6 @@
           new-col (update-in (vec (get-in @lib/app-state [:pokemon])) [index :favorite] (constantly (:set_favorite res)))]
       (lib/update-pokemon! new-col))))
 
-(defn error-handler [response]
-  (let [res (com/process-response response)]
-    (lib/error! (:message res))))
-
 (defn post-favorite
   "Get cleaned data and send ajax request."
   [id favorite]
@@ -25,7 +21,7 @@
           {:body            (clib/clj->json {:id id
                                              :set_favorite favorite})
            :handler         success-handler
-           :error-handler   error-handler
+           :error-handler   com/error-handler
            :response-format :json
            :headers         {"Content-Type" "application/json"}
            :keywords?       true})))
