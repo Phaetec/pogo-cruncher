@@ -90,10 +90,11 @@
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-4"} "Available Evolutions:")
                                (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))
-                               (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                     :type      "button"
-                                                                                     :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                                "Evolve!"))))))))
+                               (if (not= (lib/calc-evolutions pokemon) 0)
+                                 (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
+                                                                                       :type      "button"
+                                                                                       :onClick   #(evolutions/evolve (:id pokemon))}
+                                                                                  "Evolve!")))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
