@@ -266,7 +266,6 @@ def evolve_pokemon():
                     pokemon['name'] = pokehelper.get_evolution_name(evolution_candidate)
                     pokemon['pokemon_id'] += 1
 
-                    answer['pokemon'] = pokemon
                     print("Pokemon has been evolved to " +
                           str(pokemon['name']))
                     break
