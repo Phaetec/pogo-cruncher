@@ -31,7 +31,7 @@
                                (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Information")
-                               (dom/div nil (lib/evolution-sum) " Evolutions available")))
+                               (dom/div nil (:evolution-number (om/props this)) " Evolutions available")))
              (dom/br nil) (dom/br nil)
              (selections/controls (om/props this))
              (dom/br nil) (dom/br nil)

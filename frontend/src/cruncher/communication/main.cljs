@@ -38,7 +38,8 @@
   (let [res (process-response response)
         errors? (something-went-wrong? (:status res) (:message res))]
     (when-not errors?
-      (lib/update-pokemon! res))))
+      (lib/update-pokemon! res)
+      (lib/update-evolution-amount! res))))
 
 (defn player-success-handler
   "React upon the receival of updated playerdata. Insert Information into app-state atom."
