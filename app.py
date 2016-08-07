@@ -18,8 +18,6 @@ pokeapi = pgoapi.PGoApi()
 pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
-evolved_amount = 0
-pokemon_evolution_amount = 0
 
 
 @app.route('/', methods=['GET'])
@@ -209,33 +207,14 @@ def get_player():
 @app.route('/api/pokemon/evolve', methods=['POST'])
 def evolve_pokemon():
     """
-    Evolves Pokemon. The post request has to have an `ids` field which contains a list of pokemon to be evolved.
-    Send a `safe` flag if you don't want to look like a bot.
+    Evolves Pokemon. The post request has to have an `id` field which contains the id of the pokemon to be evolved.
 
     :return: Return a status: ok if everything is finished.
     """
-    evolution_candidates = request.json['ids']
-    global pokemon_evolution_amount
-    global evolved_amount
-    if 'safe' not in request.json:
-        for id in evolution_candidates:
-            req = pokeapi.create_request()
-            req.evolve_pokemon(pokemon_id=int(id))
-        req.call()
-    else:
-        pokemon_evolution_amount = len(evolution_candidates)
-        evolved_pokemon = 0
-        for id in evolution_candidates:
-            req = pokeapi.create_request()
-            req.evolve_pokemon(pokemon_id=int(id))
-            req.call()
-            # Sleep some random time between two and three seconds
-            time.sleep(random.randint(200, 350)/100)
-            evolved_amount += 1
-            print('Evolved Pokemon %d out of %d' % (evolved_pokemon, pokemon_evolution_amount))
-
-    pokemon_evolution_amount = 0
-    evolved_pokemon = 0
+    evolution_candidate = request.json['id']
+    req = pokeapi.create_request()
+    req.evolve_pokemon(pokemon_id=int(evolution_candidate))
+    req.call()
 
     return jsonify({'status': 'ok'})
 
