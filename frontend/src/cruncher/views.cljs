@@ -24,11 +24,14 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/div nil (lib/evolution-sum) " Evolutions ")
-             (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
-             (dom/p #js {:className "lead"} "Controls")
-             (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
-             (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
+             (dom/div #js {:className "row"}
+                      (dom/div #js {:className "col-md-6"}
+                               (dom/p #js {:className "lead"} "Controls")
+                               (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
+                               (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
+                      (dom/div #js {:className "col-md-6"}
+                               (dom/p #js {:className "lead"} "Information")
+                               (dom/div nil (lib/evolution-sum) " Evolutions available")))
              (dom/br nil) (dom/br nil)
              (selections/controls (om/props this))
              (dom/br nil) (dom/br nil)
@@ -165,6 +168,7 @@
                       (dom/div #js {:className "pull-right"}
                                (vlib/login-indicator (om/props this)))
                       (dom/h1 nil "Poké-Cruncher"))
+             (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (dom/ul nil
                      (dom/li nil
                              "If you have 2-factor Auth enabled in your Google Account, please add an "
