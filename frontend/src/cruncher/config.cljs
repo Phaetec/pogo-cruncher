@@ -1,6 +1,13 @@
 (ns cruncher.config)
 
-(def api {:host                    (str "http://" (.. js/window -location -hostname) ":5000/")
+(defn get-location []
+  (let [hostname (.. js/window -location -hostname)]
+    (if (or (nil? hostname)
+            (= "" hostname))
+      "localhost"
+      hostname)))
+
+(def api {:host                    (str "http://" (get-location) ":5000/")
           :init                    "api/init/"
           :base                    "api/"
           :login                   "api/login"
