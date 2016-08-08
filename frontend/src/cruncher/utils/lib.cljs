@@ -259,7 +259,9 @@
 ;;;; Helpers
 (defn pokemon-evolution
   [pokemon]
-  (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon)))))))
+  (if (= (:name pokemon) "Eevee")
+    (reduce #(str %1 " / " %2) [(:name (get-pokemon-by-id 134)) (:name (get-pokemon-by-id 135)) (:name (get-pokemon-by-id 136))])
+    (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon))))))))
 
 (defn calc-evolutions
   [pokemon]
