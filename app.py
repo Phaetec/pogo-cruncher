@@ -93,7 +93,7 @@ def get_pokemon():
 
             elif 'candy' in item['inventory_item_data']:
                 candy_data = item['inventory_item_data']['candy']
-                candies[candy_data['family_id']] = candy_data['candy']
+                candies[candy_data['family_id']] = candy_data.get('candy', 0)
 
         # add candies to answerdict
         for poke in answer:
