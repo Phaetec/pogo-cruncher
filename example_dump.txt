@@ -301,7 +301,7 @@
                                                                                                                                            "stamina": 35,
                                                                                                                                            "stamina_max": 35,
                                                                                                                                            "weight_kg": 5.426912307739258}}},
-                                                                                        {   "inventory_item_data": {   "candy": {   "candy": 3,
+                                                                                        {   "inventory_item_data": {   "candy": {   "candy": 0,
                                                                                                                                              "family_id": 147}}},
                                                                                         {   "inventory_item_data": {   "egg_incubators": {   "egg_incubator": {   "id": "EggIncubatorProto8854371714213171254",
                                                                                                                                                                   "incubator_type": 1,
