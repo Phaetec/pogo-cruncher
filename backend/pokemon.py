@@ -1,4 +1,5 @@
 ### This class represents a pokemon object for easier handling than the dicts the api provides.
+from __future__ import division
 
 class Pokemon(object):
 
