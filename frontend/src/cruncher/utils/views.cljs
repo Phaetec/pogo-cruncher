@@ -90,7 +90,7 @@
       (dom/div nil
                (dom/a #js {:href    "javascript:void(0)"
                            :onClick #(lib/change-view! :login)}
-                      (fa-icon "fa-sign-out")
+                      (fa-icon "fa-sign-in")
                       " Login")))))
 (def login-indicator (om/factory LoggedIn))
 
