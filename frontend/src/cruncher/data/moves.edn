@@ -1,1047 +1,1047 @@
-[{13 {:DamageWindowEndMs   3400
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2800
-      :Id                  13
-      :Power               25
-      :UniqueID            "V0013_MOVE_WRAP"
-      :DurationMs          4000
-      :AnimationId         5
-      :VfxName             "\"wrap\""
-      :Name                "WRAP"
-      :Type                "NORMAL"
-      :CriticalChance      0.05}}
- {14 {:DamageWindowEndMs   4800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.15
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 4000
-      :Id                  14
-      :Power               120
-      :UniqueID            "V0014_MOVE_HYPER_BEAM"
-      :DurationMs          5000
-      :AnimationId         5
-      :VfxName             "\"hyper_beam\""
-      :Name                "HYPER_BEAM"
-      :Type                "NORMAL"
-      :CriticalChance      0.05}}
- {16 {:DamageWindowEndMs   3400
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2300
-      :Id                  16
-      :Power               45
-      :UniqueID            "V0016_MOVE_DARK_PULSE"
-      :DurationMs          3500
-      :AnimationId         5
-      :VfxName             "\"dark_pulse\""
-      :Name                "DARK_PULSE"
-      :Type                "DARK"
-      :CriticalChance      0.05}}
- {18 {:DamageWindowEndMs   2350
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1850
-      :Id                  18
-      :Power               25
-      :UniqueID            "V0018_MOVE_SLUDGE"
-      :DurationMs          2600
-      :AnimationId         5
-      :VfxName             "\"sludge\""
-      :Name                "SLUDGE"
-      :Type                "POISON"
-      :CriticalChance      0.05}}
- {20 {:DamageWindowEndMs   2100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.055
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1850
-      :Id                  20
-      :Power               15
-      :UniqueID            "V0020_MOVE_VICE_GRIP"
-      :DurationMs          2100
-      :AnimationId         5
-      :VfxName             "\"vice_grip\""
-      :Name                "VICE_GRIP"
-      :Type                "NORMAL"
-      :CriticalChance      0.05}}
- {21 {:DamageWindowEndMs   3200
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2700
-      :Id                  21
-      :Power               40
-      :UniqueID            "V0021_MOVE_FLAME_WHEEL"
-      :DurationMs          4600
-      :AnimationId         5
-      :VfxName             "\"flame_wheel\""
-      :Name                "FLAME_WHEEL"
-      :Type                "FIRE"
-      :CriticalChance      0.05}}
- {22 {:DamageWindowEndMs   2700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.12
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2400
-      :Id                  22
-      :Power               80
-      :UniqueID            "V0022_MOVE_MEGAHORN"
-      :DurationMs          3200
-      :AnimationId         5
-      :VfxName             "\"megahorn\""
-      :Name                "MEGAHORN"
-      :Type                "BUG"
-      :CriticalChance      0.05}}
- {24 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1700
-      :Id                  24
-      :Power               55
-      :UniqueID            "V0024_MOVE_FLAMETHROWER"
-      :DurationMs          2900
-      :AnimationId         5
-      :VfxName             "\"flamethrower\""
-      :Name                "FLAMETHROWER"
-      :Type                "FIRE"
-      :CriticalChance      0.05}}
- {26 {:DamageWindowEndMs   5000
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 4600
-      :Id                  26
-      :Power               70
-      :UniqueID            "V0026_MOVE_DIG"
-      :DurationMs          5800
-      :AnimationId         5
-      :VfxName             "\"dig\""
-      :Name                "DIG"
-      :Type                "GROUND"
-      :CriticalChance      0.05}}
- {28 {:DamageWindowEndMs   1800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.1
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1500
-      :Id                  28
-      :Power               60
-      :UniqueID            "V0028_MOVE_CROSS_CHOP"
-      :DurationMs          2000
-      :AnimationId         5
-      :VfxName             "\"cross_chop\""
-      :Name                "CROSS_CHOP"
-      :Type                "FIGHTING"
-      :CriticalChance      0.25}}
- {30 {:DamageWindowEndMs   3600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2300
-      :Id                  30
-      :Power               40
-      :UniqueID            "V0030_MOVE_PSYBEAM"
-      :DurationMs          3800
-      :AnimationId         5
-      :VfxName             "\"psybeam\""
-      :Name                "PSYBEAM"
-      :Type                "PSYCHIC"
-      :CriticalChance      0.05}}
- {31 {:DamageWindowEndMs   3950
-      :AccuracyChance      1
-      :StaminaLossScalar   0.1
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  31
-      :Power               100
-      :UniqueID            "V0031_MOVE_EARTHQUAKE"
-      :DurationMs          4200
-      :AnimationId         5
-      :VfxName             "\"earthquake\""
-      :Name                "EARTHQUAKE"
-      :Type                "GROUND"
-      :CriticalChance      0.05}}
- {32 {:DamageWindowEndMs   1800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.1
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1400
-      :Id                  32
-      :Power               80
-      :UniqueID            "V0032_MOVE_STONE_EDGE"
-      :DurationMs          3100
-      :AnimationId         5
-      :VfxName             "\"stone_edge\""
-      :Name                "STONE_EDGE"
-      :Type                "ROCK"
-      :CriticalChance      0.5}}
- {33 {:DamageWindowEndMs   3200
-      :AccuracyChance      1
-      :StaminaLossScalar   0.075
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2100
-      :Id                  33
-      :Power               45
-      :UniqueID            "V0033_MOVE_ICE_PUNCH"
-      :DurationMs          3500
-      :AnimationId         5
-      :VfxName             "\"ice_punch\""
-      :Name                "ICE_PUNCH"
-      :Type                "ICE"
-      :CriticalChance      0.05}}
- {34 {:DamageWindowEndMs   2250
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1950
-      :Id                  34
-      :Power               20
-      :UniqueID            "V0034_MOVE_HEART_STAMP"
-      :DurationMs          2550
-      :AnimationId         5
-      :VfxName             "\"heart_stamp\""
-      :Name                "HEART_STAMP"
-      :Type                "PSYCHIC"
-      :CriticalChance      0.05}}
- {35 {:DamageWindowEndMs   2300
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1600
-      :Id                  35
-      :Power               35
-      :UniqueID            "V0035_MOVE_DISCHARGE"
-      :DurationMs          2500
-      :AnimationId         5
-      :VfxName             "\"discharge\""
-      :Name                "DISCHARGE"
-      :Type                "ELECTRIC"
-      :CriticalChance      0.05}}
- {36 {:DamageWindowEndMs   3500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2400
-      :Id                  36
-      :Power               60
-      :UniqueID            "V0036_MOVE_FLASH_CANNON"
-      :DurationMs          3900
-      :AnimationId         5
-      :VfxName             "\"flash_cannon\""
-      :Name                "FLASH_CANNON"
-      :Type                "STEEL"
-      :CriticalChance      0.05}}
- {38 {:DamageWindowEndMs   2500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1600
-      :Id                  38
-      :Power               40
-      :UniqueID            "V0038_MOVE_DRILL_PECK"
-      :DurationMs          2700
-      :AnimationId         5
-      :VfxName             "\"drill_peck\""
-      :Name                "DRILL_PECK"
-      :Type                "FLYING"
-      :CriticalChance      0.05}}
- {39 {:DamageWindowEndMs   3500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2150
-      :Id                  39
-      :Power               50
-      :UniqueID            "V0039_MOVE_ICE_BEAM"
-      :DurationMs          3650
-      :AnimationId         5
-      :VfxName             "\"ice_beam\""
-      :Name                "ICE_BEAM"
-      :Type                "ICE"
-      :CriticalChance      0.05}}
- {40 {:DamageWindowEndMs   3600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.11
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 3600
-      :Id                  40
-      :Power               100
-      :UniqueID            "V0040_MOVE_BLIZZARD"
-      :DurationMs          3900
-      :AnimationId         5
-      :VfxName             "\"blizzard\""
-      :Name                "BLIZZARD"
-      :Type                "ICE"
-      :CriticalChance      0.05}}
- {42 {:DamageWindowEndMs   3400
-      :AccuracyChance      1
-      :StaminaLossScalar   0.095
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 3000
-      :Id                  42
-      :Power               80
-      :UniqueID            "V0042_MOVE_HEAT_WAVE"
-      :DurationMs          3800
-      :AnimationId         5
-      :VfxName             "\"heat_wave\""
-      :Name                "HEAT_WAVE"
-      :Type                "FIRE"
-      :CriticalChance      0.05}}
- {45 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  45
-      :Power               30
-      :UniqueID            "V0045_MOVE_AERIAL_ACE"
-      :DurationMs          2900
-      :AnimationId         5
-      :VfxName             "\"aerial_ace\""
-      :Name                "AERIAL_ACE"
-      :Type                "FLYING"
-      :CriticalChance      0.05}}
- {46 {:DamageWindowEndMs   2800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2100
-      :Id                  46
-      :Power               50
-      :UniqueID            "V0046_MOVE_DRILL_RUN"
-      :DurationMs          3400
-      :AnimationId         5
-      :VfxName             "\"drill_run\""
-      :Name                "DRILL_RUN"
-      :Type                "GROUND"
-      :CriticalChance      0.25}}
- {47 {:DamageWindowEndMs   3100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2100
-      :Id                  47
-      :Power               65
-      :UniqueID            "V0047_MOVE_PETAL_BLIZZARD"
-      :DurationMs          3200
-      :AnimationId         5
-      :VfxName             "\"petal_blizzard\""
-      :Name                "PETAL_BLIZZARD"
-      :Type                "GRASS"
-      :CriticalChance      0.05}}
- {48 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.04
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1400
-      :Id                  48
-      :Power               15
-      :UniqueID            "V0048_MOVE_MEGA_DRAIN"
-      :DurationMs          3200
-      :AnimationId         5
-      :VfxName             "\"mega_drain\""
-      :Name                "MEGA_DRAIN"
-      :Type                "GRASS"
-      :CriticalChance      0.05
-      :HealScalar          0.5}}
- {49 {:DamageWindowEndMs   4100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2600
-      :Id                  49
-      :Power               75
-      :UniqueID            "V0049_MOVE_BUG_BUZZ"
-      :DurationMs          4250
-      :AnimationId         5
-      :VfxName             "\"bug_buzz\""
-      :Name                "BUG_BUZZ"
-      :Type                "BUG"
-      :CriticalChance      0.05}}
- {50 {:DamageWindowEndMs   1850
-      :AccuracyChance      1
-      :StaminaLossScalar   0.05
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1650
-      :Id                  50
-      :Power               25
-      :UniqueID            "V0050_MOVE_POISON_FANG"
-      :DurationMs          2400
-      :AnimationId         5
-      :VfxName             "\"poison_fang\""
-      :Name                "POISON_FANG"
-      :Type                "POISON"
-      :CriticalChance      0.05}}
- {51 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.07
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2400
-      :Id                  51
-      :Power               30
-      :UniqueID            "V0051_MOVE_NIGHT_SLASH"
-      :DurationMs          2700
-      :AnimationId         5
-      :VfxName             "\"night_slash\""
-      :Name                "NIGHT_SLASH"
-      :Type                "DARK"
-      :CriticalChance      0.25}}
- {53 {:DamageWindowEndMs   2800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2600
-      :Id                  53
-      :Power               30
-      :UniqueID            "V0053_MOVE_BUBBLE_BEAM"
-      :DurationMs          2900
-      :AnimationId         5
-      :VfxName             "\"bubble_beam\""
-      :Name                "BUBBLE_BEAM"
-      :Type                "WATER"
-      :CriticalChance      0.05}}
- {54 {:DamageWindowEndMs   2000
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1850
-      :Id                  54
-      :Power               30
-      :UniqueID            "V0054_MOVE_SUBMISSION"
-      :DurationMs          2100
-      :AnimationId         5
-      :VfxName             "\"submission\""
-      :Name                "SUBMISSION"
-      :Type                "FIGHTING"
-      :CriticalChance      0.05}}
- {56 {:DamageWindowEndMs   2150
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  56
-      :Power               25
-      :UniqueID            "V0056_MOVE_LOW_SWEEP"
-      :DurationMs          2250
-      :AnimationId         5
-      :VfxName             "\"low_sweep\""
-      :Name                "LOW_SWEEP"
-      :Type                "FIGHTING"
-      :CriticalChance      0.05}}
- {57 {:DamageWindowEndMs   2100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.04
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1700
-      :Id                  57
-      :Power               25
-      :UniqueID            "V0057_MOVE_AQUA_JET"
-      :DurationMs          2350
-      :AnimationId         5
-      :VfxName             "\"aqua_jet\""
-      :Name                "AQUA_JET"
-      :Type                "WATER"
-      :CriticalChance      0.05}}
- {58 {:DamageWindowEndMs   2250
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2050
-      :Id                  58
-      :Power               45
-      :UniqueID            "V0058_MOVE_AQUA_TAIL"
-      :DurationMs          2350
-      :AnimationId         5
-      :VfxName             "\"aqua_tail\""
-      :Name                "AQUA_TAIL"
-      :Type                "WATER"
-      :CriticalChance      0.05}}
- {59 {:DamageWindowEndMs   1800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1300
-      :Id                  59
-      :Power               40
-      :UniqueID            "V0059_MOVE_SEED_BOMB"
-      :DurationMs          2400
-      :AnimationId         5
-      :VfxName             "\"seed_bomb\""
-      :Name                "SEED_BOMB"
-      :Type                "GRASS"
-      :CriticalChance      0.05}}
- {60 {:DamageWindowEndMs   2700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2200
-      :Id                  60
-      :Power               40
-      :UniqueID            "V0060_MOVE_PSYSHOCK"
-      :DurationMs          2700
-      :AnimationId         5
-      :VfxName             "\"psyshock\""
-      :Name                "PSYSHOCK"
-      :Type                "PSYCHIC"
-      :CriticalChance      0.05}}
- {62 {:DamageWindowEndMs   3250
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2900
-      :Id                  62
-      :Power               35
-      :UniqueID            "V0062_MOVE_ANCIENT_POWER"
-      :DurationMs          3600
-      :AnimationId         5
-      :VfxName             "\"ancient_power\""
-      :Name                "ANCIENT_POWER"
-      :Type                "ROCK"
-      :CriticalChance      0.05}}
- {63 {:DamageWindowEndMs   3200
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2300
-      :Id                  63
-      :Power               25
-      :UniqueID            "V0063_MOVE_ROCK_TOMB"
-      :DurationMs          3400
-      :AnimationId         5
-      :VfxName             "\"rock_tomb\""
-      :Name                "ROCK_TOMB"
-      :Type                "ROCK"
-      :CriticalChance      0.25}}
- {64 {:DamageWindowEndMs   2900
-      :AccuracyChance      1
-      :StaminaLossScalar   0.075
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1500
-      :Id                  64
-      :Power               40
-      :UniqueID            "V0064_MOVE_ROCK_SLIDE"
-      :DurationMs          3200
-      :AnimationId         5
-      :VfxName             "\"rock_slide\""
-      :Name                "ROCK_SLIDE"
-      :Type                "ROCK"
-      :CriticalChance      0.05}}
- {65 {:DamageWindowEndMs   2800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  65
-      :Power               40
-      :UniqueID            "V0065_MOVE_POWER_GEM"
-      :DurationMs          2900
-      :AnimationId         5
-      :VfxName             "\"power_gem\""
-      :Name                "POWER_GEM"
-      :Type                "ROCK"
-      :CriticalChance      0.05}}
- {66 {:DamageWindowEndMs   2900
-      :AccuracyChance      1
-      :StaminaLossScalar   0.04
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2300
-      :Id                  66
-      :Power               15
-      :UniqueID            "V0066_MOVE_SHADOW_SNEAK"
-      :DurationMs          3100
-      :AnimationId         5
-      :VfxName             "\"shadow_sneak\""
-      :Name                "SHADOW_SNEAK"
-      :Type                "GHOST"
-      :CriticalChance      0.05}}
- {67 {:DamageWindowEndMs   1700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1400
-      :Id                  67
-      :Power               20
-      :UniqueID            "V0067_MOVE_SHADOW_PUNCH"
-      :DurationMs          2100
-      :AnimationId         5
-      :VfxName             "\"shadow_punch\""
-      :Name                "SHADOW_PUNCH"
-      :Type                "GHOST"
-      :CriticalChance      0.05}}
- {69 {:DamageWindowEndMs   2100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1850
-      :Id                  69
-      :Power               30
-      :UniqueID            "V0069_MOVE_OMINOUS_WIND"
-      :DurationMs          3100
-      :AnimationId         5
-      :VfxName             "\"ominous_wind\""
-      :Name                "OMINOUS_WIND"
-      :Type                "GHOST"
-      :CriticalChance      0.05}}
- {70 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2300
-      :Id                  70
-      :Power               40
-      :UniqueID            "V0070_MOVE_SHADOW_BALL"
-      :DurationMs          3080
-      :AnimationId         5
-      :VfxName             "\"shadow_ball\""
-      :Name                "SHADOW_BALL"
-      :Type                "GHOST"
-      :CriticalChance      0.05}}
- {72 {:DamageWindowEndMs   2300
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1750
-      :Id                  72
-      :Power               30
-      :UniqueID            "V0072_MOVE_MAGNET_BOMB"
-      :DurationMs          2800
-      :AnimationId         5
-      :VfxName             "\"magnet_bomb\""
-      :Name                "MAGNET_BOMB"
-      :Type                "STEEL"
-      :CriticalChance      0.05}}
- {74 {:DamageWindowEndMs   1800
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1550
-      :Id                  74
-      :Power               30
-      :UniqueID            "V0074_MOVE_IRON_HEAD"
-      :DurationMs          2000
-      :AnimationId         5
-      :VfxName             "\"iron_head\""
-      :Name                "IRON_HEAD"
-      :Type                "STEEL"
-      :CriticalChance      0.05}}
- {75 {:DamageWindowEndMs   1700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.05
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1300
-      :Id                  75
-      :Power               15
-      :UniqueID            "V0075_MOVE_PARABOLIC_CHARGE"
-      :DurationMs          2100
-      :AnimationId         5
-      :VfxName             "\"parabolic_charge\""
-      :Name                "PARABOLIC_CHARGE"
-      :Type                "ELECTRIC"
-      :CriticalChance      0.05
-      :HealScalar          0.5}}
- {77 {:DamageWindowEndMs   2200
-      :AccuracyChance      1
-      :StaminaLossScalar   0.075
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1950
-      :Id                  77
-      :Power               40
-      :UniqueID            "V0077_MOVE_THUNDER_PUNCH"
-      :DurationMs          2400
-      :AnimationId         5
-      :VfxName             "\"thunder_punch\""
-      :Name                "THUNDER_PUNCH"
-      :Type                "ELECTRIC"
-      :CriticalChance      0.05}}
- {78 {:DamageWindowEndMs   4100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.11
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2550
-      :Id                  78
-      :Power               100
-      :UniqueID            "V0078_MOVE_THUNDER"
-      :DurationMs          4300
-      :AnimationId         5
-      :VfxName             "\"thunder\""
-      :Name                "THUNDER"
-      :Type                "ELECTRIC"
-      :CriticalChance      0.05}}
- {79 {:DamageWindowEndMs   2700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1900
-      :Id                  79
-      :Power               55
-      :UniqueID            "V0079_MOVE_THUNDERBOLT"
-      :DurationMs          2700
-      :AnimationId         5
-      :VfxName             "\"thunderbolt\""
-      :Name                "THUNDERBOLT"
-      :Type                "ELECTRIC"
-      :CriticalChance      0.05}}
- {80 {:DamageWindowEndMs   2600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.04
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 850
-      :Id                  80
-      :Power               25
-      :UniqueID            "V0080_MOVE_TWISTER"
-      :DurationMs          2700
-      :AnimationId         5
-      :VfxName             "\"twister\""
-      :Name                "TWISTER"
-      :Type                "DRAGON"
-      :CriticalChance      0.05}}
- {82 {:DamageWindowEndMs   3300
-      :AccuracyChance      1
-      :StaminaLossScalar   0.085
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2100
-      :Id                  82
-      :Power               65
-      :UniqueID            "V0082_MOVE_DRAGON_PULSE"
-      :DurationMs          3600
-      :AnimationId         5
-      :VfxName             "\"dragon_pulse\""
-      :Name                "DRAGON_PULSE"
-      :Type                "DRAGON"
-      :CriticalChance      0.05}}
- {83 {:DamageWindowEndMs   1400
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1200
-      :Id                  83
-      :Power               35
-      :UniqueID            "V0083_MOVE_DRAGON_CLAW"
-      :DurationMs          1500
-      :AnimationId         5
-      :VfxName             "\"dragon_claw\""
-      :Name                "DRAGON_CLAW"
-      :Type                "DRAGON"
-      :CriticalChance      0.25}}
- {84 {:DamageWindowEndMs   3600
-      :AccuracyChance      1
-      :StaminaLossScalar   0.04
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1800
-      :Id                  84
-      :Power               25
-      :UniqueID            "V0084_MOVE_DISARMING_VOICE"
-      :DurationMs          3900
-      :AnimationId         5
-      :VfxName             "\"disarming_voice\""
-      :Name                "DISARMING_VOICE"
-      :Type                "FAIRY"
-      :CriticalChance      0.05}}
- {85 {:DamageWindowEndMs   1100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.05
-      :EnergyDelta         -20
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1000
-      :Id                  85
-      :Power               25
-      :UniqueID            "V0085_MOVE_DRAINING_KISS"
-      :DurationMs          2800
-      :AnimationId         5
-      :VfxName             "\"draining_kiss\""
-      :Name                "DRAINING_KISS"
-      :Type                "FAIRY"
-      :CriticalChance      0.05
-      :HealScalar          1}}
- {86 {:DamageWindowEndMs   4100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.08
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 3300
-      :Id                  86
-      :Power               55
-      :UniqueID            "V0086_MOVE_DAZZLING_GLEAM"
-      :DurationMs          4200
-      :AnimationId         5
-      :VfxName             "\"dazzling_gleam\""
-      :Name                "DAZZLING_GLEAM"
-      :Type                "FAIRY"
-      :CriticalChance      0.05}}
- {87 {:DamageWindowEndMs   4100
-      :AccuracyChance      1
-      :StaminaLossScalar   0.095
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 3500
-      :Id                  87
-      :Power               80
-      :UniqueID            "V0087_MOVE_MOONBLAST"
-      :DurationMs          4100
-      :AnimationId         5
-      :VfxName             "\"moonblast\""
-      :Name                "MOONBLAST"
-      :Type                "FAIRY"
-      :CriticalChance      0.05}}
- {88 {:DamageWindowEndMs   2700
-      :AccuracyChance      1
-      :StaminaLossScalar   0.1
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1400
-      :Id                  88
-      :Power               55
-      :UniqueID            "V0088_MOVE_PLAY_ROUGH"
-      :DurationMs          2900
-      :AnimationId         5
-      :VfxName             "\"play_rough\""
-      :Name                "PLAY_ROUGH"
-      :Type                "FAIRY"
-      :CriticalChance      0.05}}
- {89 {:DamageWindowEndMs   1500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.07
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1200
-      :Id                  89
-      :Power               25
-      :UniqueID            "V0089_MOVE_CROSS_POISON"
-      :DurationMs          1500
-      :AnimationId         5
-      :VfxName             "\"cross_poison\""
-      :Name                "CROSS_POISON"
-      :Type                "POISON"
-      :CriticalChance      0.25}}
- {90 {:DamageWindowEndMs   2450
-      :AccuracyChance      1
-      :StaminaLossScalar   0.09
-      :EnergyDelta         -50
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1950
-      :Id                  90
-      :Power               55
-      :UniqueID            "V0090_MOVE_SLUDGE_BOMB"
-      :DurationMs          2600
-      :AnimationId         5
-      :VfxName             "\"sludge_bomb\""
-      :Name                "SLUDGE_BOMB"
-      :Type                "POISON"
-      :CriticalChance      0.05}}
- {91 {:DamageWindowEndMs   3300
-      :AccuracyChance      1
-      :StaminaLossScalar   0.095
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2400
-      :Id                  91
-      :Power               60
-      :UniqueID            "V0091_MOVE_SLUDGE_WAVE"
-      :DurationMs          3400
-      :AnimationId         5
-      :VfxName             "\"sludge_wave\""
-      :Name                "SLUDGE_WAVE"
-      :Type                "POISON"
-      :CriticalChance      0.05}}
- {92 {:DamageWindowEndMs   2400
-      :AccuracyChance      1
-      :StaminaLossScalar   0.12
-      :EnergyDelta         -100
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  92
-      :Power               65
-      :UniqueID            "V0092_MOVE_GUNK_SHOT"
-      :DurationMs          3000
-      :AnimationId         5
-      :VfxName             "\"gunk_shot\""
-      :Name                "GUNK_SHOT"
-      :Type                "POISON"
-      :CriticalChance      0.05}}
- {94 {:DamageWindowEndMs   1500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1250
-      :Id                  94
-      :Power               20
-      :UniqueID            "V0094_MOVE_BONE_CLUB"
-      :DurationMs          1600
-      :AnimationId         5
-      :VfxName             "\"bone_club\""
-      :Name                "BONE_CLUB"
-      :Type                "GROUND"
-      :CriticalChance      0.05}}
- {95 {:DamageWindowEndMs   3000
-      :AccuracyChance      1
-      :StaminaLossScalar   0.06
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 1900
-      :Id                  95
-      :Power               35
-      :UniqueID            "V0095_MOVE_BULLDOZE"
-      :DurationMs          3400
-      :AnimationId         5
-      :VfxName             "\"bulldoze\""
-      :Name                "BULLDOZE"
-      :Type                "GROUND"
-      :CriticalChance      0.05}}
- {96 {:DamageWindowEndMs   2500
-      :AccuracyChance      1
-      :StaminaLossScalar   0.065
-      :EnergyDelta         -25
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2050
-      :Id                  96
-      :Power               30
-      :UniqueID            "V0096_MOVE_MUD_BOMB"
-      :DurationMs          2600
-      :AnimationId         5
-      :VfxName             "\"mud_bomb\""
-      :Name                "MUD_BOMB"
-      :Type                "GROUND"
-      :CriticalChance      0.05}}
- {99 {:DamageWindowEndMs   3000
-      :AccuracyChance      1
-      :StaminaLossScalar   0.075
-      :EnergyDelta         -33
-      :TrainerLevelMax     100
-      :TrainerLevelMin     1
-      :DamageWindowStartMs 2000
-      :Id                  99
-      :Power               35
-      :UniqueID            "V0099_MOVE_SIGNAL_BEAM"
-      :DurationMs          3100
-      :AnimationId         5
-      :VfxName             "\"signal_beam\""
-      :Name                "SIGNAL_BEAM"
-      :Type                "BUG"
-      :CriticalChance      0.05}}
- {100 {:DamageWindowEndMs   1600
+[{13  {:DamageWindowEndMs   3400
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2800
+       :Id                  13
+       :Power               25
+       :UniqueID            "V0013_MOVE_WRAP"
+       :DurationMs          4000
+       :AnimationId         5
+       :VfxName             "\"wrap\""
+       :Name                "WRAP"
+       :Type                "NORMAL"
+       :CriticalChance      0.05}
+  14  {:DamageWindowEndMs   4800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.15
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 4000
+       :Id                  14
+       :Power               120
+       :UniqueID            "V0014_MOVE_HYPER_BEAM"
+       :DurationMs          5000
+       :AnimationId         5
+       :VfxName             "\"hyper_beam\""
+       :Name                "HYPER_BEAM"
+       :Type                "NORMAL"
+       :CriticalChance      0.05}
+  16  {:DamageWindowEndMs   3400
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2300
+       :Id                  16
+       :Power               45
+       :UniqueID            "V0016_MOVE_DARK_PULSE"
+       :DurationMs          3500
+       :AnimationId         5
+       :VfxName             "\"dark_pulse\""
+       :Name                "DARK_PULSE"
+       :Type                "DARK"
+       :CriticalChance      0.05}
+  18  {:DamageWindowEndMs   2350
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1850
+       :Id                  18
+       :Power               25
+       :UniqueID            "V0018_MOVE_SLUDGE"
+       :DurationMs          2600
+       :AnimationId         5
+       :VfxName             "\"sludge\""
+       :Name                "SLUDGE"
+       :Type                "POISON"
+       :CriticalChance      0.05}
+  20  {:DamageWindowEndMs   2100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.055
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1850
+       :Id                  20
+       :Power               15
+       :UniqueID            "V0020_MOVE_VICE_GRIP"
+       :DurationMs          2100
+       :AnimationId         5
+       :VfxName             "\"vice_grip\""
+       :Name                "VICE_GRIP"
+       :Type                "NORMAL"
+       :CriticalChance      0.05}
+  21  {:DamageWindowEndMs   3200
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2700
+       :Id                  21
+       :Power               40
+       :UniqueID            "V0021_MOVE_FLAME_WHEEL"
+       :DurationMs          4600
+       :AnimationId         5
+       :VfxName             "\"flame_wheel\""
+       :Name                "FLAME_WHEEL"
+       :Type                "FIRE"
+       :CriticalChance      0.05}
+  22  {:DamageWindowEndMs   2700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.12
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2400
+       :Id                  22
+       :Power               80
+       :UniqueID            "V0022_MOVE_MEGAHORN"
+       :DurationMs          3200
+       :AnimationId         5
+       :VfxName             "\"megahorn\""
+       :Name                "MEGAHORN"
+       :Type                "BUG"
+       :CriticalChance      0.05}
+  24  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1700
+       :Id                  24
+       :Power               55
+       :UniqueID            "V0024_MOVE_FLAMETHROWER"
+       :DurationMs          2900
+       :AnimationId         5
+       :VfxName             "\"flamethrower\""
+       :Name                "FLAMETHROWER"
+       :Type                "FIRE"
+       :CriticalChance      0.05}
+  26  {:DamageWindowEndMs   5000
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 4600
+       :Id                  26
+       :Power               70
+       :UniqueID            "V0026_MOVE_DIG"
+       :DurationMs          5800
+       :AnimationId         5
+       :VfxName             "\"dig\""
+       :Name                "DIG"
+       :Type                "GROUND"
+       :CriticalChance      0.05}
+  28  {:DamageWindowEndMs   1800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.1
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1500
+       :Id                  28
+       :Power               60
+       :UniqueID            "V0028_MOVE_CROSS_CHOP"
+       :DurationMs          2000
+       :AnimationId         5
+       :VfxName             "\"cross_chop\""
+       :Name                "CROSS_CHOP"
+       :Type                "FIGHTING"
+       :CriticalChance      0.25}
+  30  {:DamageWindowEndMs   3600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2300
+       :Id                  30
+       :Power               40
+       :UniqueID            "V0030_MOVE_PSYBEAM"
+       :DurationMs          3800
+       :AnimationId         5
+       :VfxName             "\"psybeam\""
+       :Name                "PSYBEAM"
+       :Type                "PSYCHIC"
+       :CriticalChance      0.05}
+  31  {:DamageWindowEndMs   3950
+       :AccuracyChance      1
+       :StaminaLossScalar   0.1
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  31
+       :Power               100
+       :UniqueID            "V0031_MOVE_EARTHQUAKE"
+       :DurationMs          4200
+       :AnimationId         5
+       :VfxName             "\"earthquake\""
+       :Name                "EARTHQUAKE"
+       :Type                "GROUND"
+       :CriticalChance      0.05}
+  32  {:DamageWindowEndMs   1800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.1
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1400
+       :Id                  32
+       :Power               80
+       :UniqueID            "V0032_MOVE_STONE_EDGE"
+       :DurationMs          3100
+       :AnimationId         5
+       :VfxName             "\"stone_edge\""
+       :Name                "STONE_EDGE"
+       :Type                "ROCK"
+       :CriticalChance      0.5}
+  33  {:DamageWindowEndMs   3200
+       :AccuracyChance      1
+       :StaminaLossScalar   0.075
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2100
+       :Id                  33
+       :Power               45
+       :UniqueID            "V0033_MOVE_ICE_PUNCH"
+       :DurationMs          3500
+       :AnimationId         5
+       :VfxName             "\"ice_punch\""
+       :Name                "ICE_PUNCH"
+       :Type                "ICE"
+       :CriticalChance      0.05}
+  34  {:DamageWindowEndMs   2250
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1950
+       :Id                  34
+       :Power               20
+       :UniqueID            "V0034_MOVE_HEART_STAMP"
+       :DurationMs          2550
+       :AnimationId         5
+       :VfxName             "\"heart_stamp\""
+       :Name                "HEART_STAMP"
+       :Type                "PSYCHIC"
+       :CriticalChance      0.05}
+  35  {:DamageWindowEndMs   2300
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1600
+       :Id                  35
+       :Power               35
+       :UniqueID            "V0035_MOVE_DISCHARGE"
+       :DurationMs          2500
+       :AnimationId         5
+       :VfxName             "\"discharge\""
+       :Name                "DISCHARGE"
+       :Type                "ELECTRIC"
+       :CriticalChance      0.05}
+  36  {:DamageWindowEndMs   3500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2400
+       :Id                  36
+       :Power               60
+       :UniqueID            "V0036_MOVE_FLASH_CANNON"
+       :DurationMs          3900
+       :AnimationId         5
+       :VfxName             "\"flash_cannon\""
+       :Name                "FLASH_CANNON"
+       :Type                "STEEL"
+       :CriticalChance      0.05}
+  38  {:DamageWindowEndMs   2500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1600
+       :Id                  38
+       :Power               40
+       :UniqueID            "V0038_MOVE_DRILL_PECK"
+       :DurationMs          2700
+       :AnimationId         5
+       :VfxName             "\"drill_peck\""
+       :Name                "DRILL_PECK"
+       :Type                "FLYING"
+       :CriticalChance      0.05}
+  39  {:DamageWindowEndMs   3500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2150
+       :Id                  39
+       :Power               50
+       :UniqueID            "V0039_MOVE_ICE_BEAM"
+       :DurationMs          3650
+       :AnimationId         5
+       :VfxName             "\"ice_beam\""
+       :Name                "ICE_BEAM"
+       :Type                "ICE"
+       :CriticalChance      0.05}
+  40  {:DamageWindowEndMs   3600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.11
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 3600
+       :Id                  40
+       :Power               100
+       :UniqueID            "V0040_MOVE_BLIZZARD"
+       :DurationMs          3900
+       :AnimationId         5
+       :VfxName             "\"blizzard\""
+       :Name                "BLIZZARD"
+       :Type                "ICE"
+       :CriticalChance      0.05}
+  42  {:DamageWindowEndMs   3400
+       :AccuracyChance      1
+       :StaminaLossScalar   0.095
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 3000
+       :Id                  42
+       :Power               80
+       :UniqueID            "V0042_MOVE_HEAT_WAVE"
+       :DurationMs          3800
+       :AnimationId         5
+       :VfxName             "\"heat_wave\""
+       :Name                "HEAT_WAVE"
+       :Type                "FIRE"
+       :CriticalChance      0.05}
+  45  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  45
+       :Power               30
+       :UniqueID            "V0045_MOVE_AERIAL_ACE"
+       :DurationMs          2900
+       :AnimationId         5
+       :VfxName             "\"aerial_ace\""
+       :Name                "AERIAL_ACE"
+       :Type                "FLYING"
+       :CriticalChance      0.05}
+  46  {:DamageWindowEndMs   2800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2100
+       :Id                  46
+       :Power               50
+       :UniqueID            "V0046_MOVE_DRILL_RUN"
+       :DurationMs          3400
+       :AnimationId         5
+       :VfxName             "\"drill_run\""
+       :Name                "DRILL_RUN"
+       :Type                "GROUND"
+       :CriticalChance      0.25}
+  47  {:DamageWindowEndMs   3100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2100
+       :Id                  47
+       :Power               65
+       :UniqueID            "V0047_MOVE_PETAL_BLIZZARD"
+       :DurationMs          3200
+       :AnimationId         5
+       :VfxName             "\"petal_blizzard\""
+       :Name                "PETAL_BLIZZARD"
+       :Type                "GRASS"
+       :CriticalChance      0.05}
+  48  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.04
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1400
+       :Id                  48
+       :Power               15
+       :UniqueID            "V0048_MOVE_MEGA_DRAIN"
+       :DurationMs          3200
+       :AnimationId         5
+       :VfxName             "\"mega_drain\""
+       :Name                "MEGA_DRAIN"
+       :Type                "GRASS"
+       :CriticalChance      0.05
+       :HealScalar          0.5}
+  49  {:DamageWindowEndMs   4100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2600
+       :Id                  49
+       :Power               75
+       :UniqueID            "V0049_MOVE_BUG_BUZZ"
+       :DurationMs          4250
+       :AnimationId         5
+       :VfxName             "\"bug_buzz\""
+       :Name                "BUG_BUZZ"
+       :Type                "BUG"
+       :CriticalChance      0.05}
+  50  {:DamageWindowEndMs   1850
+       :AccuracyChance      1
+       :StaminaLossScalar   0.05
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1650
+       :Id                  50
+       :Power               25
+       :UniqueID            "V0050_MOVE_POISON_FANG"
+       :DurationMs          2400
+       :AnimationId         5
+       :VfxName             "\"poison_fang\""
+       :Name                "POISON_FANG"
+       :Type                "POISON"
+       :CriticalChance      0.05}
+  51  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.07
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2400
+       :Id                  51
+       :Power               30
+       :UniqueID            "V0051_MOVE_NIGHT_SLASH"
+       :DurationMs          2700
+       :AnimationId         5
+       :VfxName             "\"night_slash\""
+       :Name                "NIGHT_SLASH"
+       :Type                "DARK"
+       :CriticalChance      0.25}
+  53  {:DamageWindowEndMs   2800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2600
+       :Id                  53
+       :Power               30
+       :UniqueID            "V0053_MOVE_BUBBLE_BEAM"
+       :DurationMs          2900
+       :AnimationId         5
+       :VfxName             "\"bubble_beam\""
+       :Name                "BUBBLE_BEAM"
+       :Type                "WATER"
+       :CriticalChance      0.05}
+  54  {:DamageWindowEndMs   2000
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1850
+       :Id                  54
+       :Power               30
+       :UniqueID            "V0054_MOVE_SUBMISSION"
+       :DurationMs          2100
+       :AnimationId         5
+       :VfxName             "\"submission\""
+       :Name                "SUBMISSION"
+       :Type                "FIGHTING"
+       :CriticalChance      0.05}
+  56  {:DamageWindowEndMs   2150
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  56
+       :Power               25
+       :UniqueID            "V0056_MOVE_LOW_SWEEP"
+       :DurationMs          2250
+       :AnimationId         5
+       :VfxName             "\"low_sweep\""
+       :Name                "LOW_SWEEP"
+       :Type                "FIGHTING"
+       :CriticalChance      0.05}
+  57  {:DamageWindowEndMs   2100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.04
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1700
+       :Id                  57
+       :Power               25
+       :UniqueID            "V0057_MOVE_AQUA_JET"
+       :DurationMs          2350
+       :AnimationId         5
+       :VfxName             "\"aqua_jet\""
+       :Name                "AQUA_JET"
+       :Type                "WATER"
+       :CriticalChance      0.05}
+  58  {:DamageWindowEndMs   2250
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2050
+       :Id                  58
+       :Power               45
+       :UniqueID            "V0058_MOVE_AQUA_TAIL"
+       :DurationMs          2350
+       :AnimationId         5
+       :VfxName             "\"aqua_tail\""
+       :Name                "AQUA_TAIL"
+       :Type                "WATER"
+       :CriticalChance      0.05}
+  59  {:DamageWindowEndMs   1800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1300
+       :Id                  59
+       :Power               40
+       :UniqueID            "V0059_MOVE_SEED_BOMB"
+       :DurationMs          2400
+       :AnimationId         5
+       :VfxName             "\"seed_bomb\""
+       :Name                "SEED_BOMB"
+       :Type                "GRASS"
+       :CriticalChance      0.05}
+  60  {:DamageWindowEndMs   2700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2200
+       :Id                  60
+       :Power               40
+       :UniqueID            "V0060_MOVE_PSYSHOCK"
+       :DurationMs          2700
+       :AnimationId         5
+       :VfxName             "\"psyshock\""
+       :Name                "PSYSHOCK"
+       :Type                "PSYCHIC"
+       :CriticalChance      0.05}
+  62  {:DamageWindowEndMs   3250
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2900
+       :Id                  62
+       :Power               35
+       :UniqueID            "V0062_MOVE_ANCIENT_POWER"
+       :DurationMs          3600
+       :AnimationId         5
+       :VfxName             "\"ancient_power\""
+       :Name                "ANCIENT_POWER"
+       :Type                "ROCK"
+       :CriticalChance      0.05}
+  63  {:DamageWindowEndMs   3200
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2300
+       :Id                  63
+       :Power               25
+       :UniqueID            "V0063_MOVE_ROCK_TOMB"
+       :DurationMs          3400
+       :AnimationId         5
+       :VfxName             "\"rock_tomb\""
+       :Name                "ROCK_TOMB"
+       :Type                "ROCK"
+       :CriticalChance      0.25}
+  64  {:DamageWindowEndMs   2900
+       :AccuracyChance      1
+       :StaminaLossScalar   0.075
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1500
+       :Id                  64
+       :Power               40
+       :UniqueID            "V0064_MOVE_ROCK_SLIDE"
+       :DurationMs          3200
+       :AnimationId         5
+       :VfxName             "\"rock_slide\""
+       :Name                "ROCK_SLIDE"
+       :Type                "ROCK"
+       :CriticalChance      0.05}
+  65  {:DamageWindowEndMs   2800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  65
+       :Power               40
+       :UniqueID            "V0065_MOVE_POWER_GEM"
+       :DurationMs          2900
+       :AnimationId         5
+       :VfxName             "\"power_gem\""
+       :Name                "POWER_GEM"
+       :Type                "ROCK"
+       :CriticalChance      0.05}
+  66  {:DamageWindowEndMs   2900
+       :AccuracyChance      1
+       :StaminaLossScalar   0.04
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2300
+       :Id                  66
+       :Power               15
+       :UniqueID            "V0066_MOVE_SHADOW_SNEAK"
+       :DurationMs          3100
+       :AnimationId         5
+       :VfxName             "\"shadow_sneak\""
+       :Name                "SHADOW_SNEAK"
+       :Type                "GHOST"
+       :CriticalChance      0.05}
+  67  {:DamageWindowEndMs   1700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1400
+       :Id                  67
+       :Power               20
+       :UniqueID            "V0067_MOVE_SHADOW_PUNCH"
+       :DurationMs          2100
+       :AnimationId         5
+       :VfxName             "\"shadow_punch\""
+       :Name                "SHADOW_PUNCH"
+       :Type                "GHOST"
+       :CriticalChance      0.05}
+  69  {:DamageWindowEndMs   2100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1850
+       :Id                  69
+       :Power               30
+       :UniqueID            "V0069_MOVE_OMINOUS_WIND"
+       :DurationMs          3100
+       :AnimationId         5
+       :VfxName             "\"ominous_wind\""
+       :Name                "OMINOUS_WIND"
+       :Type                "GHOST"
+       :CriticalChance      0.05}
+  70  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2300
+       :Id                  70
+       :Power               40
+       :UniqueID            "V0070_MOVE_SHADOW_BALL"
+       :DurationMs          3080
+       :AnimationId         5
+       :VfxName             "\"shadow_ball\""
+       :Name                "SHADOW_BALL"
+       :Type                "GHOST"
+       :CriticalChance      0.05}
+  72  {:DamageWindowEndMs   2300
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1750
+       :Id                  72
+       :Power               30
+       :UniqueID            "V0072_MOVE_MAGNET_BOMB"
+       :DurationMs          2800
+       :AnimationId         5
+       :VfxName             "\"magnet_bomb\""
+       :Name                "MAGNET_BOMB"
+       :Type                "STEEL"
+       :CriticalChance      0.05}
+  74  {:DamageWindowEndMs   1800
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1550
+       :Id                  74
+       :Power               30
+       :UniqueID            "V0074_MOVE_IRON_HEAD"
+       :DurationMs          2000
+       :AnimationId         5
+       :VfxName             "\"iron_head\""
+       :Name                "IRON_HEAD"
+       :Type                "STEEL"
+       :CriticalChance      0.05}
+  75  {:DamageWindowEndMs   1700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.05
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1300
+       :Id                  75
+       :Power               15
+       :UniqueID            "V0075_MOVE_PARABOLIC_CHARGE"
+       :DurationMs          2100
+       :AnimationId         5
+       :VfxName             "\"parabolic_charge\""
+       :Name                "PARABOLIC_CHARGE"
+       :Type                "ELECTRIC"
+       :CriticalChance      0.05
+       :HealScalar          0.5}
+  77  {:DamageWindowEndMs   2200
+       :AccuracyChance      1
+       :StaminaLossScalar   0.075
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1950
+       :Id                  77
+       :Power               40
+       :UniqueID            "V0077_MOVE_THUNDER_PUNCH"
+       :DurationMs          2400
+       :AnimationId         5
+       :VfxName             "\"thunder_punch\""
+       :Name                "THUNDER_PUNCH"
+       :Type                "ELECTRIC"
+       :CriticalChance      0.05}
+  78  {:DamageWindowEndMs   4100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.11
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2550
+       :Id                  78
+       :Power               100
+       :UniqueID            "V0078_MOVE_THUNDER"
+       :DurationMs          4300
+       :AnimationId         5
+       :VfxName             "\"thunder\""
+       :Name                "THUNDER"
+       :Type                "ELECTRIC"
+       :CriticalChance      0.05}
+  79  {:DamageWindowEndMs   2700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1900
+       :Id                  79
+       :Power               55
+       :UniqueID            "V0079_MOVE_THUNDERBOLT"
+       :DurationMs          2700
+       :AnimationId         5
+       :VfxName             "\"thunderbolt\""
+       :Name                "THUNDERBOLT"
+       :Type                "ELECTRIC"
+       :CriticalChance      0.05}
+  80  {:DamageWindowEndMs   2600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.04
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 850
+       :Id                  80
+       :Power               25
+       :UniqueID            "V0080_MOVE_TWISTER"
+       :DurationMs          2700
+       :AnimationId         5
+       :VfxName             "\"twister\""
+       :Name                "TWISTER"
+       :Type                "DRAGON"
+       :CriticalChance      0.05}
+  82  {:DamageWindowEndMs   3300
+       :AccuracyChance      1
+       :StaminaLossScalar   0.085
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2100
+       :Id                  82
+       :Power               65
+       :UniqueID            "V0082_MOVE_DRAGON_PULSE"
+       :DurationMs          3600
+       :AnimationId         5
+       :VfxName             "\"dragon_pulse\""
+       :Name                "DRAGON_PULSE"
+       :Type                "DRAGON"
+       :CriticalChance      0.05}
+  83  {:DamageWindowEndMs   1400
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1200
+       :Id                  83
+       :Power               35
+       :UniqueID            "V0083_MOVE_DRAGON_CLAW"
+       :DurationMs          1500
+       :AnimationId         5
+       :VfxName             "\"dragon_claw\""
+       :Name                "DRAGON_CLAW"
+       :Type                "DRAGON"
+       :CriticalChance      0.25}
+  84  {:DamageWindowEndMs   3600
+       :AccuracyChance      1
+       :StaminaLossScalar   0.04
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1800
+       :Id                  84
+       :Power               25
+       :UniqueID            "V0084_MOVE_DISARMING_VOICE"
+       :DurationMs          3900
+       :AnimationId         5
+       :VfxName             "\"disarming_voice\""
+       :Name                "DISARMING_VOICE"
+       :Type                "FAIRY"
+       :CriticalChance      0.05}
+  85  {:DamageWindowEndMs   1100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.05
+       :EnergyDelta         -20
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1000
+       :Id                  85
+       :Power               25
+       :UniqueID            "V0085_MOVE_DRAINING_KISS"
+       :DurationMs          2800
+       :AnimationId         5
+       :VfxName             "\"draining_kiss\""
+       :Name                "DRAINING_KISS"
+       :Type                "FAIRY"
+       :CriticalChance      0.05
+       :HealScalar          1}
+  86  {:DamageWindowEndMs   4100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.08
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 3300
+       :Id                  86
+       :Power               55
+       :UniqueID            "V0086_MOVE_DAZZLING_GLEAM"
+       :DurationMs          4200
+       :AnimationId         5
+       :VfxName             "\"dazzling_gleam\""
+       :Name                "DAZZLING_GLEAM"
+       :Type                "FAIRY"
+       :CriticalChance      0.05}
+  87  {:DamageWindowEndMs   4100
+       :AccuracyChance      1
+       :StaminaLossScalar   0.095
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 3500
+       :Id                  87
+       :Power               80
+       :UniqueID            "V0087_MOVE_MOONBLAST"
+       :DurationMs          4100
+       :AnimationId         5
+       :VfxName             "\"moonblast\""
+       :Name                "MOONBLAST"
+       :Type                "FAIRY"
+       :CriticalChance      0.05}
+  88  {:DamageWindowEndMs   2700
+       :AccuracyChance      1
+       :StaminaLossScalar   0.1
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1400
+       :Id                  88
+       :Power               55
+       :UniqueID            "V0088_MOVE_PLAY_ROUGH"
+       :DurationMs          2900
+       :AnimationId         5
+       :VfxName             "\"play_rough\""
+       :Name                "PLAY_ROUGH"
+       :Type                "FAIRY"
+       :CriticalChance      0.05}
+  89  {:DamageWindowEndMs   1500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.07
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1200
+       :Id                  89
+       :Power               25
+       :UniqueID            "V0089_MOVE_CROSS_POISON"
+       :DurationMs          1500
+       :AnimationId         5
+       :VfxName             "\"cross_poison\""
+       :Name                "CROSS_POISON"
+       :Type                "POISON"
+       :CriticalChance      0.25}
+  90  {:DamageWindowEndMs   2450
+       :AccuracyChance      1
+       :StaminaLossScalar   0.09
+       :EnergyDelta         -50
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1950
+       :Id                  90
+       :Power               55
+       :UniqueID            "V0090_MOVE_SLUDGE_BOMB"
+       :DurationMs          2600
+       :AnimationId         5
+       :VfxName             "\"sludge_bomb\""
+       :Name                "SLUDGE_BOMB"
+       :Type                "POISON"
+       :CriticalChance      0.05}
+  91  {:DamageWindowEndMs   3300
+       :AccuracyChance      1
+       :StaminaLossScalar   0.095
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2400
+       :Id                  91
+       :Power               60
+       :UniqueID            "V0091_MOVE_SLUDGE_WAVE"
+       :DurationMs          3400
+       :AnimationId         5
+       :VfxName             "\"sludge_wave\""
+       :Name                "SLUDGE_WAVE"
+       :Type                "POISON"
+       :CriticalChance      0.05}
+  92  {:DamageWindowEndMs   2400
+       :AccuracyChance      1
+       :StaminaLossScalar   0.12
+       :EnergyDelta         -100
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  92
+       :Power               65
+       :UniqueID            "V0092_MOVE_GUNK_SHOT"
+       :DurationMs          3000
+       :AnimationId         5
+       :VfxName             "\"gunk_shot\""
+       :Name                "GUNK_SHOT"
+       :Type                "POISON"
+       :CriticalChance      0.05}
+  94  {:DamageWindowEndMs   1500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1250
+       :Id                  94
+       :Power               20
+       :UniqueID            "V0094_MOVE_BONE_CLUB"
+       :DurationMs          1600
+       :AnimationId         5
+       :VfxName             "\"bone_club\""
+       :Name                "BONE_CLUB"
+       :Type                "GROUND"
+       :CriticalChance      0.05}
+  95  {:DamageWindowEndMs   3000
+       :AccuracyChance      1
+       :StaminaLossScalar   0.06
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 1900
+       :Id                  95
+       :Power               35
+       :UniqueID            "V0095_MOVE_BULLDOZE"
+       :DurationMs          3400
+       :AnimationId         5
+       :VfxName             "\"bulldoze\""
+       :Name                "BULLDOZE"
+       :Type                "GROUND"
+       :CriticalChance      0.05}
+  96  {:DamageWindowEndMs   2500
+       :AccuracyChance      1
+       :StaminaLossScalar   0.065
+       :EnergyDelta         -25
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2050
+       :Id                  96
+       :Power               30
+       :UniqueID            "V0096_MOVE_MUD_BOMB"
+       :DurationMs          2600
+       :AnimationId         5
+       :VfxName             "\"mud_bomb\""
+       :Name                "MUD_BOMB"
+       :Type                "GROUND"
+       :CriticalChance      0.05}
+  99  {:DamageWindowEndMs   3000
+       :AccuracyChance      1
+       :StaminaLossScalar   0.075
+       :EnergyDelta         -33
+       :TrainerLevelMax     100
+       :TrainerLevelMin     1
+       :DamageWindowStartMs 2000
+       :Id                  99
+       :Power               35
+       :UniqueID            "V0099_MOVE_SIGNAL_BEAM"
+       :DurationMs          3100
+       :AnimationId         5
+       :VfxName             "\"signal_beam\""
+       :Name                "SIGNAL_BEAM"
+       :Type                "BUG"
+       :CriticalChance      0.05}
+  100 {:DamageWindowEndMs   1600
        :AccuracyChance      1
        :StaminaLossScalar   0.08
        :EnergyDelta         -33
@@ -1056,8 +1056,8 @@
        :VfxName             "\"x_scissor\""
        :Name                "X_SCISSOR"
        :Type                "BUG"
-       :CriticalChance      0.05}}
- {101 {:DamageWindowEndMs   2900
+       :CriticalChance      0.05}
+  101 {:DamageWindowEndMs   2900
        :AccuracyChance      1
        :StaminaLossScalar   0.05
        :EnergyDelta         -20
@@ -1072,8 +1072,8 @@
        :VfxName             "\"flame_charge\""
        :Name                "FLAME_CHARGE"
        :Type                "FIRE"
-       :CriticalChance      0.05}}
- {102 {:DamageWindowEndMs   1600
+       :CriticalChance      0.05}
+  102 {:DamageWindowEndMs   1600
        :AccuracyChance      1
        :StaminaLossScalar   0.07
        :EnergyDelta         -25
@@ -1088,8 +1088,8 @@
        :VfxName             "\"flame_burst\""
        :Name                "FLAME_BURST"
        :Type                "FIRE"
-       :CriticalChance      0.05}}
- {103 {:DamageWindowEndMs   4000
+       :CriticalChance      0.05}
+  103 {:DamageWindowEndMs   4000
        :AccuracyChance      1
        :StaminaLossScalar   0.11
        :EnergyDelta         -100
@@ -1104,8 +1104,8 @@
        :VfxName             "\"fire_blast\""
        :Name                "FIRE_BLAST"
        :Type                "FIRE"
-       :CriticalChance      0.05}}
- {104 {:DamageWindowEndMs   2000
+       :CriticalChance      0.05}
+  104 {:DamageWindowEndMs   2000
        :AccuracyChance      1
        :StaminaLossScalar   0.065
        :EnergyDelta         -25
@@ -1120,8 +1120,8 @@
        :VfxName             "\"brine\""
        :Name                "BRINE"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {105 {:DamageWindowEndMs   2900
+       :CriticalChance      0.05}
+  105 {:DamageWindowEndMs   2900
        :AccuracyChance      1
        :StaminaLossScalar   0.06
        :EnergyDelta         -25
@@ -1136,8 +1136,8 @@
        :VfxName             "\"water_pulse\""
        :Name                "WATER_PULSE"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {106 {:DamageWindowEndMs   3900
+       :CriticalChance      0.05}
+  106 {:DamageWindowEndMs   3900
        :AccuracyChance      1
        :StaminaLossScalar   0.08
        :EnergyDelta         -33
@@ -1152,8 +1152,8 @@
        :VfxName             "\"scald\""
        :Name                "SCALD"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {107 {:DamageWindowEndMs   3600
+       :CriticalChance      0.05}
+  107 {:DamageWindowEndMs   3600
        :AccuracyChance      1
        :StaminaLossScalar   0.11
        :EnergyDelta         -100
@@ -1168,8 +1168,8 @@
        :VfxName             "\"hydro_pump\""
        :Name                "HYDRO_PUMP"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {108 {:DamageWindowEndMs   2800
+       :CriticalChance      0.05}
+  108 {:DamageWindowEndMs   2800
        :AccuracyChance      1
        :StaminaLossScalar   0.09
        :EnergyDelta         -50
@@ -1184,8 +1184,8 @@
        :VfxName             "\"psychic\""
        :Name                "PSYCHIC"
        :Type                "PSYCHIC"
-       :CriticalChance      0.05}}
- {109 {:DamageWindowEndMs   5300
+       :CriticalChance      0.05}
+  109 {:DamageWindowEndMs   5300
        :AccuracyChance      1
        :StaminaLossScalar   0.1
        :EnergyDelta         -100
@@ -1200,8 +1200,8 @@
        :VfxName             "\"psystrike\""
        :Name                "PSYSTRIKE"
        :Type                "PSYCHIC"
-       :CriticalChance      0.05}}
- {111 {:DamageWindowEndMs   2700
+       :CriticalChance      0.05}
+  111 {:DamageWindowEndMs   2700
        :AccuracyChance      1
        :StaminaLossScalar   0.055
        :EnergyDelta         -20
@@ -1216,8 +1216,8 @@
        :VfxName             "\"icy_wind\""
        :Name                "ICY_WIND"
        :Type                "ICE"
-       :CriticalChance      0.05}}
- {114 {:DamageWindowEndMs   1500
+       :CriticalChance      0.05}
+  114 {:DamageWindowEndMs   1500
        :AccuracyChance      1
        :StaminaLossScalar   0.075
        :EnergyDelta         -33
@@ -1233,8 +1233,8 @@
        :Name                "GIGA_DRAIN"
        :Type                "GRASS"
        :CriticalChance      0.05
-       :HealScalar          0.5}}
- {115 {:DamageWindowEndMs   2200
+       :HealScalar          0.5}
+  115 {:DamageWindowEndMs   2200
        :AccuracyChance      1
        :StaminaLossScalar   0.075
        :EnergyDelta         -33
@@ -1249,8 +1249,8 @@
        :VfxName             "\"fire_punch\""
        :Name                "FIRE_PUNCH"
        :Type                "FIRE"
-       :CriticalChance      0.05}}
- {116 {:DamageWindowEndMs   4800
+       :CriticalChance      0.05}
+  116 {:DamageWindowEndMs   4800
        :AccuracyChance      1
        :StaminaLossScalar   0.12
        :EnergyDelta         -100
@@ -1265,8 +1265,8 @@
        :VfxName             "\"solar_beam\""
        :Name                "SOLAR_BEAM"
        :Type                "GRASS"
-       :CriticalChance      0.05}}
- {117 {:DamageWindowEndMs   2200
+       :CriticalChance      0.05}
+  117 {:DamageWindowEndMs   2200
        :AccuracyChance      1
        :StaminaLossScalar   0.09
        :EnergyDelta         -50
@@ -1281,8 +1281,8 @@
        :VfxName             "\"leaf_blade\""
        :Name                "LEAF_BLADE"
        :Type                "GRASS"
-       :CriticalChance      0.25}}
- {118 {:DamageWindowEndMs   2800
+       :CriticalChance      0.25}
+  118 {:DamageWindowEndMs   2800
        :AccuracyChance      1
        :StaminaLossScalar   0.12
        :EnergyDelta         -100
@@ -1296,8 +1296,8 @@
        :AnimationId         5
        :VfxName             "\"power_whip\""
        :Name                "POWER_WHIP"
-       :Type                "GRASS"}}
- {121 {:DamageWindowEndMs   3100
+       :Type                "GRASS"}
+  121 {:DamageWindowEndMs   3100
        :AccuracyChance      1
        :StaminaLossScalar   0.06
        :EnergyDelta         -25
@@ -1312,8 +1312,8 @@
        :VfxName             "\"air_cutter\""
        :Name                "AIR_CUTTER"
        :Type                "FLYING"
-       :CriticalChance      0.25}}
- {122 {:DamageWindowEndMs   2800
+       :CriticalChance      0.25}
+  122 {:DamageWindowEndMs   2800
        :AccuracyChance      1
        :StaminaLossScalar   0.11
        :EnergyDelta         -100
@@ -1328,8 +1328,8 @@
        :VfxName             "\"hurricane\""
        :Name                "HURRICANE"
        :Type                "FLYING"
-       :CriticalChance      0.05}}
- {123 {:DamageWindowEndMs   1500
+       :CriticalChance      0.05}
+  123 {:DamageWindowEndMs   1500
        :AccuracyChance      1
        :StaminaLossScalar   0.075
        :EnergyDelta         -33
@@ -1344,8 +1344,8 @@
        :VfxName             "\"brick_break\""
        :Name                "BRICK_BREAK"
        :Type                "FIGHTING"
-       :CriticalChance      0.25}}
- {125 {:DamageWindowEndMs   2800
+       :CriticalChance      0.25}
+  125 {:DamageWindowEndMs   2800
        :AccuracyChance      1
        :StaminaLossScalar   0.06
        :EnergyDelta         -25
@@ -1360,8 +1360,8 @@
        :VfxName             "\"swift\""
        :Name                "SWIFT"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {126 {:DamageWindowEndMs   1900
+       :CriticalChance      0.05}
+  126 {:DamageWindowEndMs   1900
        :AccuracyChance      1
        :StaminaLossScalar   0.065
        :EnergyDelta         -25
@@ -1376,8 +1376,8 @@
        :VfxName             "\"horn_attack\""
        :Name                "HORN_ATTACK"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {127 {:DamageWindowEndMs   1900
+       :CriticalChance      0.05}
+  127 {:DamageWindowEndMs   1900
        :AccuracyChance      1
        :StaminaLossScalar   0.065
        :EnergyDelta         -25
@@ -1392,8 +1392,8 @@
        :VfxName             "\"stomp\""
        :Name                "STOMP"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {129 {:DamageWindowEndMs   2000
+       :CriticalChance      0.05}
+  129 {:DamageWindowEndMs   2000
        :AccuracyChance      1
        :StaminaLossScalar   0.08
        :EnergyDelta         -33
@@ -1408,8 +1408,8 @@
        :VfxName             "\"hyper_fang\""
        :Name                "HYPER_FANG"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {131 {:DamageWindowEndMs    1300
+       :CriticalChance      0.05}
+  131 {:DamageWindowEndMs    1300
        :AccuracyChance       1
        :StaminaLossScalar    0.085
        :EnergyDelta          -50
@@ -1424,8 +1424,8 @@
        :VfxName              "\"body_slam\""
        :Name                 "BODY_SLAM"
        :Type                 "NORMAL"
-       {132 :CriticalChance} 0.05}}
- {132 {:DamageWindowEndMs   2691
+       {132 :CriticalChance} 0.05}
+  132 {:DamageWindowEndMs   2691
        :AccuracyChance      1
        :EnergyDelta         -33
        :TrainerLevelMax     100
@@ -1439,8 +1439,8 @@
        :VfxName             "\"rest\""
        :Name                "REST"
        :Type                "NORMAL"
-       :HealScalar          1}}
- {133 {:DamageWindowEndMs   1500
+       :HealScalar          1}
+  133 {:DamageWindowEndMs   1500
        :AccuracyChance      1
        :StaminaLossScalar   0.1
        :EnergyDelta         -20
@@ -1454,8 +1454,8 @@
        :AnimationId         5
        :VfxName             "\"struggle\""
        :Name                "STRUGGLE"
-       :Type                "NORMAL"}}
- {134 {:DamageWindowEndMs   3900
+       :Type                "NORMAL"}
+  134 {:DamageWindowEndMs   3900
        :AccuracyChance      1
        :StaminaLossScalar   0.08
        :EnergyDelta         -33
@@ -1470,8 +1470,8 @@
        :VfxName             "\"scald_blastoise\""
        :Name                "SCALD_BLASTOISE"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {135 {:DamageWindowEndMs   3600
+       :CriticalChance      0.05}
+  135 {:DamageWindowEndMs   3600
        :AccuracyChance      1
        :StaminaLossScalar   0.11
        :EnergyDelta         -100
@@ -1486,8 +1486,8 @@
        :VfxName             "\"hydro_pump_blastoise\""
        :Name                "HYDRO_PUMP_BLASTOISE"
        :Type                "WATER"
-       :CriticalChance      0.05}}
- {136 {:DamageWindowEndMs   3200
+       :CriticalChance      0.05}
+  136 {:DamageWindowEndMs   3200
        :AccuracyChance      1
        :StaminaLossScalar   0.06
        :EnergyDelta         -20
@@ -1502,8 +1502,8 @@
        :VfxName             "\"wrap_green\""
        :Name                "WRAP_GREEN"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {137 {:DamageWindowEndMs   3200
+       :CriticalChance      0.05}
+  137 {:DamageWindowEndMs   3200
        :AccuracyChance      1
        :StaminaLossScalar   0.06
        :EnergyDelta         -20
@@ -1518,8 +1518,8 @@
        :VfxName             "\"wrap_pink\""
        :Name                "WRAP_PINK"
        :Type                "NORMAL"
-       :CriticalChance      0.05}}
- {200 {:DamageWindowEndMs   400
+       :CriticalChance      0.05}
+  200 {:DamageWindowEndMs   400
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         12
@@ -1533,8 +1533,8 @@
        :AnimationId         4
        :VfxName             "\"fury_cutter_fast\""
        :Name                "FURY_CUTTER_FAST"
-       :Type                "BUG"}}
- {201 {:DamageWindowEndMs   450
+       :Type                "BUG"}
+  201 {:DamageWindowEndMs   450
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1548,8 +1548,8 @@
        :AnimationId         4
        :VfxName             "\"bug_bite_fast\""
        :Name                "BUG_BITE_FAST"
-       :Type                "BUG"}}
- {202 {:DamageWindowEndMs   500
+       :Type                "BUG"}
+  202 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1563,8 +1563,8 @@
        :AnimationId         4
        :VfxName             "\"bite_fast\""
        :Name                "BITE_FAST"
-       :Type                "DARK"}}
- {203 {:DamageWindowEndMs   700
+       :Type                "DARK"}
+  203 {:DamageWindowEndMs   700
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -1578,8 +1578,8 @@
        :AnimationId         4
        :VfxName             "\"sucker_punch_fast\""
        :Name                "SUCKER_PUNCH_FAST"
-       :Type                "DARK"}}
- {204 {:DamageWindowEndMs   500
+       :Type                "DARK"}
+  204 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1593,8 +1593,8 @@
        :AnimationId         4
        :VfxName             "\"dragon_breath_fast\""
        :Name                "DRAGON_BREATH_FAST"
-       :Type                "DRAGON"}}
- {205 {:DamageWindowEndMs   600
+       :Type                "DRAGON"}
+  205 {:DamageWindowEndMs   600
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1608,8 +1608,8 @@
        :AnimationId         4
        :VfxName             "\"thunder_shock_fast\""
        :Name                "THUNDER_SHOCK_FAST"
-       :Type                "ELECTRIC"}}
- {206 {:DamageWindowEndMs   700
+       :Type                "ELECTRIC"}
+  206 {:DamageWindowEndMs   700
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -1623,8 +1623,8 @@
        :AnimationId         4
        :VfxName             "\"spark_fast\""
        :Name                "SPARK_FAST"
-       :Type                "ELECTRIC"}}
- {207 {:DamageWindowEndMs   600
+       :Type                "ELECTRIC"}
+  207 {:DamageWindowEndMs   600
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1638,8 +1638,8 @@
        :AnimationId         4
        :VfxName             "\"low_kick_fast\""
        :Name                "LOW_KICK_FAST"
-       :Type                "FIGHTING"}}
- {208 {:DamageWindowEndMs   800
+       :Type                "FIGHTING"}
+  208 {:DamageWindowEndMs   800
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1653,8 +1653,8 @@
        :AnimationId         4
        :VfxName             "\"karate_chop_fast\""
        :Name                "KARATE_CHOP_FAST"
-       :Type                "FIGHTING"}}
- {209 {:DamageWindowEndMs   1050
+       :Type                "FIGHTING"}
+  209 {:DamageWindowEndMs   1050
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1668,8 +1668,8 @@
        :AnimationId         4
        :VfxName             "\"ember_fast\""
        :Name                "EMBER_FAST"
-       :Type                "FIRE"}}
- {210 {:DamageWindowEndMs   750
+       :Type                "FIRE"}
+  210 {:DamageWindowEndMs   750
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1683,8 +1683,8 @@
        :AnimationId         4
        :VfxName             "\"wing_attack_fast\""
        :Name                "WING_ATTACK_FAST"
-       :Type                "FLYING"}}
- {211 {:DamageWindowEndMs   1150
+       :Type                "FLYING"}
+  211 {:DamageWindowEndMs   1150
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         10
@@ -1698,8 +1698,8 @@
        :AnimationId         4
        :VfxName             "\"peck_fast\""
        :Name                "PECK_FAST"
-       :Type                "FLYING"}}
- {212 {:DamageWindowEndMs   500
+       :Type                "FLYING"}
+  212 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1713,8 +1713,8 @@
        :AnimationId         4
        :VfxName             "\"lick_fast\""
        :Name                "LICK_FAST"
-       :Type                "GHOST"}}
- {213 {:DamageWindowEndMs   950
+       :Type                "GHOST"}
+  213 {:DamageWindowEndMs   950
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1728,8 +1728,8 @@
        :AnimationId         4
        :VfxName             "\"shadow_claw_fast\""
        :Name                "SHADOW_CLAW_FAST"
-       :Type                "GHOST"}}
- {214 {:DamageWindowEndMs   650
+       :Type                "GHOST"}
+  214 {:DamageWindowEndMs   650
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1743,8 +1743,8 @@
        :AnimationId         4
        :VfxName             "\"vine_whip_fast\""
        :Name                "VINE_WHIP_FAST"
-       :Type                "GRASS"}}
- {215 {:DamageWindowEndMs   1450
+       :Type                "GRASS"}
+  215 {:DamageWindowEndMs   1450
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1758,8 +1758,8 @@
        :AnimationId         4
        :VfxName             "\"razor_leaf_fast\""
        :Name                "RAZOR_LEAF_FAST"
-       :Type                "GRASS"}}
- {216 {:DamageWindowEndMs   550
+       :Type                "GRASS"}
+  216 {:DamageWindowEndMs   550
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1773,8 +1773,8 @@
        :AnimationId         4
        :VfxName             "\"mud_shot_fast\""
        :Name                "MUD_SHOT_FAST"
-       :Type                "GROUND"}}
- {217 {:DamageWindowEndMs   1400
+       :Type                "GROUND"}
+  217 {:DamageWindowEndMs   1400
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1788,8 +1788,8 @@
        :AnimationId         4
        :VfxName             "\"ice_shard_fast\""
        :Name                "ICE_SHARD_FAST"
-       :Type                "ICE"}}
- {218 {:DamageWindowEndMs   810
+       :Type                "ICE"}
+  218 {:DamageWindowEndMs   810
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1803,8 +1803,8 @@
        :AnimationId         4
        :VfxName             "\"frost_breath_fast\""
        :Name                "FROST_BREATH_FAST"
-       :Type                "ICE"}}
- {219 {:DamageWindowEndMs   1330
+       :Type                "ICE"}
+  219 {:DamageWindowEndMs   1330
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1818,8 +1818,8 @@
        :AnimationId         4
        :VfxName             "\"quick_attack_fast\""
        :Name                "QUICK_ATTACK_FAST"
-       :Type                "NORMAL"}}
- {220 {:DamageWindowEndMs   500
+       :Type                "NORMAL"}
+  220 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1833,8 +1833,8 @@
        :AnimationId         4
        :VfxName             "\"scratch_fast\""
        :Name                "SCRATCH_FAST"
-       :Type                "NORMAL"}}
- {221 {:DamageWindowEndMs   1100
+       :Type                "NORMAL"}
+  221 {:DamageWindowEndMs   1100
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1848,8 +1848,8 @@
        :AnimationId         4
        :VfxName             "\"tackle_fast\""
        :Name                "TACKLE_FAST"
-       :Type                "NORMAL"}}
- {222 {:DamageWindowEndMs   540
+       :Type                "NORMAL"}
+  222 {:DamageWindowEndMs   540
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1863,8 +1863,8 @@
        :AnimationId         4
        :VfxName             "\"pound_fast\""
        :Name                "POUND_FAST"
-       :Type                "NORMAL"}}
- {223 {:DamageWindowEndMs   1130
+       :Type                "NORMAL"}
+  223 {:DamageWindowEndMs   1130
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1878,8 +1878,8 @@
        :AnimationId         4
        :VfxName             "\"cut_fast\""
        :Name                "CUT_FAST"
-       :Type                "NORMAL"}}
- {224 {:DamageWindowEndMs   1050
+       :Type                "NORMAL"}
+  224 {:DamageWindowEndMs   1050
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1893,8 +1893,8 @@
        :AnimationId         4
        :VfxName             "\"poison_jab_fast\""
        :Name                "POISON_JAB_FAST"
-       :Type                "POISON"}}
- {225 {:DamageWindowEndMs   1050
+       :Type                "POISON"}
+  225 {:DamageWindowEndMs   1050
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1908,8 +1908,8 @@
        :AnimationId         4
        :VfxName             "\"acid_fast\""
        :Name                "ACID_FAST"
-       :Type                "POISON"}}
- {226 {:DamageWindowEndMs   570
+       :Type                "POISON"}
+  226 {:DamageWindowEndMs   570
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1923,8 +1923,8 @@
        :AnimationId         4
        :VfxName             "\"psycho_cut_fast\""
        :Name                "PSYCHO_CUT_FAST"
-       :Type                "PSYCHIC"}}
- {227 {:DamageWindowEndMs   1360
+       :Type                "PSYCHIC"}
+  227 {:DamageWindowEndMs   1360
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1938,8 +1938,8 @@
        :AnimationId         4
        :VfxName             "\"rock_throw_fast\""
        :Name                "ROCK_THROW_FAST"
-       :Type                "ROCK"}}
- {228 {:DamageWindowEndMs   630
+       :Type                "ROCK"}
+  228 {:DamageWindowEndMs   630
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1953,8 +1953,8 @@
        :AnimationId         4
        :VfxName             "\"metal_claw_fast\""
        :Name                "METAL_CLAW_FAST"
-       :Type                "STEEL"}}
- {229 {:DamageWindowEndMs   1200
+       :Type                "STEEL"}
+  229 {:DamageWindowEndMs   1200
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1968,8 +1968,8 @@
        :AnimationId         4
        :VfxName             "\"bullet_punch_fast\""
        :Name                "BULLET_PUNCH_FAST"
-       :Type                "STEEL"}}
- {230 {:DamageWindowEndMs   500
+       :Type                "STEEL"}
+  230 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1983,8 +1983,8 @@
        :AnimationId         4
        :VfxName             "\"water_gun_fast\""
        :Name                "WATER_GUN_FAST"
-       :Type                "WATER"}}
- {231 {:DamageWindowEndMs   1230
+       :Type                "WATER"}
+  231 {:DamageWindowEndMs   1230
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -1997,8 +1997,8 @@
        :AnimationId         4
        :VfxName             "\"splash_fast\""
        :Name                "SPLASH_FAST"
-       :Type                "WATER"}}
- {232 {:DamageWindowEndMs   500
+       :Type                "WATER"}
+  232 {:DamageWindowEndMs   500
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -2012,8 +2012,8 @@
        :AnimationId         4
        :VfxName             "\"water_gun_fast_blastoise\""
        :Name                "WATER_GUN_FAST_BLASTOISE"
-       :Type                "WATER"}}
- {233 {:DamageWindowEndMs   1350
+       :Type                "WATER"}
+  233 {:DamageWindowEndMs   1350
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         9
@@ -2027,8 +2027,8 @@
        :AnimationId         4
        :VfxName             "\"mud_slap_fast\""
        :Name                "MUD_SLAP_FAST"
-       :Type                "GROUND"}}
- {234 {:DamageWindowEndMs   1050
+       :Type                "GROUND"}
+  234 {:DamageWindowEndMs   1050
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -2042,8 +2042,8 @@
        :AnimationId         4
        :VfxName             "\"zen_headbutt_fast\""
        :Name                "ZEN_HEADBUTT_FAST"
-       :Type                "PSYCHIC"}}
- {235 {:DamageWindowEndMs   1510
+       :Type                "PSYCHIC"}
+  235 {:DamageWindowEndMs   1510
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -2057,8 +2057,8 @@
        :AnimationId         4
        :VfxName             "\"confusion_fast\""
        :Name                "CONFUSION_FAST"
-       :Type                "PSYCHIC"}}
- {236 {:DamageWindowEndMs   575
+       :Type                "PSYCHIC"}
+  236 {:DamageWindowEndMs   575
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -2072,8 +2072,8 @@
        :AnimationId         4
        :VfxName             "\"poison_sting_fast\""
        :Name                "POISON_STING_FAST"
-       :Type                "POISON"}}
- {237 {:DamageWindowEndMs   2300
+       :Type                "POISON"}
+  237 {:DamageWindowEndMs   2300
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         15
@@ -2087,8 +2087,8 @@
        :AnimationId         4
        :VfxName             "\"bubble_fast\""
        :Name                "BUBBLE_FAST"
-       :Type                "WATER"}}
- {238 {:DamageWindowEndMs   1040
+       :Type                "WATER"}
+  238 {:DamageWindowEndMs   1040
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
@@ -2102,8 +2102,8 @@
        :AnimationId         4
        :VfxName             "\"feint_attack_fast\""
        :Name                "FEINT_ATTACK_FAST"
-       :Type                "DARK"}}
- {239 {:DamageWindowEndMs   1330
+       :Type                "DARK"}
+  239 {:DamageWindowEndMs   1330
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -2117,8 +2117,8 @@
        :AnimationId         4
        :VfxName             "\"steel_wing_fast\""
        :Name                "STEEL_WING_FAST"
-       :Type                "STEEL"}}
- {240 {:DamageWindowEndMs   840
+       :Type                "STEEL"}
+  240 {:DamageWindowEndMs   840
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         4
@@ -2132,8 +2132,8 @@
        :AnimationId         4
        :VfxName             "\"fire_fang_fast\""
        :Name                "FIRE_FANG_FAST"
-       :Type                "FIRE"}}
- {241 {:DamageWindowEndMs   1410
+       :Type                "FIRE"}
+  241 {:DamageWindowEndMs   1410
        :AccuracyChance      1
        :StaminaLossScalar   0.01
        :EnergyDelta         7
