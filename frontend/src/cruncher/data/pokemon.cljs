@@ -1,5 +1,7 @@
 (ns cruncher.data.pokemon)
 
+;; Taken from https://github.com/justinleewells/pogo-optimizer
+
 (def all {1 {:pokemon-id                  1
              :name                        "Bulbasaur"
              :classification              "Seed Pokémon"

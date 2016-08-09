@@ -1,3 +1,5 @@
+;; Taken from https://github.com/justinleewells/pogo-optimizer
+
 [{13  {:DamageWindowEndMs   3400
        :AccuracyChance      1
        :StaminaLossScalar   0.06
