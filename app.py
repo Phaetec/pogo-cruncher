@@ -92,6 +92,7 @@ def get_pokemon():
                         'move_1':                pokemon.move_1,
                         'move_2':                pokemon.move_2,
                         'level':                 pokemon.level(),
+                        'powerup_cost_stardust': pokemon.powerup_stardust_cost(),
                     })
 
             elif 'candy' in item['inventory_item_data']:
