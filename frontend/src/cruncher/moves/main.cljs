@@ -1,7 +1,7 @@
 (ns cruncher.moves.main
   (:require [cruncher.moves.data :as data]))
 
-(defn get
+(defn get-name
   "Return move object from moves-database by the move id."
   [id]
-  (id data/all))
+  (:name (get data/all id)))
