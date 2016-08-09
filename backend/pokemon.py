@@ -35,11 +35,29 @@ class Pokemon(object):
         self.stamina_max = pokemondict.get('stamina_max', 1)
         self.weight_kg = pokemondict.get('weight_kg', 1)
         self.nickname = pokemondict.get('nickname', '')
+        self.upgraded_number = pokemondict.get('num_upgrades', 0)
+        self.cp_multiplier = pokemondict.get('cp_multiplier', 0)
+        self.additional_cp_multiplier = pokemondict.get('additional_cp_multiplier', 0)
 
     def is_favorite(self):
         if self.favorite == 1:
             return True
         return False
+
+    def level(self):
+        """
+        Takes the combined multiplier and returns the pokemons level.
+
+        :return: The pokemon level as a float.
+        """
+        # Credits to @Grover13 at github.com
+        combined_multiplier = self.additional_cp_multiplier + self.cp_multiplier
+        if combined_multiplier < 0.734:
+            level = 58.35178527 * combined_multiplier * combined_multiplier - 2.838007664 * combined_multiplier + 0.8539209906
+        else:
+            level = 171.0112688 * combined_multiplier - 95.20425243
+
+        return round(level * 2) / 2
 
     def iv_percentage(self):
         score = self.iv_sta + self.iv_att + self.iv_def
