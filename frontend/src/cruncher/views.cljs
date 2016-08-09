@@ -28,7 +28,7 @@
              (dom/div #js {:className "row"}
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Controls")
-                               (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
+                               (vlib/button-primary #(com/route :get-all-pokemon) "Load your Pokemon")
                                (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Information")
