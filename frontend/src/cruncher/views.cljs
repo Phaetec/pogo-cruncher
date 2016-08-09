@@ -1,7 +1,6 @@
 (ns cruncher.views
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
-            [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
@@ -170,9 +169,7 @@
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
-             #_(let [jquery (js* "$")]
-                 (.stickyTableHeaders (jquery "#poketable"))))))
+                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon))))))))
 (def poketable (om/factory PokeTable {}))
 
 
