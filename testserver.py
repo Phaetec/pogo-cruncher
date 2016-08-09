@@ -102,6 +102,8 @@ def get_pokemon():
                     'cp':                    pokemon.cp,
                     'nickname':              pokemon.nickname,
                     'favorite':              pokemon.is_favorite(),
+                    'move_1':                pokemon.move_1,
+                    'move_2':                pokemon.move_2,
                 })
         elif 'candy' in item['inventory_item_data']:
             candy_data = item['inventory_item_data']['candy']
