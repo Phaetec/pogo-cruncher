@@ -18,6 +18,7 @@ pokeapi = pgoapi.PGoApi()
 pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+player_level = None
 
 
 @app.route('/', methods=['GET'])
@@ -99,6 +100,10 @@ def get_pokemon():
             elif 'candy' in item['inventory_item_data']:
                 candy_data = item['inventory_item_data']['candy']
                 candies[candy_data['family_id']] = candy_data.get('candy', 0)
+
+            elif 'player_stats' in item['inventory_item_data']:
+                global player_level
+                player_level = item['inventory_item_data']['player_stats']['level']
 
         # add candies to answerdict
         for poke in answer:
@@ -200,6 +205,9 @@ def get_player():
             'stardust':     stardust,
             'pokecoins':    pokecoins,
         }
+
+        if player_level:
+            answer['level'] = player_level
 
         return jsonify(answer)
 

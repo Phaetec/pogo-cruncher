@@ -74,27 +74,41 @@
 (defui PokeTableEntryDetails
   Object
   (render [this]
-    (let [pokemon (om/props this)]
+    (let [pokemon (om/props this)
+          player  (om/props this)]
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
               (dom/td #js {:className "well" :colSpan 12}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Evolves to:")
-                               (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
+                               (dom/div #js {:className "col-md-2"} "Evolves to:")
+                               (dom/div #js {:className "col-md-4"} (if (lib/pokemon-evolution pokemon)
                                                                       (lib/pokemon-evolution pokemon)
-                                                                      "None")))
+                                                                      "None"))
+                               (dom/div #js {:className "col-md-2"} "Powerup Cost: ")
+                               (dom/div #js {:className "col-md-4"} (:powerup_cost_stardust pokemon) " Dust, "
+                                        (:powerup_cost_candy pokemon) " Candy"))
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Candy:")
-                               (dom/div #js {:className "col-md-8"} (:candy pokemon)))
+                               (dom/div #js {:className "col-md-2"} "Available Candy:")
+                               (dom/div #js {:className "col-md-4"} (:candy pokemon))
+                               (dom/div #js {:className "col-md-2"} "Level: ")
+                               (dom/div #js {:className "col-md-4"} (:level pokemon)))
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))
+                               (dom/div #js {:className "col-md-2"} "Available Evolutions:")
+                               (dom/div #js {:className "col-md-4"} (lib/calc-evolutions pokemon))
                                (if (not= (lib/calc-evolutions pokemon) 0)
-                                 (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
+                                 (dom/div #js {:className "col-md-2"} (dom/button #js {:className "btn btn-sm btn-info"
                                                                                        :type      "button"
                                                                                        :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                                  "Evolve!")))))))))
+                                                                                  "Evolve!")))
+                               (if (and (>= (lib/str->int (:candy pokemon)) (lib/str->int (:powerup_cost_candy pokemon)))
+                                        (>= (lib/str->int (:stardust player)) (lib/str->int (:powerup_cost_stardust pokemon)))
+                                        ;(> (+ 1.5 (lib/str->int (:level player))) (lib/str->int (:level pokemon)))
+                                        )
+                                 (dom/div #js {:className "col-md-4"} (dom/button #js {:className "btn btn-sm btn-info"
+                                                                                       :type      "button"
+                                                                                       :onClick   #(js/alert "Test")}
+                                                                                  "Power Up!")))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
