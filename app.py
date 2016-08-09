@@ -91,6 +91,7 @@ def get_pokemon():
                         'favorite':              pokemon.is_favorite(),
                         'move_1':                pokemon.move_1,
                         'move_2':                pokemon.move_2,
+                        'level':                 pokemon.level(),
                     })
 
             elif 'candy' in item['inventory_item_data']:
@@ -101,7 +102,6 @@ def get_pokemon():
         for poke in answer:
             family = pokehelper.get_pokefamily(poke['pokemon_id'])
             poke['candy'] = candies.get(family, 0)
-
         return jsonify(answer)
 
 
