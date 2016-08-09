@@ -123,8 +123,16 @@ class Pokemon(object):
 
         return 10000
 
+    def powerup_candy_cost(self):
+        if self.level() < 13 and self.upgraded_number <= 20:
+            return 1
+        if self.level() < 21 and self.upgraded_number <= 36:
+            return 2
+        if self.level() < 31 and self.upgraded_number <= 60:
+            return 3
+        return 4
 
-def __str__(self):
-    return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(
-        self.stamina_max) + 'HP\n' + self.iv_percentage() + '% perfect IVs (' + str(self.iv_att) + '/' + str(
-        self.iv_def) + '/' + str(self.iv_sta)
+    def __str__(self):
+        return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(
+            self.stamina_max) + 'HP\n' + self.iv_percentage() + '% perfect IVs (' + str(self.iv_att) + '/' + str(
+            self.iv_def) + '/' + str(self.iv_sta)
