@@ -7,6 +7,7 @@
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
             [cruncher.communication.evolutions :as evolutions]
+            [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
@@ -161,7 +162,7 @@
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
                                      (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
              #_(let [jquery (js* "$")]
-                 (.stickyTableHeaders (jquery "#poketable"))))))
+               (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
 
 
