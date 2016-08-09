@@ -81,21 +81,29 @@
               (dom/td #js {:className "well"})
               (dom/td #js {:className "well" :colSpan 12}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Evolves to:")
-                               (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
-                                                                      (lib/pokemon-evolution pokemon)
-                                                                      "None")))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Candy:")
-                               (dom/div #js {:className "col-md-8"} (:candy pokemon)))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))
-                               (if (not= (lib/calc-evolutions pokemon) 0)
-                                 (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                       :type      "button"
-                                                                                       :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                                  "Evolve!")))))))))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Health:")
+                                                 (dom/div #js {:className "col-md-8"} (:health pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Evolves to:")
+                                                 (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
+                                                                                        (lib/pokemon-evolution pokemon)
+                                                                                        "None")))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Candy:")
+                                                 (dom/div #js {:className "col-md-8"} (:candy pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Evolutions:")
+                                                 (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-12"}
+                                                          (if (not= (lib/calc-evolutions pokemon) 0)
+                                                            (dom/button #js {:className "btn btn-sm btn-info"
+                                                                             :type      "button"
+                                                                             :onClick   #(evolutions/evolve (:id pokemon))}
+                                                                        "Evolve!")))))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
