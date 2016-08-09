@@ -79,7 +79,7 @@
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
-              (dom/td #js {:className "well" :colSpan 12}
+              (dom/td #js {:className "well" :colSpan 13}
                       (dom/div #js {:className "row"}
                                (dom/div #js {:className "col-md-6"}
                                         (dom/div #js {:className "row"}
@@ -128,6 +128,8 @@
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (dom/td nil (:name pokemon))
               (dom/td nil (:nickname pokemon))
+              (dom/td nil (moves/get-name (:move_1 pokemon)))
+              (dom/td nil (moves/get-name (:move_2 pokemon)))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
@@ -157,11 +159,13 @@
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :nickname "Nickname")
+                                           (vlib/sortable-table-header :move_1 "Fast")
+                                           (vlib/sortable-table-header :move_2 "Special")
                                            (vlib/sortable-table-header :cp "CP")
                                            (vlib/sortable-table-header :individual_percentage "IV % Perfect")
-                                           (vlib/sortable-table-header :individual_attack "IV Attack")
-                                           (vlib/sortable-table-header :individual_defense "IV Defense")
-                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")
+                                           (vlib/sortable-table-header :individual_attack "Attack")
+                                           (vlib/sortable-table-header :individual_defense "Defense")
+                                           (vlib/sortable-table-header :individual_stamina "Stamina")
                                            (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
