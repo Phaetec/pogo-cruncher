@@ -11,6 +11,7 @@
             [cruncher.selections :as selections]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
+            [cruncher.utils.bootstrap :as bs]
             [cruncher.utils.lib :as lib]
             [cruncher.utils.views :as vlib]))
 
@@ -80,22 +81,22 @@
                    :className "collapse"}
               (dom/td #js {:className "well"})
               (dom/td #js {:className "well" :colSpan 12}
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Evolves to:")
-                               (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
-                                                                      (lib/pokemon-evolution pokemon)
-                                                                      "None")))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Candy:")
-                               (dom/div #js {:className "col-md-8"} (:candy pokemon)))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))
-                               (if (not= (lib/calc-evolutions pokemon) 0)
-                                 (dom/div #js {:className "col-md-6"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                       :type      "button"
-                                                                                       :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                                  "Evolve!")))))))))
+                      (bs/row
+                        (bs/col 4 "Evolves to:")
+                        (bs/col 8 (if (lib/pokemon-evolution pokemon)
+                                    (lib/pokemon-evolution pokemon)
+                                    "None")))
+                      (bs/row
+                        (bs/col 4 "Available Candy:")
+                        (bs/col 8 (:candy pokemon)))
+                      (bs/row
+                        (bs/col 4 "Available Evolutions:")
+                        (bs/col 2 (lib/calc-evolutions pokemon))
+                        (when (pos? (count (lib/calc-evolutions pokemon)))
+                          (bs/col 6 (dom/button #js {:className "btn btn-sm btn-info"
+                                                     :type      "button"
+                                                     :onClick   #(evolutions/evolve (:id pokemon))}
+                                                "Evolve!")))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
@@ -162,7 +163,7 @@
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
                                      (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
              #_(let [jquery (js* "$")]
-               (.stickyTableHeaders (jquery "#poketable"))))))
+                 (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
 
 
