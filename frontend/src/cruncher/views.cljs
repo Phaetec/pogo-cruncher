@@ -1,12 +1,12 @@
 (ns cruncher.views
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
-            [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
             [cruncher.communication.evolutions :as evolutions]
+            [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
@@ -28,7 +28,7 @@
              (dom/div #js {:className "row"}
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Controls")
-                               (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
+                               (vlib/button-primary #(com/route :get-all-pokemon) "Load your Pokemon")
                                (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Information")
@@ -79,35 +79,46 @@
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
-              (dom/td #js {:className "well" :colSpan 12}
+              (dom/td #js {:className "well" :colSpan 13}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-2"} "Evolves to:")
-                               (dom/div #js {:className "col-md-4"} (if (lib/pokemon-evolution pokemon)
-                                                                      (lib/pokemon-evolution pokemon)
-                                                                      "None"))
-                               (dom/div #js {:className "col-md-2"} "Powerup Cost: ")
-                               (dom/div #js {:className "col-md-4"} (:powerup_cost_stardust pokemon) " Dust, "
-                                        (:powerup_cost_candy pokemon) " Candy"))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-2"} "Available Candy:")
-                               (dom/div #js {:className "col-md-4"} (:candy pokemon))
-                               (dom/div #js {:className "col-md-2"} "Level: ")
-                               (dom/div #js {:className "col-md-4"} (:level pokemon)))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-2"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-4"} (lib/calc-evolutions pokemon))
-                               (if (not= (lib/calc-evolutions pokemon) 0)
-                                 (dom/div #js {:className "col-md-2"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                       :type      "button"
-                                                                                       :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                                  "Evolve!")))
-                               (if (and (>= (:candy pokemon) (:powerup_cost_candy pokemon))
-                                        (>= (:stardust player) (:powerup_cost_stardust pokemon))
-                                        (> (+ 1.5 (:level player)) (:level pokemon)))
-                                 (dom/div #js {:className "col-md-4"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                       :type      "button"
-                                                                                       :onClick   #(evolutions/powerup (:id pokemon) )}
-                                                                                  "Power Up!")))))))))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Health:")
+                                                 (dom/div #js {:className "col-md-8"} (:health pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Evolves to:")
+                                                 (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
+                                                                                        (lib/pokemon-evolution pokemon)
+                                                                                        "None")))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Candy:")
+                                                 (dom/div #js {:className "col-md-8"} (:candy pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Evolutions:")
+                                                 (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Powerup Cost: ")
+                                                 (dom/div #js {:className "col-md-8"} (:powerup_cost_stardust pokemon) " Dust, "
+                                                          (:powerup_cost_candy pokemon) " Candy")))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-12"}
+                                                          (if (not= (lib/calc-evolutions pokemon) 0)
+                                                            (dom/button #js {:className "btn btn-sm btn-info"
+                                                                             :type      "button"
+                                                                             :onClick   #(evolutions/evolve (:id pokemon))}
+                                                                        "Evolve!"))))
+                                        (dom/br nil)
+                                        (dom/div #js {:className "row"}
+                                                 (if (and (>= (:candy pokemon) (:powerup_cost_candy pokemon))
+                                                          (>= (:stardust player) (:powerup_cost_stardust pokemon))
+                                                          (> (+ 1.5 (:level player)) (:level pokemon)))
+                                                   (dom/div #js {:className "col-md-12"} (dom/button #js {:className "btn btn-sm btn-info"
+                                                                                                         :type      "button"
+                                                                                                         :onClick   #(evolutions/powerup (:id pokemon))}
+                                                                                                    "Power Up!"))))
+                                        )))))))
+
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
@@ -132,8 +143,9 @@
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (dom/td nil (:name pokemon))
               (dom/td nil (:nickname pokemon))
+              (dom/td nil (moves/get-name (:move_1 pokemon)))
+              (dom/td nil (moves/get-name (:move_2 pokemon)))
               (dom/td nil (:cp pokemon))
-              (dom/td nil (:health pokemon))
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
@@ -162,12 +174,13 @@
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :nickname "Nickname")
+                                           (vlib/sortable-table-header :move_1 "Fast")
+                                           (vlib/sortable-table-header :move_2 "Special")
                                            (vlib/sortable-table-header :cp "CP")
-                                           (vlib/sortable-table-header :health "Health")
                                            (vlib/sortable-table-header :individual_percentage "IV % Perfect")
-                                           (vlib/sortable-table-header :individual_attack "IV Attack")
-                                           (vlib/sortable-table-header :individual_defense "IV Defense")
-                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")
+                                           (vlib/sortable-table-header :individual_attack "Attack")
+                                           (vlib/sortable-table-header :individual_defense "Defense")
+                                           (vlib/sortable-table-header :individual_stamina "Stamina")
                                            (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
@@ -175,6 +188,7 @@
                                      (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon)))))
              #_(let [jquery (js* "$")]
                  (.stickyTableHeaders (jquery "#poketable"))))))
+
 (def poketable (om/factory PokeTable {}))
 
 
