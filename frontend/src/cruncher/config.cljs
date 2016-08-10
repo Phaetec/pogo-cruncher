@@ -16,4 +16,5 @@
           :crunch-selected-pokemon "api/pokemon/delete"
           :status-delete           "api/status/delete"
           :get-player              "api/player"
-          :evolve-pokemon          "api/pokemon/evolve"})
+          :evolve-pokemon          "api/pokemon/evolve"
+          :upgrade-pokemon         "api/pokemon/upgrade"})

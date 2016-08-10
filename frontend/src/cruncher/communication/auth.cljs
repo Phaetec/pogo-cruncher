@@ -12,6 +12,7 @@
         errors? (com/something-went-wrong? (:status res) (:message res))]
     (when-not errors?
       (lib/logged-in!)
+      (com/ajax-get (:get-all-pokemon config/api))
       (com/ajax-get (:get-player config/api) com/player-success-handler)
       (lib/change-view! :default))))
 

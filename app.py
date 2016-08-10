@@ -18,6 +18,7 @@ pokeapi = pgoapi.PGoApi()
 pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+player_level = None
 
 
 @app.route('/', methods=['GET'])
@@ -91,17 +92,23 @@ def get_pokemon():
                         'favorite':              pokemon.is_favorite(),
                         'move_1':                pokemon.move_1,
                         'move_2':                pokemon.move_2,
+                        'level':                 pokemon.level(),
+                        'powerup_cost_stardust': pokemon.powerup_stardust_cost(),
+                        'powerup_cost_candy':    pokemon.powerup_candy_cost(),
                     })
 
             elif 'candy' in item['inventory_item_data']:
                 candy_data = item['inventory_item_data']['candy']
                 candies[candy_data['family_id']] = candy_data.get('candy', 0)
 
+            elif 'player_stats' in item['inventory_item_data']:
+                global player_level
+                player_level = item['inventory_item_data']['player_stats']['level']
+
         # add candies to answerdict
         for poke in answer:
             family = pokehelper.get_pokefamily(poke['pokemon_id'])
             poke['candy'] = candies.get(family, 0)
-
         return jsonify(answer)
 
 
@@ -152,6 +159,14 @@ def favorite_pokemon():
                     'id':           str(pokemon_id),
                     'set_favorite': set_favorite})
 
+@app.route('/api/pokemon/upgrade', methods=['POST'])
+def upgrade_pokemon():
+    pokemon_id = int(request.json['id'])
+    req = pokeapi.create_request()
+    req.upgrade_pokemon(pokemon_id=pokemon_id)
+    req.call()
+
+    return jsonify({'status':       'ok'})
 
 @app.route('/api/status', methods=['GET'])
 def api_status():
@@ -198,6 +213,9 @@ def get_player():
             'stardust':     stardust,
             'pokecoins':    pokecoins,
         }
+
+        if player_level:
+            answer['level'] = player_level
 
         return jsonify(answer)
 
