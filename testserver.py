@@ -288,6 +288,24 @@ def evolve_pokemon():
 
     return jsonify(answer)
 
+@app.route('/api/pokemon/upgrade', methods=['POST'])
+def upgrade_pokemon():
+    pokemon_id = int(request.json['id'])
+
+    global data
+
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+    for count, item in enumerate(invlist):
+        if 'pokemon_data' in item['inventory_item_data']:
+            # Eggs are treated as pokemon by Niantic.
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
+                    pokemon = data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']
+                    pokemon['cp'] += 30
+                    break
+
+    return jsonify({'status':       'ok'})
+
 # ----------------- Helper Functions
 
 

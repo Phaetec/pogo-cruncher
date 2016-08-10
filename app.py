@@ -159,6 +159,14 @@ def favorite_pokemon():
                     'id':           str(pokemon_id),
                     'set_favorite': set_favorite})
 
+@app.route('/api/pokemon/upgrade', methods=['POST'])
+def upgrade_pokemon():
+    pokemon_id = int(request.json['id'])
+    req = pokeapi.create_request()
+    req.upgrade_pokemon(pokemon_id=pokemon_id)
+    req.call()
+
+    return jsonify({'status':       'ok'})
 
 @app.route('/api/status', methods=['GET'])
 def api_status():
