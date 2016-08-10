@@ -9,7 +9,8 @@
 This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.
 The tool runs locally on your PC and the Login-Details are not leaving your computer. Feel free to check the source code or contribute.
 
-*This tool is not an official production of Niantic or the Pokemon Company. Use at own risk.*
+*This tool is not an official production of Niantic or the Pokemon Company. Use at own risk.*  
+*Please submit all pull-requests against the developer branch.*
 
 ![Screenshot of PoGo-Cruncher](https://github.com/Phaetec/pogo-cruncher/raw/master/screenshot.png)
 
