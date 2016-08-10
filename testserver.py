@@ -293,6 +293,7 @@ def upgrade_pokemon():
     pokemon_id = int(request.json['id'])
 
     global data
+    print('upgrading')
 
     invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
     for count, item in enumerate(invlist):

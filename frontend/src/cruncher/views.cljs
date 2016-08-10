@@ -94,7 +94,6 @@
                                (dom/div #js {:className "col-md-2"} "Level: ")
                                (dom/div #js {:className "col-md-4"} (:level pokemon)))
                       (dom/div #js {:className "row"}
-                               (print (:level player))
                                (dom/div #js {:className "col-md-2"} "Available Evolutions:")
                                (dom/div #js {:className "col-md-4"} (lib/calc-evolutions pokemon))
                                (if (not= (lib/calc-evolutions pokemon) 0)
@@ -107,7 +106,7 @@
                                         (> (+ 1.5 (:level player)) (:level pokemon)))
                                  (dom/div #js {:className "col-md-4"} (dom/button #js {:className "btn btn-sm btn-info"
                                                                                        :type      "button"
-                                                                                       :onClick   #(js/alert "Test")}
+                                                                                       :onClick   #(evolutions/powerup (:id pokemon) )}
                                                                                   "Power Up!")))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
