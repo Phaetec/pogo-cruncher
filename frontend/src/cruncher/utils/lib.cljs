@@ -22,6 +22,7 @@
 (declare get-pokemon-by-id)
 (declare evolution-sum)
 
+(defonce sort-direction-asc (atom true))
 ;;;; React compatibility
 (defonce counter (atom 0))
 
@@ -65,8 +66,8 @@
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
-  {:action (fn [] (swap! state update-in [:pokemon] (fn []
-                                                      (reverse (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))))))})
+  {:action (fn [] (swap! state update-in [:pokemon] (fn [] (cond-> (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))
+                                                      (swap! sort-direction-asc not) reverse))))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]
