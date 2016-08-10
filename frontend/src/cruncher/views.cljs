@@ -75,7 +75,7 @@
   Object
   (render [this]
     (let [pokemon (om/props this)
-          player  (om/props this)]
+          player (:player pokemon)]
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
@@ -94,6 +94,7 @@
                                (dom/div #js {:className "col-md-2"} "Level: ")
                                (dom/div #js {:className "col-md-4"} (:level pokemon)))
                       (dom/div #js {:className "row"}
+                               (print (:level player))
                                (dom/div #js {:className "col-md-2"} "Available Evolutions:")
                                (dom/div #js {:className "col-md-4"} (lib/calc-evolutions pokemon))
                                (if (not= (lib/calc-evolutions pokemon) 0)
@@ -101,10 +102,9 @@
                                                                                        :type      "button"
                                                                                        :onClick   #(evolutions/evolve (:id pokemon))}
                                                                                   "Evolve!")))
-                               (if (and (>= (lib/str->int (:candy pokemon)) (lib/str->int (:powerup_cost_candy pokemon)))
-                                        (>= (lib/str->int (:stardust player)) (lib/str->int (:powerup_cost_stardust pokemon)))
-                                        ;(> (+ 1.5 (lib/str->int (:level player))) (lib/str->int (:level pokemon)))
-                                        )
+                               (if (and (>= (:candy pokemon) (:powerup_cost_candy pokemon))
+                                        (>= (:stardust player) (:powerup_cost_stardust pokemon))
+                                        (> (+ 1.5 (:level player)) (:level pokemon)))
                                  (dom/div #js {:className "col-md-4"} (dom/button #js {:className "btn btn-sm btn-info"
                                                                                        :type      "button"
                                                                                        :onClick   #(js/alert "Test")}
@@ -173,7 +173,7 @@
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
+                                     (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon)))))
              #_(let [jquery (js* "$")]
                  (.stickyTableHeaders (jquery "#poketable"))))))
 (def poketable (om/factory PokeTable {}))
