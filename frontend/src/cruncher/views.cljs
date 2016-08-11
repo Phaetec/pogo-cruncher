@@ -88,9 +88,7 @@
                                                  (dom/div #js {:className "col-md-8"} (:health pokemon)))
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-4"} "Evolves to:")
-                                                 (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
-                                                                                        (lib/pokemon-evolution pokemon)
-                                                                                        "None")))
+                                                 (dom/div #js {:className "col-md-8"} (or (lib/pokemon-evolution pokemon) "None")))
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-4"} "Available Candy:")
                                                  (dom/div #js {:className "col-md-8"} (:candy pokemon)))
@@ -115,9 +113,9 @@
                                                           (>= (:stardust player) (:powerup_cost_stardust pokemon))
                                                           (> (+ 1.5 (:level player)) (:level pokemon)))
                                                    (dom/div #js {:className "col-md-12"} (dom/button #js {:className "btn btn-sm btn-info"
-                                                                                                         :type      "button"
-                                                                                                         :onClick   #(evolutions/powerup (:id pokemon))}
-                                                                                                    "Power Up!"))))
+                                                                                                          :type      "button"
+                                                                                                          :onClick   #(evolutions/powerup (:id pokemon))}
+                                                                                                     "Power Up!"))))
                                         )))))))
 
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))

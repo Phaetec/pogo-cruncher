@@ -293,6 +293,6 @@
 (defn evolution-sum
   [pokemon]
   (let [grouped-pokemon (group-by :name pokemon)
-        unique-pokes-lists (into [] (map second grouped-pokemon))
+        unique-pokes-lists (vec (map second grouped-pokemon))
         unique-pokes (map first unique-pokes-lists)]
     (reduce + (map calc-evolutions (flatten unique-pokes)))))
