@@ -202,8 +202,6 @@
                       (dom/div #js {:className "pull-right"}
                                (vlib/login-indicator (om/props this)))
                       (dom/h1 nil "Poké-Cruncher"))
-             (dom/div #js {:className "pull-right"}
-                      (dom/div nil (status/api-connected-badge {})))
              (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (dom/ul nil
                      (dom/li nil
@@ -301,6 +299,9 @@
              (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
+             (dom/hr nil)
+             (dom/div #js {:className ""}
+                      (dom/div nil (status/api-test (om/props this))))
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
 
