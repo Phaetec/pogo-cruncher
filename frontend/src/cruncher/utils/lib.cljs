@@ -10,7 +10,8 @@
                                 :logged-in? false}
             :error             {:message nil}
             :info              {:message nil}
-            :app               {:loading? false}
+            :app               {:loading?   false
+                                :connected? nil}
             :progress          {:running   false
                                 :to_delete 100
                                 :deleted   0
