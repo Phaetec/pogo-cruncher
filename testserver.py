@@ -25,6 +25,7 @@ pokehelper = Pokehelper()
 status = {'logged_in':      False}
 deleted_pokemon = 0
 pokemon_deletion_amount = 0
+player_level = None
 
 
 @app.route('/', methods=['GET'])
@@ -104,14 +105,23 @@ def get_pokemon():
                     'favorite':              pokemon.is_favorite(),
                     'move_1':                pokemon.move_1,
                     'move_2':                pokemon.move_2,
+                    'level':                 pokemon.level(),
+                    'powerup_cost_stardust': pokemon.powerup_stardust_cost(),
+                    'powerup_cost_candy':    pokemon.powerup_candy_cost(),
                 })
         elif 'candy' in item['inventory_item_data']:
             candy_data = item['inventory_item_data']['candy']
             candies[candy_data['family_id']] = candy_data.get("candy", 0)
 
+        elif 'player_stats' in item['inventory_item_data']:
+            global player_level
+            player_level = item['inventory_item_data']['player_stats']['level']
+
     for poke in answer:
         family = pokehelper.get_pokefamily(poke['pokemon_id'])
         poke['candy'] = candies.get(family, 0)
+
+    print(answer)
     return jsonify(answer)
 
 
@@ -119,7 +129,7 @@ def get_pokemon():
 def delete_pokemon():
     """
     Deletes the sent pokemon inside the local storage. If you want to reset the db, send a new login call.
-    Simulates the sleeoing calls from the main app as well.
+    Simulates the sleeping calls from the main app as well.
 
     :return: Returns `'status': 'ok'`, as soon as the db is done.
     """
@@ -245,6 +255,9 @@ def get_player():
         'pokecoins':    pokecoins,
     }
 
+    if player_level:
+        answer['level'] = player_level
+
     return jsonify(answer)
 
 @app.route('/api/pokemon/evolve', methods=['POST'])
@@ -256,7 +269,7 @@ def evolve_pokemon():
     """
     evolution_candidate = int(request.json['id'])
     global data
-    answer = {'status'  : 'ok'}
+    answer = {'status': 'ok'}
     
     invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
     for count, item in enumerate(invlist):
@@ -274,6 +287,25 @@ def evolve_pokemon():
                     break
 
     return jsonify(answer)
+
+@app.route('/api/pokemon/upgrade', methods=['POST'])
+def upgrade_pokemon():
+    pokemon_id = int(request.json['id'])
+
+    global data
+    print('upgrading')
+
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+    for count, item in enumerate(invlist):
+        if 'pokemon_data' in item['inventory_item_data']:
+            # Eggs are treated as pokemon by Niantic.
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
+                    pokemon = data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']
+                    pokemon['cp'] += 30
+                    break
+
+    return jsonify({'status':       'ok'})
 
 # ----------------- Helper Functions
 

@@ -27,3 +27,18 @@
            :response-format :json
            :headers         {"Content-Type" "application/json"}
            :keywords?       true})))
+
+
+(defn powerup
+  "Get cleaned data and send ajax request."
+  [id]
+  (lib/loading!)
+  (let [url (:upgrade-pokemon config/api)]
+    (print url)
+    (POST (clib/make-url url)
+          {:body            (clib/clj->json {:id id})
+           :handler         success-handler
+           :error-handler   error-handler
+           :response-format :json
+           :headers         {"Content-Type" "application/json"}
+           :keywords?       true})))

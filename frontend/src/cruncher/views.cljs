@@ -75,7 +75,8 @@
 (defui PokeTableEntryDetails
   Object
   (render [this]
-    (let [pokemon (om/props this)]
+    (let [pokemon (om/props this)
+          player (:player pokemon)]
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
@@ -95,7 +96,11 @@
                                                  (dom/div #js {:className "col-md-8"} (:candy pokemon)))
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                                                 (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))))
+                                                 (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Powerup Cost: ")
+                                                 (dom/div #js {:className "col-md-8"} (:powerup_cost_stardust pokemon) " Dust, "
+                                                          (:powerup_cost_candy pokemon) " Candy")))
                                (dom/div #js {:className "col-md-6"}
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-12"}
@@ -103,7 +108,18 @@
                                                             (dom/button #js {:className "btn btn-sm btn-info"
                                                                              :type      "button"
                                                                              :onClick   #(evolutions/evolve (:id pokemon))}
-                                                                        "Evolve!")))))))))))
+                                                                        "Evolve!"))))
+                                        (dom/br nil)
+                                        (dom/div #js {:className "row"}
+                                                 (if (and (>= (:candy pokemon) (:powerup_cost_candy pokemon))
+                                                          (>= (:stardust player) (:powerup_cost_stardust pokemon))
+                                                          (> (+ 1.5 (:level player)) (:level pokemon)))
+                                                   (dom/div #js {:className "col-md-12"} (dom/button #js {:className "btn btn-sm btn-info"
+                                                                                                         :type      "button"
+                                                                                                         :onClick   #(evolutions/powerup (:id pokemon))}
+                                                                                                    "Power Up!"))))
+                                        )))))))
+
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
@@ -170,7 +186,10 @@
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon))))))))
+                                     (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon)))))
+             #_(let [jquery (js* "$")]
+                 (.stickyTableHeaders (jquery "#poketable"))))))
+
 (def poketable (om/factory PokeTable {}))
 
 

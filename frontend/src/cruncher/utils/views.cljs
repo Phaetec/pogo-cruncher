@@ -79,7 +79,7 @@
     (if (lib/logged-in?)
       (let [{:keys [player]} (om/props this)]
         (dom/div nil
-                 (dom/div nil (:name player))
+                 (dom/div nil (:name player) " Level " (:level player))
                  (dom/div nil
                           (:stardust player) (dom/img #js {:src "img/stardust_vector.png" :className "currency_image" :title "Dust"})
                           (:pokecoins player) (dom/img #js {:src "img/pokecoin.png" :className "currency_image" :title "Coins"}))

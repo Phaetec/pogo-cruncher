@@ -124,6 +124,11 @@
   [pokemon-id]
   (get pokemon/all pokemon-id))
 
+(defn playerinfo
+  "Return the stored Playerinformation"
+  []
+  (get-in @app-state [:player]))
+
 (defn logged-in?
   "Return boolean if user is logged in or not."
   []
