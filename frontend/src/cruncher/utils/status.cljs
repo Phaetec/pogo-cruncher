@@ -5,31 +5,29 @@
             [cruncher.communication.main :as com]
             [cruncher.config :as config]
             [cruncher.utils.extensions]
+            [cruncher.utils.views :as vlib]
             [cruncher.utils.lib :as lib])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn success-handler [this]
-  (om/transact! this `[(status/niantic {:status true})]))
+(defn success-handler []
+  (om/transact! lib/reconciler `[(status/niantic {:status true})]))
 
-(defn query
-  "Query API to find if I am still connected."
-  [this]
-  (com/ajax-get (:api-status config/api) #(success-handler this) com/error-handler false)
-  (go (loop [_ 1]
-        (<! (lib/timeout 120000))
-        (com/ajax-get (:api-status config/api) #(success-handler this) com/error-handler false)
-        (recur 1)))
-  (dom/div nil))
+(defn error-handler []
+  (om/transact! lib/reconciler `[(status/niantic {:status false})]))
 
-(defui APIConnectedBadge
+(defui APITest
   static om/IQuery
   (query [_]
-    [:connected?])
+    [:api :connected?])
   Object
   (render [this]
     (let [{:keys [connected?]} (om/props this)]
       (dom/div nil
-               #_(query this)
-               (when-not connected?
-                 (dom/img #js {:src "img/status/api_not_connected.svg"}))))))
-(def api-connected-badge (om/factory APIConnectedBadge {}))
+               (vlib/button (fn [] (com/ajax-get (:api-status config/api) success-handler error-handler false))
+                            true "Test API" "btn-default btn-xs")
+               (when (nil? connected?)
+                 (com/ajax-get (:api-status config/api) success-handler error-handler false))
+               (if connected?
+                 (dom/span #js {:className "label label-success"} "API connected")
+                 (dom/span #js {:className "label label-warning"} "API not connected"))))))
+(def api-test (om/factory APITest {}))
