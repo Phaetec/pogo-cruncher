@@ -1,6 +1,6 @@
 (ns cruncher.communication.progress
   "Functions concerning the progress bar."
-  (:require [cljs.core.async :refer [chan <!]]
+  (:require [cljs.core.async :refer [chan close! <!]]
             [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
             [cruncher.communication.main :as com]
@@ -36,7 +36,7 @@
               (do (<! (lib/timeout 1000))
                   (com/ajax-get (:status-delete config/api) update-progress-handler error-handler false)
                   (recur 1))
-              (do ( channel)
+              (do (close! channel)
                   (lib/progress! false))))))))
 
 (defui ProgressBar
