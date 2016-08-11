@@ -9,11 +9,6 @@
             [cruncher.utils.lib :as lib])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
-(defn timeout [ms]
-  (let [c (chan)]
-    (js/setTimeout (fn [] (close! c)) ms)
-    c))
-
 (defn update-progress-handler
   "Set new app state with the progress information from the API."
   [response]
@@ -38,7 +33,7 @@
                 status (:status progress)]
             (if (and (< deleted to-delete)
                      (= status "ok"))
-              (do (<! (timeout 1000))
+              (do (<! (lib/timeout 1000))
                   (com/ajax-get (:status-delete config/api) update-progress-handler error-handler false)
                   (recur 1))
               (do (close! channel)
