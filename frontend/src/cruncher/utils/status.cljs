@@ -22,11 +22,11 @@
   Object
   (render [this]
     (let [{:keys [connected?]} (om/props this)]
+      (when (nil? connected?)
+        (com/ajax-get (:api-status config/api) success-handler error-handler false))
       (dom/div nil
                (vlib/button (fn [] (com/ajax-get (:api-status config/api) success-handler error-handler false))
                             true "Test API" "btn-default btn-xs")
-               (when (nil? connected?)
-                 (com/ajax-get (:api-status config/api) success-handler error-handler false))
                (if connected?
                  (dom/span #js {:className "label label-success"} "API connected")
                  (dom/span #js {:className "label label-warning"} "API not connected"))))))
