@@ -8,6 +8,7 @@
             [cruncher.communication.evolutions :as evolutions]
             [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
+            [cruncher.utils.status :as status]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
@@ -299,6 +300,9 @@
              (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
+             (dom/hr nil)
+             (dom/div #js {:className ""}
+                      (dom/div nil (status/api-test (om/props this))))
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
 
