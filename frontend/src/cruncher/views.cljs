@@ -301,8 +301,7 @@
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
              (dom/hr nil)
-             (dom/div #js {:className ""}
-                      (dom/div nil (status/api-test (om/props this))))
+             (dom/div nil (status/api-test (om/props this)))
              #_(dom/div nil (poketable (om/props this)))
              #_(dom/div nil (login)))))
 
