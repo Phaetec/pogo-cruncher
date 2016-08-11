@@ -213,7 +213,8 @@
                      (dom/li nil "Crunching Pokemon really means you're sending them away -- "
                              (dom/strong nil "there is no possibility to get them back!!!"))
                      (dom/li nil "Enter a location near you to prevent a softban.")
-                     (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour."))
+                     (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour.")
+                     (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away."))
              (dom/hr nil))))
 (def header (om/factory Header))
 

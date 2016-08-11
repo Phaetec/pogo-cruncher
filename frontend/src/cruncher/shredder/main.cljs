@@ -17,7 +17,6 @@
 (defn power-on
   "Crunch 'em all!"
   [this]
-  (lib/info! "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away.")
   (selections/unselect-favorites)
   (let [url (:crunch-selected-pokemon config/api)
         selected-pokemon (vec (map #(.. % -value) (filter #(.. % -checked) (gdom/getElementsByClass "poketable-checkbox"))))]
