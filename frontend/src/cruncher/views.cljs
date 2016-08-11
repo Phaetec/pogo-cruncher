@@ -1,11 +1,12 @@
 (ns cruncher.views
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
-            [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
+            [cruncher.communication.evolutions :as evolutions]
+            [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
             [cruncher.utils.status :as status]
             [cruncher.shredder.main :as shredder]
@@ -25,11 +26,14 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/div nil (lib/evolution-sum) " Evolutions ")
-             (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
-             (dom/p #js {:className "lead"} "Controls")
-             (vlib/button-primary #(com/route :get-all-pokemon) "Get all Pokemon")
-             (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon"))
+             (dom/div #js {:className "row"}
+                      (dom/div #js {:className "col-md-6"}
+                               (dom/p #js {:className "lead"} "Controls")
+                               (vlib/button-primary #(com/route :get-all-pokemon) "Load your Pokemon")
+                               (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
+                      (dom/div #js {:className "col-md-6"}
+                               (dom/p #js {:className "lead"} "Information")
+                               (dom/div nil (:evolution-number (om/props this)) " Evolutions available")))
              (dom/br nil) (dom/br nil)
              (selections/controls (om/props this))
              (dom/br nil) (dom/br nil)
@@ -75,18 +79,31 @@
       (dom/tr #js {:id        (str "poketable-row-details-" (:id pokemon))
                    :className "collapse"}
               (dom/td #js {:className "well"})
-              (dom/td #js {:className "well" :colSpan 12}
+              (dom/td #js {:className "well" :colSpan 13}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Evolves to:")
-                               (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
-                                                                       (lib/pokemon-evolution pokemon)
-                                                                       "None")))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Candy:")
-                               (dom/div #js {:className "col-md-8"} (:candy pokemon)))
-                      (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-4"} "Available Evolutions:")
-                               (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon))))))))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Health:")
+                                                 (dom/div #js {:className "col-md-8"} (:health pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Evolves to:")
+                                                 (dom/div #js {:className "col-md-8"} (if (lib/pokemon-evolution pokemon)
+                                                                                        (lib/pokemon-evolution pokemon)
+                                                                                        "None")))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Candy:")
+                                                 (dom/div #js {:className "col-md-8"} (:candy pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Available Evolutions:")
+                                                 (dom/div #js {:className "col-md-2"} (lib/calc-evolutions pokemon))))
+                               (dom/div #js {:className "col-md-6"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-12"}
+                                                          (if (not= (lib/calc-evolutions pokemon) 0)
+                                                            (dom/button #js {:className "btn btn-sm btn-info"
+                                                                             :type      "button"
+                                                                             :onClick   #(evolutions/evolve (:id pokemon))}
+                                                                        "Evolve!")))))))))))
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
 (defui PokeTableEntry
@@ -111,8 +128,9 @@
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (dom/td nil (:name pokemon))
               (dom/td nil (:nickname pokemon))
+              (dom/td nil (moves/get-name (:move_1 pokemon)))
+              (dom/td nil (moves/get-name (:move_2 pokemon)))
               (dom/td nil (:cp pokemon))
-              (dom/td nil (:health pokemon))
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
               (dom/td nil (:individual_defense pokemon))
@@ -141,19 +159,18 @@
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :nickname "Nickname")
+                                           (vlib/sortable-table-header :move_1 "Fast")
+                                           (vlib/sortable-table-header :move_2 "Special")
                                            (vlib/sortable-table-header :cp "CP")
-                                           (vlib/sortable-table-header :health "Health")
                                            (vlib/sortable-table-header :individual_percentage "IV % Perfect")
-                                           (vlib/sortable-table-header :individual_attack "IV Attack")
-                                           (vlib/sortable-table-header :individual_defense "IV Defense")
-                                           (vlib/sortable-table-header :individual_stamina "IV Stamina")
+                                           (vlib/sortable-table-header :individual_attack "Attack")
+                                           (vlib/sortable-table-header :individual_defense "Defense")
+                                           (vlib/sortable-table-header :individual_stamina "Stamina")
                                            (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon)))))
-             #_(let [jquery (js* "$")]
-                 (.stickyTableHeaders (jquery "#poketable"))))))
+                                     (map #(poketable-entry-details (lib/merge-react-key %)) (lib/inventory-pokemon))))))))
 (def poketable (om/factory PokeTable {}))
 
 
@@ -168,6 +185,7 @@
                       (dom/h1 nil "Poké-Cruncher"))
              (dom/div #js {:className "pull-right"}
                       (dom/div nil (status/api-connected-badge {})))
+             (dom/span #js {:className "pull-right"} (vlib/loader (om/props this)))
              (dom/ul nil
                      (dom/li nil
                              "If you have 2-factor Auth enabled in your Google Account, please add an "

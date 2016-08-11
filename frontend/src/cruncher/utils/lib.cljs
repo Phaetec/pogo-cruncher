@@ -16,9 +16,11 @@
                                 :deleted   0
                                 :status    "ok"}
             :progress-running? false
-            :player            {}}))
+            :player            {}
+            :evolution-number  0}))
 
 (declare get-pokemon-by-id)
+(declare evolution-sum)
 
 ;;;; React compatibility
 (defonce counter (atom 0))
@@ -51,9 +53,15 @@
   (let [named-pokemon (map (fn [pokemap] (merge pokemap {:name (:name (get-pokemon-by-id (:pokemon_id pokemap)))})) pokemon)]
     {:action (fn [] (swap! state update-in [:pokemon] (fn [] named-pokemon)))}))
 
+(defmethod mutate 'update/evolution-amount
+  [{:keys [state]} _ {:keys [pokemon]}]
+  (let [pokes (get @app-state :pokemon)]
+    {:action (fn [] (swap! state update-in [:evolution-number] (fn [] (evolution-sum pokes))))}))
+
 (defmethod mutate 'update/player
   [{:keys [state]} _ {:keys [player]}]
   {:action (fn [] (swap! state update-in [:player] (fn [] player)))})
+
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
@@ -231,6 +239,11 @@
   [res]
   (om/transact! reconciler `[(update/player {:player ~res})]))
 
+(defn update-evolution-amount!
+  "Update the amount of evolutions"
+  [res]
+  (om/transact! reconciler `[(update/evolution-amount {:pokemon ~res})]))
+
 
 ;;;; Conversions
 (defn str->int
@@ -260,7 +273,9 @@
 ;;;; Helpers
 (defn pokemon-evolution
   [pokemon]
-  (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon)))))))
+  (if (= (:name pokemon) "Eevee")
+    (reduce #(str %1 " / " %2) [(:name (get-pokemon-by-id 134)) (:name (get-pokemon-by-id 135)) (:name (get-pokemon-by-id 136))])
+    (:name (get-pokemon-by-id (first (:next-evolutions (get-pokemon-by-id (:pokemon_id pokemon))))))))
 
 (defn calc-evolutions
   [pokemon]
@@ -270,8 +285,8 @@
     result))
 
 (defn evolution-sum
-  []                                                        ;; TODO
-  (let [grouped-pokemon (group-by :name (get-in @app-state [:pokemon]))
+  [pokemon]
+  (let [grouped-pokemon (group-by :name pokemon)
         unique-pokes-lists (into [] (map second grouped-pokemon))
         unique-pokes (map first unique-pokes-lists)]
     (reduce + (map calc-evolutions (flatten unique-pokes)))))

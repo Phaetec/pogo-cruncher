@@ -102,10 +102,12 @@ def get_pokemon():
                     'cp':                    pokemon.cp,
                     'nickname':              pokemon.nickname,
                     'favorite':              pokemon.is_favorite(),
+                    'move_1':                pokemon.move_1,
+                    'move_2':                pokemon.move_2,
                 })
         elif 'candy' in item['inventory_item_data']:
             candy_data = item['inventory_item_data']['candy']
-            candies[candy_data['family_id']] = candy_data['candy']
+            candies[candy_data['family_id']] = candy_data.get("candy", 0)
 
     for poke in answer:
         family = pokehelper.get_pokefamily(poke['pokemon_id'])
@@ -242,6 +244,34 @@ def get_player():
         'stardust':     stardust,
         'pokecoins':    pokecoins,
     }
+
+    return jsonify(answer)
+
+@app.route('/api/pokemon/evolve', methods=['POST'])
+def evolve_pokemon():
+    """
+    Evolves Pokemon. The post request has to have an `id` field which contains the id of the pokemon to be evolved.
+
+    :return: Return a status: ok if everything is finished.
+    """
+    evolution_candidate = int(request.json['id'])
+    global data
+    answer = {'status'  : 'ok'}
+    
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+    for count, item in enumerate(invlist):
+        if 'pokemon_data' in item['inventory_item_data']:
+            # Eggs are treated as pokemon by Niantic.
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if item['inventory_item_data']['pokemon_data']['id'] == evolution_candidate:
+                    pokemon = data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']
+                    pokemon['cp'] *= 2
+                    pokemon['name'] = pokehelper.get_evolution_name(pokemon['pokemon_id'])
+                    pokemon['pokemon_id'] += 1
+
+                    print("Pokemon has been evolved to " +
+                          str(pokemon['name']))
+                    break
 
     return jsonify(answer)
 

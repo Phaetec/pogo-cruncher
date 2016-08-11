@@ -89,11 +89,13 @@ def get_pokemon():
                         'cp':                    pokemon.cp,
                         'nickname':              pokemon.nickname,
                         'favorite':              pokemon.is_favorite(),
+                        'move_1':                pokemon.move_1,
+                        'move_2':                pokemon.move_2,
                     })
 
             elif 'candy' in item['inventory_item_data']:
                 candy_data = item['inventory_item_data']['candy']
-                candies[candy_data['family_id']] = candy_data['candy']
+                candies[candy_data['family_id']] = candy_data.get('candy', 0)
 
         # add candies to answerdict
         for poke in answer:
@@ -203,6 +205,20 @@ def get_player():
         'status':   'error',
         'message':  'There was an error retrieving player data. If the error persists, try to log in anew.'
     })
+
+@app.route('/api/pokemon/evolve', methods=['POST'])
+def evolve_pokemon():
+    """
+    Evolves Pokemon. The post request has to have an `id` field which contains the id of the pokemon to be evolved.
+
+    :return: Return a status: ok if everything is finished.
+    """
+    evolution_candidate = request.json['id']
+    req = pokeapi.create_request()
+    req.evolve_pokemon(pokemon_id=int(evolution_candidate))
+    req.call()
+
+    return jsonify({'status': 'ok'})
 
 
 # ----------------- Helper Functions
