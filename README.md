@@ -6,7 +6,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/phaetec/pogo-cruncher.svg?maxAge=60)](https://hub.docker.com/r/phaetec/pogo-cruncher/)
 [![GitHub release](https://img.shields.io/github/release/Phaetec/pogo-cruncher.svg?maxAge=60)](https://github.com/Phaetec/pogo-cruncher)
 
-**Niantic started to ban botters and we do not know how this affects our API. We recommend to not use this tool for the next 24 hours so that we can see if their bans also affect the API we are using and therefore also our tool. [See this reddit post](https://www.reddit.com/r/pokemongodev/comments/4xct8f/psa_permabans_have_arrived_stop_all_use_of_3rd/).**
+*Niantic started to ban botters. We checked extensively and the way we are using the API is not causing bans at the Moment.*
 
 This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.
 The tool runs locally on your PC and the Login-Details are not leaving your computer. Feel free to check the source code or contribute.

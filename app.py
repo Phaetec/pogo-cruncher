@@ -249,3 +249,10 @@ def get_pos_by_name(location_name):
 
 if __name__ == '__main__':
     app.run(threaded=True)
+
+
+# For windows installer to hook in
+def main():
+    import os
+    os.startfile(os.path.dirname(os.path.absname(__file__)) + '\..\interface\index.html')
+    app.run(threaded=True)
