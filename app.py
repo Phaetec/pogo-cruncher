@@ -254,5 +254,5 @@ if __name__ == '__main__':
 # For windows installer to hook in
 def main():
     import os
-    os.startfile(os.path.dirname(os.path.absname(__file__)) + '\..\interface\index.html')
+    os.startfile(os.path.dirname(os.path.abspath(__file__)) + '\..\interface\index.html')
     app.run(threaded=True)
