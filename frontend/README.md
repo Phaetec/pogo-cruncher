@@ -1,21 +1,5 @@
 # cruncher
 
-## Docker Setup
-
-Build container:
-
-```bash
-$ docker build -t cruncher-frontend .
-```
-
-And run the container:
-
-```bash
-$ docker run -p 8888:8888 -it cruncher-frontend
-```
-
-The application is now accessible under this address: [http://localhost:8888](http://localhost:8888)
-
 ## Dev-Setup
 
 To get an interactive development environment run:
