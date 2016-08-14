@@ -18,12 +18,13 @@
                                 :status    "ok"}
             :progress-running? false
             :player            {}
-            :evolution-number  0}))
+            :evolution-number  0
+            :sort-asc              true}))
 
 (declare get-pokemon-by-id)
 (declare evolution-sum)
+(declare reconciler)
 
-(defonce sort-direction-asc (atom true))
 ;;;; React compatibility
 (defonce counter (atom 0))
 
@@ -64,11 +65,14 @@
   [{:keys [state]} _ {:keys [player]}]
   {:action (fn [] (swap! state update-in [:player] (fn [] player)))})
 
-
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
   {:action (fn [] (swap! state update-in [:pokemon] (fn [] (cond-> (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))
-                                                      (swap! sort-direction-asc not) reverse))))})
+                                                                  (:sort-asc @state) reverse))))})
+
+(defmethod mutate 'sort/toggle-asc
+  [{:keys [state]} _ {:keys []}]
+  {:action (fn [] (swap! state update-in [:sort-asc] not))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]
@@ -239,7 +243,8 @@
 (defn sort-pokemon!
   "Sort complete list of pokemon by given key."
   [key]
-  (om/transact! reconciler `[(sort/pokemon {:key ~key})]))
+  (om/transact! reconciler `[(sort/pokemon {:key ~key})])
+  (om/transact! reconciler `[(sort/toggle-asc)]))
 
 (defn update-player!
   "Update the playerdata."
