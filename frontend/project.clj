@@ -2,7 +2,7 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
   :min-lein-version "2.6.1"
 
@@ -27,39 +27,39 @@
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :cljsbuild {:builds
-              [{:id "dev"
+              [{:id           "dev"
                 :source-paths ["src/cruncher"]
-                :figwheel {:on-jsload "cruncher.core/on-js-reload"
-                           :open-urls ["http://localhost:3449/index.html"]}
-                :compiler {:main cruncher.core
-                           :preloads [devtools.preload]
-                           :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/cruncher.js"
-                           :output-dir "resources/public/js/compiled/out"
-                           :source-map-timestamp true}}
-               {:id "devcards"
+                :figwheel     {:on-jsload "cruncher.core/on-js-reload"
+                               :open-urls ["http://localhost:3449/index.html"]}
+                :compiler     {:main                 cruncher.core
+                               :preloads             [devtools.preload]
+                               :asset-path           "js/compiled/out"
+                               :output-to            "resources/public/js/compiled/cruncher.js"
+                               :output-dir           "resources/public/js/compiled/out"
+                               :source-map-timestamp true}}
+               {:id           "devcards"
                 :source-paths ["src/cruncher" "src/devcards"]
-                :figwheel {:devcards true}
-                :compiler {:main cruncher.devcards.core
-                           :asset-path "js/compiled/devcards/out"
-                           :output-to "resources/public/js/compiled/cruncher.js"
-                           :output-dir "resources/public/js/compiled/devcards/out"
-                           :source-map-timestamp true}}
+                :figwheel     {:devcards true}
+                :compiler     {:main                 cruncher.devcards.core
+                               :asset-path           "js/compiled/devcards/out"
+                               :output-to            "resources/public/js/compiled/cruncher.js"
+                               :output-dir           "resources/public/js/compiled/devcards/out"
+                               :source-map-timestamp true}}
                ;; This next build is an compressed minified build for
                ;; production. You can build this with:
                ;; lein cljsbuild once min
-               {:id "min"
+               {:id           "min"
                 :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/cruncher.js"
-                           :main cruncher.core
-                           :optimizations :advanced
-                           :pretty-print false}}]}
+                :compiler     {:output-to     "resources/public/js/compiled/cruncher.js"
+                               :main          cruncher.core
+                               :optimizations :advanced
+                               :pretty-print  false}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"
 
-             :css-dirs ["resources/public/css"] ;; watch and update CSS
+             :css-dirs ["resources/public/css"]             ;; watch and update CSS
 
              ;; Start an nREPL server into the running figwheel process
              ;; :nrepl-port 7888
@@ -103,7 +103,7 @@
                    ;; for CIDER
                    ;; :plugins [[cider/cider-nrepl "0.12.0"]]
                    :repl-options {; for nREPL dev you really need to limit output
-                                  :init (set! *print-length* 50)
+                                  :init             (set! *print-length* 50)
                                   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
 
-)
+  )
