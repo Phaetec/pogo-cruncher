@@ -19,7 +19,7 @@
             :progress-running? false
             :player            {}
             :evolution-number  0
-            :sort-asc              true}))
+            :sort-asc          true}))
 
 (declare get-pokemon-by-id)
 (declare evolution-sum)
@@ -67,12 +67,10 @@
 
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
-  {:action (fn [] (swap! state update-in [:pokemon] (fn [] (cond-> (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))
-                                                                  (:sort-asc @state) reverse))))})
-
-(defmethod mutate 'sort/toggle-asc
-  [{:keys [state]} _ {:keys []}]
-  {:action (fn [] (swap! state update-in [:sort-asc] not))})
+  {:action (fn []
+             (swap! state update-in [:pokemon] (fn [] (cond-> (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))
+                                                              (:sort-asc @state) reverse)))
+             (swap! state update-in [:sort-asc] not))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]
@@ -243,8 +241,7 @@
 (defn sort-pokemon!
   "Sort complete list of pokemon by given key."
   [key]
-  (om/transact! reconciler `[(sort/pokemon {:key ~key})])
-  (om/transact! reconciler `[(sort/toggle-asc)]))
+  (om/transact! reconciler `[(sort/pokemon {:key ~key})]))
 
 (defn update-player!
   "Update the playerdata."
