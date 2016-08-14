@@ -5,17 +5,18 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :min-lein-version "2.6.1"
-  
+
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.183"]
                  [org.clojure/core.async "0.2.385" :exclusions [org.clojure/tools.reader]]
                  [org.omcljs/om "1.0.0-alpha40"]
+                 [binaryage/devtools "0.8.1" :scope "dev"]
                  [cljs-ajax "0.5.8"]                        ; AJAX for om
                  [com.cognitect/transit-cljs "0.8.239"]     ; Better JSON support
                  [figwheel-sidecar "0.5.3-2" :scope "devcards"]
                  [devcards "0.2.1-7" :scope "devcards" :exclusions [org.clojure/clojurescript]]
                  [devcards-om-next "0.1.1" :scope "devcards"]]
-  
+
   :plugins [[lein-figwheel "0.5.4-7"]
             [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]
             [lein-ancient "0.6.10"]
@@ -28,16 +29,10 @@
   :cljsbuild {:builds
               [{:id "dev"
                 :source-paths ["src/cruncher"]
-                ;; the presence of a :figwheel configuration here
-                ;; will cause figwheel to inject the figwheel client
-                ;; into your build
                 :figwheel {:on-jsload "cruncher.core/on-js-reload"
-                           ;; :open-urls will pop open your application
-                           ;; in the default browser once Figwheel has
-                           ;; started and complied your application.
-                           ;; Comment this out once it no longer serves you.
                            :open-urls ["http://localhost:3449/index.html"]}
                 :compiler {:main cruncher.core
+                           :preloads [devtools.preload]
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/cruncher.js"
                            :output-dir "resources/public/js/compiled/out"
@@ -73,7 +68,7 @@
              ;; if you want to embed a ring handler into the figwheel http-kit
              ;; server, this is for simple ring servers, if this
              ;; doesn't work for you just run your own server :) (see lien-ring)
-             
+
              ;; :ring-handler hello_world.server/handler
 
              ;; To be able to open files in your editor from the heads up display
@@ -84,7 +79,7 @@
              ;; emacsclient -n +$2 $1
              ;;
              ;; :open-file-command "myfile-opener"
-             
+
              ;; if you are using emacsclient you can just use
              ;; :open-file-command "emacsclient"
 
@@ -95,12 +90,12 @@
              ;; :server-logfile "tmp/logs/figwheel-logfile.log"
              }
 
- 
+
   ;; setting up nREPL for Figwheel and ClojureScript dev
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-  
-  
+
+
   :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.4-7"]
                                   [com.cemerick/piggieback "0.2.1"]]
                    ;; need to add dev source path here to get user.clj loaded
