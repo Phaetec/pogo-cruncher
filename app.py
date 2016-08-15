@@ -1,12 +1,10 @@
 from flask import Flask, jsonify
 from backend.pgoapi_locationless import pgoapi
 from pgoapi.exceptions import AuthException
-from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
 from backend.pokehelper import Pokehelper
 from flask import make_response, request
 from flask_cors import CORS
-from geopy.exc import GeocoderServiceError
 import time
 import random
 
@@ -37,14 +35,7 @@ def login():
     login_name = request.json['email']
     service = request.json['service']
     password = request.json['password']
-    location = request.json['location']
-    try:
-        position = get_pos_by_name(location)
-    except GeocoderServiceError:
-        return jsonify({'status':   'error',
-                        'message':  'Location could not be found, please try another one!'})
 
-    pokeapi.set_position(*position)
     try:
         logged_in = pokeapi.login(service, login_name, password, app_simulation=True)
     except AuthException as e:
@@ -238,14 +229,6 @@ def evolve_pokemon():
 
     return jsonify({'status': 'ok'})
 
-
-# ----------------- Helper Functions
-
-def get_pos_by_name(location_name):
-    geolocator = GoogleV3()
-    loc = geolocator.geocode(location_name, timeout=10)
-
-    return (loc.latitude, loc.longitude, loc.altitude)
 
 if __name__ == '__main__':
     app.run(threaded=True)
