@@ -18,10 +18,12 @@
                                 :status    "ok"}
             :progress-running? false
             :player            {}
-            :evolution-number  0}))
+            :evolution-number  0
+            :sort-asc          true}))
 
 (declare get-pokemon-by-id)
 (declare evolution-sum)
+(declare reconciler)
 
 ;;;; React compatibility
 (defonce counter (atom 0))
@@ -63,11 +65,12 @@
   [{:keys [state]} _ {:keys [player]}]
   {:action (fn [] (swap! state update-in [:player] (fn [] player)))})
 
-
 (defmethod mutate 'sort/pokemon
   [{:keys [state]} _ {:keys [key]}]
-  {:action (fn [] (swap! state update-in [:pokemon] (fn []
-                                                      (reverse (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))))))})
+  {:action (fn []
+             (swap! state update-in [:pokemon] (fn [] (cond-> (sort-by (juxt key :individual_percentage :cp) (:pokemon @state))
+                                                              (:sort-asc @state) reverse)))
+             (swap! state update-in [:sort-asc] not))})
 
 (defmethod mutate 'change/view
   [{:keys [state]} _ {:keys [view]}]

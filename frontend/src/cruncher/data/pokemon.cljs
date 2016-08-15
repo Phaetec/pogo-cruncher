@@ -462,7 +462,7 @@
               :height                      "0.5 m"
               :next-evolution-requirements {:amount 50
                                             :name   "Jigglypuff candies"}
-              :next-evolutions             [39]}
+              :next-evolutions             [40]}
 
           40 {:pokemon-id          40
               :name                "Wigglytuff"
