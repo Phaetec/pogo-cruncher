@@ -1,4 +1,4 @@
-(defproject cruncher "0.2.5"
+(defproject cruncher "0.2.11"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -7,7 +7,7 @@
   :min-lein-version "2.6.1"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.183"]
+                 [org.clojure/clojurescript "1.9.198"]
                  [org.clojure/core.async "0.2.385" :exclusions [org.clojure/tools.reader]]
                  [org.omcljs/om "1.0.0-alpha40"]
                  [binaryage/devtools "0.8.1" :scope "dev"]

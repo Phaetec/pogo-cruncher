@@ -9,6 +9,7 @@
 * See Stardust and Pokecoins of your Trainer-Character
 * Add Possibility to evolve a Pokemon inside the App
 * Show Attack Moves of each Pokemon
+* Add Powerup Feature
 * Add button to show status of API connection
 * Add reverse sort on click on table header
 
