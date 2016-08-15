@@ -1,5 +1,5 @@
-from flask import Flask, make_response, jsonify, request
-from pgoapi import pgoapi
+from flask import Flask, jsonify
+from backend.pgoapi_locationless import pgoapi
 from pgoapi.exceptions import AuthException
 from geopy.geocoders import GoogleV3
 from backend.pokemon import Pokemon
@@ -254,5 +254,5 @@ if __name__ == '__main__':
 # For windows installer to hook in
 def main():
     import os
-    os.startfile(os.path.dirname(os.path.absname(__file__)) + '\..\interface\index.html')
+    os.startfile(os.path.dirname(os.path.abspath(__file__)) + '\..\interface\index.html')
     app.run(threaded=True)
