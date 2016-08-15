@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from backend.pgoapi_locationless import pgoapi
+from backend.pgoapi_locationless import PGoApi
 from pgoapi.exceptions import AuthException
 from backend.pokemon import Pokemon
 from backend.pokehelper import Pokehelper
@@ -12,7 +12,7 @@ import random
 app = Flask(__name__)
 CORS(app)
 
-pokeapi = pgoapi.PGoApi()
+pokeapi = PGoApi()
 pokehelper = Pokehelper()
 deleted_pokemon = 0
 pokemon_deletion_amount = 0

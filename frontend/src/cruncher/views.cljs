@@ -211,7 +211,6 @@
                      (dom/li nil "Click on the table headers to sort the data")
                      (dom/li nil "Crunching Pokemon really means you're sending them away -- "
                              (dom/strong nil "there is no possibility to get them back!!!"))
-                     (dom/li nil "Enter a location near you to prevent a softban.")
                      (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour.")
                      (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away."))
              (dom/hr nil))))
@@ -237,9 +236,8 @@
   (let [not-empty? (and
                      (pos? (count email))
                      (pos? (count password))
-                     (pos? (count location))
                      (pos? (count service)))]
-    (vlib/button-primary #(auth/ajax-login email password location service) not-empty? "Login")))
+    (vlib/button-primary #(auth/ajax-login email password service) not-empty? "Login")))
 
 (defui Login
   Object
@@ -269,13 +267,6 @@
                                                             :value       password
                                                             :type        "password"
                                                             :placeholder "password"}))
-                                   (dom/div #js {:className "input-group"}
-                                            (dom/span #js {:className "input-group-addon"}
-                                                      (vlib/fa-icon "fa-map-marker fa-fw"))
-                                            (dom/input #js {:className   "form-control"
-                                                            :onChange    #(vlib/commit-component-state this :location %)
-                                                            :value       location
-                                                            :placeholder "Düsseldorf, Germany"}))
                                    (google-ptc-switch this)
                                    (validate-login-button email password location service))))))))
 (def login (om/factory Login))

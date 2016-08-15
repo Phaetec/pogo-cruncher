@@ -17,6 +17,7 @@ from pgoapi.protos.POGOProtos.Networking.Requests_pb2 import RequestType
 logger = logging.getLogger(__name__)
 
 class PGoApi(pgoapi.PGoApi):
+
     def __init__(self):
 
         self.set_logger()
@@ -122,6 +123,7 @@ class PGoApi(pgoapi.PGoApi):
 
         return True
 
+
 class PGoApiRequest:
     def __init__(self, api_endpoint, auth_provider, position_lat, position_lng, position_alt):
         self.log = logging.getLogger(__name__)
@@ -152,7 +154,7 @@ class PGoApiRequest:
         self.log.info('Execution of RPC')
         response = None
         try:
-            response = request.request(self._api_endpoint, self._req_method_list, self.get_position())
+            response = request.request(self._api_endpoint, self._req_method_list, None)
         except ServerBusyOrOfflineException as e:
             self.log.info('Server seems to be busy or offline - try again!')
 
