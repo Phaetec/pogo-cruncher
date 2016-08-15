@@ -12,6 +12,7 @@
 * Add Powerup Feature
 * Add button to show status of API connection
 * Add reverse sort on click on table header
+* Remove need for location. API works locationless now. no more spoofing!
 
 ## 0.2
 * Create automatic build on DockerHub
