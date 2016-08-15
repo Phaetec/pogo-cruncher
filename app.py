@@ -42,6 +42,7 @@ def login():
         return jsonify({'status': 'error',
                         'message': e.__str__()})
 
+    time.sleep(1)
     if not logged_in:
         return jsonify({'status': 'error',
                         'message': 'Failed to login. If the Pokemon GO Servers are online, your credentials may be wrong.'})
@@ -51,6 +52,7 @@ def login():
 
 @app.route('/api/pokemon', methods=['GET'])
 def get_pokemon():
+    time.sleep(1)
     req = pokeapi.create_request()
     req.get_inventory()
 
@@ -150,6 +152,7 @@ def favorite_pokemon():
                     'id':           str(pokemon_id),
                     'set_favorite': set_favorite})
 
+
 @app.route('/api/pokemon/upgrade', methods=['POST'])
 def upgrade_pokemon():
     pokemon_id = int(request.json['id'])
@@ -158,6 +161,7 @@ def upgrade_pokemon():
     req.call()
 
     return jsonify({'status':       'ok'})
+
 
 @app.route('/api/status', methods=['GET'])
 def api_status():
@@ -214,6 +218,7 @@ def get_player():
         'status':   'error',
         'message':  'There was an error retrieving player data. If the error persists, try to log in anew.'
     })
+
 
 @app.route('/api/pokemon/evolve', methods=['POST'])
 def evolve_pokemon():
