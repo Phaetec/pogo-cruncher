@@ -42,8 +42,7 @@ def not_found(error):
 @app.route('/api/login', methods=['POST'])
 def login():
     """
-    It does not matter what data you send as long as there is a `password`, `email`, `service` and `location`.
-    If you want to test the location resolve send an additonal `'resolve': 1` value.
+    It does not matter what data you send as long as there is a `password`, `email` and `service`.
     If you want to simulate a failing login, send an additonal `'fail': <some message>`. The API will answer
     with an error and return the message inside the `message` field.
 
@@ -53,7 +52,6 @@ def login():
     login_name = request.json['email']
     service = request.json['service']
     password = request.json['password']
-    location = request.json['location']
     global data
     with open('example_dump.txt') as pokemon_data:
         data = json.load(pokemon_data)
@@ -62,12 +60,6 @@ def login():
         return jsonify({'status':   'error',
                         'message':  request.json['fail']})
 
-    if request.json.get('resolve', False):
-        try:
-            position = get_pos_by_name(location)
-        except GeocoderServiceError:
-            return jsonify({'status':   'error',
-                            'message':  'Location could not be found, please try another one!'})
 
     global status
     status['logged_in'] = True
@@ -307,14 +299,6 @@ def upgrade_pokemon():
 
     return jsonify({'status':       'ok'})
 
-# ----------------- Helper Functions
-
-
-def get_pos_by_name(location_name):
-    geolocator = GoogleV3()
-    loc = geolocator.geocode(location_name, timeout=10)
-
-    return loc.latitude, loc.longitude, loc.altitude
 
 if __name__ == '__main__':
     app.run(threaded=True)
