@@ -21,11 +21,13 @@ It is a work in progress, so please report all bugs to the issue page.
 
 ## Main Features
   * **[Installation using pre-build image on DockerHub](https://github.com/Phaetec/pogo-cruncher/wiki/Installation:-Docker-version)**
+  * [Windows Installation using an Installer](https://github.com/Phaetec/pogo-cruncher/wiki/Installation-with-.exe-for-Windows)
   * Mass send-away Pokemon
   * Select all Pokemon except your favorites
   * Select all Pokemon below a specified IV % Perfect threshold
   * Select all Pokemon below a CP threshold
   * Evolve Pokemon
+  * Powerup Pokemon
   * Mark Pokemon as favorite
 
 For more upcoming features, see the
