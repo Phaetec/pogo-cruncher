@@ -2,6 +2,8 @@
 
 pynsist="pynsist_pkgs"
 
+pip3 install -U pip
+pip3 install -r requirements.txt
 pip3 install pynsist
 
 mkdir $pynsist
