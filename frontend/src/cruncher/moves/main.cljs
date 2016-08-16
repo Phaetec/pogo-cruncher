@@ -5,3 +5,8 @@
   "Return move object from moves-database by the move id."
   [id]
   (:name (get data/all id)))
+
+(defn get-move
+  "Return complete move by its id"
+  [id]
+  (get data/all id))

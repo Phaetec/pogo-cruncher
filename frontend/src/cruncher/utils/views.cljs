@@ -13,6 +13,8 @@
     (= (type val) js/String) (om/update-state! this assoc key val)
     :else (om/update-state! this assoc key (.. val -target -value))))
 
+
+;;;; Table stuff
 (defn sortable-table-header
   "Sort list of pokemon by given key."
   [key & str]
@@ -20,6 +22,23 @@
                :onClick   #(lib/sort-pokemon! key)}
           str))
 
+(defn td-two-lines
+  "Create a td element with a black heading and a lighter second element."
+  [black grey]
+  (dom/td nil
+          black
+          (dom/br nil)
+          (dom/span #js {:className "text-muted"}
+                    grey)))
+
+(defn td-center
+  "Create normal td element with centered content."
+  [& content]
+  (dom/td #js {:className "text-center"}
+          content))
+
+
+;;;; Bootstrap
 (defn button
   "Create dom element of a bootstrap primary button."
   ([fn not-empty? str btn-class]
