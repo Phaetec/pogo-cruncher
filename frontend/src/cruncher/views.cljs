@@ -123,7 +123,9 @@
 (defui PokeTableEntry
   Object
   (render [this]
-    (let [pokemon (om/props this)]
+    (let [pokemon (om/props this)
+          move-1 (moves/get-move (:move_1 pokemon))
+          move-2 (moves/get-move (:move_2 pokemon))]
       (dom/tr #js {:id              (str "poketable-row-" (:id pokemon))
                    :className       "poketable-row"
                    :data-favorite   (:favorite pokemon)
@@ -140,10 +142,9 @@
               (dom/td nil (favorite-td (:id pokemon) (:favorite pokemon)))
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
-              (dom/td nil (:name pokemon))
-              (dom/td nil (:nickname pokemon))
-              (dom/td nil (moves/get-name (:move_1 pokemon)))
-              (dom/td nil (moves/get-name (:move_2 pokemon)))
+              (vlib/td-two-lines (:name pokemon) (:nickname pokemon))
+              (vlib/td-two-lines (:name move-1) (:type move-1))
+              (vlib/td-two-lines (:name move-2) (:type move-2))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
@@ -172,14 +173,13 @@
                                            (vlib/sortable-table-header :pokemon_id "#")
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :name "Name")
-                                           (vlib/sortable-table-header :nickname "Nickname")
                                            (vlib/sortable-table-header :move_1 "Fast")
                                            (vlib/sortable-table-header :move_2 "Special")
                                            (vlib/sortable-table-header :cp "CP")
-                                           (vlib/sortable-table-header :individual_percentage "IV % Perfect")
-                                           (vlib/sortable-table-header :individual_attack "Attack")
-                                           (vlib/sortable-table-header :individual_defense "Defense")
-                                           (vlib/sortable-table-header :individual_stamina "Stamina")
+                                           (vlib/sortable-table-header :individual_percentage "IV%")
+                                           (vlib/sortable-table-header :individual_attack "AT")
+                                           (vlib/sortable-table-header :individual_defense "DF")
+                                           (vlib/sortable-table-header :individual_stamina "ST")
                                            (dom/th nil "")))
                         (dom/tbody nil
                                    (interleave
