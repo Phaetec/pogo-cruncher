@@ -11,13 +11,13 @@ dependencies:
 
 test:
   override:
-    # - docker run -d -p 8888:8888 -p 5000:5000 pogo-cruncher; sleep 10
-    # - curl --retry 10 --retry-delay 5 -v http://localhost:8888
-    # - curl --retry 10 --retry-delay 5 -v http://localhost:5000
+    - docker run -d -p 8888:8888 -p 5000:5000 pogo-cruncher; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:8888
+    - curl --retry 10 --retry-delay 5 -v http://localhost:5000
     - mkdir artifacts
     - docker run -i -v ${pwd}/artifacts:/code/build/nsis pogo-cruncher sh build-binary.sh 
 
 general:
   artifacts:
     - "/artifacts"
-    - "/code/artifacts"
+    - "/code/artifacts/"
