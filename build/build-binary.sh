@@ -2,7 +2,8 @@
 
 pynsist="pynsist_pkgs"
 
-pip3 install pynsist
+# Copy all files from the upper directory to this directory
+cp -r ../* .
 
 mkdir $pynsist
 cp -r /usr/local/lib/python3.4/dist-packages/pgoapi $pynsist
@@ -13,7 +14,6 @@ wget https://github.com/Phaetec/pogo-cruncher-build/raw/master/Cryptodome.zip
 unzip Cryptodome.zip
 mv Cryptodome $pynsist
 rm Cryptodome.zip
-
 
 # Remove all occurences of google.protobuf and replace it with protobuf
 find $pynsist/pgoapi/ -type f -exec sed -i 's/google\.protobuf/protobuf/g' {} +
