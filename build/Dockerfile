@@ -11,6 +11,7 @@ RUN apt-get install -yqq nodejs ruby git supervisor python python3 python3-dev p
     mkdir /code
 
 ADD . /code
+ADD ../. /code
 WORKDIR /code
 
 # Setup backend
