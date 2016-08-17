@@ -2,9 +2,6 @@
 
 pynsist="pynsist_pkgs"
 
-# Copy all files from the upper directory to this directory
-cp -r ../* .
-
 mkdir $pynsist
 cp -r /usr/local/lib/python3.4/dist-packages/pgoapi $pynsist
 cp -r /usr/local/lib/python3.4/dist-packages/markupsafe $pynsist
