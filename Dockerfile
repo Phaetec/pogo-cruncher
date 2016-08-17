@@ -1,11 +1,7 @@
-FROM clojure
+FROM clojure:alpine
 MAINTAINER Christian Meter <cmeter@googlemail.com>
 
-# Add sources for nodejs
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-
-RUN apt-get update
-RUN apt-get install -yqq nodejs ruby git supervisor python python3 python3-dev python3-pip gcc musl-dev nsis && \
+RUN apk add --no-cache nodejs ruby git supervisor python python3 python3-dev gcc musl-dev && \
     (gem install sass; exit 0) && \
     npm install bower -g && \
     mkdir /code
@@ -13,12 +9,9 @@ RUN apt-get install -yqq nodejs ruby git supervisor python python3 python3-dev p
 ADD . /code
 WORKDIR /code
 
-RUN git describe --tags
-
 # Setup backend
 RUN pip3 install -U pip
 RUN pip3 install -r requirements.txt
-RUN pip3 install pynsist
 
 # Setup frontend
 RUN cd /code/frontend && \
@@ -29,4 +22,8 @@ RUN cd /code/frontend && \
     sass css/style.sass css/style.css --style compressed && \
     rm -rf .sass-cache
 
-CMD ["sh", "./build-binary.sh"]
+COPY supervisord.conf /etc/supervisord.conf
+
+# Start SimpleHTTPServer to serve application
+EXPOSE 8888 5000
+CMD ["/usr/bin/supervisord"]
