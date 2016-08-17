@@ -1,5 +1,5 @@
 prepare:
-	cp -r ../* .
+	-cp -r ../* .
 	cp Dockerfile.build Dockerfile
 
 image:
@@ -8,3 +8,6 @@ image:
 binary:
 	mkdir artifacts
 	docker run pogo-build
+
+clean:
+	git clean -f -d
