@@ -24,5 +24,8 @@ find $pynsist/pgoapi/__init__.py -type f -exec sed -i 's/raise\ PleaseInstallPro
 mkdir interface
 cp -r frontend/resources/public/* interface
 
+ls -al
+ls -al build
+
 # And build!
 pynsist installer.cfg
