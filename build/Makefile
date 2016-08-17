@@ -1,7 +1,8 @@
 prepare:
 	cp -r ../* .
+	cp Dockerfile.build Dockerfile
 
-build-image:
+image:
 	docker build -t pogo-build .
 
 binary:
