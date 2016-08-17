@@ -12,8 +12,6 @@ cp -r /usr/local/lib/python3.4/dist-packages/markupsafe $pynsist
 cp -r /usr/local/lib/python3.4/dist-packages/google/protobuf $pynsist
 
 wget https://github.com/Phaetec/pogo-cruncher-build/raw/master/Cryptodome.zip
-wget https://github.com/Phaetec/pogo-cruncher-build/raw/master/installer.cfg
-
 unzip Cryptodome.zip
 mv Cryptodome $pynsist
 rm Cryptodome.zip
