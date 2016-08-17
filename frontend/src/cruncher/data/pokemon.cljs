@@ -348,7 +348,9 @@
               :fast-attacks    ["Bite" "Poison Sting"]
               :weight          "7.0 kg"
               :height          "0.4 m"
-              :next-evolutions [30 31]}
+              :next-evolutions [30 31]
+              :next-evolution-requirements {:amount 25
+                                            :name   "Nidoran F candies"}}
 
           30 {:pokemon-id                  30
               :name                        "Nidorina"
