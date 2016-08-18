@@ -13,7 +13,7 @@
   [id]
   (get data/all id))
 
-(defn get-quickmove-dps
+(defn get-move-dps
   "Return the Damage per Second value for the quick move of the Pokmeon."
   [move pokemon]
   (let [pokemon-data (get pokemon-db/all (:pokemon_id pokemon))
