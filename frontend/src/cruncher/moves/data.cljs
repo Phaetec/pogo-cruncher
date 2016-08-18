@@ -58,7 +58,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1850
                :id                     18
-               :power                  25
+               :power                  30
                :unique-id              "V0018_MOVE_SLUDGE"
                :duration-ms            2600
                :animation-id           5
@@ -74,7 +74,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1850
                :id                     20
-               :power                  15
+               :power                  25
                :unique-id              "V0020_MOVE_VIce_GRIP"
                :duration-ms            2100
                :animation-id           5
@@ -234,7 +234,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1950
                :id                     34
-               :power                  20
+               :power                  25
                :unique-id              "V0034_MOVE_HEART_STAMP"
                :duration-ms            2550
                :animation-id           5
@@ -298,7 +298,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2150
                :id                     39
-               :power                  50
+               :power                  65
                :unique-id              "V0039_MOVE_Ice_BEAM"
                :duration-ms            3650
                :animation-id           5
@@ -394,7 +394,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1400
                :id                     48
-               :power                  15
+               :power                  25
                :unique-id              "V0048_MOVE_MEGA_DRAIN"
                :duration-ms            3200
                :animation-id           5
@@ -491,7 +491,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2000
                :id                     56
-               :power                  25
+               :power                  30
                :unique-id              "V0056_MOVE_LOW_SWEEP"
                :duration-ms            2250
                :animation-id           5
@@ -587,7 +587,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2300
                :id                     63
-               :power                  25
+               :power                  30
                :unique-id              "V0063_MOVE_Rock_TOMB"
                :duration-ms            3400
                :animation-id           5
@@ -603,7 +603,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1500
                :id                     64
-               :power                  40
+               :power                  50
                :unique-id              "V0064_MOVE_Rock_SLIDE"
                :duration-ms            3200
                :animation-id           5
@@ -635,7 +635,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2300
                :id                     66
-               :power                  15
+               :power                  25
                :unique-id              "V0066_MOVE_SHADOW_SNEAK"
                :duration-ms            3100
                :animation-id           5
@@ -651,7 +651,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1400
                :id                     67
-               :power                  20
+               :power                  25
                :unique-id              "V0067_MOVE_SHADOW_PUNCH"
                :duration-ms            2100
                :animation-id           5
@@ -683,7 +683,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2300
                :id                     70
-               :power                  40
+               :power                  45
                :unique-id              "V0070_MOVE_SHADOW_BALL"
                :duration-ms            3080
                :animation-id           5
@@ -731,7 +731,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1300
                :id                     75
-               :power                  15
+               :power                  25
                :unique-id              "V0075_MOVE_PARABOLIC_CHARGE"
                :duration-ms            2100
                :animation-id           5
@@ -893,7 +893,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 3500
                :id                     87
-               :power                  80
+               :power                  85
                :unique-id              "V0087_MOVE_MOONBLAST"
                :duration-ms            4100
                :animation-id           5
@@ -957,7 +957,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2400
                :id                     91
-               :power                  60
+               :power                  70
                :unique-id              "V0091_MOVE_SLUDGE_WAVE"
                :duration-ms            3400
                :animation-id           5
@@ -989,7 +989,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1250
                :id                     94
-               :power                  20
+               :power                  25
                :unique-id              "V0094_MOVE_BONE_CLUB"
                :duration-ms            1600
                :animation-id           5
@@ -1037,7 +1037,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2000
                :id                     99
-               :power                  35
+               :power                  45
                :unique-id              "V0099_MOVE_SIGNAL_BEAM"
                :duration-ms            3100
                :animation-id           5
@@ -1069,7 +1069,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2700
                :id                     101
-               :power                  20
+               :power                  25
                :unique-id              "V0101_MOVE_FLAME_CHARGE"
                :duration-ms            3100
                :animation-id           5
@@ -1085,7 +1085,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1200
                :id                     102
-               :power                  25
+               :power                  30
                :unique-id              "V0102_MOVE_FLAME_BURST"
                :duration-ms            2100
                :animation-id           5
@@ -1149,7 +1149,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1800
                :id                     106
-               :power                  35
+               :power                  55
                :unique-id              "V0106_MOVE_SCALD"
                :duration-ms            4000
                :animation-id           5
@@ -1165,7 +1165,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1500
                :id                     107
-               :power                  60
+               :power                  90
                :unique-id              "V0107_MOVE_HYDRO_PUMP"
                :duration-ms            3800
                :animation-id           5
@@ -1197,7 +1197,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 4400
                :id                     109
-               :power                  70
+               :power                  100
                :unique-id              "V0109_MOVE_PSYSTRIKE"
                :duration-ms            5100
                :animation-id           5
@@ -1229,7 +1229,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 350
                :id                     114
-               :power                  35
+               :power                  50
                :unique-id              "V0114_MOVE_GIGA_DRAIN"
                :duration-ms            3600
                :animation-id           5
@@ -1357,7 +1357,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 2300
                :id                     125
-               :power                  25
+               :power                  30
                :unique-id              "V0125_MOVE_SWIFT"
                :duration-ms            3000
                :animation-id           5
@@ -1373,7 +1373,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1600
                :id                     126
-               :power                  20
+               :power                  25
                :unique-id              "V0126_MOVE_HORN_ATTACK"
                :duration-ms            2200
                :animation-id           5
@@ -1436,7 +1436,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1395
                :id                     132
-               :power                  35
+               :power                  50
                :unique-id              "V0132_MOVE_REST"
                :duration-ms            3100
                :animation-id           5
@@ -1467,7 +1467,7 @@
                :trainer-level-min      1
                :damage-window-start-ms 1800
                :id                     134
-               :power                  35
+               :power                  50
                :unique-id              "V0134_MOVE_SCALD_BLASTOISE"
                :duration-ms            4000
                :animation-id           5

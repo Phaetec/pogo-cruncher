@@ -1,5 +1,8 @@
-### This class represents a pokemon object for easier handling than the dicts the api provides.
+# This class represents a pokemon object for easier handling than the dicts the api provides.
 from __future__ import division
+from . import pokehelper
+
+ph = pokehelper.Pokehelper()
 
 
 class Pokemon(object):
@@ -131,6 +134,14 @@ class Pokemon(object):
         if self.level() < 31 and self.upgraded_number <= 60:
             return 3
         return 4
+
+    @property
+    def attack(self):
+        return round((ph.get_base_attack(self.pokemon_number) + self.iv_att) * (self.cp_multiplier + self.additional_cp_multiplier))
+
+    @property
+    def defense(self):
+        return round((ph.get_base_defense(self.pokemon_number) + self.iv_def) * (self.cp_multiplier + self.additional_cp_multiplier))
 
     def __str__(self):
         return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(

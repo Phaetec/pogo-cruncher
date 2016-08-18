@@ -100,6 +100,8 @@ def get_pokemon():
                     'level':                 pokemon.level(),
                     'powerup_cost_stardust': pokemon.powerup_stardust_cost(),
                     'powerup_cost_candy':    pokemon.powerup_candy_cost(),
+                    'attack':                pokemon.attack,
+                    'defense':               pokemon.defense,
                 })
         elif 'candy' in item['inventory_item_data']:
             candy_data = item['inventory_item_data']['candy']

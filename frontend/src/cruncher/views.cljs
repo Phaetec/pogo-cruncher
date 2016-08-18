@@ -82,24 +82,21 @@
               (dom/td #js {:className "well"})
               (dom/td #js {:className "well" :colSpan 13}
                       (dom/div #js {:className "row"}
-                               (dom/div #js {:className "col-md-6"}
-                                        (dom/div #js {:className "row"}
-                                                 (dom/div #js {:className "col-md-4"} "Health:")
-                                                 (dom/div #js {:className "col-md-8"} (:health pokemon)))
+                               (dom/div #js {:className "col-md-4"}
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-4"} "Evolves to:")
                                                  (dom/div #js {:className "col-md-8"} (or (lib/pokemon-evolution pokemon) "None")))
                                         (dom/div #js {:className "row"}
-                                                 (dom/div #js {:className "col-md-4"} "Available Candy:")
+                                                 (dom/div #js {:className "col-md-4"} "Candy:")
                                                  (dom/div #js {:className "col-md-8"} (:candy pokemon)))
                                         (dom/div #js {:className "row"}
-                                                 (dom/div #js {:className "col-md-4"} "Available Evolutions:")
+                                                 (dom/div #js {:className "col-md-4"} "Evolutions:")
                                                  (dom/div #js {:className "col-md-8"} (lib/calc-evolutions pokemon)))
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-4"} "Powerup Cost: ")
                                                  (dom/div #js {:className "col-md-8"} (:powerup_cost_stardust pokemon) " Dust, "
                                                           (:powerup_cost_candy pokemon) " Candy")))
-                               (dom/div #js {:className "col-md-6"}
+                               (dom/div #js {:className "col-md-4"}
                                         (dom/div #js {:className "row"}
                                                  (dom/div #js {:className "col-md-12"}
                                                           (if (not= (lib/calc-evolutions pokemon) 0)
@@ -116,7 +113,17 @@
                                                                                                           :type      "button"
                                                                                                           :onClick   #(evolutions/powerup (:id pokemon))}
                                                                                                      "Power Up!"))))
-                                        )))))))
+                                        )
+                               (dom/div #js {:className "col-md-4"}
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Attack:")
+                                                 (dom/div #js {:className "col-md-8"} (:attack pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Defense:")
+                                                 (dom/div #js {:className "col-md-8"} (:defense pokemon)))
+                                        (dom/div #js {:className "row"}
+                                                 (dom/div #js {:className "col-md-4"} "Health:")
+                                                 (dom/div #js {:className "col-md-8"} (:health pokemon))))))))))
 
 (def poketable-entry-details (om/factory PokeTableEntryDetails {}))
 
@@ -143,8 +150,8 @@
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (vlib/td-two-lines (:name pokemon) (:nickname pokemon))
-              (vlib/td-two-lines (:name move-1) (:type move-1))
-              (vlib/td-two-lines (:name move-2) (:type move-2))
+              (vlib/td-two-lines (:name move-1) (str (:type move-1) " / " (moves/get-move-dps move-1 pokemon) " DPS"))
+              (vlib/td-two-lines (:name move-2) (str (:type move-2) " / " (moves/get-move-dps move-2 pokemon) " DPS"))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:individual_percentage pokemon))
               (dom/td nil (:individual_attack pokemon))
