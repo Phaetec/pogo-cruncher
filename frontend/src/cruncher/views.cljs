@@ -161,12 +161,14 @@
 
 (defui PokeTable
   Object
+  (componentDidMount [this]
+    )
   (render [this]
     (dom/div #js {:id "poketable"}
              (dom/div nil (controls (om/props this)))
              (dom/br nil)
              (dom/table #js {:className "table table-hover"}
-                        (dom/thead nil
+                        (dom/thead #js {:id "poketable-head"}
                                    (dom/tr nil
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :favorite "Fav.")
@@ -184,9 +186,7 @@
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
-                                     (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon)))))
-             #_(let [jquery (js* "$")]
-                 (.stickyTableHeaders (jquery "#poketable"))))))
+                                     (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon))))))))
 
 (def poketable (om/factory PokeTable {}))
 
