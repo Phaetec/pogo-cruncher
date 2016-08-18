@@ -150,7 +150,7 @@
               (dom/td nil (:pokemon_id pokemon))
               (dom/td nil (dom/img #js {:src (str "img/pokemon/models/" (:pokemon_id pokemon) ".png") :className "pokemon-image-thumb"}))
               (vlib/td-two-lines (:name pokemon) (:nickname pokemon))
-              (vlib/td-two-lines (:name move-1) (:type move-1))
+              (vlib/td-two-lines (:name move-1) (str (:type move-1) " / " (moves/get-quickmove-dps move-1 pokemon) " DPS"))
               (vlib/td-two-lines (:name move-2) (:type move-2))
               (dom/td nil (:cp pokemon))
               (dom/td nil (:individual_percentage pokemon))
