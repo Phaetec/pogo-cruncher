@@ -137,11 +137,11 @@ class Pokemon(object):
 
     @property
     def attack(self):
-        return round((ph.get_base_attack(self.pokemon_number) * self.iv_att) * (self.cp_multiplier + self.additional_cp_multiplier))
+        return round((ph.get_base_attack(self.pokemon_number) + self.iv_att) * (self.cp_multiplier + self.additional_cp_multiplier))
 
     @property
     def defense(self):
-        return round((ph.get_base_defense(self.pokemon_number) * self.iv_def) * (self.cp_multiplier + self.additional_cp_multiplier))
+        return round((ph.get_base_defense(self.pokemon_number) + self.iv_def) * (self.cp_multiplier + self.additional_cp_multiplier))
 
     def __str__(self):
         return str(self.pokemon_number) + ': ' + str(self.cp) + 'CP / ' + str(
