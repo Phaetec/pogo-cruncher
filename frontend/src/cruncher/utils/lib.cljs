@@ -254,6 +254,26 @@
   (om/transact! reconciler `[(update/evolution-amount {:pokemon ~res})]))
 
 
+;;;; CSS modifications
+(defn toggle-class
+  "Toggle CSS class of provided DOM element. A third paramenter as boolean can be provided to
+   force removing or adding the class."
+  ([dom-element class]
+   (.classList/toggle dom-element class))
+  ([dom-element class bool]
+   (.classList/toggle dom-element class bool)))
+
+(defn remove-class
+  "Remove a specific class of a DOM element."
+  [dom-element class]
+  (toggle-class dom-element class false))
+
+(defn add-class
+  "Add a specific class to a DOM element."
+  [dom-element class]
+  (toggle-class dom-element class true))
+
+
 ;;;; Conversions
 (defn str->int
   "Convert String to Integer."
