@@ -159,10 +159,30 @@
                                       "Details"))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
+(defui PokeTableHeader
+  Object
+  (render [this]
+    (dom/div #js {:id "poketable-header-wrapper"}
+             (dom/table #js {:className "table table-hover"}
+                        (dom/thead #js {:id "poketable-header"}
+                                   (dom/tr nil
+                                           (dom/th nil "")
+                                           (vlib/sortable-table-header :favorite "Fav.")
+                                           (vlib/sortable-table-header :pokemon_id "#")
+                                           (dom/th nil "")
+                                           (vlib/sortable-table-header :name "Name")
+                                           (vlib/sortable-table-header :move_1 "Fast")
+                                           (vlib/sortable-table-header :move_2 "Special")
+                                           (vlib/sortable-table-header :cp "CP")
+                                           (vlib/sortable-table-header :individual_percentage "IV%")
+                                           (vlib/sortable-table-header :individual_attack "AT")
+                                           (vlib/sortable-table-header :individual_defense "DF")
+                                           (vlib/sortable-table-header :individual_stamina "ST")
+                                           (dom/th nil "")))))))
+(def poketable-header (om/factory PokeTableHeader {}))
+
 (defui PokeTable
   Object
-  (componentDidMount [this]
-    )
   (render [this]
     (dom/div #js {:id "poketable"}
              (dom/div nil (controls (om/props this)))
@@ -187,7 +207,6 @@
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
                                      (map #(poketable-entry-details (merge (lib/merge-react-key %) {:player (lib/playerinfo)})) (lib/inventory-pokemon))))))))
-
 (def poketable (om/factory PokeTable {}))
 
 
@@ -289,6 +308,7 @@
              (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
+             (dom/div nil (poketable-header))
              (dom/hr nil)
              (dom/div nil (status/api-test (om/props this)))
              #_(dom/div nil (poketable (om/props this)))
