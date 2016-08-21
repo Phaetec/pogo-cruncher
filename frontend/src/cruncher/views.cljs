@@ -164,44 +164,20 @@
   (let [scroll-y (.. js/window -scrollY)
         node (gdom/getElement dom-id)]
     (if (> scroll-y 600)
-      (lib/remove-class node "hidden")
-      (lib/add-class node "hidden"))))
+      (lib/add-class node "fixed")
+      (lib/remove-class node "fixed"))))
 
 (defn adjust-width [dom-id dom-layout]
   (let [this (gdom/getElement dom-id)
         width (.. (gdom/getElement dom-layout) -offsetWidth)]
-    (set! (.. this -style -width) (str width "px"))))
-
-(defui PokeTableHeader
-  Object
-  (componentDidMount [this]
-    (.addEventListener js/window "scroll" (fn [] (show-on-scroll "poketable-header-wrapper")
-                                            (adjust-width "poketable-header-wrapper" "poketable"))))
-  (render [this]
-    (dom/div #js {:id        "poketable-header-wrapper"
-                  :className "hidden"}
-             (dom/table #js {:className "table table-hover table-condensed"}
-                        (dom/thead #js {:id "poketable-header"}
-                                   (dom/tr nil
-                                           (dom/th nil "")
-                                           (vlib/sortable-table-header :favorite "Fav.")
-                                           (vlib/sortable-table-header :pokemon_id "#")
-                                           (dom/th nil "Image")
-                                           (vlib/sortable-table-header :name "Name")
-                                           (vlib/sortable-table-header :move_1 "Fast")
-                                           (vlib/sortable-table-header :move_2 "Special")
-                                           (vlib/sortable-table-header :cp "CP")
-                                           (vlib/sortable-table-header :individual_percentage "IV%")
-                                           (vlib/sortable-table-header :individual_attack "AT")
-                                           (vlib/sortable-table-header :individual_defense "DF")
-                                           (vlib/sortable-table-header :individual_stamina "ST")
-                                           (dom/th nil "Details")))
-                        #_(dom/tbody #js {:className "visible"}
-                                   (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
-(def poketable-header (om/factory PokeTableHeader {}))
+    (set! (.. this -style -width) (str width "px"))
+    (set! (.. this -offsetWidth) width)))
 
 (defui PokeTable
   Object
+  (componentDidMount [this]
+    (.addEventListener js/window "scroll" (fn [] (show-on-scroll "poketable-head")
+                                            (adjust-width "poketable-head" "poketable"))))
   (render [this]
     (dom/div #js {:id "poketable"}
              (dom/div nil (controls (om/props this)))
@@ -327,7 +303,6 @@
              (dom/div nil (info-message (om/props this)))
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
-             (dom/div nil (poketable-header))
              (dom/hr nil)
              (dom/div nil (status/api-test (om/props this)))
              #_(dom/div nil (poketable (om/props this)))
