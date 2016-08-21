@@ -1,6 +1,7 @@
 (ns cruncher.views
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
+            [goog.dom :as gdom]
             [cruncher.communication.auth :as auth]
             [cruncher.communication.favorites :as favorites]
             [cruncher.communication.main :as com]
@@ -159,17 +160,33 @@
                                       "Details"))))))
 (def poketable-entry (om/factory PokeTableEntry {}))
 
+(defn show-on-scroll [dom-id]
+  (let [scroll-y (.. js/window -scrollY)
+        node (gdom/getElement dom-id)]
+    (if (> scroll-y 600)
+      (lib/remove-class node "hidden")
+      (lib/add-class node "hidden"))))
+
+(defn adjust-width [dom-id dom-layout]
+  (let [this (gdom/getElement dom-id)
+        width (.. (gdom/getElement dom-layout) -offsetWidth)]
+    (set! (.. this -style -width) (str width "px"))))
+
 (defui PokeTableHeader
   Object
+  (componentDidMount [this]
+    (.addEventListener js/window "scroll" (fn [] (show-on-scroll "poketable-header-wrapper")
+                                            (adjust-width "poketable-header-wrapper" "poketable"))))
   (render [this]
-    (dom/div #js {:id "poketable-header-wrapper"}
-             (dom/table #js {:className "table table-hover"}
+    (dom/div #js {:id        "poketable-header-wrapper"
+                  :className "hidden"}
+             (dom/table #js {:className "table table-hover table-condensed"}
                         (dom/thead #js {:id "poketable-header"}
                                    (dom/tr nil
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :favorite "Fav.")
                                            (vlib/sortable-table-header :pokemon_id "#")
-                                           (dom/th nil "")
+                                           (dom/th nil "Image")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :move_1 "Fast")
                                            (vlib/sortable-table-header :move_2 "Special")
@@ -178,7 +195,9 @@
                                            (vlib/sortable-table-header :individual_attack "AT")
                                            (vlib/sortable-table-header :individual_defense "DF")
                                            (vlib/sortable-table-header :individual_stamina "ST")
-                                           (dom/th nil "")))))))
+                                           (dom/th nil "Details")))
+                        #_(dom/tbody #js {:className "visible"}
+                                   (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon)))))))
 (def poketable-header (om/factory PokeTableHeader {}))
 
 (defui PokeTable
@@ -187,13 +206,13 @@
     (dom/div #js {:id "poketable"}
              (dom/div nil (controls (om/props this)))
              (dom/br nil)
-             (dom/table #js {:className "table table-hover"}
+             (dom/table #js {:className "table table-hover table-condensed"}
                         (dom/thead #js {:id "poketable-head"}
                                    (dom/tr nil
                                            (dom/th nil "")
                                            (vlib/sortable-table-header :favorite "Fav.")
                                            (vlib/sortable-table-header :pokemon_id "#")
-                                           (dom/th nil "")
+                                           (dom/th nil "Image")
                                            (vlib/sortable-table-header :name "Name")
                                            (vlib/sortable-table-header :move_1 "Fast")
                                            (vlib/sortable-table-header :move_2 "Special")
@@ -202,7 +221,7 @@
                                            (vlib/sortable-table-header :individual_attack "AT")
                                            (vlib/sortable-table-header :individual_defense "DF")
                                            (vlib/sortable-table-header :individual_stamina "ST")
-                                           (dom/th nil "")))
+                                           (dom/th nil "Details")))
                         (dom/tbody nil
                                    (interleave
                                      (map #(poketable-entry (lib/merge-react-key %)) (lib/inventory-pokemon))
