@@ -9,6 +9,7 @@
             [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
             [cruncher.utils.status :as status]
+            [cruncher.rename :as rename]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
@@ -36,6 +37,8 @@
                                (dom/div nil (:evolution-number (om/props this)) " Evolutions available")))
              (dom/br nil) (dom/br nil)
              (selections/controls (om/props this))
+             (dom/br nil) (dom/br nil)
+             (rename/controls (om/props this))
              (dom/br nil) (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
