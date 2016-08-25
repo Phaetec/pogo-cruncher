@@ -6,7 +6,8 @@
             [cruncher.communication.utils :as clib]
             [cruncher.communication.main :as com]
             [cruncher.communication.progress :as progress]
-            [cruncher.selections :as selections]))
+            [cruncher.selections :as selections]
+            [cruncher.utils.views :as vlib]))
 
 (defn success-handler
   "React on response after sending a new statement. Reset atom and call newly received url."
@@ -19,7 +20,7 @@
   [this]
   (selections/unselect-favorites)
   (let [url (:crunch-selected-pokemon config/api)
-        selected-pokemon (vec (map #(.. % -value) (filter #(.. % -checked) (gdom/getElementsByClass "poketable-checkbox"))))]
+        selected-pokemon (vlib/get-selected-pokemon)]
     (when (pos? (count selected-pokemon))
       (when (js/confirm "Do you really want to send away the selected Pokemon?\nYou won't get them back!\n\nConsider your decision.")
         (lib/loading!)
