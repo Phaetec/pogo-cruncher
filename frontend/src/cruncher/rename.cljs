@@ -10,14 +10,15 @@
   (render [this]
     (let [selected (or (om/get-state this :selected) "rename-scheme-1")]
       (dom/div nil
-               (dom/div #js {:className "form-group"}
+               (dom/div #js {:className "input-group"}
                         (dom/select #js {:className "form-control"
-                                         :onChange  #(println "click")
+                                         :onChange  #(vlib/commit-component-state this :selected %)
                                          :value     selected}
                                     (dom/option #js {:value "rename-scheme-1"} "IV% AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-2"} "AT/DF/ST")
-                                    (dom/option #js {:value "rename-scheme-3"} "IV%")))
-               (dom/div #js {:className "form-group"})))))
+                                    (dom/option #js {:value "rename-scheme-3"} "IV%"))
+                        (dom/div #js {:className "input-group-btn"}
+                                 (vlib/button-default #(println "Rename") "Rename")))))))
 (def select-schemes (om/factory SelectSchemes {}))
 
 (defui RenamingControls
