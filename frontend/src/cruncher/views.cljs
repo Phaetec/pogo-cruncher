@@ -253,10 +253,10 @@
   Object
   (render [this]
     ;; TODO return empty string if om/get-state is empty
-    (let [email (om/get-state this :email)
-          password (om/get-state this :password)
-          location (om/get-state this :location)
-          service (om/get-state this :service)]
+    (let [email (or (om/get-state this :email) "")
+          password (or (om/get-state this :password) "")
+          location (or (om/get-state this :location) "")
+          service (or (om/get-state this :service) "")]
       (dom/div #js {:className "row"}
                (dom/div #js {:className "col-md-6 col-md-offset-3"}
                         (vlib/panel-wrapper
