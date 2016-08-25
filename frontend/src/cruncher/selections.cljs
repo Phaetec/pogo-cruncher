@@ -57,7 +57,7 @@
 (defui CPThreshold
   Object
   (render [this]
-    (let [percentage (om/get-state this :percentage)]
+    (let [percentage (or (om/get-state this :percentage) "")]
       (dom/div #js {:className "form-group"}
                (dom/label #js {:className "control-label"} "Select all below CP Threshold")
                (dom/div #js {:className "input-group"}
@@ -74,7 +74,7 @@
 (defui IVThreshold
   Object
   (render [this]
-    (let [percentage (om/get-state this :percentage)]
+    (let [percentage (or (om/get-state this :percentage) "")]
       (dom/div #js {:className "form-group"}
                (dom/label #js {:className "control-label"} "Select all below IV % Perfect Threshold")
                (dom/div #js {:className "input-group"}
