@@ -5,21 +5,33 @@
             [cruncher.utils.views :as vlib]
             [cruncher.utils.lib :as lib]))
 
-(defn do-the-rename-dance!
-  "Rename all selected pokemon according to the selected scheme. Not reversible!"
+(defn- dispatch-scheme
+  "Gets a string containing the user's selection. Construct the new nickname from it."
+  [scheme iv at df st]
+  (let [iv-int (lib/str->int iv)]
+    (cond
+      (and (= "rename-scheme-1" scheme) (= iv-int 100)) (str iv-int "%")
+      (= "rename-scheme-1" scheme) (str iv-int "% " at "/" df "/" st)
+      (= "rename-scheme-2" scheme) (str at "/" df "/" st)
+      (= "rename-scheme-3" scheme) (str iv-int "%"))))
+
+(defn- do-the-rename-dance!
+  "Rename all selected pokemon according to the selected scheme. Not reversible!
+
+   Returns list of maps like this one: {:id 42, :name 33% 15/0/0}, while :name is also
+   a string."
   [scheme]
   (let [rows (gdom/getElementsByClass "poketable-row")]
-    (doall (map (fn [row]
-                  (let [id (.getAttribute row "data-id")
-                        at (.getAttribute row "data-at")
-                        df (.getAttribute row "data-df")
-                        st (.getAttribute row "data-st")
-                        iv (.getAttribute row "data-iv-perfect")
-                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                    (if (.-checked checkbox)
-                      (println "ahoi")
-                      (println "nope"))))
-                rows))))
+    (remove nil? (map (fn [row]
+                        (let [id (.getAttribute row "data-id")
+                              iv (.getAttribute row "data-iv-perfect")
+                              at (.getAttribute row "data-at")
+                              df (.getAttribute row "data-df")
+                              st (.getAttribute row "data-st")
+                              checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                          (when (.-checked checkbox)
+                            {:id id :name (dispatch-scheme scheme iv at df st)})))
+                      rows))))
 
 (defui SelectSchemes
   Object
