@@ -81,6 +81,13 @@
   (dom/span #js {:dangerouslySetInnerHTML #js {:__html string}}))
 
 
+;;;; DOM Stuff
+(defn get-selected-pokemon
+  "Returns all selected Pokemon."
+  []
+  (vec (map #(.. % -value) (filter #(.. % -checked) (gdom/getElementsByClass "poketable-checkbox")))))
+
+
 ;;;; UIs
 (defui Loader
   ; "Spinning icon to indicate if there is data being transferred."
