@@ -22,5 +22,4 @@
         STAB (if (or (= type-1 (:type move)) (= type-2 (:type move)))
                1.25
                1)]
-    (print type-1 " - " type-2 " - Move-Type: " (:type move))
     (pprint/cl-format nil "~,2f" (/ (* (:power move) 1000 STAB) (:duration-ms move)))))
