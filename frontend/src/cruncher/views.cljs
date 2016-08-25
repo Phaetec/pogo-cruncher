@@ -141,7 +141,10 @@
                    :data-favorite   (:favorite pokemon)
                    :data-id         (:id pokemon)
                    :data-iv-perfect (:individual_percentage pokemon)
-                   :data-cp         (:cp pokemon)}
+                   :data-cp         (:cp pokemon)
+                   :data-at         (:individual_attack pokemon)
+                   :data-df         (:individual_defense pokemon)
+                   :data-st         (:individual_stamina pokemon)}
               (dom/td nil
                       (dom/div #js {:className "checkbox"})
                       (dom/label nil
