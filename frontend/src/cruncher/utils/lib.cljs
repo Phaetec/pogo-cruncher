@@ -280,6 +280,12 @@
 
 
 ;;;; Helpers
+(defn log
+  "Use JS's console log. Produces beautiful output in combination with cljs.devtools, which should
+   automatically load when starting the app."
+  [& strs]
+  (.log js/console strs))
+
 (defn pokemon-evolution
   [pokemon]
   (if (= (:name pokemon) "Eevee")
