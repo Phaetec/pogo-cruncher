@@ -5,6 +5,22 @@
             [cruncher.utils.views :as vlib]
             [cruncher.utils.lib :as lib]))
 
+(defn do-the-rename-dance!
+  "Rename all selected pokemon according to the selected scheme. Not reversible!"
+  [scheme]
+  (let [rows (gdom/getElementsByClass "poketable-row")]
+    (doall (map (fn [row]
+                  (let [id (.getAttribute row "data-id")
+                        at (.getAttribute row "data-at")
+                        df (.getAttribute row "data-df")
+                        st (.getAttribute row "data-st")
+                        iv (.getAttribute row "data-iv-perfect")
+                        checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                    (if (.-checked checkbox)
+                      (println "ahoi")
+                      (println "nope"))))
+                rows))))
+
 (defui SelectSchemes
   Object
   (render [this]
@@ -18,7 +34,7 @@
                                     (dom/option #js {:value "rename-scheme-2"} "AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-3"} "IV%"))
                         (dom/div #js {:className "input-group-btn"}
-                                 (vlib/button-default #(println "Rename") "Rename")))))))
+                                 (vlib/button-default #(do-the-rename-dance! selected) "Rename")))))))
 (def select-schemes (om/factory SelectSchemes {}))
 
 (defui RenamingControls
