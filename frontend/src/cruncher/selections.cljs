@@ -99,7 +99,7 @@
                                (dom/br nil)
                                (vlib/button-default unselect-all "Unselect")
                                (vlib/button-default unselect-favorites "Unselect Favorites")
-                               (vlib/button-default select-all-but-favorite "Select all but favorite"))
+                               (vlib/button-default select-all-but-favorite "Select all but Favorites"))
                       (dom/div #js {:className "col-md-3"}
                                (dom/div nil (cp-threshold (om/props this))))
                       (dom/div #js {:className "col-md-3"}
