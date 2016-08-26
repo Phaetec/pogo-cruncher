@@ -218,23 +218,22 @@ def favorite_pokemon():
     :return: Returns status ok if there were no errors.
     """
 
-    pokemon_id = int(request.json['id'])
-    nickname = request.json['nickname']
+    rename_list = request.data
     global data
-    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
-    for count, item in enumerate(invlist):
-        if 'pokemon_data' in item['inventory_item_data']:
-            # Eggs are treated as pokemon by Niantic.
-            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
-                if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
-                    data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname'] = nickname
-                    print("Pokemon renamed to " +
-                          str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname']))
-                    break
+    for pokemon in rename_list:
+        invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+        for count, item in enumerate(invlist):
+            if 'pokemon_data' in item['inventory_item_data']:
+                # Eggs are treated as pokemon by Niantic.
+                if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                    if item['inventory_item_data']['pokemon_data']['id'] == pokemon['id']:
+                        data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname'] = pokemon['name']
+                        print("Pokemon renamed to " +
+                              str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname']))
+                        time.sleep(random.randint(200, 350)/100)
+                        break
 
-    return jsonify({'status':       'ok',
-                    'id':           str(pokemon_id),
-                    'nickname':     nickname})
+    return jsonify({'status':       'ok'})
 
 
 @app.route('/api/status', methods=['GET'])

@@ -157,15 +157,14 @@ def favorite_pokemon():
 
 @app.route('api/pokemon/rename', methods=['POST'])
 def rename_pokemon():
-    pokemon_id = int(request.json['id'])
-    nickname = request.json['nickname']
-    req = pokeapi.create_request()
-    req.nickname_pokemon(pokemon_id=pokemon_id, nickname=nickname)
-    req.call()
+    rename_list = request.data
+    for pokemon in rename_list:
+        req = pokeapi.create_request()
+        req.nickname_pokemon(pokemon_id=pokemon['id'], nickname=pokemon['name'])
+        req.call()
+        time.sleep(random.randint(200, 350)/100)
 
-    return jsonify({'status':   'ok',
-                    'id':       str(pokemon_id),
-                    'nickname': nickname})
+    return jsonify({'status':   'ok'})
 
 
 @app.route('/api/pokemon/upgrade', methods=['POST'])
