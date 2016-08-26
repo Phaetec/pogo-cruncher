@@ -211,7 +211,7 @@ def favorite_pokemon():
 
 
 @app.route('/api/pokemon/rename', methods=['POST'])
-def favorite_pokemon():
+def rename_pokemon():
     """
     Rename a pokemon. Expects the values `id` and `set_favorite` (boolean).
 
