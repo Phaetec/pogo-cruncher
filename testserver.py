@@ -213,7 +213,7 @@ def favorite_pokemon():
 @app.route('/api/pokemon/rename', methods=['POST'])
 def rename_pokemon():
     """
-    Rename a pokemon. Expects the values `id` and `set_favorite` (boolean).
+    Rename a pokemon. Expects the values `id` and `name` (string).
 
     :return: Returns status ok if there were no errors.
     """
@@ -238,7 +238,7 @@ def rename_pokemon():
                         time.sleep(random.randint(200, 350)/100)
                         break
 
-    return jsonify({'status':       'ok'})
+    return jsonify({'status': 'ok'})
 
 
 @app.route('/api/status', methods=['GET'])
