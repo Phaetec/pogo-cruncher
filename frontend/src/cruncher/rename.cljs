@@ -3,7 +3,8 @@
             [om.dom :as dom :include-macros true]
             [goog.dom :as gdom]
             [cruncher.utils.views :as vlib]
-            [cruncher.utils.lib :as lib]))
+            [cruncher.utils.lib :as lib]
+            [cruncher.config :as config]))
 
 (defn- dispatch-scheme
   "Gets a string containing the user's selection. Construct the new nickname from it."
@@ -15,10 +16,8 @@
       (= "rename-scheme-2" scheme) (str at "/" df "/" st)
       (= "rename-scheme-3" scheme) (str iv-int "%"))))
 
-(defn- do-the-rename-dance!
-  "Rename all selected pokemon according to the selected scheme. Not reversible!
-
-   Returns list of maps like this one: {:id 42, :name 33% 15/0/0}, while :name is also
+(defn- create-list-of-new-names
+  "Returns list of maps like this one: {:id 42, :name 33% 15/0/0}, while :name is also
    a string."
   [scheme]
   (let [rows (gdom/getElementsByClass "poketable-row")]
@@ -30,23 +29,31 @@
                               st (.getAttribute row "data-st")
                               checkbox (gdom/getElement (str "poketable-checkbox-" id))]
                           (when (.-checked checkbox)
-                            {:id id :name (dispatch-scheme scheme iv at df st)})))
+                            {:id id
+                             :name (dispatch-scheme scheme iv at df st)})))
                       rows))))
+
+(defn- do-the-rename-dance!
+  "Rename all selected pokemon according to the selected scheme. Not reversible!"
+  [this scheme]
+  (let [url (:rename-selected-pokemon config/api)
+        new-nicknames (create-list-of-new-names scheme)]
+    (lib/log new-nicknames)))
 
 (defui SelectSchemes
   Object
   (render [this]
-    (let [selected (or (om/get-state this :selected) "rename-scheme-1")]
+    (let [scheme (or (om/get-state this :scheme) "rename-scheme-1")]
       (dom/div nil
                (dom/div #js {:className "input-group"}
                         (dom/select #js {:className "form-control"
-                                         :onChange  #(vlib/commit-component-state this :selected %)
-                                         :value     selected}
+                                         :onChange  #(vlib/commit-component-state this :scheme %)
+                                         :value     scheme}
                                     (dom/option #js {:value "rename-scheme-1"} "IV% AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-2"} "AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-3"} "IV%"))
                         (dom/div #js {:className "input-group-btn"}
-                                 (vlib/button-default #(do-the-rename-dance! selected) "Rename")))))))
+                                 (vlib/button-default #(do-the-rename-dance! this scheme) "Rename")))))))
 (def select-schemes (om/factory SelectSchemes {}))
 
 (defui RenamingControls
