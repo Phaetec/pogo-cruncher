@@ -9,11 +9,6 @@
             [cruncher.selections :as selections]
             [cruncher.utils.views :as vlib]))
 
-(defn success-handler
-  "React on response after sending a new statement. Reset atom and call newly received url."
-  [response]
-  (lib/update-progress-status! {:status "finished", :to_delete 1, :deleted 1})
-  (com/route :get-all-pokemon))
 
 (defn power-on
   "Crunch 'em all!"
@@ -29,7 +24,7 @@
         (POST (clib/make-url url)
               {:body            (clib/clj->json {:ids selected-pokemon
                                                  :safe 1})
-               :handler         success-handler
+               :handler         progress/finished-progress-handler
                :error-handler   com/error-handler
                :response-format :json
                :headers         {"Content-Type" "application/json"}
