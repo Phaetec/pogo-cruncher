@@ -155,6 +155,23 @@ def favorite_pokemon():
                     'set_favorite': set_favorite})
 
 
+@app.route('/api/pokemon/rename', methods=['POST'])
+def rename_pokemon():
+    global pokemon_deletion_amount
+    global deleted_pokemon
+    rename_list = request.data
+    pokemon_deletion_amount = len(request.data)
+    deleted_pokemon = 0
+    for pokemon in rename_list:
+        req = pokeapi.create_request()
+        req.nickname_pokemon(pokemon_id=pokemon['id'], nickname=pokemon['name'])
+        req.call()
+        deleted_pokemon += 1
+        time.sleep(random.randint(200, 350)/100)
+
+    return jsonify({'status':   'ok'})
+
+
 @app.route('/api/pokemon/upgrade', methods=['POST'])
 def upgrade_pokemon():
     pokemon_id = int(request.json['id'])
