@@ -210,6 +210,33 @@ def favorite_pokemon():
                     'set_favorite': set_favorite})
 
 
+@app.route('/api/pokemon/rename', methods=['POST'])
+def favorite_pokemon():
+    """
+    Rename a pokemon. Expects the values `id` and `set_favorite` (boolean).
+
+    :return: Returns status ok if there were no errors.
+    """
+
+    pokemon_id = int(request.json['id'])
+    nickname = request.json['nickname']
+    global data
+    invlist = list(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])
+    for count, item in enumerate(invlist):
+        if 'pokemon_data' in item['inventory_item_data']:
+            # Eggs are treated as pokemon by Niantic.
+            if 'is_egg' not in item['inventory_item_data']['pokemon_data']:
+                if item['inventory_item_data']['pokemon_data']['id'] == pokemon_id:
+                    data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname'] = nickname
+                    print("Pokemon renamed to " +
+                          str(data['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'][count]['inventory_item_data']['pokemon_data']['nickname']))
+                    break
+
+    return jsonify({'status':       'ok',
+                    'id':           str(pokemon_id),
+                    'nickname':     nickname})
+
+
 @app.route('/api/status', methods=['GET'])
 def api_status():
     return jsonify({'status': 'ok'})
