@@ -155,7 +155,7 @@ def favorite_pokemon():
                     'set_favorite': set_favorite})
 
 
-@app.route('api/pokemon/rename', methods=['POST'])
+@app.route('/api/pokemon/rename', methods=['POST'])
 def rename_pokemon():
     global pokemon_deletion_amount
     global deleted_pokemon
