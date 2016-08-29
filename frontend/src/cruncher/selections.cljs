@@ -17,6 +17,15 @@
                     (when favorite (set! (.. checkbox -checked) false))))
                 rows))))
 
+(defn select-all
+  "Select all pokemon."
+  []
+  (let [rows (gdom/getElementsByClass "poketable-row")]
+    (doall (map #(let [id (.getAttribute % "data-id")
+                      checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                  (set! (.. checkbox -checked) true))
+                rows))))
+
 (defn unselect-all
   "Unselect all pokemon."
   []
@@ -97,6 +106,7 @@
                       (dom/div #js {:className "col-md-6"}
                                (dom/label #js {:className "control-label"} "Clicking a button always overrides manual selections")
                                (dom/br nil)
+                               (vlib/button-default select-all "All")
                                (vlib/button-default unselect-all "Unselect")
                                (vlib/button-default unselect-favorites "Unselect Favorites")
                                (vlib/button-default select-all-but-favorite "Select all but Favorites"))

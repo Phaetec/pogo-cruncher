@@ -9,6 +9,12 @@
             [cruncher.utils.lib :as lib])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
+(defn finished-progress-handler
+  "React on response after sending a new statement. Reset atom and call newly received url."
+  [response]
+  (lib/update-progress-status! {:status "finished", :to_delete 1, :deleted 1})
+  (com/route :get-all-pokemon))
+
 (defn update-progress-handler
   "Set new app state with the progress information from the API."
   [response]

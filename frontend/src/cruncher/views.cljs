@@ -9,6 +9,7 @@
             [cruncher.moves.main :as moves]
             [cruncher.selections :as selections]
             [cruncher.utils.status :as status]
+            [cruncher.rename :as rename]
             [cruncher.shredder.main :as shredder]
             [cruncher.utils.extensions]
             [cruncher.utils.lib :as lib]
@@ -29,14 +30,18 @@
              (dom/div #js {:className "row"}
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Controls")
+                               (dom/label #js {:className "control-label"} "Reload your Pokemon or mass-send them away")
+                               (dom/br nil)
                                (vlib/button-primary #(com/route :get-all-pokemon) "Load your Pokemon")
                                (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
-                      (dom/div #js {:className "col-md-6"}
+                      (dom/div #js {:className "col-md-3"}
+                               (dom/div nil (rename/controls (om/props this))))
+                      (dom/div #js {:className "col-md-3"}
                                (dom/p #js {:className "lead"} "Information")
                                (dom/div nil (:evolution-number (om/props this)) " Evolutions available")))
-             (dom/br nil) (dom/br nil)
-             (selections/controls (om/props this))
-             (dom/br nil) (dom/br nil)
+             (dom/br nil)
+             (dom/div nil (selections/controls (om/props this)))
+             (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
 
@@ -138,7 +143,12 @@
                    :data-favorite   (:favorite pokemon)
                    :data-id         (:id pokemon)
                    :data-iv-perfect (:individual_percentage pokemon)
-                   :data-cp         (:cp pokemon)}
+                   :data-cp         (:cp pokemon)
+                   :data-at         (:individual_attack pokemon)
+                   :data-df         (:individual_defense pokemon)
+                   :data-st         (:individual_stamina pokemon)
+                   :data-type-1     (subs (:type move-1) 0 2)
+                   :data-type-2     (subs (:type move-2) 0 2)}
               (dom/td nil
                       (dom/div #js {:className "checkbox"})
                       (dom/label nil
@@ -218,8 +228,9 @@
                      (dom/li nil "Click on the table headers to sort the data")
                      (dom/li nil "Crunching Pokemon really means you're sending them away -- "
                              (dom/strong nil "there is no possibility to get them back!!!"))
-                     (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour.")
-                     (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away."))
+                     (dom/li nil "Automated Pokemon crunching / renaming takes between 2 and 3 seconds per Pokemon to prevent robotic behaviour.")
+                     (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away.")
+                     (dom/li #js {:className "text-info"} "The nicknames of your renamed Pokemon might first be visible after you restart the game on your phone."))
              (dom/hr nil))))
 (def header (om/factory Header))
 
@@ -239,11 +250,10 @@
 
 (defn validate-login-button
   "Show Login button and disable it when one of these fields is empty."
-  [email password location service]
-  (let [not-empty? (and
-                     (pos? (count email))
-                     (pos? (count password))
-                     (pos? (count service)))]
+  [email password service]
+  (let [not-empty? (and (pos? (count email))
+                        (pos? (count password))
+                        (pos? (count service)))]
     (vlib/button-primary #(auth/ajax-login email password service) not-empty? "Login")))
 
 (defui Login
@@ -252,7 +262,6 @@
     ;; TODO return empty string if om/get-state is empty
     (let [email (or (om/get-state this :email) "")
           password (or (om/get-state this :password) "")
-          location (or (om/get-state this :location) "")
           service (or (om/get-state this :service) "")]
       (dom/div #js {:className "row"}
                (dom/div #js {:className "col-md-6 col-md-offset-3"}
@@ -275,7 +284,7 @@
                                                             :type        "password"
                                                             :placeholder "password"}))
                                    (google-ptc-switch this)
-                                   (validate-login-button email password location service))))))))
+                                   (validate-login-button email password service))))))))
 (def login (om/factory Login))
 
 (defn view-dispatcher
@@ -297,8 +306,6 @@
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
              (dom/hr nil)
-             (dom/div nil (status/api-test (om/props this)))
-             #_(dom/div nil (poketable (om/props this)))
-             #_(dom/div nil (login)))))
+             (dom/div nil (status/api-test (om/props this))))))
 
 

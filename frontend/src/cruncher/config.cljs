@@ -14,6 +14,7 @@
           :get-all-pokemon         "api/pokemon"
           :toggle-favorite         "api/pokemon/favorite"
           :crunch-selected-pokemon "api/pokemon/delete"
+          :rename-selected-pokemon "api/pokemon/rename"
           :status-delete           "api/status/delete"
           :get-player              "api/player"
           :evolve-pokemon          "api/pokemon/evolve"
