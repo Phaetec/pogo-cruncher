@@ -247,11 +247,10 @@
 
 (defn validate-login-button
   "Show Login button and disable it when one of these fields is empty."
-  [email password location service]
-  (let [not-empty? (and
-                     (pos? (count email))
-                     (pos? (count password))
-                     (pos? (count service)))]
+  [email password service]
+  (let [not-empty? (and (pos? (count email))
+                        (pos? (count password))
+                        (pos? (count service)))]
     (vlib/button-primary #(auth/ajax-login email password service) not-empty? "Login")))
 
 (defui Login
@@ -283,7 +282,7 @@
                                                             :type        "password"
                                                             :placeholder "password"}))
                                    (google-ptc-switch this)
-                                   (validate-login-button email password location service))))))))
+                                   (validate-login-button email password service))))))))
 (def login (om/factory Login))
 
 (defn view-dispatcher
@@ -305,8 +304,6 @@
              (view-dispatcher this)
              (dom/div nil (vlib/back-to-top))
              (dom/hr nil)
-             (dom/div nil (status/api-test (om/props this)))
-             #_(dom/div nil (poketable (om/props this)))
-             #_(dom/div nil (login)))))
+             (dom/div nil (status/api-test (om/props this))))))
 
 
