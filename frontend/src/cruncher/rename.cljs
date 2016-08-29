@@ -45,7 +45,7 @@
     (when (pos? (count new-nicknames))
       (lib/loading!)
       (lib/update-progress-status! {:status "ok", :to_delete (count new-nicknames), :deleted 0})
-      #_(progress/query-status this)
+      (progress/query-status this)
       (POST (clib/make-url url)
             {:body            (clib/clj->json new-nicknames)
              :handler         progress/finished-progress-handler
