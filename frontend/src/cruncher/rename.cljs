@@ -78,7 +78,7 @@
   Object
   (render [this]
     (dom/div nil
-             (dom/p #js {:className "lead"} "Renaming")
+             (dom/p #js {:className "lead"} "Renaming " (dom/span #js {:className "badge"} "new"))
              (dom/label #js {:className "control-label"} "Renames selected Pokemon. Not reversible")
              (select-schemes (om/props this)))))
 (def controls (om/factory RenamingControls))
