@@ -1,5 +1,5 @@
 (ns cruncher.shredder.main
-  (:require [ajax.core :refer [GET POST]]
+  (:require [ajax.core :refer [POST]]
             [goog.dom :as gdom]
             [cruncher.utils.lib :as lib]
             [cruncher.config :as config]

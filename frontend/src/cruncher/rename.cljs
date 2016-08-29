@@ -1,10 +1,14 @@
 (ns cruncher.rename
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom :include-macros true]
+            [ajax.core :refer [POST]]
             [goog.dom :as gdom]
             [cruncher.utils.views :as vlib]
             [cruncher.utils.lib :as lib]
-            [cruncher.config :as config]))
+            [cruncher.config :as config]
+            [cruncher.communication.progress :as progress]
+            [cruncher.communication.utils :as clib]
+            [cruncher.communication.main :as com]))
 
 (defn- dispatch-scheme
   "Gets a string containing the user's selection. Construct the new nickname from it."
@@ -21,24 +25,34 @@
    a string."
   [scheme]
   (let [rows (gdom/getElementsByClass "poketable-row")]
-    (remove nil? (map (fn [row]
-                        (let [id (.getAttribute row "data-id")
-                              iv (.getAttribute row "data-iv-perfect")
-                              at (.getAttribute row "data-at")
-                              df (.getAttribute row "data-df")
-                              st (.getAttribute row "data-st")
-                              checkbox (gdom/getElement (str "poketable-checkbox-" id))]
-                          (when (.-checked checkbox)
-                            {:id id
-                             :name (dispatch-scheme scheme iv at df st)})))
-                      rows))))
+    (doall (remove nil? (map (fn [row]
+                               (let [id (.getAttribute row "data-id")
+                                     iv (.getAttribute row "data-iv-perfect")
+                                     at (.getAttribute row "data-at")
+                                     df (.getAttribute row "data-df")
+                                     st (.getAttribute row "data-st")
+                                     checkbox (gdom/getElement (str "poketable-checkbox-" id))]
+                                 (when (.-checked checkbox)
+                                   {:id   id
+                                    :name (dispatch-scheme scheme iv at df st)})))
+                             rows)))))
 
 (defn- do-the-rename-dance!
   "Rename all selected pokemon according to the selected scheme. Not reversible!"
   [this scheme]
   (let [url (:rename-selected-pokemon config/api)
         new-nicknames (create-list-of-new-names scheme)]
-    (lib/log new-nicknames)))
+    (when (pos? (count new-nicknames))
+      (lib/loading!)
+      (lib/update-progress-status! {:status "ok", :to_delete (count new-nicknames), :deleted 0})
+      #_(progress/query-status this)
+      (POST (clib/make-url url)
+            {:body            (clib/clj->json new-nicknames)
+             :handler         progress/finished-progress-handler
+             :error-handler   com/error-handler
+             :response-format :json
+             :headers         {"Content-Type" "application/json"}
+             :keywords?       true}))))
 
 (defui SelectSchemes
   Object
