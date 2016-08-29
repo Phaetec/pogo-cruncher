@@ -12,13 +12,15 @@
 
 (defn- dispatch-scheme
   "Gets a string containing the user's selection. Construct the new nickname from it."
-  [scheme iv at df st]
+  [scheme iv at df st t1 t2]
   (let [iv-int (lib/str->int iv)]
     (cond
       (and (= "rename-scheme-1" scheme) (= iv-int 100)) (str iv-int "%")
       (= "rename-scheme-1" scheme) (str iv-int "% " at "/" df "/" st)
       (= "rename-scheme-2" scheme) (str at "/" df "/" st)
-      (= "rename-scheme-3" scheme) (str iv-int "%"))))
+      (= "rename-scheme-3" scheme) (str iv-int "%")
+      (= "rename-scheme-4" scheme) (str iv-int "% " t1 "/" t2)
+      )))
 
 (defn- create-list-of-new-names
   "Returns list of maps like this one: {:id 42, :name 33% 15/0/0}, while :name is also
@@ -31,10 +33,12 @@
                                      at (.getAttribute row "data-at")
                                      df (.getAttribute row "data-df")
                                      st (.getAttribute row "data-st")
+                                     t1 (.getAttribute row "data-type-1")
+                                     t2 (.getAttribute row "data-type-2")
                                      checkbox (gdom/getElement (str "poketable-checkbox-" id))]
                                  (when (.-checked checkbox)
                                    {:id   id
-                                    :name (dispatch-scheme scheme iv at df st)})))
+                                    :name (dispatch-scheme scheme iv at df st t1 t2)})))
                              rows)))))
 
 (defn- do-the-rename-dance!
@@ -65,7 +69,8 @@
                                          :value     scheme}
                                     (dom/option #js {:value "rename-scheme-1"} "IV% AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-2"} "AT/DF/ST")
-                                    (dom/option #js {:value "rename-scheme-3"} "IV%"))
+                                    (dom/option #js {:value "rename-scheme-3"} "IV%")
+                                    (dom/option #js {:value "rename-scheme-4"} "IV% Type1/Type2"))
                         (dom/div #js {:className "input-group-btn"}
                                  (vlib/button-primary #(do-the-rename-dance! this scheme) "Rename")))))))
 (def select-schemes (om/factory SelectSchemes {}))
