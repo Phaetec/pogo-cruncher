@@ -229,7 +229,8 @@
                      (dom/li nil "Crunching Pokemon really means you're sending them away -- "
                              (dom/strong nil "there is no possibility to get them back!!!"))
                      (dom/li nil "Automated Pokemon crunching / renaming takes between 2 and 3 seconds per Pokemon to prevent robotic behaviour.")
-                     (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away."))
+                     (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away.")
+                     (dom/li #js {:className "text-info"} "The nicknames of your renamed Pokemon might first be visible after you restart the game on your phone."))
              (dom/hr nil))))
 (def header (om/factory Header))
 

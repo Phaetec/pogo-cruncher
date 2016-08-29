@@ -19,8 +19,7 @@
       (= "rename-scheme-1" scheme) (str iv-int "% " at "/" df "/" st)
       (= "rename-scheme-2" scheme) (str at "/" df "/" st)
       (= "rename-scheme-3" scheme) (str iv-int "%")
-      (= "rename-scheme-4" scheme) (str iv-int "% " t1 "/" t2)
-      )))
+      (= "rename-scheme-4" scheme) (str iv-int "% " t1 "/" t2))))
 
 (defn- create-list-of-new-names
   "Returns list of maps like this one: {:id 42, :name 33% 15/0/0}, while :name is also
