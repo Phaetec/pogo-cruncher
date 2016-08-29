@@ -67,7 +67,7 @@
                                     (dom/option #js {:value "rename-scheme-2"} "AT/DF/ST")
                                     (dom/option #js {:value "rename-scheme-3"} "IV%"))
                         (dom/div #js {:className "input-group-btn"}
-                                 (vlib/button-default #(do-the-rename-dance! this scheme) "Rename")))))))
+                                 (vlib/button-primary #(do-the-rename-dance! this scheme) "Rename")))))))
 (def select-schemes (om/factory SelectSchemes {}))
 
 (defui RenamingControls
@@ -75,8 +75,6 @@
   (render [this]
     (dom/div nil
              (dom/p #js {:className "lead"} "Renaming")
-             (dom/label #js {:className "control-label"} "Renames selected Pokemon. Not reversible.")
-             (dom/div #js {:className "row"}
-                      (dom/div #js {:className "col-md-3"}
-                               (select-schemes (om/props this)))))))
+             (dom/label #js {:className "control-label"} "Renames selected Pokemon. Not reversible")
+             (select-schemes (om/props this)))))
 (def controls (om/factory RenamingControls))

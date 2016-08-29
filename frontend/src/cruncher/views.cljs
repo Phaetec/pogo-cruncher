@@ -30,15 +30,17 @@
              (dom/div #js {:className "row"}
                       (dom/div #js {:className "col-md-6"}
                                (dom/p #js {:className "lead"} "Controls")
+                               (dom/label #js {:className "control-label"} "Reload your Pokemon or mass-send them away")
+                               (dom/br nil)
                                (vlib/button-primary #(com/route :get-all-pokemon) "Load your Pokemon")
                                (vlib/button-primary #(shredder/power-on this) (dom/span nil (vlib/fa-icon "fa-eraser") " Crunch selected Pokemon")))
-                      (dom/div #js {:className "col-md-6"}
+                      (dom/div #js {:className "col-md-3"}
+                               (dom/div nil (rename/controls (om/props this))))
+                      (dom/div #js {:className "col-md-3"}
                                (dom/p #js {:className "lead"} "Information")
                                (dom/div nil (:evolution-number (om/props this)) " Evolutions available")))
              (dom/br nil)
              (dom/div nil (selections/controls (om/props this)))
-             (dom/br nil)
-             (dom/div nil (rename/controls (om/props this)))
              (dom/br nil)
              (dom/div nil (progress/progress-bar (om/props this))))))
 (def controls (om/factory Controls))
@@ -224,7 +226,7 @@
                      (dom/li nil "Click on the table headers to sort the data")
                      (dom/li nil "Crunching Pokemon really means you're sending them away -- "
                              (dom/strong nil "there is no possibility to get them back!!!"))
-                     (dom/li nil "Automated Pokemon crunching takes between 2 and 3 seconds per pokemon to prevent robotic behaviour.")
+                     (dom/li nil "Automated Pokemon crunching / renaming takes between 2 and 3 seconds per Pokemon to prevent robotic behaviour.")
                      (dom/li nil "Your selected favorite Pokemon cannot be sent away and are automatically unselected when start sending them away."))
              (dom/hr nil))))
 (def header (om/factory Header))
