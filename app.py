@@ -159,12 +159,12 @@ def favorite_pokemon():
 def rename_pokemon():
     global pokemon_deletion_amount
     global deleted_pokemon
-    rename_list = request.data
-    pokemon_deletion_amount = len(request.data)
+    rename_list = request.json
+    pokemon_deletion_amount = len(request.json)
     deleted_pokemon = 0
     for pokemon in rename_list:
         req = pokeapi.create_request()
-        req.nickname_pokemon(pokemon_id=pokemon['id'], nickname=pokemon['name'])
+        req.nickname_pokemon(pokemon_id=int(pokemon['id']), nickname=pokemon['name'])
         req.call()
         deleted_pokemon += 1
         time.sleep(random.randint(200, 350)/100)
