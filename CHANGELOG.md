@@ -1,8 +1,9 @@
 # Changelog
 
-## 0.4 [Upcoming]
+## 1.0 [Upcoming]
 
-## 0.3 [WIP]
+
+## 0.3
 * Show Pokemon thumbnails
 * Don't allow sending away your favorite pokemon
 * Add Candy Information
@@ -13,6 +14,7 @@
 * Add button to show status of API connection
 * Add reverse sort on click on table header
 * Remove need for location. API works locationless now. no more spoofing!
+* Add mass-renaming Pokemon according to our defined scheme. Send us a request / an issue to have your scheme added!
 
 ## 0.2
 * Create automatic build on DockerHub
