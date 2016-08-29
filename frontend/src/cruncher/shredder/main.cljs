@@ -16,7 +16,7 @@
   (selections/unselect-favorites)
   (let [url (:crunch-selected-pokemon config/api)
         selected-pokemon (vlib/get-selected-pokemon)]
-    (when (pos? (count selected-pokemon))
+    (when (vlib/selected-pokemon?)
       (when (js/confirm "Do you really want to send away the selected Pokemon?\nYou won't get them back!\n\nConsider your decision.")
         (lib/loading!)
         (lib/update-progress-status! {:status "ok", :to_delete (count selected-pokemon), :deleted 0})

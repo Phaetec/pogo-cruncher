@@ -81,11 +81,16 @@
   (dom/span #js {:dangerouslySetInnerHTML #js {:__html string}}))
 
 
-;;;; DOM Stuff
+;;;; Selections
 (defn get-selected-pokemon
   "Returns all selected Pokemon."
   []
   (vec (map #(.. % -value) (filter #(.. % -checked) (gdom/getElementsByClass "poketable-checkbox")))))
+
+(defn selected-pokemon?
+  "Returns true if some Pokemon were selected in the DOM."
+  []
+  (pos? (count (get-selected-pokemon))))
 
 
 ;;;; UIs
