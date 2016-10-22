@@ -3,7 +3,7 @@
 [![Discord](https://img.shields.io/badge/discord-Phaetec-blue.svg)](https://discord.gg/W6rsEq2)
 [![CircleCI](https://img.shields.io/circleci/project/Phaetec/pogo-cruncher/master.svg?maxAge=60)](https://circleci.com/gh/Phaetec/pogo-cruncher)
 [![Github All Releases](https://img.shields.io/github/downloads/phaetec/pogo-cruncher/total.svg?maxAge=60)](https://github.com/Phaetec/pogo-cruncher/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/phaetec/pogo-cruncher.svg?maxAge=60)](https://hub.docker.com/r/phaetec/pogo-cruncher/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/phaetec/pogo-cruncher.svg?maxAge=60)](https://hub.docker.com/r/phaetec/pogo-cruncher/) [![](https://images.microbadger.com/badges/image/phaetec/pogo-cruncher.svg)](https://microbadger.com/images/phaetec/pogo-cruncher "Get your own image badge on microbadger.com")
 [![GitHub release](https://img.shields.io/github/release/Phaetec/pogo-cruncher.svg?maxAge=60)](https://github.com/Phaetec/pogo-cruncher)
 
 **Please be reminded, that Niantic does not like 3rd party applications like ours. They changed their API and we are sure that they can track users using such a unauthorized application. But we have not heared of anybody who got banned for solely using this application. Please use it at your own risk and join our Discord channel if you get banned to alert other users.**
@@ -53,3 +53,4 @@ Active Maintainers:
 
 ## Feature Requests
 For feature requests please open up a new issue on this repository.
+ 
