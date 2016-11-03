@@ -20,7 +20,7 @@ It is a work in progress, so please report all bugs to the issue page.
 
 
 ## Main Features
-  * **[Installation using pre-build image on DockerHub](https://github.com/Phaetec/pogo-cruncher/wiki/Installation:-Docker-version)**
+  * **[Installation using pre-built image on DockerHub](https://github.com/Phaetec/pogo-cruncher/wiki/Installation:-Docker-version)**
   * [Windows Installation using an Installer](https://github.com/Phaetec/pogo-cruncher/wiki/Installation-with-.exe-for-Windows)
   * Mass send-away / rename your Pokemon
   * Evolve Pokemon
