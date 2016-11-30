@@ -11,7 +11,9 @@
 (defn get-move
   "Return complete move by its id."
   [id]
-  (get data/all id))
+  (if-let [move (get data/all id)]
+    move
+    {:id -1, :vfx-name "not_found", :name (str "Not found: " id), :type "dummy", :unique-id "V0000_DUMMY", :energy-delta -1, :accuracy-change -1, :duration-ms -1, :power -1, :animation-id -1,:damage-window-end-ms -1, :trainer-level-min 1, :critical-chance 0}))
 
 (defn get-move-dps
   "Return the Damage per Second value for the quick move of the Pokmeon."
