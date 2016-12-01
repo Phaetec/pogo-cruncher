@@ -2151,4 +2151,19 @@
                :animation-id           4
                :vfx-name               "\"Rock_smash_fast\""
                :name                   "Rock Smash"
-               :type                   "Fighting"}})
+               :type                   "Fighting"}
+          242 {:damage-window-end-ms   -1
+               :accuracy-change        -1
+               :stamina-loss-scalar    -1
+               :energy-delta           0
+               :trainer-level-max      100
+               :trainer-level-min      1
+               :damage-window-start-ms -1
+               :id                     242
+               :power                  0
+               :unique-id              "V0242_MOVE_Normal_TRANSFORM"
+               :duration-ms            1730
+               :animation-id           4
+               :vfx-name               "\"Normal_transform\""
+               :name                   "Transform"
+               :type                   "Normal"}})
