@@ -13,6 +13,8 @@
 
 (enable-console-print!)
 
+(.log js/console "Started Cruncher Version 0.3.1")
+
 (om/add-root! lib/reconciler views/Main (gdom/getElement "cruncher-main"))
 
 (defn on-js-reload []
