@@ -126,7 +126,9 @@
 (defn get-pokemon-by-id
   "Look up database to return complete pokemon by its id."
   [pokemon-id]
-  (get pokemon/all pokemon-id))
+  (if-let [mon (get pokemon/all pokemon-id)]
+    mon
+    {:pokemon-id -1, :name "not-in-database", :weaknesses ["nil" "nil"], :type-1 ["nil"], :classification "nil", :fast-attacks ["-1" "-1"], :weight "-1 kg", :previous-evolutions [-1], :height "-1 m"}))
 
 (defn playerinfo
   "Return the stored Playerinformation"
