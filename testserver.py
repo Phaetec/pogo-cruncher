@@ -18,7 +18,9 @@ import random
 app = Flask(__name__)
 CORS(app)
 
-with open('example_dump.txt') as pokemon_data:
+TESTFILE = "example-dump.json"
+
+with open(TESTFILE) as pokemon_data:
     data = json.load(pokemon_data)
 
 pokehelper = Pokehelper()
@@ -49,17 +51,13 @@ def login():
     :return: Always returns an `ok` status if `resolve` is not sent. Otherwise return `ok` when the location could be
         found and an `error` including a message if not.
     """
-    login_name = request.json['email']
-    service = request.json['service']
-    password = request.json['password']
     global data
-    with open('example_dump.txt') as pokemon_data:
+    with open(TESTFILE) as pokemon_data:
         data = json.load(pokemon_data)
 
     if request.json.get('fail', False):
         return jsonify({'status':   'error',
                         'message':  request.json['fail']})
-
 
     global status
     status['logged_in'] = True
