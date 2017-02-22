@@ -3,12 +3,12 @@ Flask==0.11.1
 Flask-Cors==2.1.2
 future==0.15.2
 geopy==1.11.0
-gpsoauth==0.3.0
+gpsoauth==0.4.0
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
-./modules/pgoapi-master.zip
-protobuf==3.0.0b4
+-e git+https://github.com/Phaetec/pgoapi.git@27a855279410bd4b0681bf771b1e841eb990ccf3#egg=pgoapi
+protobuf==3.2.0
 pycryptodomex==3.4.2
 requests==2.10.0
 s2sphere==0.2.4
