@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-# from backend.pgoapi_locationless import PGoApi
+from geopy.geocoders import Nominatim
 from pgoapi.pgoapi import PGoApi
 from pgoapi.exceptions import AuthException
 from backend.pokemon import Pokemon
@@ -35,10 +35,18 @@ def login():
     login_name = request.json['email']
     service = request.json['service']
     password = request.json['password']
+    location = request.json['location']
+
+    geolocator = Nominatim()
+    location = geolocator.geocode(location)
+    if not location:
+        location = geolocator.geocode("Düsseldorf, Germany")
+    latitude = location.latitude
+    longitude = location.longitude
 
     try:
         logged_in = pokeapi.login(service, login_name, password,
-                                  lat=-1, lng=-1, app_simulation=True)
+                                  lat=latitude, lng=longitude, app_simulation=True)
     except AuthException as e:
         return jsonify({'status': 'error',
                         'message': e.__str__()})

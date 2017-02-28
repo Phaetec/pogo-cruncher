@@ -18,12 +18,13 @@
 
 (defn ajax-login
   "Get cleaned data and send ajax request."
-  [email password service]
+  [email password location service]
   (lib/loading!)
   (let [url (:login config/api)]
     (POST (clib/make-url url)
           {:body            (clib/clj->json {:email    email
                                              :password password
+                                             :location location
                                              :service  service})
            :handler         success-login
            :error-handler   com/error-handler

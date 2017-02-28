@@ -250,18 +250,19 @@
 
 (defn validate-login-button
   "Show Login button and disable it when one of these fields is empty."
-  [email password service]
+  [email password location service]
   (let [not-empty? (and (pos? (count email))
                         (pos? (count password))
-                        (pos? (count service)))]
-    (vlib/button-primary #(auth/ajax-login email password service) not-empty? "Login")))
+                        (pos? (count service))
+                        (pos? (count location)))]
+    (vlib/button-primary #(auth/ajax-login email password location service) not-empty? "Login")))
 
 (defui Login
   Object
   (render [this]
-    ;; TODO return empty string if om/get-state is empty
     (let [email (or (om/get-state this :email) "")
           password (or (om/get-state this :password) "")
+          location(or (om/get-state this :location) "")
           service (or (om/get-state this :service) "")]
       (dom/div #js {:className "row"}
                (dom/div #js {:className "col-md-6 col-md-offset-3"}
@@ -283,8 +284,16 @@
                                                             :value       password
                                                             :type        "password"
                                                             :placeholder "password"}))
+                                   (dom/div #js {:className "input-group"}
+                                            (dom/span #js {:className "input-group-addon"}
+                                                      (vlib/fa-icon "fa-home fa-fw"))
+                                            (dom/input #js {:className   "form-control"
+                                                            :onChange    #(vlib/commit-component-state this :location %)
+                                                            :value       location
+                                                            :type        "text"
+                                                            :placeholder "Your location (e.g. Düsseldorf, Germany)"}))
                                    (google-ptc-switch this)
-                                   (validate-login-button email password service))))))))
+                                   (validate-login-button email password location service))))))))
 (def login (om/factory Login))
 
 (defn view-dispatcher

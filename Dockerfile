@@ -2,8 +2,8 @@ FROM clojure
 MAINTAINER Christian Meter <cmeter@googlemail.com>
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get update
-RUN apt-get install -yqq rubygems nodejs git supervisor python python3 python3-dev python3-pip gcc && \
+    apt-get update && \
+    apt-get install -yqq rubygems nodejs git supervisor python python3 python3-dev python3-pip gcc && \
     (gem install sass; exit 0) && \
     npm install bower -g && \
     mkdir /code
