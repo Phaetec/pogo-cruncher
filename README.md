@@ -8,6 +8,16 @@
 
 Still going strong!
 
+---
+
+Latest release: v0.3.3
+- Fix login problem with Google and PTC
+- Update pgoapi
+- Switch to Debian image, because `__memcpy_chk` is missing in musl on Alpine
+- Need location field, because pgoapi dropped support for locationless authentication
+
+---
+
 **Please be reminded that Niantic does not like 3rd party applications like ours. They changed their API and we are sure that they can track users using such a unauthorized application. But we have not heard of anybody who got banned for solely using this application. Please use it at your own risk and join our Discord channel if you get banned to alert other users.**
 
 This tool lets you send away multiple Pokemon at once in Pokemon GO, you can also see all IV Values.
@@ -15,6 +25,8 @@ The tool runs locally on your PC and the Login-Details are not leaving your comp
 
 *This tool is not an official production of Niantic or the Pokemon Company. Use at own risk.*  
 *Please submit all pull-requests against the developer branch.*
+
+---
 
 ![Screenshot of PoGo-Cruncher](https://github.com/Phaetec/pogo-cruncher/raw/master/screenshot.png)
 
