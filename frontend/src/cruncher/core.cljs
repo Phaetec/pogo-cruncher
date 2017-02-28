@@ -13,7 +13,7 @@
 
 (enable-console-print!)
 
-(.log js/console "Started Cruncher Version 0.3.2")
+(.log js/console "Started Cruncher Version 0.3.3")
 
 (om/add-root! lib/reconciler views/Main (gdom/getElement "cruncher-main"))
 
