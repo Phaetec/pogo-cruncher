@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
-from backend.pgoapi_locationless import PGoApi
+# from backend.pgoapi_locationless import PGoApi
+from pgoapi.pgoapi import PGoApi
 from pgoapi.exceptions import AuthException
 from backend.pokemon import Pokemon
 from backend.pokehelper import Pokehelper
@@ -7,7 +8,6 @@ from flask import make_response, request
 from flask_cors import CORS
 import time
 import random
-
 
 app = Flask(__name__)
 CORS(app)
@@ -37,7 +37,8 @@ def login():
     password = request.json['password']
 
     try:
-        logged_in = pokeapi.login(service, login_name, password, app_simulation=True)
+        logged_in = pokeapi.login(service, login_name, password,
+                                  lat=-1, lng=-1, app_simulation=True)
     except AuthException as e:
         return jsonify({'status': 'error',
                         'message': e.__str__()})
@@ -105,6 +106,9 @@ def get_pokemon():
             family = pokehelper.get_pokefamily(poke['pokemon_id'])
             poke['candy'] = candies.get(family, 0)
         return jsonify(answer)
+    else:
+        return jsonify({'status': 'error',
+                        'message': 'Login successful, but your inventory could not be loaded...'})
 
 
 @app.route('/api/pokemon/delete', methods=['POST'])
