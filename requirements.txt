@@ -7,7 +7,7 @@ gpsoauth==0.4.0
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
--e git+https://github.com/gman-php/pgoapi.git@d0f4c424e27f21743973cd28486d2a7e2d1df3eb#egg=pgoapi
+-e git+https://github.com/pogodevorg/pgoapi.git@9dbb0d1b387cfc8cfffa2e6cbf16637d995706c3#egg=pgoapi
 protobuf==3.2.0
 pycryptodomex==3.4.2
 requests==2.10.0

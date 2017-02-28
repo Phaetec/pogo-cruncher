@@ -212,8 +212,8 @@ class PGoApiRequest:
         self._api_endpoint = self.__parent__.get_api_endpoint()
         self._auth_provider = self.__parent__.get_auth_provider()
 
-        self._position_lat = -1
-        self._position_lng = -1
+        self._position_lat = 51.227741
+        self._position_lng = 6.773456
         self._position_alt = -1
 
         # self._position_lat = position_lat
