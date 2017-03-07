@@ -1,4 +1,4 @@
-(defproject cruncher "0.3.3"
+(defproject cruncher "0.4"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -7,20 +7,16 @@
   :min-lein-version "2.6.1"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.198"]
-                 [org.clojure/core.async "0.2.385" :exclusions [org.clojure/tools.reader]]
+                 [org.clojure/clojurescript "1.9.495"]
+                 [org.clojure/core.async "0.3.441" :exclusions [org.clojure/tools.reader]]
                  [org.omcljs/om "1.0.0-alpha40"]
-                 [binaryage/devtools "0.8.1" :scope "dev"]
                  [cljs-ajax "0.5.8"]                        ; AJAX for om
-                 [com.cognitect/transit-cljs "0.8.239"]     ; Better JSON support
-                 [figwheel-sidecar "0.5.3-2" :scope "devcards"]
-                 [devcards "0.2.1-7" :scope "devcards" :exclusions [org.clojure/clojurescript]]
-                 [devcards-om-next "0.1.1" :scope "devcards"]]
+                 [com.cognitect/transit-cljs "0.8.239"]]
 
-  :plugins [[lein-figwheel "0.5.4-7"]
+  :plugins [[lein-figwheel "0.5.9"]
             [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]
             [lein-ancient "0.6.10"]
-            [lein-kibit "0.1.2"]]
+            [lein-kibit "0.1.3"]]
 
   :source-paths ["src"]
 
@@ -37,17 +33,6 @@
                                :output-to            "resources/public/js/compiled/cruncher.js"
                                :output-dir           "resources/public/js/compiled/out"
                                :source-map-timestamp true}}
-               {:id           "devcards"
-                :source-paths ["src/cruncher" "src/devcards"]
-                :figwheel     {:devcards true}
-                :compiler     {:main                 cruncher.devcards.core
-                               :asset-path           "js/compiled/devcards/out"
-                               :output-to            "resources/public/js/compiled/cruncher.js"
-                               :output-dir           "resources/public/js/compiled/devcards/out"
-                               :source-map-timestamp true}}
-               ;; This next build is an compressed minified build for
-               ;; production. You can build this with:
-               ;; lein cljsbuild once min
                {:id           "min"
                 :source-paths ["src"]
                 :compiler     {:output-to     "resources/public/js/compiled/cruncher.js"
@@ -90,13 +75,8 @@
              ;; :server-logfile "tmp/logs/figwheel-logfile.log"
              }
 
-
-  ;; setting up nREPL for Figwheel and ClojureScript dev
-  ;; Please see:
-  ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-
-
-  :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.4-7"]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.2"]
+                                  [figwheel-sidecar "0.5.9"]
                                   [com.cemerick/piggieback "0.2.1"]]
                    ;; need to add dev source path here to get user.clj loaded
                    :source-paths ["src" "dev"]
