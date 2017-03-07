@@ -10,11 +10,10 @@ Still going strong!
 
 ---
 
-Latest release: v0.3.3
-- Fix login problem with Google and PTC
-- Update pgoapi
-- Switch to Debian image, because `__memcpy_chk` is missing in musl on Alpine
-- Need location field, because pgoapi dropped support for locationless authentication
+Latest release: v0.4
+- Add 2nd generation pokemon
+- Remove old dependencies
+- Tested with Google 2FA and PTC
 
 ---
 
