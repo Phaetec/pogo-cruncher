@@ -7,8 +7,8 @@
   :min-lein-version "2.6.1"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.495"]
-                 [org.clojure/core.async "0.3.441" :exclusions [org.clojure/tools.reader]]
+                 [org.clojure/clojurescript "1.9.198"]
+                 [org.clojure/core.async "0.2.385" :exclusions [org.clojure/tools.reader]]
                  [org.omcljs/om "1.0.0-alpha40"]
                  [cljs-ajax "0.5.8"]                        ; AJAX for om
                  [com.cognitect/transit-cljs "0.8.239"]]
