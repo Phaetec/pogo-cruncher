@@ -1,5 +1,7 @@
 (ns cruncher.data.pokemon)
 
+;; Thanks freefri (https://github.com/freefri) for 2nd generation pokemon!
+
 (def all {1 {:pokemon-id                  1
              :name                        "Bulbasaur"
              :classification              "Seed Pokémon"
