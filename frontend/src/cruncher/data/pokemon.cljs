@@ -1728,7 +1728,7 @@
                :special-attack ["Unknown"]
                :weight         "4.0 kg"
                :height         "0.4 m"}
-               
+
           152 {:pokemon-id     152
                :name           "Chikorita"
                :classification "New Species Pokémon"
@@ -1739,9 +1739,9 @@
                :weight         "Unknown"
                :height         "Unknown"
                :next-evolution-requirements {:amount 25
-                                             :name   "Chikorita candies"}
-               :next-evolutions             [153]}
-               
+                                             :name "Chikorita candies"}
+               :next-evolutions [153]}
+
           153 {:pokemon-id     153
                :name           "Bayleef"
                :classification "New Species Pokémon"
@@ -1752,12 +1752,12 @@
                :weight         "Unknown"
                :height         "Unknown"
                :next-evolution-requirements {:amount 100
-                                             :name   "Chikorita candies"}
-               :next-evolutions             [154]
+                                             :name "Chikorita candies"}
+               :next-evolutions [154]
                :previous-evolutions [152]}
-               
+
           154 {:pokemon-id     154
-               :name           " Meganium"
+               :name           "Meganium"
                :classification "New Species Pokémon"
                :type-1         ["Grass"]
                :weaknesses     ["Unknown"]
@@ -1766,1063 +1766,1063 @@
                :weight         "Unknown"
                :height         "Unknown"
                :previous-evolutions [153]}
-               
+
           155 {:pokemon-id     155
-                :name           "Cyndaquil"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Cyndaquil candies"
-                :next-evolutions [156]}
+               :name           "Cyndaquil"
+               :classification "New Species Pokémon"
+               :type-1         ["Fire"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name "Cyndaquil candies"}
+               :next-evolutions [156]}
 
           156 {:pokemon-id     156
-                :name           "Quilava"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 100
-                                              :name   "Quilava candies"
-                :next-evolutions [157]}
+               :name           "Quilava"
+               :classification "New Species Pokémon"
+               :type-1         ["Fire"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 100
+                                             :name "Quilava candies"}
+               :next-evolutions [157]}
 
           157 {:pokemon-id     157
-                :name           "Typhlosion"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Typhlosion"
+               :classification "New Species Pokémon"
+               :type-1         ["Fire"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           158 {:pokemon-id     158
-                :name           "Totodile"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Totodile candies"
-                :next-evolutions [159]}
+               :name           "Totodile"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name "Totodile candies"}
+               :next-evolutions [159]}
 
           159 {:pokemon-id     159
-                :name           "Croconaw"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 100
-                                              :name   "Croconaw candies"
-                :next-evolutions [160]}
+               :name           "Croconaw"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 100
+                                             :name   "Croconaw candies"}
+               :next-evolutions [160]}
 
           160 {:pokemon-id     160
-                :name           "Feraligatr"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Feraligatr"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           161 {:pokemon-id     161
-                :name           "Sentret"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Sentret candies"
-                :next-evolutions [162]}
+               :name           "Sentret"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Sentret candies"}
+               :next-evolutions [162]}
 
           162 {:pokemon-id     162
-                :name           "Furret"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Furret"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           163 {:pokemon-id     163
-                :name           "Hoothoot"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Hoothoot candies"
-                :next-evolutions [164]}
+               :name           "Hoothoot"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Hoothoot candies"}
+               :next-evolutions [164]}
 
           164 {:pokemon-id     164
-                :name           "Noctowl"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Noctowl"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           165 {:pokemon-id     165
-                :name           "Ledyba"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Ledyba candies"
-                :next-evolutions [166]}
+               :name           "Ledyba"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Ledyba candies"}
+               :next-evolutions [166]}
 
           166 {:pokemon-id     166
-                :name           "Ledian"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Ledian"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           167 {:pokemon-id     167
-                :name           "Spinarak"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Spinarak candies"
-                :next-evolutions [168]}
+               :name           "Spinarak"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Spinarak candies"}
+               :next-evolutions [168]}
 
           168 {:pokemon-id     168
-                :name           "Ariados"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Ariados"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           169 {:pokemon-id     169
-                :name           "Crobat"
-                :classification "New Species Pokémon"
-                :type-1         ["Poison "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Crobat"
+               :classification "New Species Pokémon"
+               :type-1         ["Poison "]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           170 {:pokemon-id     170
-                :name           "Chinchou"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Chinchou candies"
-                :next-evolutions [171]}
+               :name           "Chinchou"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Chinchou candies"}
+               :next-evolutions [171]}
 
           171 {:pokemon-id     171
-                :name           "Lanturn"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Lanturn"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           172 {:pokemon-id     172
-                :name           "Pichu"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Pichu candies"
-                :next-evolutions [173]}
+               :name           "Pichu"
+               :classification "New Species Pokémon"
+               :type-1         ["Electric"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Pichu candies"}
+               :next-evolutions [173]}
 
           173 {:pokemon-id     173
-                :name           "Cleffa"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Cleffa candies"
-                :next-evolutions [174]}
+               :name           "Cleffa"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Cleffa candies"}
+               :next-evolutions [174]}
 
           174 {:pokemon-id     174
-                :name           "Igglybuff"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Igglybuff candies"
-                :next-evolutions [175]}
+               :name           "Igglybuff"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Igglybuff candies"}
+               :next-evolutions [175]}
 
           175 {:pokemon-id     175
-                :name           "Togepi"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Togepi candies"
-                :next-evolutions [176]}
+               :name           "Togepi"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Togepi candies"}
+               :next-evolutions [176]}
 
           176 {:pokemon-id     176
-                :name           "Togetic"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Togetic"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           177 {:pokemon-id     177
-                :name           "Natu"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Natu candies"
-                :next-evolutions [178]}
+               :name           "Natu"
+               :classification "New Species Pokémon"
+               :type-1         ["Psychic"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Natu candies"}
+               :next-evolutions [178]}
 
           178 {:pokemon-id     178
-                :name           "Xatu"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Xatu"
+               :classification "New Species Pokémon"
+               :type-1         ["Psychic"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           179 {:pokemon-id     179
-                :name           "Mareep"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Mareep"
+               :classification "New Species Pokémon"
+               :type-1         ["Electric"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           180 {:pokemon-id     180
-                :name           "Flaaffy"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Flaaffy"
+               :classification "New Species Pokémon"
+               :type-1         ["Electric"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           181 {:pokemon-id     181
-                :name           "Ampharos"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Ampharos"
+               :classification "New Species Pokémon"
+               :type-1         ["Electric"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           182 {:pokemon-id     182
-                :name           "Bellossom"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Bellossom"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           183 {:pokemon-id     183
-                :name           "Marill"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Marill candies"
-                :next-evolutions [184]}
+               :name           "Marill"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Marill candies"}
+               :next-evolutions [184]}
 
           184 {:pokemon-id     184
-                :name           "Azumarill"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Azumarill"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           185 {:pokemon-id     185
-                :name           "Sudowoodo"
-                :classification "New Species Pokémon"
-                :type-1         ["Rock "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Sudowoodo"
+               :classification "New Species Pokémon"
+               :type-1         ["Rock"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           186 {:pokemon-id     186
-                :name           "Politoed"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Politoed"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           187 {:pokemon-id     187
-                :name           "Hoppip"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Hoppip candies"
-                :next-evolutions [188]}
+               :name           "Hoppip"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Hoppip candies"}
+               :next-evolutions [188]}
 
           188 {:pokemon-id     188
-                :name           "Skiploom"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Skiploom"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           189 {:pokemon-id     189
-                :name           "Jumpluff"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Jumpluff"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           190 {:pokemon-id     190
-                :name           "Aipom"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Aipom"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           191 {:pokemon-id     191
-                :name           "Sunkern"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Sunkern candies"
-                :next-evolutions [192]}
+               :name           "Sunkern"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Sunkern candies"}
+               :next-evolutions [192]}
 
           192 {:pokemon-id     192
-                :name           "Sunflora"
-                :classification "New Species Pokémon"
-                :type-1         ["Grass "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Sunflora"
+               :classification "New Species Pokémon"
+               :type-1         ["Grass"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           193 {:pokemon-id     193
-                :name           "Yanma"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Yanma"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           194 {:pokemon-id     194
-                :name           "Wooper"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Wooper candies"
-                :next-evolutions [195]}
+               :name           "Wooper"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Wooper candies"}
+               :next-evolutions [195]}
 
           195 {:pokemon-id     195
-                :name           "Quagsire"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Quagsire"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           196 {:pokemon-id     196
-                :name           "Espeon"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Espeon"
+               :classification "New Species Pokémon"
+               :type-1         ["Psychic"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           197 {:pokemon-id     197
-                :name           "Umbreon"
-                :classification "New Species Pokémon"
-                :type-1         ["Dark "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Umbreon"
+               :classification "New Species Pokémon"
+               :type-1         ["Dark"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           198 {:pokemon-id     198
-                :name           "Murkrow"
-                :classification "New Species Pokémon"
-                :type-1         ["Dark "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Murkrow"
+               :classification "New Species Pokémon"
+               :type-1         ["Dark"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           199 {:pokemon-id     199
-                :name           "Slowking"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Slowking"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           200 {:pokemon-id     200
-                :name           "Misdreavus"
-                :classification "New Species Pokémon"
-                :type-1         ["Ghost "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Misdreavus"
+               :classification "New Species Pokémon"
+               :type-1         ["Ghost"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           201 {:pokemon-id     201
-                :name           "Unown"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Unown"
+               :classification "New Species Pokémon"
+               :type-1         ["Psychic"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           202 {:pokemon-id     202
-                :name           "Wobbuffet"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Wobbuffet"
+               :classification "New Species Pokémon"
+               :type-1         ["Psychic"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           203 {:pokemon-id     203
-                :name           "Girafarig"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Girafarig"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           204 {:pokemon-id     204
-                :name           "Pineco"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Pineco candies"
-                :next-evolutions [205]}
+               :name           "Pineco"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Pineco candies"}
+               :next-evolutions [205]}
 
           205 {:pokemon-id     205
-                :name           "Forretress"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Forretress"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           206 {:pokemon-id     206
-                :name           "Dunsparce"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Dunsparce"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           207 {:pokemon-id     207
-                :name           "Gligar"
-                :classification "New Species Pokémon"
-                :type-1         ["Ground "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Gligar"
+               :classification "New Species Pokémon"
+               :type-1         ["Ground"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           208 {:pokemon-id     208
-                :name           "Steelix"
-                :classification "New Species Pokémon"
-                :type-1         ["Steel "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Steelix"
+               :classification "New Species Pokémon"
+               :type-1         ["Steel"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           209 {:pokemon-id     209
-                :name           "Snubbull"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Snubbull candies"
-                :next-evolutions [210]}
+               :name           "Snubbull"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Snubbull candies"}
+               :next-evolutions [210]}
 
           210 {:pokemon-id     210
-                :name           "Granbull"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Granbull"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           211 {:pokemon-id     211
-                :name           "Qwilfish"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Qwilfish"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           212 {:pokemon-id     212
-                :name           "Scizor"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Scizor"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           213 {:pokemon-id     213
-                :name           "Shuckle"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Shuckle"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           214 {:pokemon-id     214
-                :name           "Heracross"
-                :classification "New Species Pokémon"
-                :type-1         ["Bug "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Heracross"
+               :classification "New Species Pokémon"
+               :type-1         ["Bug"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           215 {:pokemon-id     215
-                :name           "Sneasel"
-                :classification "New Species Pokémon"
-                :type-1         ["Dark "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Sneasel"
+               :classification "New Species Pokémon"
+               :type-1         ["Dark"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           216 {:pokemon-id     216
-                :name           "Teddiursa"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Teddiursa candies"
-                :next-evolutions [217]}
+               :name           "Teddiursa"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Teddiursa candies"}
+               :next-evolutions [217]}
 
           217 {:pokemon-id     217
-                :name           "Ursaring"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Ursaring"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           218 {:pokemon-id     218
-                :name           "Slugma"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Slugma candies"
-                :next-evolutions [219]}
+               :name           "Slugma"
+               :classification "New Species Pokémon"
+               :type-1         ["Fire"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Slugma candies"}
+               :next-evolutions [219]}
 
           219 {:pokemon-id     219
-                :name           "Magcargo"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Magcargo"
+               :classification "New Species Pokémon"
+               :type-1         ["Fire"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           220 {:pokemon-id     220
-                :name           "Swinub"
-                :classification "New Species Pokémon"
-                :type-1         ["Ice "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Swinub"
+               :classification "New Species Pokémon"
+               :type-1         ["Ice"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           221 {:pokemon-id     221
-                :name           "Piloswine"
-                :classification "New Species Pokémon"
-                :type-1         ["Ice "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Piloswine"
+               :classification "New Species Pokémon"
+               :type-1         ["Ice"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           222 {:pokemon-id     222
-                :name           "Corsola"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Corsola"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           223 {:pokemon-id     223
-                :name           "Remoraid"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Remoraid candies"
-                :next-evolutions [224]}
+               :name           "Remoraid"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Remoraid candies"}
+               :next-evolutions [224]}
 
           224 {:pokemon-id     224
-                :name           "Octillery"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Octillery"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           225 {:pokemon-id     225
-                :name           "Delibird"
-                :classification "New Species Pokémon"
-                :type-1         ["Ice "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Delibird"
+               :classification "New Species Pokémon"
+               :type-1         ["Ice"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           226 {:pokemon-id     226
-                :name           "Mantine"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Mantine"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           227 {:pokemon-id     227
-                :name           "Skarmory"
-                :classification "New Species Pokémon"
-                :type-1         ["Steel "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Skarmory"
+               :classification "New Species Pokémon"
+               :type-1         ["Steel"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           228 {:pokemon-id     228
-                :name           "Houndour"
-                :classification "New Species Pokémon"
-                :type-1         ["Dark "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Houndour candies"
-                :next-evolutions [229]}
+               :name           "Houndour"
+               :classification "New Species Pokémon"
+               :type-1         ["Dark"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Houndour candies"}
+               :next-evolutions [229]}
 
           229 {:pokemon-id     229
-                :name           "Houndoom"
-                :classification "New Species Pokémon"
-                :type-1         ["Dark "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Houndoom"
+               :classification "New Species Pokémon"
+               :type-1         ["Dark"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           230 {:pokemon-id     230
-                :name           "Kingdra"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Kingdra"
+               :classification "New Species Pokémon"
+               :type-1         ["Water"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           231 {:pokemon-id     231
-                :name           "Phanpy"
-                :classification "New Species Pokémon"
-                :type-1         ["Ground "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 50
-                                              :name   "Phanpy candies"
-                :next-evolutions [232]}
+               :name           "Phanpy"
+               :classification "New Species Pokémon"
+               :type-1         ["Ground"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 50
+                                             :name   "Phanpy candies"}
+               :next-evolutions [232]}
 
           232 {:pokemon-id     232
-                :name           "Donphan"
-                :classification "New Species Pokémon"
-                :type-1         ["Ground "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Donphan"
+               :classification "New Species Pokémon"
+               :type-1         ["Ground"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           233 {:pokemon-id     233
-                :name           "Porygon2"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Porygon2"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           234 {:pokemon-id     234
-                :name           "Stantler"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Stantler"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           235 {:pokemon-id     235
-                :name           "Smeargle"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Smeargle"
+               :classification "New Species Pokémon"
+               :type-1         ["Normal"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           236 {:pokemon-id     236
-                :name           "Tyrogue"
-                :classification "New Species Pokémon"
-                :type-1         ["Fighting "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Tyrogue"
+               :classification "New Species Pokémon"
+               :type-1         ["Fighting "]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           237 {:pokemon-id     237
-                :name           "Hitmontop"
-                :classification "New Species Pokémon"
-                :type-1         ["Fighting "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               :name           "Hitmontop"
+               :classification "New Species Pokémon"
+               :type-1         ["Fighting "]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"}
 
           238 {:pokemon-id     238
-                :name           "Smoochum"
-                :classification "New Species Pokémon"
-                :type-1         ["Ice "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Smoochum candies"
-                :next-evolutions [239]}
+               :name           "Smoochum"
+               :classification "New Species Pokémon"
+               :type-1         ["Ice"]
+               :weaknesses     ["Unknown"]
+               :fast-attacks   ["Unknown"]
+               :special-attack ["Unknown"]
+               :weight         "Unknown"
+               :height         "Unknown"
+               :next-evolution-requirements {:amount 25
+                                             :name   "Smoochum candies"
+                                             :next-evolutions [239]}
 
-          239 {:pokemon-id     239
-                :name           "Elekid"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Elekid candies"
-                :next-evolutions [240]}
+               239 {:pokemon-id     239
+                    :name           "Elekid"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Electric"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"
+                    :next-evolution-requirements {:amount 25
+                                                  :name   "Elekid candies"}
+                    :next-evolutions [240]}
 
-          240 {:pokemon-id     240
-                :name           "Magby"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Magby candies"
-                :next-evolutions [241]}
+               240 {:pokemon-id     240
+                    :name           "Magby"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Fire"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"
+                    :next-evolution-requirements {:amount 25
+                                                  :name   "Magby candies"}
+                    :next-evolutions [241]}
 
-          241 {:pokemon-id     241
-                :name           "Miltank"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               241 {:pokemon-id     241
+                    :name           "Miltank"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Normal"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          242 {:pokemon-id     242
-                :name           "Blissey"
-                :classification "New Species Pokémon"
-                :type-1         ["Normal "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               242 {:pokemon-id     242
+                    :name           "Blissey"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Normal"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          243 {:pokemon-id     243
-                :name           "Raikou"
-                :classification "New Species Pokémon"
-                :type-1         ["Electric "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               243 {:pokemon-id     243
+                    :name           "Raikou"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Electric"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          244 {:pokemon-id     244
-                :name           "Entei"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               244 {:pokemon-id     244
+                    :name           "Entei"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Fire"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          245 {:pokemon-id     245
-                :name           "Suicune"
-                :classification "New Species Pokémon"
-                :type-1         ["Water "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               245 {:pokemon-id     245
+                    :name           "Suicune"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Water"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          246 {:pokemon-id     246
-                :name           "Larvitar"
-                :classification "New Species Pokémon"
-                :type-1         ["Rock "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 25
-                                              :name   "Larvitar candies"
-                :next-evolutions [247]}
+               246 {:pokemon-id     246
+                    :name           "Larvitar"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Rock"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"
+                    :next-evolution-requirements {:amount 25
+                                                  :name   "Larvitar candies"}
+                    :next-evolutions [247]}
 
-          247 {:pokemon-id     247
-                :name           "Pupitar"
-                :classification "New Species Pokémon"
-                :type-1         ["Rock "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"
-                :next-evolution-requirements {:amount 100
-                                              :name   "Pupitar candies"
-                :next-evolutions [248]}
+               247 {:pokemon-id     247
+                    :name           "Pupitar"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Rock"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"
+                    :next-evolution-requirements {:amount 100
+                                                  :name   "Pupitar candies"}
+                    :next-evolutions [248]}
 
-          248 {:pokemon-id     248
-                :name           "Tyranitar"
-                :classification "New Species Pokémon"
-                :type-1         ["Rock "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               248 {:pokemon-id     248
+                    :name           "Tyranitar"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Rock"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          249 {:pokemon-id     249
-                :name           "Lugia"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               249 {:pokemon-id     249
+                    :name           "Lugia"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Psychic"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          250 {:pokemon-id     250
-                :name           "Ho-Oh"
-                :classification "New Species Pokémon"
-                :type-1         ["Fire "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}
+               250 {:pokemon-id     250
+                    :name           "Ho-Oh"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Fire"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}
 
-          251 {:pokemon-id     251
-                :name           "Celebi"
-                :classification "New Species Pokémon"
-                :type-1         ["Psychic "]
-                :weaknesses     ["Unknown"]
-                :fast-attacks   ["Unknown"]
-                :special-attack ["Unknown"]
-                :weight         "Unknown"
-                :height         "Unknown"}})
+               251 {:pokemon-id     251
+                    :name           "Celebi"
+                    :classification "New Species Pokémon"
+                    :type-1         ["Psychic"]
+                    :weaknesses     ["Unknown"]
+                    :fast-attacks   ["Unknown"]
+                    :special-attack ["Unknown"]
+                    :weight         "Unknown"
+                    :height         "Unknown"}})
